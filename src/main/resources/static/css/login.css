@@ -1,0 +1,368 @@
+body {
+    background-color: #fff;
+}
+
+.content {
+    width: 100%;
+}
+
+.wrapper {
+    width: 1240px;
+    margin: 0 auto;
+}
+
+/*导航栏开始*/
+.header {
+    height: 80px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.logo-name {
+    float: left;
+    height: 40px;
+    font-size: 26px;
+    font-weight: 500;
+    color: #333;
+    line-height: 40px;
+}
+
+.nav {
+    color: rgba(0, 0, 0, .65);
+    font-size: 14px;
+    float: right;
+}
+
+.nav-item {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #838383;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    color: #008cff;
+}
+
+.nav-divider {
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 14px;
+    width: 0;
+    border-right: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+/*主内容开始*/
+.mainBox {
+    position: relative;
+    height: 750px;
+}
+
+.main-form {
+    width: 298px;
+    position: absolute;
+    top: 13%;
+    right: 85px;
+    background-color: #FFF;
+    padding: 35px 35px 10px;
+    border-radius: 2px;
+    box-shadow: 0 6px 12px 6px rgba(138, 153, 150, .15);
+    text-align: left;
+}
+
+.tab-title {
+    font-size: 18px;
+    margin-bottom: 50px;
+    margin-top: 35px;
+    width: 300px;
+    text-align: center;
+}
+
+.login-label {
+    color: #000;
+}
+
+.tab-title-divider {
+    color: #B3ABAB;
+    display: inline-block;
+    border: 2px solid #B3ABAB;
+    border-left: 1px;
+    height: 10px;
+    line-height: 20px;
+    margin-right: 32px;
+    margin-left: 32px;
+}
+
+.capt2 {
+    color: #7f7f7f;
+}
+
+.tip-info {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    display: none;
+}
+
+.normalInput {
+    width: 276px;
+    position: relative;
+    padding: 0 10px;
+    height: 46px;
+    line-height: 22px;
+    font-size: 14px;
+    margin-bottom: 26px;
+    border: 1px solid #dadada;
+    outline: none;
+    color: #474747;
+    zoom: 1;
+    border-radius: 2px;
+}
+
+.inp {
+    vertical-align: middle;
+    font-size: 14px;
+    margin-bottom: 0 !important;
+    height: 46px;
+    width: 94%;
+    line-height: 22px;
+    background-color: #fff;
+    border-color: #fff;
+    outline: none;
+}
+
+.btn-focus {
+    border: 1px solid #387aff;
+}
+
+.rememberField {
+    margin-bottom: 25px;
+    height: 24px;
+    line-height: 20px;
+}
+
+.checkBox {
+    width: 18px;
+    display: inline-block;
+    height: 18px;
+    line-height: 20px;
+    cursor: pointer;
+    vertical-align: middle;
+    overflow: hidden;
+    background-image: url("../images/login/remember.png");
+    border: 1px solid #d5d5d5;
+    margin-right: 5px;
+}
+
+#remember {
+    outline: none;
+    cursor: pointer;
+    display: none;
+}
+
+.rememberField label {
+    margin-right: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #7f7f7f;
+}
+
+.rememberField label:hover {
+    color: #000000;
+}
+
+.login-btn, .reg-btn {
+    width: 300px;
+    display: block;
+    height: 46px;
+    font-size: 14px;
+    line-height: 46px;
+    text-align: center;
+    margin-bottom: 10px;
+    *margin-bottom: 10px;
+    outline: none;
+    cursor: pointer;
+    background-color: #387aff;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.login-btn:hover, .reg-btn:hover {
+    background-color: #3058df;
+}
+
+.transferField {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.look-password, .other-register {
+    color: #387aff;
+    float: right;
+}
+
+.regist, .login-bottom {
+    color: #387aff;
+}
+
+.look-password:hover, .regist:hover, .login-bottom:hover, .other-register:hover {
+    color: #3058df;
+}
+
+.qr-btn-pc, .qr-btn-phone {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.qr-btn-pc {
+    background: url("../images/login/pc.png") no-repeat center;
+}
+
+.qr-btn-phone {
+    background: url("../images/login/phone.png") no-repeat center;
+}
+
+/*手机号登陆*/
+.phoneText {
+    padding-top: 10px;
+    height: 26px;
+}
+
+.cycodePhone {
+    display: inline-block;
+    width: 60px;
+    border-right: 1px solid #DDD;
+    cursor: pointer;
+}
+
+.arrow-down {
+    display: inline-block;
+    width: 14px;
+    height: 8px;
+    background: url("../images/login/arrow-down.png") no-repeat center;
+    cursor: pointer;
+}
+
+.phone_num {
+    line-height: 22px;
+    height: 18px;
+    width: 60%;
+    color: grey;
+    font-size: 14px;
+    text-align: center;
+}
+
+.inp-phone {
+    height: 18px;
+    line-height: 22px;
+    outline: none;
+    width: 74%;
+    text-indent: 8px;
+    vertical-align: middle;
+    font-size: 14px;
+    margin-bottom: 0 !important;
+}
+
+.code-input {
+    width: 160px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.input-Tip {
+    position: absolute;
+    top: 13px;
+    left: 10px;
+    color: #909090;
+    font-size: 14px;
+    height: 22px;
+    line-height: 22px;
+    cursor: text;
+
+}
+
+.form-line {
+    color: #d9d9d9;
+    height: 22px;
+    display: inline-block;
+    border-left: 1px solid #dadada;
+    position: absolute;
+    right: 140px;
+    top: 12px;
+}
+
+.invalidBtn {
+    width: 120px;
+    text-align: center;
+    border: none;
+    outline: none;
+    height: 46px;
+    line-height: 46px;
+    font-size: 14px;
+    position: absolute;
+    right: 13px;
+    top: 0;
+    color: #7f7f7f;
+    cursor: default;
+}
+
+.tip-box {
+    position: relative;
+    height: 33px;
+    display: none;
+    width: 100%;
+    margin-bottom: 4px;
+    margin-top: 4px;
+    border: solid 1px #ffc2b3;
+    background: #ffd1ca;
+    border-radius: 2px;
+}
+
+.erro-ico {
+    background: url("../images/login/error-ico.png");
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.tip-font {
+    color: #666;
+    font-size: 12px;
+    padding-right: 25px;
+    padding-left: 35px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.tip-font a {
+    color: #387aff;
+}
+
+.close-ico {
+    background: url("../images/login/close-ico.png") no-repeat;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+}
+

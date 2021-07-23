@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册界面</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+<div class="content">
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo-name">
+                八八账号
+            </div>
+            <div class="nav">
+                <a href="" class="nav-item">用户协议</a>
+                <a href="" class="nav-item">隐私政策</a>
+                <a href="" class="nav-item">帮助中心</a>
+                <a href="" class="nav-item">用户协议</a>
+                <div class="nav-divider"></div>
+                <div class="nav-item">
+                    <div class="lang_first">
+                        中文(简体)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mainBox">
+            <form class="main-form">
+                <div class="tab-title">
+                    <h3>账号注册</h3>
+                </div>
+                <div class="tip-info reg-username-tip">
+                    <p>用户名不能为空</p>
+                </div>
+                <div class="normalInput">
+                    <div class="input-username">
+                        <input id="reg-user" class="inp reg-user" type="text" maxlength="50" name="username"
+                               placeholder="用户名" autocomplete="off" tabindex="1">
+                    </div>
+                </div>
+                <div class="tip-info reg-password-tip">
+                    <p>密码不能为空</p>
+                </div>
+                <div class="normalInput">
+                    <div class="input-password">
+                        <input id="reg-password" class="inp reg-password" type="password" name="password" maxlength="16"
+                               autocomplete="off" placeholder="密码" tabindex="2">
+                    </div>
+                </div>
+                <div class="tip-info reg-re-password-tip">
+                    <p>密码不能为空|两次密码不一致</p>
+                </div>
+                <div class="normalInput">
+                    <div class="confim-password">
+                        <input id="re-password" class="inp password re-password" type="password" name="re-password"
+                               maxlength="16" autocomplete="off" placeholder="确认密码" tabindex="3">
+                    </div>
+                </div>
+                <div class="tip-info code-info">
+                    <span>验证码错误</span>
+                </div>
+                <div class="normalInput code-btn">
+                    <input id="code" type="text" class="inp code-input" name="codeKey" maxlength="6" autocomplete="off"
+                           tabindex="3">
+                    <label for="code" class="input-Tip">验证码</label>
+                    <span class="form-line"></span>
+                    <a class="linkABlue invalidBtn">xplm</a>
+                </div>
+                <input type="button" value="注册" class="reg-btn">
+                <div class="transferField">
+                    <a href="/userLoginAndReg/loginUser.html" class="login-bottom">登陆</a>
+                    <a href="/userLoginAndReg/registerPhone.html" class="other-register">其他方式注册</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery-1.7.2.js"></script>
+<script src="/js/loginAndReg.js"></script>
+
+</body>
+</html>

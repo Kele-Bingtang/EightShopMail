@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.UserMapper">
+    <select id="queryUsernameAndPassword" parameterType="string" resultType="com.eight.bean.User">
+        select * from user where username = #{username} and password = #{password}
+    </select>
+    <select id="queryUserByUsername" parameterType="string" resultType="com.eight.bean.User">
+        select * from user where username = #{username}
+    </select>
+    <insert id="saveUser" parameterType="com.eight.bean.User" useGeneratedKeys="true" keyProperty="userId">
+        insert into user(username, password) values (#{username},#{password})
+    </insert>
+    <insert id="saveUserHead" parameterType="com.eight.bean.User">
+        insert into user_head(user_id,head_name) values (#{userId},#{username})
+    </insert>
+
+    <select id="queryUserHead" parameterType="long" resultType="com.eight.bean.UserHead">
+        select * from user_head where user_id = #{userId}
+    </select>
+</mapper>

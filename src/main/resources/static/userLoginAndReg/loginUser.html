@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+<div class="content">
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo-name">
+                八八账号
+            </div>
+            <div class="nav">
+                <a href="" class="nav-item">用户协议</a>
+                <a href="" class="nav-item">隐私政策</a>
+                <a href="" class="nav-item">帮助中心</a>
+                <a href="" class="nav-item">用户协议</a>
+                <div class="nav-divider"></div>
+                <div class="nav-item">
+                    <div class="lang_first">
+                        中文(简体)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mainBox">
+            <form class="main-form" id="main-form">
+                <div class="tab-title">
+                    <a href="" class="login-label">账号登陆</a>
+                    <div class="tab-title-divider"></div>
+                    <a href="" class="capt2">二维码登陆</a>
+                </div>
+                <div class="tip-box">
+                    <i class="erro-ico"></i>
+                    <span class="tip-font">
+                            该手机号码或者邮箱尚不存在
+                         </span>
+                    <span class="close-ico"></span>
+                </div>
+                <div class="tip-info login-username-tip">
+                    <p>用户名不能为空</p>
+                </div>
+                <div class="normalInput">
+                    <div class="input-username">
+                        <input class="inp login-user" type="text" maxlength="50" name="username"
+                               placeholder="用户名/手机号/邮箱" autocomplete="off">
+                    </div>
+                </div>
+                <div class="tip-info login-password-tip">
+                    <p>密码不能为空</p>
+                </div>
+                <div class="normalInput">
+                    <div class="input-password">
+                        <input class="inp login-password" type="password" name="password" maxlength="16"
+                               autocomplete="off" placeholder="密码">
+                    </div>
+                </div>
+                <div class="captch2">
+                </div>
+                <div class="rememberField">
+                        <span class="checkBox">
+                            <input type="text" value="0" id="remember" name="remember" readonly>
+                        </span>
+                    <label for="remember">记住登陆状态</label>
+                </div>
+                <input type="button" value="登陆" class="login-btn">
+                <div class="transferField">
+                    <a href="/userLoginAndReg/registerUser.html" class="regist">注册</a>
+                    <a href="" class="look-password">忘记密码</a>
+                </div>
+                <a href="/userLoginAndReg/loginPhone.html">
+                    <div class="qr-btn-phone">
+                    </div>
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="/js/jquery-1.7.2.js"></script>
+<script src="/js/loginAndReg.js"></script>
+</body>
+</html>

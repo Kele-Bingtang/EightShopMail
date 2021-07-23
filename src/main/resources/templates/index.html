@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>八八商城</title>
+    <!-- <link rel="icon" href="images/favicon.ico"> -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/iconfont/iconfont.css">
+    <link rel="stylesheet" href="/css/eight-nav.css">
+    <link rel="stylesheet" href="/css/eight-carousel.css">
+    <link rel="stylesheet" href="/css/eight-main.css">
+    <link rel="stylesheet" href="/css/eight-footer.css">
+
+</head>
+
+
+<body>
+<!--开头导航栏+大图片开始-->
+<div class="nav">
+    <div class="wrapper">
+        <!--    导航栏开始   -->
+        <div class="nav-big-logo">
+            <img src="/images/index/logo.jpg" alt="">
+        </div>
+        <ul>
+            <li class="nav-item">
+                <a href="#" class="phone-item">手机</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="hourse-item">家具</a>
+            </li>
+            <li class="nav-item"><a href="#" class="book-item">书籍</a></li>
+            <li class="nav-item"><a href="#" class="audio-item">音响</a></li>
+            <li class="nav-item"><a href="#" class="parts-item">配件</a></li>
+            <li class="nav-item"><a href="#">生活</a></li>
+            <li class="nav-item"><a href="#">服务</a></li>
+            <li class="nav-item"><a href="#">社区</a></li>
+            <li class="nav-item"><a href="#">App下载</a></li>
+        </ul>
+        <div class="header-user-cart">
+            <span class="iconfont">&#xe607;</span>
+            <em>0</em>
+        </div>
+        <div class="header-user-head">
+            <span class="iconfont login-head">&#xe65d;</span>
+            <span class="head-portrait"><img src="" alt=""></span>
+            <ul class="user-operator">
+                <li>
+                    <a href="/userLoginAndReg/loginUser.html" target="_blank"
+                       id="user-operator1" class="user-login">用户登录</a>
+                </li>
+                <li>
+                    <a href="/userLoginAndReg/registerUser.html"
+                       target="_blank" id="user-operator2" class="user-regist">用户注册</a>
+                </li>
+                <li>
+                    <a href="UserOrder" target="_blank"
+                       id="user-operator3" class="user-order">我的订单</a>
+                </li>
+            </ul>
+        </div>
+        <form action="" class="nav-search-form">
+            <label>
+                <input type="search" placeholder="华为mate40">
+            </label>
+        </form>
+
+
+    </div>
+</div>
+<!--    导航栏结束   -->
+<!--轮播图开始-->
+<div class="carousel">
+    <div class="cartun">
+        <a href="#">
+            <img src="images/index/loop1.jpg" alt="" id="loop-img1">
+        </a>
+        <div class="circle">
+            <a onclick="circleclick(0)" class="cir"></a>
+            <a onclick="circleclick(1)" class="cir"></a>
+            <a onclick="circleclick(2)" class="cir"></a>
+            <a onclick="circleclick(3)" class="cir"></a>
+        </div>
+    </div>
+
+</div>
+<!--轮播图结束-->
+<!--开头导航栏+大图片结束-->
+
+<!--主内容开始-->
+<div class="main">
+    <div class="wrapper">
+        <!--小米秒杀开始-->
+        <div class="plain-box">
+            <h2 class="title">商城秒杀</h2>
+            <div class="plain">
+                <div class="plain-left">
+                    <p class="round">14:00 场</p>
+                    <img src="" alt="">
+                    <p class="desc">距离结束还有</p>
+                    <div class="time">
+                        <span>03</span><i>:</i><span>53</span><i>:</i><span>54</span>
+                    </div>
+                </div>
+                <div class="plain-right">
+                    <!--JavaScript动态显示-->
+                </div>
+            </div>
+            <!--小米秒杀结束-->
+
+        </div>
+        <!--手机开始-->
+        <div class="phone-brick-box">
+            <h2 class="title">手机</h2>
+            <div class="more">
+                <a href="#">查看更多
+                    <span class="arrow">
+                    <span class="iconfont">&#xe621;</span>
+                </span></a>
+            </div>
+            <div class="phone">
+                <div class="phone-left"> <!--JavaScript动态显示--></div>
+                <div class="phone-right phone-box">
+                    <!--JavaScript动态显示-->
+                </div>
+            </div>
+        </div>
+        <!--手机结束-->
+        <!--家电开始-->
+        <div class="home-brick-box">
+            <div class="title">家电</div>
+            <div class="more hourse-more">
+                <ul>
+                    <li class="hot-active">热门</li>
+                    <li class="hourse-smart">智能</li>
+                    <li class="hourse-ordinary">普通</li>
+                </ul>
+            </div>
+            <div class="home-brick">
+                <div class="home-brick-left hourse-left">
+
+                </div>
+                <div class="home-brick-right hourse-box">
+                    <!--JavaScript动态显示-->
+                </div>
+            </div>
+        </div>
+        <!--家电结束-->
+        <!--智能开始-->
+        <div class="home-brick-box">
+            <div class="title">书籍</div>
+            <div class="more book-more">
+                <ul>
+                    <li class="hot-active">热门</li>
+                    <li class="book-lite">文学</li>
+                    <li class="book-scien">科幻</li>
+                    <li class="book-love">言情</li>
+                    <li class="book-terri">恐怖</li>
+                </ul>
+            </div>
+            <div class="home-brick">
+                <div class="home-brick-left book-left">
+
+                </div>
+                <div class="home-brick-right book-box">
+                    <!--JavaScript动态显示-->
+                </div>
+            </div>
+        </div>
+        <!--智能结束-->
+
+        <!--音箱开始-->
+        <div class="home-brick-box ">
+            <div class="title">音箱</div>
+            <div class="more audio-more">
+                <ul>
+                    <li class="hot-active">热门</li>
+                    <li class="audio-smart">智能音箱</li>
+                    <li class="audio-ordinary">普通音箱</li>
+                </ul>
+            </div>
+            <div class="home-brick">
+                <div class="home-brick-left audio-left">
+                </div>
+                <div class="home-brick-right audio-box">
+                    <!--JavaScript动态显示-->
+
+                </div>
+            </div>
+        </div>
+        <!--音箱结束-->
+
+        <!--配件开始-->
+        <div class="home-brick-box">
+            <div class="title">配件</div>
+            <div class="more parts-more">
+                <ul>
+                    <li class="hot-active">热门</li>
+                    <li>电子配件</li>
+                    <li>生活配件</li>
+                </ul>
+            </div>
+            <div class="home-brick">
+                <div class="home-brick-left">
+                    <div>
+                        <a href="#">
+                            <img src="images/9f64bbd58c3f5001bdf0688894f22cb6.webp" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="images/ffe4182f1d9a5befdf2380ec90ae1620.webp" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="home-brick-right parts-box">
+                    <!--JavaScript动态显示-->
+
+                </div>
+            </div>
+        </div>
+        <!--配件结束-->
+
+        <!--周边开始-->
+        <div class="home-brick-box">
+            <div class="title">周边</div>
+            <div class="more">
+                <ul>
+                    <li class="hot-active">热门</li>
+                    <li>出行</li>
+                </ul>
+            </div>
+            <div class="home-brick">
+                <div class="home-brick-left">
+                    <div>
+                        <a href="#">
+                            <img src="images/ca0940f052227d235e7de5678d106c89.webp" alt="">
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="images/0497ba8520dc4aca9d55e6b841d42331.webp" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="home-brick-right interact-box">
+                    <!--JavaScript动态显示-->
+                </div>
+            </div>
+        </div>
+        <!--周边结束-->
+
+        <!--视频开始-->
+        <div class="video-box">
+            <div class="title">视频</div>
+            <div class="more">
+                <a href="#">查看全部
+                    <span class="arrow">
+                    <span class="iconfont">&#xe621;</span>
+                </span></a>
+            </div>
+            <div class="video">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <div class="video-img">
+                                <img src="/images/index/psb.jpg" alt="">
+                                <div class="btn">
+                                    <div></div>
+                                </div>
+                            </div>
+                            <p class="name">2021年春季新品发布会第一场</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="video-img">
+                                <img src="/images/index/psb%20(3).jpg" alt="">
+                                <div class="btn">
+                                    <div></div>
+                                </div>
+                            </div>
+                            <p class="name">Redmi 10X系列发布会</p>
+                            <p class="desc">Redmi 10X系列发布会</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="video-img">
+                                <img src="/images/index/QQ图片20191111170915.jpg" alt="">
+                                <div class="btn">
+                                    <div></div>
+                                </div>
+                            </div>
+                            <p class="name">小米10 青春版 发布会</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="video-img">
+                                <img src="/images/index/cz.jpg" alt="">
+                                <div class="btn">
+                                    <div></div>
+                                </div>
+                            </div>
+                            <p class="name">小米10 8K手机拍大片</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--视频结束-->
+    </div>
+
+</div>
+</div>
+<!--主内容结束-->
+<!--页脚开始-->
+<div class="footer">
+    <div class="footer-site">
+        <div class="wrapper">
+            <div class="footer-service">
+                <ul>
+                    <li><a href="#">
+                        <span class="iconfont">&#xe629;</span>
+                        预约服务维修
+                    </a></li>
+                    <li><a href="#">
+                        <span class="iconfont">&#xe60e;</span>
+                        7天无理由退货
+                    </a></li>
+                    <li><a href="#">
+                        <span class="iconfont">&#xe606;</span>
+                        15天免费换货
+                    </a></li>
+                    <li><a href="#">
+                        <span class="iconfont">&#xe624;</span>
+                        满69包邮
+                    </a></li>
+                    <li><a href="#">
+                        <span class="iconfont">&#xe617;</span>
+                        520余家售后网点
+                    </a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <dl>
+                    <dt>帮助中心</dt>
+                    <dd><a href="#">账户管理</a></dd>
+                    <dd><a href="#">购物指南</a></dd>
+                    <dd><a href="#">订单操作</a></dd>
+                </dl>
+                <dl>
+                    <dt>服务支持</dt>
+                    <dd><a href="#">售后政策</a></dd>
+                    <dd><a href="#">自助服务</a></dd>
+                    <dd><a href="#">相关下载</a></dd>
+                </dl>
+                <dl>
+                    <dt>关注我们</dt>
+                    <dd><a href="#">新浪微博</a></dd>
+                    <dd><a href="#">官方微信</a></dd>
+                    <dd><a href="#">联系我们</a></dd>
+                    <dd><a href="#">公益基金会</a></dd>
+                </dl>
+                <dl>
+                    <dt>特色服务</dt>
+                    <dd><a href="#">F 码通道</a></dd>
+                    <dd><a href="#">礼物码</a></dd>
+                    <dd><a href="#">防伪查询</a></dd>
+                </dl>
+                <div class="footer-contact">
+                    <p class="phonenum">xxx-xxx-xxxx</p>
+                    <p>8:00-18:00（仅收市话费）</p>
+                    <a href="#" class="art-ser"><span class="iconfont">&#xe710;</span>人工客服</a>
+                    <div class="follow">
+                        关注我们:
+                        <a href="#" class="wb"></a>
+                        <a href="#" class="wx"></a>
+                        <img src="//cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/wx-img.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--页脚结束-->
+<!--侧边栏开始-->
+<div class="tool-bar">
+    <div class="icon icon1">
+        <a>
+            <span class="iconfont">&#xe525;</span>
+        </a>
+        <span>手机APP</span>
+        <div class="icon-code">
+            <img src="images/78c30d4f259ed43ab20e810a522a6249.png" alt="">
+            <span>扫码领取新人百元礼包</span>
+        </div>
+    </div>
+    <div class="icon icon2">
+        <a href="#">
+            <span class="iconfont">&#xe65d;</span>
+        </a>
+        <span>个人中心</span>
+    </div>
+    <div class="icon icon3">
+        <a href="#">
+            <span class="iconfont">&#xe629;</span>
+        </a>
+        <span>售后服务</span>
+    </div>
+    <div class="icon icon4">
+        <a href="#">
+            <span class="iconfont">&#xe605;</span>
+        </a>
+        <span>人工客服</span>
+    </div>
+    <div class="icon icon5">
+        <a href="#">
+            <span class="iconfont">&#xe607;</span>
+        </a>
+        <span>购物车</span>
+    </div>
+    <div class="icon icon6">
+        <a href="#">
+            <span class="iconfont">&#xe623;</span>
+        </a>
+        <span>回顶部</span>
+    </div>
+</div>
+<!--侧边栏结束-->
+
+
+<script src="/js/jquery-1.7.2.js"></script>
+<script src="/js/carousel.js"></script>
+<script src="/js/index.js"></script>
+</body>
+</html>
