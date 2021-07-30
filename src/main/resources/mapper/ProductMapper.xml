@@ -45,4 +45,41 @@
         pi.product_core = #{productCode}
     </select>
 
+
+    <select id="viewProduct" resultMap="productInfoMap">
+		SELECT * FROM product_info
+	</select>
+
+    <resultMap id="productInfoMap" type="com.eight.bean.ProductInfo">
+        <id property="productId" column="product_id"></id>
+        <result property="productCore" column="product_core"></result>
+        <result property="productName" column="product_name"></result>
+        <result property="oneCategoryId" column="one_category_id"></result>
+        <result property="twoCategoryId" column="two_category_id"></result>
+        <result property="realPrice" column="real_price"></result>
+        <result property="price" column="price"></result>
+        <result property="publishStatus" column="publish_status"></result>
+        <result property="productionDate" column="production_pate"></result>
+        <result property="shelfLife" column="shelf_life"></result>
+        <result property="descript" column="descript"></result>
+        <result property="indate" column="indate"></result>
+        <result property="modifiedTime" column="modified_time"></result>
+    </resultMap>
+
+    <resultMap id="PicInfoMap" type="com.eight.bean.ProductPicInfo">
+        <id property="productPicId" column="product_pic_id"></id>
+        <result property="productId" column="product_id"></result>
+        <result property="picUrl" column="pic_url"></result>
+    </resultMap>
+
+
+    <!--    动态-->
+    <select id="getPicById" resultMap="PicInfoMap" parameterType="string">
+		SELECT pic_url FROM product_pic_info where product_id=#{productId}
+	</select>
+    <!--动态-->
+    <select id="getProductById" resultMap="productInfoMap" parameterType="string">
+		SELECT * FROM product_info where product_id=#{productId}
+	</select>
+
 </mapper>

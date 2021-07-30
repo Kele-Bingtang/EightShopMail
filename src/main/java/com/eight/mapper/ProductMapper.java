@@ -1,6 +1,7 @@
 package com.eight.mapper;
 
 import com.eight.bean.ProductInfo;
+import com.eight.bean.ProductPicInfo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -42,5 +43,9 @@ public interface ProductMapper {
     public List<ProductInfo> queryProductInfoBytwoCategory(String catrgoryId);
 
     public ProductInfo queryProductInfoBycode(String productCode);
+
+    ProductInfo getProductById(String productId);
+    List<ProductInfo> viewProduct();
+    ProductPicInfo getPicById(String productId);
 
 }

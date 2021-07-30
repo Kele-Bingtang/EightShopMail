@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>用户ID</th>
+        <th>用户名</th>
+        <th>用户状态</th>
+        <th>更改时间</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="user,userStat : ${users}">
+        <td th:text="${user.userId}">1111</td>
+        <td th:text="${user.username}">username</td>
+        <td th:text="${user.state}">0</td>
+        <td th:text="${user.createTime}">2021-07-17</td>
+        <td>
+            <a th:href="@{deleteUser(userId=${user.userId})}">删除</a>
+            <a th:href="@{modifyUser(userId=${user.userId})}">修改</a>
+            <a th:href="@{newUser}">新增</a>
+        </td>
+    </tr>
+</table>
+<a th:href="@{deleteOrder(orderId=${ordermaster.orderId})}"><input type="button" value="退货"></a>
+</body>
+</html>
