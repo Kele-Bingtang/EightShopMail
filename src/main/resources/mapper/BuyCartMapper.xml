@@ -24,4 +24,6 @@
         insert into order_detail(product_id,product_name,product_amount,product_price)
         values (#{product_id},#{product_name},#{product_amount},#{price})
     </insert>
+
+
 </mapper>
