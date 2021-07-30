@@ -33,9 +33,7 @@ public class ProductInfo {
 
 	private ProductPicInfo productPicInfo;
 
-	public ProductInfo(ProductPicInfo productPicInfo) {
-		this.productPicInfo = productPicInfo;
-	}
+	private ProductWarehouse productWarehouse;
 
 	@Override
 	public String toString() {
@@ -54,7 +52,20 @@ public class ProductInfo {
 				", indate=" + indate +
 				", modifiedTime=" + modifiedTime +
 				", productPicInfo=" + productPicInfo +
+				", productWarehouse=" + productWarehouse +
 				'}';
+	}
+
+	public ProductWarehouse getProductWarehouse() {
+		return productWarehouse;
+	}
+
+	public void setProductWarehouse(ProductWarehouse productWarehouse) {
+		this.productWarehouse = productWarehouse;
+	}
+
+	public ProductInfo(ProductPicInfo productPicInfo) {
+		this.productPicInfo = productPicInfo;
 	}
 
 	public ProductPicInfo getProductPicInfo() {

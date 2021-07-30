@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/orderDetail")
 public class DeleteOrderConntroller {
-    @Autowired
+    @Resource
     private IDeleteOrderService deleteOrderService;
 
     @GetMapping("viewDeleteOrder")
