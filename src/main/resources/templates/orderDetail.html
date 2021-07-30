@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>订单详情表ID</th>
+        <th>订单表ID</th>
+        <th>订单商品ID</th>
+        <th>商品名称</th>
+        <th>购买商品数量</th>
+        <th>购买商品单价</th>
+        <th>优惠金额</th>
+        <th>最后修改时间</th>
+        <th>操作</th>
+    </tr>
+    <tr th:each="orderDetail,orderStat : ${orderDetails}">
+        <td th:text="${orderDetail.orderDetailId}"></td>
+        <td th:text="${orderDetail.orderId}"></td>
+        <td th:text="${orderDetail.productId}"></td>
+        <td th:text="${orderDetail.productName}"></td>
+        <td th:text="${orderDetail.productAmount}"></td>
+        <td th:text="${orderDetail.productPrice}"></td>
+        <td th:text="${orderDetail.feeMoney}"></td>
+        <td th:text="${orderDetail.modifiedTime}"></td>
+        <td>
+            <a href="getProductById">退货</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
+

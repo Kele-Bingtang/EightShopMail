@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.OrderDetailMapper">
+
+    <select id="orderDetail" resultMap="orderDetailMap">
+		SELECT * FROM order_detail
+	</select>
+
+    <delete id="deleteOrderDetail" parameterType="string">
+		DELETE FROM order_detail WHERE order_id=#{value}
+    </delete>
+
+    <resultMap id="orderDetailMap" type="com.eight.bean.OrderDetail">
+        <id property="orderDetailId" column="order_detail_id"></id>
+        <result property="orderId" column="order_id"></result>
+        <result property="productId" column="product_id"></result>
+        <result property="productName" column="product_name"></result>
+        <result property="productAmount" column="product_amount"></result>
+        <result property="productPrice" column="product_price"></result>
+        <result property="feeMoney" column="fee_money"></result>
+        <result property="modifiedTime" column="modified_time"></result>
+        <association property="productInfo" column="productId" javaType="com.eight.bean.ProductInfo">
+            <id property="productId" column="product_id"></id>
+            <result property="productCore" column="product_core"></result>
+            <result property="productName" column="product_name"></result>
+            <result property="price" column="price"></result>
+        </association>
+        <association property="productPicInfo" column="productPicId" javaType="com.eight.bean.ProductPicInfo">
+            <id property="productPicId" column="product_pic_id"></id>
+            <result property="productId" column="product_id"></result>
+            <result property="picUrl" column="product_url"></result>
+        </association>
+    </resultMap>
+
+<!--    <select id="getOrderDetailById" resultMap="orderDetailMap" parameterType="string">-->
+<!--		SELECT * FROM order_detail WHERE order_id=#{value}-->
+<!--	</select>-->
+
+
+    <select id="getOrderProductById" resultMap="orderDetailMap" parameterType="string">
+            select pic.pic_url,o.order_id,p.product_id,
+            p.product_core,p.product_name,p.price
+            from order_detail o,product_info p,product_pic_info pic
+            where o.product_id=p.product_id and p.product_id=pic.product_id and p.product_id=1
+    </select>
+</mapper>

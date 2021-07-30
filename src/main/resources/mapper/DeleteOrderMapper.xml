@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.DeleteOrderMapper">
+
+    <select id="viewDeleteOrder" resultMap="deleteOrderMap">
+		SELECT * FROM delete_order
+	</select>
+
+    <resultMap id="deleteOrderMap" type="com.eight.bean.DeleteOrder">
+        <id property="orderId" column="order_id"></id>
+        <result property="returnType" column="return_type"/>
+        <result property="returnReason" column="return_reason"></result>
+        <result property="returnPrice" column="return_price"></result>
+        <result property="returnDesc" column="return_desc"/>
+        <result property="returnState" column="return_state"></result>
+    </resultMap>
+
+
+    <insert id="saveRequestUser" parameterType="com.eight.bean.DeleteOrder">
+        INSERT INTO delete_order VALUES(#{orderId},#{returnType},#{returnReason},#{returnPrice},#{returnDesc},#{returnState})
+    </insert>
+
+    <select id="modifyDeleteOrder" resultMap="deleteOrderMap">
+		SELECT * FROM delete_order where order_id=#{orderId}
+	</select>
+
+
+<!--    动态-->
+    <update id="returnDeleteOrder" parameterType="com.eight.bean.DeleteOrder">
+		UPDATE delete_order SET return_state=1 where order_id=#{orderId}
+	</update>
+
+</mapper>

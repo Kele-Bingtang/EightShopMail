@@ -1,6 +1,7 @@
 package com.eight.service.Impl;
 
 import com.eight.bean.ProductInfo;
+import com.eight.bean.ProductPicInfo;
 import com.eight.mapper.ProductMapper;
 import com.eight.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,4 +66,18 @@ public class ProductServiceImpl implements ProductService {
     }
 
 
+    @Override
+    public ProductInfo getProductById(String productId) {
+        return productMapper.getProductById(productId);
+    }
+
+    @Override
+    public List<ProductInfo> viewProduct() {
+        return productMapper.viewProduct();
+    }
+
+    @Override
+    public ProductPicInfo getPicById(String productId) {
+        return productMapper.getPicById(productId);
+    }
 }

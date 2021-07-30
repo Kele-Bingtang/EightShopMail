@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Thymeleaf demo</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>订单ID</th>
+        <th>退款类型</th>
+        <th>退款原因</th>
+        <th>退款金额</th>
+        <th>退款说明</th>
+        <th>退款状态</th>
+    </tr>
+    <tr th:each="deleteOrder,deleteStat : ${deleteOrders}">
+        <td th:text="${deleteOrder.orderId}"></td>
+        <td th:text="${deleteOrder.returnType}"></td>
+        <td th:text="${deleteOrder.returnReason}"></td>
+        <td th:text="${deleteOrder.returnPrice}"></td>
+        <td th:text="${deleteOrder.returnDesc}"></td>
+        <td th:text="${deleteOrder.returnState}"></td>
+        <td>
+        <a th:href="@{deleteOrder(orderId=${deleteOrder.orderId})}">同意退货</a>
+        <a th:href="@{modifyDeleteOrder(orderId=${deleteOrder.orderId})}">修改状态</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

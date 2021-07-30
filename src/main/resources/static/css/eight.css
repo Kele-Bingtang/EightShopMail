@@ -1,0 +1,145 @@
+.wrapper{
+    width: 800px;
+    height: 600px;
+    position: relative;
+    border: 1px solid #000000;
+    margin: 0 auto;
+}
+.all{
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    left: 170px;
+}
+.port{
+    width: 500px;
+    height: 1000px;
+    position: absolute;
+    top: 120px;
+}
+.product{
+    position: absolute;
+    width: 400px;
+    height: 100px;
+    top: 50px;
+    border: 1px solid #000000;
+}
+.desc{
+    position: absolute;
+    width: 400px;
+    height: 100px;
+    left: 100px;
+    top:0px
+}
+.ding{
+    width: 800px;
+    height: 32px;
+    background-color: gainsboro;
+    position: absolute;
+
+}
+a{
+    text-decoration: none;
+}
+.shu1{
+    left: 100px;
+    top: 50px;
+    border-radius:5px;
+    border: 1px solid black;
+    width: 297px;
+    height: auto;
+    position: absolute;
+}
+.shu2{
+    left: 100px;
+    top: 100px;
+    border-radius:5px;
+    border: 1px solid black;
+    width: 305px;
+    height: 20px;
+    position: absolute;
+}
+.shu3{
+    left: 100px;
+    top: 150px;
+    border-radius:5px;
+    border: 1px solid black;
+    width: 305px;
+    height: 20px;
+    position: absolute;
+}
+.shu4{
+    left: 100px;
+    top: 200px;
+    border-radius:5px;
+    border: 1px solid black;
+    width: 297px;
+    height: 20px;
+    position: absolute;
+}
+.shu5{
+    left: 100px;
+    top: 250px;
+    border-radius:5px;
+    border: 1px solid black;
+    width: 297px;
+    height: 80px;
+    position: absolute;
+}
+.shu6{
+    left: 100px;
+    top: 380px;
+    border-radius:5px;
+    border: 1px solid black;
+    width: 305px;
+    height: 20px;
+    position: absolute;
+}
+.symbol{
+    left: 98px;
+    top: 280px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    position: absolute
+}
+.tu1{
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    margin-left: 25px;
+    margin-top: 40px;
+}
+.p0{
+    top: 33px;
+    position: absolute;
+}
+.p1{
+    top: 83px;
+    position: absolute;
+}
+.p2{
+    top: 133px;
+    position: absolute;
+}
+.p3{
+    top: 183px;
+    position: absolute;
+}
+.p4{
+    top: 233px;
+    position: absolute;
+}
+.p5{
+    top: 283px;
+    position: absolute;
+}
+.tijiao{
+    width: 100px;
+    height: auto;
+    position: absolute;
+    left: 301px;
+    top: 360px;
+    background-color: red;
+    text-align: center;
+}

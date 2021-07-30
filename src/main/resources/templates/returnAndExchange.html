@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+    <title>退货</title>
+    <link rel="stylesheet" type="text/css" href="/css/eight.css"/>
+</head>
+<body>
+<div class="wrapper">
+    <div class="ding">
+        <a href="#">< 申请退款</a>
+    </div>
+    <div class="all">
+
+        <div class="product">
+            <a href="getPicById">
+                <img th:src="${productPicInfos}" alt="" style="width: 100px;height: 100px;" id="pic">
+            </a>
+            <a href="getProductById">
+                <div style="width: 296px;height: 94px;" class="desc">
+                    <form>
+                        ID：<input th:value="${productIdInfos}"/>
+                        <br>
+                        编号：<input th:value="${productCoreInfos}"/>
+                        <br>
+                        名称：<input th:value="${productNameInfos}"/>
+                        <br>
+                        价格：<input th:value="${productPrices}"/>
+                    </form>
+                </div>
+            </a>
+        </div>
+
+        <div class="port">
+            <form th:action="@{success}" method="Get">
+<!--                动态-->
+            <p class=p0>订单ID:*</p>
+            <input type="text" name="orderId" class=shu1 value="${orderID}">
+            <p class=p1>退款类型:*</p>
+            <select class=shu2 name="returnType">
+                <option>我要退款（无需退货）</option>
+                <option>我要退货</option>
+            </select>
+            <p class=p2>退款原因:*</p>
+            <select class=shu3 name="returnReason">
+                <option>多拍，错拍，不想要</option>
+                <option>效果不好，不想要</option>
+                <option>货物与描述不符</option>
+                <option>质量问题</option>
+                <option>收到商品少件，破损或污渍</option>
+                <option>商家发错货</option>
+                <option>假冒品牌</option>
+                <option>其他</option>
+            </select>
+            <div id="must">
+            <p class=p3>退款金额:*</p>
+<!--                动态-->
+            <input required="required" type="text" class=shu4 name="returnPrice" th:value="${productPrices}">
+            </div>
+            <p class=p4>退款说明:</p>
+            <textarea name="returnDesc" style="width: 296px;height: 80px;" class="shu5"></textarea>
+            <input type="text" class=shu6 style="display:none;" name="returnState" value="0"/>
+            <input id="btn" type="submit" value="提交申请" class=tijiao>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,6 +1,7 @@
 package com.eight.service;
 
 import com.eight.bean.ProductInfo;
+import com.eight.bean.ProductPicInfo;
 
 import java.util.List;
 
@@ -51,4 +52,8 @@ public interface ProductService {
      * @return 商品信息
      */
     public List<ProductInfo> queryProductInfoByBox(String boxName, String code);
+
+    ProductInfo getProductById(String productId);
+    List<ProductInfo> viewProduct();
+    ProductPicInfo getPicById(String productId);
 }
