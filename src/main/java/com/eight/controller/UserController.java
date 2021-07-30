@@ -1,11 +1,14 @@
 package com.eight.controller;
 
+import com.eight.bean.ProductInfo;
+import com.eight.bean.ProductPicInfo;
 import com.eight.bean.User;
 import com.eight.bean.UserHead;
 import com.eight.service.UserService;
 import com.eight.utils.CookieUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 @Controller("userController")
 @RequestMapping("/user")
@@ -88,4 +92,12 @@ public class UserController {
         return user;
     }
 
+    //用户注册，添加注册的用户名cookie
+//    @RequestMapping("xxxx")
+//    @ResponseBody
+//    public User xxx(String id, Model model) {
+//        ProductInfo productInfo =  userService.saveUser(id);
+//        model.addAttribute("x",productInfo);
+//        return "xxxxxx.htnl";
+//    }
 }

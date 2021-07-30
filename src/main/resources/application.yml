@@ -3,7 +3,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/eightshoppingmail?useSSL-=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/onlineshop?useSSL-=false&serverTimezone=GMT&allowPublicKeyRetrieval=true
     username: root
     password: 123456
   thymeleaf:
@@ -12,8 +12,8 @@ spring:
     prefix: classpath:/templates/
   mvc:
     view:
-      prefix: webpage/
       suffix: .html
+    static-path-pattern: /static/**
 mybatis:
   type-aliases-package: com.eight.bean
   mapper-locations: classpath:mapper/*Mapper.xml

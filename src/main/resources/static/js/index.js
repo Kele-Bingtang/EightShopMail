@@ -75,7 +75,7 @@ $(function () {
                 $(select).after(navHead);
                 var str = "";
                 for (let i = 0; i < 8; i++) {
-                    str += `<li><a href=\"#\"> 
+                    str += `<li><a href="/pay/buyCart?productId=${data[i].productId}"> 
                             <img src="${data[i].productPicInfo.picUrl}" alt="">
                             <p>${data[i].productName}</p>
                             <p>￥<span>${data[i].price}</span></p>
@@ -90,13 +90,14 @@ $(function () {
     var main = {
         seckill(data) {
             return (() => {
+                console.log(data)
                 $(".plain-right").append($("<ul></ul>"));
                 var str = "";
                 for (let i = 0; i < data.length; i++) {
-                    str += `<li>
-                                <a href="#">
-                                    <img src="${data[i].productPicInfo.picUrl}" alt="" class="img">
-                                    <p class="name">${data[i].productName}</p>
+                str += `<li data-value="${data[i].productId}">
+                                <a href="/pay/buyCart?productId=${data[i].productId}">
+                                     <img src="${data[i].productPicInfo.picUrl}" alt="" class="img">
+                                     <p class="name">${data[i].productName}</p>
                                     <p class="desc">${data[i].descript}</p>
                                     <span class="price">${data[i].price}元</span>
                                     <del class="del">${data[i].realPrice}元</del>
@@ -111,12 +112,12 @@ $(function () {
             return (() => {
                 let select = "." + ele;
                 var homeLeft = ` <div>
-                            <a href="#">
+                            <a href="">
                                 <img src="${img1}" alt="">
                             </a>
                         </div>
                         <div>
-                            <a href="#">
+                            <a href="">
                                 <img src="${img2}" alt="">
                             </a>
                         </div>`;
@@ -131,7 +132,7 @@ $(function () {
                 var str = "";
                 for (let i = 0; i < data.length - num; i++) {
                     str += ` <li class="${ele}${i + 1}">
-                            <a href="#">
+                            <a href="/pay/buyCart?productId=${data[i].productId}">
                                 <img src="${data[i].productPicInfo.picUrl}" alt="" class="img">
                                 <p class="name">${data[i].productName}</p>
                                 <p class="desc">${data[i].descript}</p>
@@ -143,7 +144,7 @@ $(function () {
                     for (let i = 0; i < num; i++) {
                         str += `<li class="last-item ${ele}${data.length}">
                                 <div>
-                                    <a href="#">
+                                    <a href="/pay/buyCart?productId=${data[i].productId}">
                                         <img src="${data[data.length - num].productPicInfo.picUrl}" alt="">
                                         <p class="name">${data[data.length - num].productName}</p>
                                         <p class="price">${data[data.length - num].price}元</p>
@@ -274,7 +275,7 @@ $(function () {
                     "boxName": "phone",
                     "code": "mi007&mi002&mi004&hw010&hw008&hw001&pg001&pg009"
                 }, function (data) {
-                    var phoneLeft = `<a href="#"><img src="/images/index/phoneDIv.jpg" alt=""></a>`
+                    var phoneLeft = `<a href="#"><img src="/static/images/index/phoneDIv.jpg" alt=""></a>`
                     $(".phone-left").append(phoneLeft);
                     main.boxInfo("phone-box", data, 0);
                 })
@@ -283,7 +284,7 @@ $(function () {
                     "boxName": "hourse",
                     "code": "hs009&hs026&hs013&hs023&hs020&hs032&hs034&hs040"
                 }, function (data) {
-                    main.boxInfoPic("hourse-left", "/images/index/hourse1.png", "/images/index/hourse2.png");
+                    main.boxInfoPic("hourse-left", "/static/images/index/hourse1.png", "/static/images/index/hourse2.png");
                     main.boxInfo("hourse-box", data, 1);
                     main.productSwitch("hourse-box", "hourse-more .hot-active", data);
                 })
@@ -292,7 +293,7 @@ $(function () {
                     "boxName": "book",
                     "code": "book003&book014&book056&book023&book020&book032&book034&book070"
                 }, function (data) {
-                    main.boxInfoPic("book-left", "/images/index/book1.webp", "/images/index/book2.webp");
+                    main.boxInfoPic("book-left", "/static/images/index/book1.webp", "/static/images/index/book2.webp");
                     main.boxInfo("book-box", data, 1);
                     main.productSwitch("book-box", "book-more .hot-active", data);
                 })
@@ -302,7 +303,7 @@ $(function () {
                     "boxName": "audio",
                     "code": "audio001&audio002&audio003&audio007&audio009&audio010&audio011&audio012"
                 }, function (data) {
-                    main.boxInfoPic("audio-left", "/images/index/audio1.webp", "/images/index/audio2.webp");
+                    main.boxInfoPic("audio-left", "/static/images/index/audio1.webp", "/static/images/index/audio2.webp");
                     main.boxInfo("audio-box", data, 1);
                     main.productSwitch("audio-box", "audio-more .hot-active", data);
 

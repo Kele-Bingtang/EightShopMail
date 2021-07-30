@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.BuyCartMapper">
+    <!--立即购买、加入购物车界面-->
+    <select id="viewBuyCart" parameterType="Long" resultMap="Product">
+        select *
+        from product_pic_info ppi, product_info pi, product_warehouse pw
+        where pi.product_id = ppi.product_id and pi.product_id = pw.product_id and pi.product_id = #{value}
+    </select>
+
+
+    <resultMap id="Product" type="com.eight.bean.ProductInfo" autoMapping="true">
+        <id property="productId" column="product_id"/>
+        <association property="productPicInfo" javaType="com.eight.bean.ProductPicInfo" autoMapping="true">
+            <id property="productPicId" column="product_pic_id"/>
+        </association>
+       <association property="productWarehouse" javaType="com.eight.bean.ProductWarehouse" autoMapping="true">
+           <id property="pwId" column="pw_id"/>
+       </association>
+    </resultMap>
+
+    <!--立即购买，订单表插入数据-->
+    <insert id="insertOrder" parameterType="Long">
+        insert into order_detail(product_id,product_name,product_amount,product_price)
+        values (#{product_id},#{product_name},#{product_amount},#{price})
+    </insert>
+</mapper>
