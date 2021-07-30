@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -46,6 +45,7 @@ public class ProductController {
     @RequestMapping(value = "/box")
     @ResponseBody
     public List<ProductInfo> queryProductInfoByBox(String boxName, String code) {
+
         return productService.queryProductInfoByBox(boxName, code);
     }
 

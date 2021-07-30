@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>立即购买、加入购物车</title>
+    <link rel="stylesheet" href="/static/css/buycart.css">
+</head>
+<body>
+<div class="wrapper">
+
+    <!--一级菜单-->
+    <div class="top">
+        <ul class="title">
+            <li>
+                <a href="/index">首页</a>
+            </li>
+            <li style="font-size:15px">
+                欢迎光临八八商城！
+            </li>
+            <li>
+                <a href="/loginUser">请登录</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">注册</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">订单</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">购物车</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--商品信息卡-->
+    <div class="prod-card">
+        <div class="img">
+            <img th:src="${picUrl}" alt="图片加载失败" style="cursor: pointer" th:title="${picDesc}">
+        </div>
+        <div class="prod-info">
+
+            <!--商品名称-->
+            <h2 id="title" style="padding-bottom: 10px;" th:text="${productName}"></h2>
+
+            <!--商品描述-->
+            <div class="desc" th:text="${Desc}" style="width: 400px;">
+            </div>
+
+            <!--商品价格-->
+            <div>
+                <span style="font-size: 25px;color: #FF0036;">￥</span>
+                <span class="price" th:text="${Price}"></span>
+            </div>
+
+            <!--商品优惠券不显示-->
+            <div class="count" title="5元">
+                优惠券
+            </div>
+
+            <!--运费、地址-->
+            <div class="yunfei">
+                运费&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;快递：0.00
+            </div>
+            <div class="sale">
+                月销量
+                <span style="color: #EC4846;font-weight: bold;" th:text="${Ps}"></span>&nbsp;件
+                &nbsp;&nbsp;&nbsp;累计评价
+                <span><a style="color: #EC4846;font-weight: bold;" href="">3000</a></span>
+                &nbsp;&nbsp;&nbsp;库存量
+                <span><a style="color: #EC4846;font-weight: bold;" href="" th:text="${Pw}"></a></span>件
+                &nbsp;&nbsp;&nbsp;返回积分
+                <span><a style="color: green;font-weight: bold;" href="">8</a></span>起
+
+                <!--商品购买数量-->
+                <div style="margin-top:10px">
+                    购买数量
+                    <input class="number" style="width: 50px;height: 20px;background-color: #F0F0F0;text-align: center;"
+                           type="number" min="0" step="0" value="0"/>
+                    <!--商品购买金额-->
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总金额
+                        <span class="total" style="color: #EC4846;font-weight: bold;cursor: pointer;">0.00</span>
+                    </span>
+                </div>
+
+                <!--发货地址、收货地址-->
+                <div style="margin-top:10px">
+                    广西壮族自治区桂林市灵川县&nbsp;&nbsp;至&nbsp;&nbsp;
+                    <input type="text" value="" id="addr-show">
+                </div>
+                <div style="margin-top:10px">
+                    <!--省份选择-->
+                    <select id="prov" onchange="showCity(this)">
+                        <option>=请选择省份=</option>
+                    </select>
+                    <!--城市选择-->
+                    <select id="city" onchange="showCountry(this)">
+                        <option>=请选择城市=</option>
+                    </select>
+                    <!--县区选择-->
+                    <select id="country" onchange="selecCountry(this)">
+                        <option>=请选择县区=</option>
+                    </select>
+                    <button type="button" class="btn met1" onClick="showAddr()" id="button-show" >确定</button>
+                </div>
+            </div>
+
+            <!--隐藏提交表单-->
+            <form id="form" action="http://localhost:8080/alipay" method="post">
+                <!--   *商户订单 :-->
+                <input class="d" type="text" name="outTradeNo" value=""><br>
+                <input class="m" type="text" name="subject" value=""><br>
+                <input class="n" type="text" name="num" value=""><br>
+                <input class="f" type="text" name="total_amount" value=""><br>
+                <input class="mi" type="text" name="body" value=""><br>
+                <input class="provice" type="text" name="provice" value=""><br>
+                <input class="city" type="text" name="city" value=""><br>
+                <input class="district" type="text" name="district" value=""><br>
+                <input class="addr" type="text" name="addr" value=""><br>
+
+                <button class="buybtn" style="margin-top: -40px;cursor: pointer">立即购买</button>
+                <a class="addbtn" href="javascript:void(0)" style="margin-top: -40px;">加入购物车</a>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/js/city.js"></script>
+<script type="text/javascript" src="/static/js/method.js"></script>
+<script type="text/javascript" src="/static/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/static/js/buy.js"></script>
+</body>
+</html>

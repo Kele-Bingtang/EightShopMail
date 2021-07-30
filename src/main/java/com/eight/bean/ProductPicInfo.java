@@ -18,6 +18,8 @@ public class ProductPicInfo {
     // 最后修改时间
     private Timestamp modifiedTime;
 
+
+
     // 无参构造器
     public ProductPicInfo() {
     }
