@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.product.MBookDetailMapper">
+
+    <resultMap id="queryProductList" type="com.eight.bean.BookDetail" autoMapping="true">
+        <id property="bDetailId" column="b_detail_id"/>
+        <association property="productInfo" javaType="com.eight.bean.ProductInfo" autoMapping="true">
+            <id property="productId" column="product_id"/>
+        </association>
+    </resultMap>
+
+    <select id="queryBookDetailByUsername" resultType="com.eight.bean.BookDetail">
+
+    </select>
+    <select id="queryBookDetailList" resultType="com.eight.bean.BookDetail">
+        select * from book_detail
+    </select>
+
+    <insert id="addBookDetail" parameterType="com.eight.bean.BookDetail">
+        insert into book_detail (b_author, b_publisher, product_core)
+        values (#{bAuthor},#{bPublisher},#{productCore});
+    </insert>
+
+    <delete id="deleteBookDetail" parameterType="com.eight.bean.BookDetail">
+        delete from book_detail where b_detail_id = #{bDetailId}
+    </delete>
+
+    <update id="modifyBookDetail" parameterType="com.eight.bean.BookDetail">
+        update book_detail set b_author=#{bAuthor}, b_publisher=#{bPublisher}, product_core=#{productCore}
+        where b_detail_id = #{bDetailId}
+    </update>
+
+    <select id="queryBookDetailPage" resultMap="queryProductList" >
+        select * from book_detail bd,product_info pi
+        <where>
+            bd.product_core = pi.product_core
+            <if test="param != null">
+                and pi.product_name like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{bookDetailPage.startIndex},#{bookDetailPage.singlePageSize}
+    </select>
+
+    <select id="queryBookDetailCount" resultType="java.lang.Integer">
+        select count(*) from book_detail bd,product_info pi where bd.product_core = pi.product_core
+    </select>
+    <select id="queryBookDetailById" resultType="com.eight.bean.BookDetail">
+        select * from book_detail where b_detail_id = #{pDetailId}
+    </select>
+</mapper>

@@ -16,6 +16,8 @@ public class BookDetail {
     // 商品编码
     private String productCore;
 
+    private ProductInfo productInfo;
+
     // 无参构造器
     public BookDetail() {
     }
@@ -28,33 +30,27 @@ public class BookDetail {
         this.productCore = productCore;
     }
 
-    // 获取 详细id 的属性值
-    public Integer getBDetailId() {
+    public Integer getbDetailId() {
         return bDetailId;
     }
 
-    // 设置 详细id 的属性值
-    public void setBDetailId(Integer bDetailId) {
+    public void setbDetailId(Integer bDetailId) {
         this.bDetailId = bDetailId;
     }
 
-    // 获取 作者 的属性值
-    public String getBAuthor() {
+    public String getbAuthor() {
         return bAuthor;
     }
 
-    // 设置 作者 的属性值
-    public void setBAuthor(String bAuthor) {
+    public void setbAuthor(String bAuthor) {
         this.bAuthor = bAuthor;
     }
 
-    // 获取 出版社 的属性值
-    public String getBPublisher() {
+    public String getbPublisher() {
         return bPublisher;
     }
 
-    // 设置 出版社 的属性值
-    public void setBPublisher(String bPublisher) {
+    public void setbPublisher(String bPublisher) {
         this.bPublisher = bPublisher;
     }
 
@@ -66,6 +62,14 @@ public class BookDetail {
     // 设置 商品编码 的属性值
     public void setProductCore(String productCore) {
         this.productCore = productCore;
+    }
+
+    public ProductInfo getProductInfo() {
+        return productInfo;
+    }
+
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
     }
 
     // 重写toString方法，使用该方法可以在控制台打印属性的数据

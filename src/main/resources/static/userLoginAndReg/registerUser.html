@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>注册界面</title>
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/login.css">
 </head>
 <body>
 <div class="content">
@@ -71,15 +71,22 @@
                 </div>
                 <input type="button" value="注册" class="reg-btn">
                 <div class="transferField">
-                    <a href="/userLoginAndReg/loginUser.html" class="login-bottom">登陆</a>
-                    <a href="/userLoginAndReg/registerPhone.html" class="other-register">其他方式注册</a>
+                    <a href="/static/userLoginAndReg/loginUser.html" class="login-bottom">登录</a>
+                    <a href="/static/userLoginAndReg/registerPhone.html" class="other-register">其他方式注册</a>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<script src="/js/jquery-1.7.2.js"></script>
-<script src="/js/loginAndReg.js"></script>
-
+<script src="/static/js/jquery-1.7.2.js"></script>
+<script src="/static/js/loginAndReg.js"></script>
+<script>
+    $("body").keydown(function (e){
+        e = e || window.event;
+        if(e.keyCode == "13"){
+            $(".reg-btn").click();
+        }
+    })
+</script>
 </body>
 </html>

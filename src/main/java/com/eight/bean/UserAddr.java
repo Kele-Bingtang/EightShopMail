@@ -20,6 +20,8 @@ public class UserAddr {
     // 最后修改时间
     private Timestamp modifiedTime;
 
+    private User User;
+
     // 无参构造器
     public UserAddr() {
     }
@@ -114,6 +116,15 @@ public class UserAddr {
     // 设置 最后修改时间 的属性值
     public void setModifiedTime(Timestamp modifiedTime) {
         this.modifiedTime = modifiedTime;
+    }
+
+
+    public com.eight.bean.User getUser() {
+        return User;
+    }
+
+    public void setUser(com.eight.bean.User user) {
+        User = user;
     }
 
     // 重写toString方法，使用该方法可以在控制台打印属性的数据

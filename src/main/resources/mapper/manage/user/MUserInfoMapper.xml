@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.user.MUserInfoMapper">
+
+    <resultMap id="queryUserList" type="com.eight.bean.UserInfo" autoMapping="true">
+        <id property="userInfoId" column="user_info_id"/>
+        <collection property="user" ofType="com.eight.bean.User" autoMapping="true">
+            <id property="userId" column="user_id"/>
+        </collection>
+    </resultMap>
+
+    <select id="queryUserInfoByUsername" resultType="com.eight.bean.UserInfo">
+        select * from user_info where username = #{username}
+    </select>
+    <select id="queryUserInfoList" resultMap="queryUserList">
+        select * from user_info ui,user u where u.user_id = ui.user_id;
+    </select>
+
+    <insert id="addUserInfo" parameterType="com.eight.bean.UserInfo">
+        insert into
+            user_info(user_id, username, real_name, identity_card_no, user_sex, mobile_phone, email, birthday)
+            VALUES (#{userId},#{username},#{realName},#{identityCardNo},#{userSex},#{mobilePhone},#{email},#{birthday})
+    </insert>
+
+    <delete id="deleteUserInfo" parameterType="com.eight.bean.UserInfo">
+        delete from user_info where user_info_id = #{userInfoId}
+    </delete>
+
+    <update id="modifyUserInfo" parameterType="com.eight.bean.UserInfo">
+        update user_info set username = #{username},real_name = #{realName},identity_card_no = #{identityCardNo}
+                           ,user_sex = #{userSex},mobile_phone = #{mobilePhone},email = #{email}
+                           ,birthday = #{birthday} where user_info_id = #{userInfoId}
+    </update>
+
+    <select id="queryUserInfoPage" resultType="com.eight.bean.UserInfo" >
+        select * from user_info
+        <where>
+            <if test="param != null">
+                and username like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{userInfoPage.startIndex},#{userInfoPage.singlePageSize}
+    </select>
+
+    <select id="queryUserInfoCount" resultType="java.lang.Integer">
+        select count(*) from user_info
+    </select>
+    <select id="queryUserInfoById" resultType="com.eight.bean.UserInfo">
+        select * from user_info ui,user u where ui.user_id=u.user_id and user_info_id = #{userInfoId}
+    </select>
+
+
+</mapper>

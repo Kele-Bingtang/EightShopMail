@@ -3,20 +3,20 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/eightshoppingmail?useSSL-=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/eightshoppingmail?useSSL-=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
     password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
   thymeleaf:
     cache: false
     encoding: utf-8
     prefix: classpath:/templates/
   mvc:
     view:
-      prefix: webpage/
       suffix: .html
+    static-path-pattern: /static/**
 mybatis:
-  type-aliases-package: com.eight.bean
-  mapper-locations: classpath:mapper/*Mapper.xml
+  mapper-locations: classpath:mapper/**/*Mapper.xml
   configuration:
     map-underscore-to-camel-case: true
 logging:

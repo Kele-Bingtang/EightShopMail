@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.user.MUserBuyHistoryMapper">
+
+    <select id="queryUserBuyHistoryByUsername" resultType="com.eight.bean.UserBuyHistory">
+
+    </select>
+    <select id="queryUserBuyHistoryList" resultType="com.eight.bean.UserBuyHistory">
+        select * from user_buy_history
+    </select>
+
+    <insert id="addUserBuyHistory" parameterType="com.eight.bean.UserBuyHistory">
+
+    </insert>
+
+    <delete id="deleteUserBuyHistory" parameterType="com.eight.bean.UserBuyHistory">
+    </delete>
+
+    <update id="modifyUserBuyHistory" parameterType="com.eight.bean.UserBuyHistory">
+
+    </update>
+
+    <select id="queryUserBuyHistoryPage" resultType="com.eight.bean.UserBuyHistory" >
+        select * from user_buy_history
+        <where>
+            <if test="param != null">
+                and username like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{userBuyHistoryPage.startIndex},#{userBuyHistoryPage.singlePageSize}
+    </select>
+
+    <select id="queryUserBuyHistoryCount" resultType="java.lang.Integer">
+        select count(*) from user_buy_history
+    </select>
+    <select id="queryUserBuyHistoryById" resultType="com.eight.bean.UserBuyHistory">
+
+    </select>
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.log.MUserLoginLogMapper">
+
+    <select id="queryUserLoginLogByUsername" resultType="com.eight.bean.UserLoginLog">
+
+    </select>
+    <select id="queryUserLoginLogList" resultType="com.eight.bean.UserLoginLog">
+        select * from user_login_log
+    </select>
+
+    <insert id="addUserLoginLog" parameterType="com.eight.bean.UserLoginLog">
+
+    </insert>
+
+    <delete id="deleteUserLoginLog" parameterType="com.eight.bean.UserLoginLog">
+    </delete>
+
+    <update id="modifyUserLoginLog" parameterType="com.eight.bean.UserLoginLog">
+
+    </update>
+
+    <select id="queryUserLoginLogPage" resultType="com.eight.bean.UserLoginLog" >
+        select * from user_login_log
+        <where>
+            <if test="param != null">
+                and username like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{userLoginLogPage.startIndex},#{userLoginLogPage.singlePageSize}
+    </select>
+
+    <select id="queryUserLoginLogCount" resultType="java.lang.Integer">
+        select count(*) from user_login_log
+    </select>
+    <select id="queryUserLoginLogById" resultType="com.eight.bean.UserLoginLog">
+        select * from user_login_log where login_id = #{pDetailId}
+    </select>
+</mapper>

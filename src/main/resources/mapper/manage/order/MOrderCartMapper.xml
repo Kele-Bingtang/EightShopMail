@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.order.MOrderCartMapper">
+
+    <select id="queryOrderCartByUsername" resultType="com.eight.bean.OrderCart">
+
+    </select>
+    <select id="queryOrderCartList" resultType="com.eight.bean.OrderCart">
+        select * from order_cart
+    </select>
+
+    <insert id="addOrderCart" parameterType="com.eight.bean.OrderCart">
+
+    </insert>
+
+    <delete id="deleteOrderCart" parameterType="com.eight.bean.OrderCart">
+    </delete>
+
+    <update id="modifyOrderCart" parameterType="com.eight.bean.OrderCart">
+
+    </update>
+
+    <select id="queryOrderCartPage" resultType="com.eight.bean.OrderCart" >
+        select * from order_cart
+        <where>
+            <if test="param != null">
+                and username like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{orderCartPage.startIndex},#{orderCartPage.singlePageSize}
+    </select>
+
+    <select id="queryOrderCartCount" resultType="java.lang.Integer">
+        select count(*) from order_cart
+    </select>
+    <select id="queryOrderCartById" resultType="com.eight.bean.OrderCart">
+        select * from order_cart where cart_id = #{pDetailId}
+    </select>
+</mapper>

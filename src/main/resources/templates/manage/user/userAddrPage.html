@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户地址管理</title>
+    <link rel="stylesheet" th:href="@{/static/plugins/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/css/style.css}" media="all">
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-card">
+            <div class="layui-card-body" style="padding: 15px;">
+                <form class="layui-form layui-form-pane" action="">
+                    <input name="userAddrId" th:value="${obj?.userAddrId}" class="layui-input layui-hide"/>
+                    <input name="userId" th:value="${obj?.userId}" class="layui-input layui-hide"/>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户名</label>
+                        <div class="layui-input-block" th:style="'display:' + ${obj?.user == null ?'block': 'none'}">
+                            <th:block th:if="${obj?.user == null}">
+                                <select name="username" id="username" lay-verify="required">
+                                    <option th:placeholder="请选择"></option>
+                                    <th:block th:each="user : ${users}">
+                                        <option th:text="${user.username}" th:value="${user.username}"></option>
+                                    </th:block>
+                                </select>
+                            </th:block>
+                        </div>
+                        <div class="layui-input-block" th:style="'display:' + ${obj?.user != null ?'block': 'none'}">
+                        <th:block th:if="${obj?.user != null}" >
+                            <input type="text" th:name="${obj?.user} == null?' ':'username'" th:value="${obj?.user?.username}" lay-verify="required" readonly placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                        </th:block>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">邮编</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="zip" th:value="${obj?.zip}" placeholder="请输入邮编" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">省份</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="province" th:value="${obj?.province}" placeholder="请输入省份" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">城市</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="city" th:value="${obj?.city}" placeholder="请输入城市" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">区</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="district" th:value="${obj?.district}" placeholder="请输入区域" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">具体地址</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="address" th:value="${obj?.address}" placeholder="请输入具体地址" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-hide">
+                        <input type="button" lay-submit lay-filter="lay-front-submit" id="lay-front-submit" value="确认">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/static/plugins/layui/layui.js}"></script>
+    <script th:src="@{/static/js/manage/user/userAddr.js}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

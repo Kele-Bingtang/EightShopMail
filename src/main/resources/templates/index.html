@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>八八商城</title>
     <!-- <link rel="icon" href="images/favicon.ico"> -->
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/iconfont/iconfont.css">
-    <link rel="stylesheet" href="/css/eight-nav.css">
-    <link rel="stylesheet" href="/css/eight-carousel.css">
-    <link rel="stylesheet" href="/css/eight-main.css">
-    <link rel="stylesheet" href="/css/eight-footer.css">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/iconfont/iconfont.css">
+    <link rel="stylesheet" href="/static/css/eight-nav.css">
+    <link rel="stylesheet" href="/static/css/eight-carousel.css">
+    <link rel="stylesheet" href="/static/css/eight-main.css">
+    <link rel="stylesheet" href="/static/css/eight-footer.css">
 
 </head>
 
@@ -20,7 +20,7 @@
     <div class="wrapper">
         <!--    导航栏开始   -->
         <div class="nav-big-logo">
-            <img src="/images/index/logo.jpg" alt="">
+            <img src="/static/images/index/logo.jpg" alt="">
         </div>
         <ul>
             <li class="nav-item">
@@ -46,11 +46,11 @@
             <span class="head-portrait"><img src="" alt=""></span>
             <ul class="user-operator">
                 <li>
-                    <a href="/userLoginAndReg/loginUser.html" target="_blank"
+                    <a href="/static/userLoginAndReg/loginUser.html" target="_blank"
                        id="user-operator1" class="user-login">用户登录</a>
                 </li>
                 <li>
-                    <a href="/userLoginAndReg/registerUser.html"
+                    <a href="/static/userLoginAndReg/registerUser.html"
                        target="_blank" id="user-operator2" class="user-regist">用户注册</a>
                 </li>
                 <li>
@@ -72,15 +72,16 @@
 <!--轮播图开始-->
 <div class="carousel">
     <div class="cartun">
-        <a href="#">
-            <img src="images/index/loop1.jpg" alt="" id="loop-img1">
-        </a>
-        <div class="circle">
-            <a onclick="circleclick(0)" class="cir"></a>
-            <a onclick="circleclick(1)" class="cir"></a>
-            <a onclick="circleclick(2)" class="cir"></a>
-            <a onclick="circleclick(3)" class="cir"></a>
-        </div>
+            <a href="#">
+                <img src="/static/images/index/loop1.jpg" alt="" id="loop-img1">
+            </a>
+
+        <ul  class="circle">
+            <li class="cir"></li>
+            <li class="cir"></li>
+            <li class="cir"></li>
+            <li class="cir"></li>
+        </ul>
     </div>
 
 </div>
@@ -95,11 +96,11 @@
             <h2 class="title">商城秒杀</h2>
             <div class="plain">
                 <div class="plain-left">
-                    <p class="round">14:00 场</p>
+                    <p class="round"></p>
                     <img src="" alt="">
                     <p class="desc">距离结束还有</p>
                     <div class="time">
-                        <span>03</span><i>:</i><span>53</span><i>:</i><span>54</span>
+                        <span class="hourse"></span><i>:</i><span class="minute"></span><i>:</i><span class="second"></span>
                     </div>
                 </div>
                 <div class="plain-right">
@@ -110,7 +111,7 @@
 
         </div>
         <!--手机开始-->
-        <div class="phone-brick-box">
+        <div class="home-brick-box phone-brick-box">
             <h2 class="title">手机</h2>
             <div class="more">
                 <a href="#">查看更多
@@ -119,7 +120,9 @@
                 </span></a>
             </div>
             <div class="phone">
-                <div class="phone-left"> <!--JavaScript动态显示--></div>
+                <div class="phone-left">
+                    <a href="#"><img src="" alt=""></a>
+                </div>
                 <div class="phone-right phone-box">
                     <!--JavaScript动态显示-->
                 </div>
@@ -184,7 +187,6 @@
                 </div>
                 <div class="home-brick-right audio-box">
                     <!--JavaScript动态显示-->
-
                 </div>
             </div>
         </div>
@@ -196,59 +198,35 @@
             <div class="more parts-more">
                 <ul>
                     <li class="hot-active">热门</li>
-                    <li>电子配件</li>
-                    <li>生活配件</li>
+                    <li class="parts-smart">电子配件</li>
+                    <li class="parts-life">生活配件</li>
                 </ul>
             </div>
             <div class="home-brick">
-                <div class="home-brick-left">
-                    <div>
-                        <a href="#">
-                            <img src="images/9f64bbd58c3f5001bdf0688894f22cb6.webp" alt="">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#">
-                            <img src="images/ffe4182f1d9a5befdf2380ec90ae1620.webp" alt="">
-                        </a>
-                    </div>
+                <div class="home-brick-left parts-left" >
+                    <!--JavaScript动态显示-->
+
                 </div>
                 <div class="home-brick-right parts-box">
                     <!--JavaScript动态显示-->
-
                 </div>
             </div>
         </div>
         <!--配件结束-->
 
-        <!--周边开始-->
-        <div class="home-brick-box">
-            <div class="title">周边</div>
-            <div class="more">
-                <ul>
-                    <li class="hot-active">热门</li>
-                    <li>出行</li>
-                </ul>
+        <!--社区热帖开始-->
+        <div class="community-box">
+            <!--标题-->
+            <div class="community-title">
+                <h3>社区</h3>
             </div>
-            <div class="home-brick">
-                <div class="home-brick-left">
-                    <div>
-                        <a href="#">
-                            <img src="images/ca0940f052227d235e7de5678d106c89.webp" alt="">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="#">
-                            <img src="images/0497ba8520dc4aca9d55e6b841d42331.webp" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="home-brick-right interact-box">
-                    <!--JavaScript动态显示-->
-                </div>
+
+            <!--热帖-->
+            <div class="community">
+
             </div>
         </div>
-        <!--周边结束-->
+        <!--社区热帖结束-->
 
         <!--视频开始-->
         <div class="video-box">
@@ -264,46 +242,46 @@
                     <li>
                         <a href="#">
                             <div class="video-img">
-                                <img src="/images/index/psb.jpg" alt="">
+                                <img src="/static/images/index/video01.jpg" alt="">
                                 <div class="btn">
                                     <div></div>
                                 </div>
                             </div>
-                            <p class="name">2021年春季新品发布会第一场</p>
+                            <p class="name">八八商城创始人</p>
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <div class="video-img">
-                                <img src="/images/index/psb%20(3).jpg" alt="">
+                                <img src="/static/images/index/video02.jpg" alt="">
                                 <div class="btn">
                                     <div></div>
                                 </div>
                             </div>
-                            <p class="name">Redmi 10X系列发布会</p>
-                            <p class="desc">Redmi 10X系列发布会</p>
+                            <p class="name">八八商城发展历程</p>
+                            <p class="desc">八八商城发展历程</p>
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <div class="video-img">
-                                <img src="/images/index/QQ图片20191111170915.jpg" alt="">
+                                <img src="/static/images/index/video03.jpg" alt="">
                                 <div class="btn">
                                     <div></div>
                                 </div>
                             </div>
-                            <p class="name">小米10 青春版 发布会</p>
+                            <p class="name">八八商城,与你相见</p>
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <div class="video-img">
-                                <img src="/images/index/cz.jpg" alt="">
+                                <img src="/static/images/index/video04.jpg" alt="">
                                 <div class="btn">
                                     <div></div>
                                 </div>
                             </div>
-                            <p class="name">小米10 8K手机拍大片</p>
+                            <p class="name">八八商城影视介绍</p>
                         </a>
                     </li>
                 </ul>
@@ -312,7 +290,6 @@
         <!--视频结束-->
     </div>
 
-</div>
 </div>
 <!--主内容结束-->
 <!--页脚开始-->
@@ -335,7 +312,7 @@
                     </a></li>
                     <li><a href="#">
                         <span class="iconfont">&#xe624;</span>
-                        满69包邮
+                        满99包邮
                     </a></li>
                     <li><a href="#">
                         <span class="iconfont">&#xe617;</span>
@@ -377,7 +354,7 @@
                         关注我们:
                         <a href="#" class="wb"></a>
                         <a href="#" class="wx"></a>
-                        <img src="//cdn.cnbj1.fds.api.mi-img.com/staticsfile/global/wx-img.png" alt="">
+                        <img src="" alt="八八商城微信二维码">
                     </div>
                 </div>
             </div>
@@ -387,13 +364,13 @@
 <!--页脚结束-->
 <!--侧边栏开始-->
 <div class="tool-bar">
-    <div class="icon icon1">
+    <!--<div class="icon icon1">
         <a>
             <span class="iconfont">&#xe525;</span>
         </a>
         <span>手机APP</span>
         <div class="icon-code">
-            <img src="images/78c30d4f259ed43ab20e810a522a6249.png" alt="">
+            <img src="" alt="八八商城手机app二维码">
             <span>扫码领取新人百元礼包</span>
         </div>
     </div>
@@ -420,8 +397,8 @@
             <span class="iconfont">&#xe607;</span>
         </a>
         <span>购物车</span>
-    </div>
-    <div class="icon icon6">
+    </div>-->
+    <div class="icon icon6 to-top">
         <a href="#">
             <span class="iconfont">&#xe623;</span>
         </a>
@@ -431,8 +408,14 @@
 <!--侧边栏结束-->
 
 
-<script src="/js/jquery-1.7.2.js"></script>
-<script src="/js/carousel.js"></script>
-<script src="/js/index.js"></script>
+<script src="/static/js/jquery-1.7.2.js"></script>
+<script src="/static/js/carousel.js"></script>
+<script src="/static/js/index.js"></script>
+<script>
+    //点击返回顶部
+    $(".to-top").on("click",function (){
+        window.scrollTo(0,0);
+    })
+</script>
 </body>
 </html>

@@ -18,6 +18,8 @@ public class ProductPicInfo {
     // 最后修改时间
     private Timestamp modifiedTime;
 
+    private ProductInfo productInfo;
+
     // 无参构造器
     public ProductPicInfo() {
     }
@@ -101,6 +103,14 @@ public class ProductPicInfo {
     // 设置 最后修改时间 的属性值
     public void setModifiedTime(Timestamp modifiedTime) {
         this.modifiedTime = modifiedTime;
+    }
+
+    public ProductInfo getProductInfo() {
+        return productInfo;
+    }
+
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
     }
 
     // 重写toString方法，使用该方法可以在控制台打印属性的数据

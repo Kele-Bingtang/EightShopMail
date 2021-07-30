@@ -1,5 +1,7 @@
 package com.eight.bean;
 
+import com.eight.utils.DateUtil;
+
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
@@ -152,7 +154,11 @@ public class ProductInfo {
     }
 
     // 设置 生产日期 的属性值
-    public void setProductionDate(Timestamp productionDate) {
+    public void setProductionDate(String productionDate) {
+        this.productionDate = DateUtil.dataConvertTimeStamp(productionDate);
+    }
+
+    public void setProductionDateOrigin(Timestamp productionDate) {
         this.productionDate = productionDate;
     }
 

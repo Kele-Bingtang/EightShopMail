@@ -20,6 +20,8 @@ public class UserHead {
     // 最后修改时间
     private Timestamp modifiedTime;
 
+    private UserInfo userInfo;
+
     // 无参构造器
     public UserHead() {
     }
@@ -81,6 +83,14 @@ public class UserHead {
     // 设置 最后修改时间 的属性值
     public void setModifiedTime(Timestamp modifiedTime) {
         this.modifiedTime = modifiedTime;
+    }
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
     }
 
     // 重写toString方法，使用该方法可以在控制台打印属性的数据

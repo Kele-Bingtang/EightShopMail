@@ -14,6 +14,8 @@ public class HourseAppDetail {
     // 商品编码
     private String productCore;
 
+    private ProductInfo productInfo;
+
     // 无参构造器
     public HourseAppDetail() {
     }
@@ -27,43 +29,35 @@ public class HourseAppDetail {
         this.productCore = productCore;
     }
 
-    // 获取 详细id 的属性值
-    public Integer getHDetailId() {
+    public Integer gethDetailId() {
         return hDetailId;
     }
 
-    // 设置 详细id 的属性值
-    public void setHDetailId(Integer hDetailId) {
+    public void sethDetailId(Integer hDetailId) {
         this.hDetailId = hDetailId;
     }
 
-    // 获取 高度 的属性值
-    public BigDecimal getHHeight() {
+    public BigDecimal gethHeight() {
         return hHeight;
     }
 
-    // 设置 高度 的属性值
-    public void setHHeight(BigDecimal hHeight) {
+    public void sethHeight(BigDecimal hHeight) {
         this.hHeight = hHeight;
     }
 
-    // 获取 宽度 的属性值
-    public BigDecimal getHWidth() {
+    public BigDecimal gethWidth() {
         return hWidth;
     }
 
-    // 设置 宽度 的属性值
-    public void setHWidth(BigDecimal hWidth) {
+    public void sethWidth(BigDecimal hWidth) {
         this.hWidth = hWidth;
     }
 
-    // 获取 重量 的属性值
-    public BigDecimal getHWeight() {
+    public BigDecimal gethWeight() {
         return hWeight;
     }
 
-    // 设置 重量 的属性值
-    public void setHWeight(BigDecimal hWeight) {
+    public void sethWeight(BigDecimal hWeight) {
         this.hWeight = hWeight;
     }
 
@@ -75,6 +69,14 @@ public class HourseAppDetail {
     // 设置 商品编码 的属性值
     public void setProductCore(String productCore) {
         this.productCore = productCore;
+    }
+
+    public ProductInfo getProductInfo() {
+        return productInfo;
+    }
+
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
     }
 
     // 重写toString方法，使用该方法可以在控制台打印属性的数据

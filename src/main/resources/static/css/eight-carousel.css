@@ -24,7 +24,6 @@
 }
 
 .circle {
-    width: 400px;
     position: absolute;
     right: 50%;
     bottom: 20px;
@@ -32,7 +31,7 @@
     text-align: right;
 }
 
-.circle > a {
+.circle > .cir {
     display: inline-block;
     width: 8px;
     height: 8px;

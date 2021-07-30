@@ -22,13 +22,58 @@ $(function () {
                     //取消选中
                     if ($(this).css("background-position") !== "0% 0%" && $(this).css("background-position") !== "0px 0px") {
                         $(this).css("background-position", "0 0");
-                        $(this).children("#remember").val(0);
+                        $(this).children("#remember").attr("value",0);
                     } else {
                         //选中
                         $(this).css("background-position", "-39px -25px");
-                        $(this).children("#remember").val(1);
+                        $(this).children("#remember").attr("value",1);
                     }
+
                 })
+            })()
+        },
+        //错误提示 div 抖动
+        shake(ele){
+            return (()=>{
+                var $panel = $("."+ele);
+                var box_left = 0;
+                $panel.css({'left': box_left,"position":"relative"});
+                for(var i=1; i<=4; i++){
+                    $panel.animate({left:box_left-(40-10*i)},50);
+                    $panel.animate({left:box_left+2*(40-10*i)},50);
+                }
+            })()
+        },
+        //登录成功，弹窗提示
+        dialogTip(msg,icon){
+            return (()=>{
+                let str = `<div class="dialog">
+                        <div class="dialog-content">
+                            <i class="tipIcon"></i>${msg}
+                        </div>
+                    </div>`
+                $("body").append(str);
+                //雪碧图显示✔或×
+                if(icon == "2"){
+                    $(".tip-Icon").css("background-position","0 -38px")
+                }else if(icon == "1"){
+                    $(".tip-Icon").css("background-position","0 0")
+                }else {
+                    $(".tip-Icon").css("background-position","0 0")
+                }
+                //动画效果  右侧旋转
+                $(".dialog").animate({
+                    "transform": "rotate(0)",
+                }).css({
+                    "top": "387px",
+                    "left": "747px",
+                    "transform": "rotate(0)",
+                    "transition": "all .4s",
+                })
+                //两秒后自动清除弹窗
+                setTimeout(function (){
+                    $(".dialog").remove()
+                },2000)
             })()
         }
     }
@@ -97,7 +142,7 @@ $(function () {
                     }).children("p").text("用户名不合法！");
                     return false;
                 } else {
-                    $.getJSON("http://localhost:8080/user/queryUsername", {"username": inpValue}, function (data) {
+                    $.getJSON("http://localhost:8080/eight/user/queryUsername", {"username": inpValue}, function (data) {
                         if (data === null) {
                             $(".reg-username-tip").css({
                                 "display": "block",
@@ -221,23 +266,45 @@ $(function () {
     // 登陆的操作，1.判断用户名密码是否正确，2.判断是否启用记住状态
     $(".login-btn").on("click", function () {
         $.ajax({
-            url: "http://localhost:8080/user/login",
+            url: "http://localhost:8080/eight/user/login",
             type: "POST",
             data: $("#main-form").serialize(),
             dataType: "json",
-            success: function (data) {
-                console.log(data)
-                if (utils.getCookie('loginInfo-Error')) {
+            success: function (result) {
+                if (result.icon === 2) {
                     $(".tip-box").css("display", "table").children(".tip-font").text(utils.getCookie('loginInfo-Error'));
-                } else if (utils.getCookie('loginInfo-Success')) {
-                    if (window.opener) {
-                        window.self.close();
-                        window.opener.location.reload();
-                    } else {//为空则跳转首页
-                        window.location.href = "http://localhost:8080/index";
-                    }
+                    status.shake("tip-box");
                 } else {
-                    $(".tip-box").css("display", "none").children(".tip-font").text("");
+                    if($("#remember").val() != 0){
+                        if(!localStorage.getItem("isLoginHead")){
+                            localStorage.setItem("isLoginHead",data.userId);
+                        }
+                        if(!localStorage.getItem("rememberLogin")){
+                            localStorage.setItem("rememberLogin","1");
+                        }
+                    }else if(localStorage.getItem("rememberLogin")){
+                        localStorage.removeItem("rememberLogin");
+                    }
+                    const login = async ()=>{
+                        return new Promise( (resolve,reject)=>{
+                            status.dialogTip(result.msg,result.icon); //提示
+                            setTimeout(resolve,2000) //两秒后执行后续操作
+                        })
+                    };
+                    const closeAndJump = async ()=>{
+                        await login();
+                        if (window.opener) {
+                            window.self.close();
+                            window.opener.location.reload();
+                        } else {//为空则跳转首页
+                            window.location.href = "http://localhost:8080/eight/index";
+                        }
+                    }
+                    closeAndJump().then((data)=>{
+                        console.log("登录成功");
+                    }).catch((err)=>{
+                        console.log("登录失败");
+                    });
                 }
             }
         })
@@ -249,7 +316,9 @@ $(function () {
     }
     if (utils.getCookie("rememberLogin")) {
         $(".login-password").val(utils.getCookie("rememberLogin"));
-        $(".checkBox").css("background-position", "-39px -25px").attr("value", "1");
+    }
+    if(localStorage.getItem("rememberLogin")){
+        $(".checkBox").css("background-position", "-39px -25px").children("#remember").attr("value", "1");
     }
 
     //点击注册，检查内容
@@ -261,29 +330,37 @@ $(function () {
         if (tipInfo.regUsernameTip(regUser.val()) && tipInfo.regPasswordTip(regPassword.val())
             && tipInfo.regRePasswordTip(regRePassword.val(), regPassword.val()) && codeInput.val() === "xplm") {
             $.ajax({
-                url: "http://localhost:8080/user/register",
+                url: "http://localhost:8080/eight/user/register",
                 type: "POST",
                 data: $(".main-form").serialize(),
                 dataType: "json",
                 success: function (data) {
-                    window.location.href = "http://localhost:8080/userLoginAndReg/loginUser.html"
+                    window.location.href = "http://localhost:8080/eight/userLoginAndReg/loginUser.html"
                 }
             })
         }
         if (regUser.val().length === 0) {
             $(".reg-username-tip").css("display", "block").children("p").text("用户名不能为空！");
+            status.shake("reg-username-tip");
         }
         if (regPassword.val().length === 0) {
             $(".reg-password-tip").css("display", "block").children("p").text("密码不能为空！");
+            status.shake("reg-password-tip");
+
         }
         if (regRePassword.val().length === 0) {
             $(".reg-re-password-tip").css("display", "block").children("p").text("确认密码不能为空！");
+            status.shake("reg-re-password-tip");
+
         }
         if (codeInput.val() !== "xplm") {
             $(".code-info").css("display", "block").children("p").text("验证码错误！");
+            status.shake("code-info");
         } else {
             $(".code-info").css("display", "none").children("p").text("");
         }
     })
+
+
 
 })

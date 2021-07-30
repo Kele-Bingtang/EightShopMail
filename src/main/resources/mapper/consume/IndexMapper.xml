@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.consume.IndexMapper">
+
+    <resultMap id="queryProductInfo" type="com.eight.bean.ProductInfo" autoMapping="true">
+        <id property="productId" column="product_id"/>
+        <association property="productPicInfo" javaType="com.eight.bean.ProductPicInfo" autoMapping="true">
+            <id property="productPicId" column="product_pic_id"/>
+        </association>
+        <association property="productWarehouse" javaType="com.eight.bean.ProductWarehouse" autoMapping="true">
+            <id property="pwId" column="pw_id"/>
+        </association>
+    </resultMap>
+
+    <select id="queryAllProductInfo" resultMap="queryProductInfo">
+        select pi.*,ppi.*,pw.* from product_warehouse pw, product_pic_info ppi, product_info pi
+        where ppi.product_id = pi.product_id and pw.product_id = pi.product_id;
+    </select>
+
+    <select id="queryProductInfosByName" resultMap="queryProductInfo">
+
+    </select>
+
+    <select id="queryProductInfoByName" resultMap="queryProductInfo">
+
+    </select>
+    <select id="queryProductInfoByoneCategory" parameterType="java.lang.String" resultMap="queryProductInfo">
+        select pi.*,ppi.*,pw.* from product_warehouse pw, product_pic_info ppi,product_category pc,product_info pi
+        where ppi.product_id = pi.product_id and
+        pc.category_id = pi.one_category_id and
+        pw.product_id = pi.product_id and
+        pc.category_id = #{catrgoryId}
+    </select>
+    <select id="queryProductInfoBytwoCategory" parameterType="java.lang.String" resultMap="queryProductInfo">
+        select pi.*,ppi.*,pw.* from product_warehouse pw, product_pic_info ppi,product_category pc,product_info pi
+        where ppi.product_id = pi.product_id and
+        pc.category_id = pi.two_category_id and
+        pw.product_id = pi.product_id and
+        pc.category_id = #{catrgoryId}
+    </select>
+    <select id="queryProductInfoBycode" resultMap="queryProductInfo">
+        select pi.*,ppi.*,pw.* from product_warehouse pw,product_pic_info ppi,product_info pi
+        where ppi.product_id = pi.product_id and
+        pw.product_id = pi.product_id and
+        pi.product_core = #{productCode}
+    </select>
+
+    <select id="queryCommentArticleByNum" parameterType="integer" resultMap="queryComment">
+        select * from product_comment pc,product_info pi,product_pic_info ppi,user_info ui,user_head uh
+where pc.product_id = pi.product_id and pc.user_id=ui.user_id and ui.user_id = uh.user_id and pi.product_id = ppi.product_id
+and article_fine = #{articleFine}
+    </select>
+
+    <resultMap id="queryComment" type="com.eight.bean.ProductComment" autoMapping="true">
+        <id property="commentId" column="comment_id"/>
+        <association property="userInfo" javaType="com.eight.bean.UserInfo" autoMapping="true">
+            <id property="userId" column="user_id"/>
+        </association>
+        <association property="productInfo" javaType="com.eight.bean.ProductInfo" autoMapping="true">
+            <id property="productId" column="product_id"/>
+        </association>
+        <association property="productPicInfo" javaType="com.eight.bean.ProductPicInfo" autoMapping="true">
+            <id property="productPicId" column="product_pic_id"/>
+        </association>
+        <association property="userHead" javaType="com.eight.bean.UserHead" autoMapping="true">
+            <id property="userHeadId" column="user_head_id"/>
+        </association>
+    </resultMap>
+
+</mapper>

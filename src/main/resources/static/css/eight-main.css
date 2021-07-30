@@ -208,7 +208,7 @@
 .phone-brick-box {
     height: 686px;
     position: relative;
-    margin-bottom: 8px;
+    margin-top: 30px;
 }
 
 .more {
@@ -315,7 +315,7 @@
     width: 1226px;
     height: 686px;
     position: relative;
-    margin-bottom: 8px;
+    margin-bottom: 35px;
 }
 
 .more ul {
@@ -473,6 +473,85 @@
 }
 
 /*家电、智能、搭配、配件、周边结束*/
+
+.community-title>h3{
+    font-size: 2em;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 2;
+    margin-top: 60px;
+}
+
+/*社区热帖开始*/
+.community-box{
+    width: 100%;
+    height: 848.5px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+.community{
+    width: 1242px;
+    height: 793.99px;
+    margin: 0 auto;
+}
+.community-item{
+    width: 303px;
+    height: 388px;
+    background-color: #fff;
+    margin-top: 10px;
+    float: left;
+    transition: all .4s;
+}
+.community-item:hover{
+    box-shadow: 0 15px 30px rgba(0,0,0,.1);
+    transform: translateY(-2px);
+}
+.community-item1,.community-item2,.community-item3,.community-item5,.community-item6,.community-item7{
+    margin-right: 10px;
+}
+.community-item-img{
+    width: 303px;
+    height: 190px;
+}
+.community-user{
+    width: 303px;
+    height: 42px;
+    margin-top: 10px;
+
+}
+.community-user-tx{
+    width: 36px;
+    height: 36px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    margin: 0 0 0 15px;
+    float: left;
+}
+.community-user-name{
+    color: #333;
+    font-size: 15px;
+    margin-left: 15px;
+    text-align: left;
+    margin-top: 10px;
+    float: left;
+}
+.community-item-title{
+    font-size: 16px;
+    line-height: 27px;
+    text-align: left;
+    height: 66px;
+    color: #333;
+    padding: 0 15px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+.community-user-phoneX{
+    color: #999;
+    font-size: 14px;
+    padding: 0 15px;
+    text-align: left;
+}
+/*社区热帖结束*/
 
 /*视频开始*/
 .video-box {

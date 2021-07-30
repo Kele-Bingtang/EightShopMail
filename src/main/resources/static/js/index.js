@@ -1,4 +1,5 @@
 $(function () {
+    console.log("关于来到八八商城首页！")
     // 鼠标移入移出导航栏效果
     var navItemA = $(".nav-item");
     //登录图片和购物车移入变颜色
@@ -7,6 +8,100 @@ $(function () {
     var bookMoreLabel = $(".book-more li:not('.hot-active')");
     var hourseMoreLabel = $(".hourse-more li:not('.hot-active')");
     var audioMoreLabel = $(".audio-more li:not('.hot-active')");
+    var partsMoreLabel = $(".parts-more li:not('.hot-active')");
+    // 主内容的模块前的图片
+    $(".phone-left img").attr("src","/static/images/index/phoneDIv.jpg")
+    var hourseImg = ["/static/images/index/hourse1.png", "/static/images/index/hourse2.png"];
+    var bookImg = ["/static/images/index/book1.webp", "/static/images/index/book2.webp"];
+    var audioImg = ["/static/images/index/audio1.webp", "/static/images/index/audio2.webp"];
+    var partsImg = ["/static/images/index/parts1.webp", "/static/images/index/parts2.jpg"];
+    // 导航栏显示的商品code
+    var navData = {
+        //导航栏手机数据
+        phoneData:{
+            "boxName": "phone",
+            "code": "hw004&mi007&pg001&mi005&pg005&hw005&pg004&mi010",
+        },
+        //导航栏家电数据
+        hourseData:{
+        "boxName": "hourse",
+        "code": "hs020&hs007&hs001&hs022&hs005&hs015&hs004&hs010",
+       },
+        //导航书籍机数据
+        bookData:{
+            "boxName": "book",
+            "code": "book020&book007&book001&book065&book055&book037&book004&book021",
+        },
+        //导航栏音响数据
+        audioData:{
+            "boxName": "audio",
+            "code": "audio001&audio003&audio005&audio007&audio009&audio011&audio013&audio014",
+        },
+        //导航栏配件数据
+        partsData:{
+            "boxName": "parts",
+            "code": "parts001&parts003&parts005&parts006&parts007&parts009&parts010&parts011",
+        },
+    }
+    // 主界面显示的商品code
+    var mainData = {
+        //主界面手机数据
+        phoneData:{
+            "boxName": "phone",
+                "code": "mi007&mi002&mi004&hw010&hw008&hw001&pg001&pg009"
+        },
+        //主界面家电数据
+        hourseData:{
+            "boxName": "hourse",
+            "code": "hs009&hs026&hs013&hs023&hs020&hs032&hs034&hs040"
+        },
+        //主界面书籍数据
+        bookData:{
+            "boxName": "book",
+            "code": "book003&book014&book056&book023&book020&book032&book034&book070"
+        },
+        //主界面音响数据
+        audioData:{
+            "boxName": "audio",
+            "code": "audio001&audio002&audio003&audio007&audio009&audio010&audio011&audio012"
+        },
+        //主界面配件数据
+        partsData:{
+            "boxName": "parts",
+            "code": "parts001&parts002&parts003&parts007&parts009&parts010&parts011&parts012"
+        }
+    }
+    //热门之外悬停出现的的商品顺序
+    var moreData = {
+       //书籍分类请求
+        bookCartgoryIds: [7, 8, 9, 10], //书籍分类
+        //获得数据的顺序，前面的数字代表除热门以外的标签数量，数组是悬停时显示的商品内容顺序，都是从0开始算
+        bookdataIndexs: { //获取的书籍，只选择八个存放
+           0: [5, 8, 10, 12, 14, 16, 18, 20],
+       },
+        //家具分类请求
+         hourseCartgoryIds: [11, 12],//家具分类
+        //悬停显示的商品id
+        //获得数据的顺序，前面的数字代表除热门以外的标签数量，数组是悬停时显示的商品内容顺序，都是从0开始算
+        hoursedataIndexs: {
+            0: [5, 8, 10, 12, 14, 16, 18, 19],
+        },
+        //音响分类请求
+         audioCartgoryIds : [14, 15],//音响分类
+        //获得数据的顺序，前面的数字代表除热门以外的标签数量，数组是悬停时显示的商品内容顺序，都是从0开始算
+         audiodataIndexs : {
+            0: [0, 1, 2, 3, 4, 5, 6, 7],
+            1: [0, 1, 2, 3, 4, 5, 6, 7],
+        },
+        //配件分类请求
+        partsCartgoryIds : [17, 18],//配件分类
+        //获得数据的顺序，前面的数字代表除热门以外的标签数量，数组是悬停时显示的商品内容顺序，都是从0开始算
+        partsdataIndexs : {
+            0: [0, 1, 2, 3, 4, 5, 6, 7],
+            1: [0, 1, 2, 3, 4, 5, 6, 7],
+        }
+
+    }
     //导航栏
     var nav = {
         //导航栏的颜色，鼠标移入移出改变
@@ -88,6 +183,65 @@ $(function () {
 
     //主内容
     var main = {
+        //秒杀倒计时
+        seckillTime(){
+            return (()=>{
+                let hourse;//时
+                let minute;//分
+                let second;//秒
+                //是否是偶数小时
+                function isOddTime(time){
+                    if(time.getHours() % 2 === 0){
+                        return time;
+                    }else {
+                        let towTime = time.getTime() - 360000;
+                        return new Date(towTime);
+                    }
+                }
+                //获取两个小时后的整时
+                function getTwoTime(time){
+                    let twoDate = new Date(time.getTime() - time.getMinutes() * 60000 - time.getSeconds() * 1000);
+                    let towTime = twoDate.getTime() + (60 * 60 * 2 * 1000);
+                    return new Date(towTime);
+                }
+                //重置倒计时
+                function spwierTime(){
+                    let nowTime = new Date();
+                    let twoTime = getTwoTime(nowTime);
+                    $(".round").text(isOddTime(nowTime).getHours() + ":00 场")
+                    //倒计时，时间都需要减1，才正确
+                    hourse = isOddTime(twoTime).getHours()>nowTime.getHours()?isOddTime(twoTime).getHours():24 + isOddTime(twoTime).getHours() - nowTime.getHours() - 1;
+                    minute = ((twoTime.getTime() - nowTime.getTime())  / 1000 / 60 % 60).toFixed(0) - 1;
+                    second = ((twoTime.getTime() - nowTime.getTime())  / 1000 % 60).toFixed(0) - 1;
+                }
+                //开始倒计时
+                spwierTime();
+                var timer = setInterval(function (){
+                    function checkTime(t){
+                        if(t < 10){
+                            t = "0" + t;
+                        }
+                        return t;
+                    }
+                    second--;
+                    if(second < 0){
+                        minute--;
+                        second = 59;
+                    }
+                    if (minute < 0){
+                        hourse--;
+                        minute = 59;
+                    }
+                    if(hourse < 0){
+                        spwierTime();
+                    }
+                    $(".hourse").text(checkTime(hourse));
+                    $(".minute").text(checkTime(minute));
+                    $(".second").text(checkTime(second));
+                },1000)
+            })()
+        },
+        //秒杀商品
         seckill(data) {
             return (() => {
                 $(".plain-right").append($("<ul></ul>"));
@@ -98,8 +252,8 @@ $(function () {
                                     <img src="${data[i].productPicInfo.picUrl}" alt="" class="img">
                                     <p class="name">${data[i].productName}</p>
                                     <p class="desc">${data[i].descript}</p>
-                                    <span class="price">${data[i].price}元</span>
-                                    <del class="del">${data[i].realPrice}元</del>
+                                    <span class="price">${(data[i].price * 0.9).toFixed(1)}元</span>
+                                    <del class="del">${data[i].price}元</del>
                                 </a>
                             </li>`
                 }
@@ -107,17 +261,17 @@ $(function () {
             })()
         },
         //模块前面的两个图片
-        boxInfoPic(ele, img1, img2) {
+        boxInfoPic(ele, img) {
             return (() => {
                 let select = "." + ele;
                 var homeLeft = ` <div>
                             <a href="#">
-                                <img src="${img1}" alt="">
+                                <img src="${img[0]}" alt="">
                             </a>
                         </div>
                         <div>
                             <a href="#">
-                                <img src="${img2}" alt="">
+                                <img src="${img[1]}" alt="">
                             </a>
                         </div>`;
                 $(select).append(homeLeft);
@@ -144,7 +298,7 @@ $(function () {
                         str += `<li class="last-item ${ele}${data.length}">
                                 <div>
                                     <a href="#">
-                                        <img src="${data[data.length - num].productPicInfo.picUrl}" alt="">
+                                        <img src="${data[data.length - num].productPicInfo.picUrl}" alt="" class="img">
                                         <p class="name">${data[data.length - num].productName}</p>
                                         <p class="price">${data[data.length - num].price}元</p>
                                     </a>
@@ -193,12 +347,14 @@ $(function () {
                 }
             })()
         },
-        //鼠标悬停 切换商品类型
+        //鼠标悬停分类 切换商品类型
+        //参数1：模块名 参数2：鼠标悬停元素的class 参数3：数据类型名 参数4：数据类型id 参数5：显示数据的id，8个
         productSwitch(boxName, boxLabelSelect, data, dataIndex) {
             return (() => {
                 let select = "." + boxLabelSelect;
                 let boxNameSelect = "." + boxName;
                 $(select).mouseover(function (e) {
+                    //热门 dataIndex 为undefined
                     if (dataIndex === undefined || dataIndex === "") {
                         for (let i = 0; i < data.length; i++) {
                             let selector = boxNameSelect + (i + 1);
@@ -207,9 +363,9 @@ $(function () {
                             $(selector).find(".desc").text(data[i].descript);
                             $(selector).find(".price").text(data[i].price + "元");
                         }
-                    } else {
+                    } else {    //其他是这个循环
                         for (let i = 0; i < dataIndex.length; i++) {
-                            let selector = boxNameSelect + i;
+                            let selector = boxNameSelect + (i + 1);
                             $(selector).find(".img").attr("src", data[dataIndex[i]].productPicInfo.picUrl);
                             $(selector).find(".name").text(data[dataIndex[i]].productName);
                             $(selector).find(".desc").text(data[dataIndex[i]].descript);
@@ -218,46 +374,52 @@ $(function () {
                     }
                 })
             })()
+        },
+        //社区模块数据显示
+        communityBox(data){
+            return (()=>{
+                let str = '';
+                for (let i = 0; i < 8; i++) {
+                    str += `<a href="#">
+                            <div class="community-item community-item${i + 1}">
+                                <img style="width: 240px;" src="${data[i].productPicInfo.picUrl}" alt="" class="community-item-img">
+                                <div class="community-user">
+                                    <img src="${data[i].userHead.headUrl}" alt="" class="community-user-tx">
+                                    <p class="community-user-name">${data[i].userInfo.username}</p>
+                                </div>
+                                <p class="community-item-title">${data[i].title} | ${data[i].content}</p>
+                                <p class="community-user-phoneX">${data[i].productInfo.productName}</p>
+                            </div>
+                          </a>`
+                }
+                $(".community").append(str);
+            })()
         }
     }
 
+    //ajax请求内容
     var ajaxGetData = {
-        //导航栏菜单
+        //导航栏菜单的请求
         navAjax() {
             return (() => {
                 // 获取手机商品数据
-                $.getJSON("http://localhost:8080/product/box", {
-                    "boxName": "phone",
-                    "code": "hw004&mi007&pg001&mi005&pg005&hw005&pg004&mi010",
-                }, function (data) {
+                $.getJSON("http://localhost:8080/eight/index/box", navData.phoneData, function (data) {
                     nav.navHeadSub("phone-item", data);
                 })
                 //获取家电
-                $.getJSON("http://localhost:8080/product/box", {
-                    "boxName": "hourse",
-                    "code": "hs020&hs007&hs001&hs022&hs005&hs015&hs004&hs010",
-                }, function (data) {
+                $.getJSON("http://localhost:8080/eight/index/box", navData.hourseData, function (data) {
                     nav.navHeadSub("hourse-item", data);
                 })
                 //获取书籍
-                $.getJSON("http://localhost:8080/product/box", {
-                    "boxName": "book",
-                    "code": "book020&book007&book001&book065&book055&book037&book004&book021",
-                }, function (data) {
+                $.getJSON("http://localhost:8080/eight/index/box", navData.bookData, function (data) {
                     nav.navHeadSub("book-item", data);
                 })
                 //获取音响
-                $.getJSON("http://localhost:8080/product/box", {
-                    "boxName": "audio",
-                    "code": "audio001&audio003&audio005&audio007&audio009&audio011&audio013&audio014",
-                }, function (data) {
+                $.getJSON("http://localhost:8080/eight/index/box", navData.audioData, function (data) {
                     nav.navHeadSub("audio-item", data);
                 })
                 //获取配件
-                $.getJSON("http://localhost:8080/product/box", {
-                    "boxName": "parts",
-                    "code": "audio001&audio003&audio005&audio007&audio009&audio011&audio013&audio014",
-                }, function (data) {
+                $.getJSON("http://localhost:8080/eight/index/box", navData.partsData, function (data) {
                     nav.navHeadSub("parts-item", data);
                 })
             })()
@@ -266,67 +428,62 @@ $(function () {
         mainAjax() {
             return (() => {
                 //商品秒杀
-                $.getJSON("http://localhost:8080/product/seckill", null, function (data) {
+                $.getJSON("http://localhost:8080/eight/index/seckill", null, function (data) {
                     main.seckill(data);
                 })
                 //手机模块
-                $.getJSON("http://localhost:8080/product/box", {
-                    "boxName": "phone",
-                    "code": "mi007&mi002&mi004&hw010&hw008&hw001&pg001&pg009"
-                }, function (data) {
-                    var phoneLeft = `<a href="#"><img src="/images/index/phoneDIv.jpg" alt=""></a>`
-                    $(".phone-left").append(phoneLeft);
+                $.getJSON("http://localhost:8080/eight/index/box",mainData.phoneData , function (data) {
+                    //左侧图片
                     main.boxInfo("phone-box", data, 0);
                 })
                 //家电模块
-                $.getJSON("http://localhost:8080/product/box", {
-                    "boxName": "hourse",
-                    "code": "hs009&hs026&hs013&hs023&hs020&hs032&hs034&hs040"
-                }, function (data) {
-                    main.boxInfoPic("hourse-left", "/images/index/hourse1.png", "/images/index/hourse2.png");
+                $.getJSON("http://localhost:8080/eight/index/box", mainData.hourseData, function (data) {
+                    //左侧图片
+                    main.boxInfoPic("hourse-left", hourseImg);
                     main.boxInfo("hourse-box", data, 1);
                     main.productSwitch("hourse-box", "hourse-more .hot-active", data);
                 })
                 //书籍模块
-                $.getJSON("http://localhost:8080/product/box", {
-                    "boxName": "book",
-                    "code": "book003&book014&book056&book023&book020&book032&book034&book070"
-                }, function (data) {
-                    main.boxInfoPic("book-left", "/images/index/book1.webp", "/images/index/book2.webp");
+                $.getJSON("http://localhost:8080/eight/index/box",mainData.bookData , function (data) {
+                    //左侧图片
+                    main.boxInfoPic("book-left", bookImg);
                     main.boxInfo("book-box", data, 1);
                     main.productSwitch("book-box", "book-more .hot-active", data);
                 })
 
                 //音响模块
-                $.getJSON("http://localhost:8080/product/box", {
-                    "boxName": "audio",
-                    "code": "audio001&audio002&audio003&audio007&audio009&audio010&audio011&audio012"
-                }, function (data) {
-                    main.boxInfoPic("audio-left", "/images/index/audio1.webp", "/images/index/audio2.webp");
+                $.getJSON("http://localhost:8080/eight/index/box",mainData.audioData , function (data) {
+                    main.boxInfoPic("audio-left", audioImg);
                     main.boxInfo("audio-box", data, 1);
                     main.productSwitch("audio-box", "audio-more .hot-active", data);
 
                 })
                 //配件模块
-                $.getJSON("http://localhost:8080/product/box", {
-                    "boxName": "parts",
-                    "code": "audio001&audio002&audio003&audio007&audio009&audio010&audio011&audio012"
-                }, function (data) {
+                $.getJSON("http://localhost:8080/eight/index/box", mainData.partsData, function (data) {
+                    main.boxInfoPic("parts-left", partsImg);
                     main.boxInfo("parts-box", data, 1);
                     main.productSwitch("parts-box", "parts-more .hot-active", data);
 
                 })
                 //互动模块
-                $.getJSON("http://localhost:8080/product/box", {
+                $.getJSON("http://localhost:8080/eight/index/box", {
                     "boxName": "hourse",
                     "code": "hs003&hs014&hs015&hs026&hs010&hs030&hs036&hs039"
                 }, function (data) {
                     main.boxInfo("interact-box", data, 1);
                 })
+                
+                $.getJSON("http://localhost:8080/eight/index/commentArticle",{
+                    "artcleFine":1
+                },function (data){
+                    main.communityBox(data);
+                })
             })()
         },
+        //模块悬停，切换商品
+        //参数1：模块名 参数2：鼠标悬停元素的class 参数3：数据类型名 参数4：数据类型id 参数5：显示数据的id，8个
         ajaxGetProductBoxClass(boxName, boxLabelSelect, catrgoryName, catrgoryId, dataIndex) {
-            $.getJSON("http://localhost:8080/product/catrgory/" + catrgoryName, {
+            $.getJSON("http://localhost:8080/eight/index/catrgory/" + catrgoryName, {
                 "catrgoryId": catrgoryId
             }, function (data) {
                 main.productSwitch(boxName, boxLabelSelect, data, dataIndex);
@@ -339,37 +496,32 @@ $(function () {
     nav.navToggle()
     ajaxGetData.navAjax();
     ajaxGetData.mainAjax();
+    main.seckillTime();
     main.moreActive("hourse-more");
     main.moreActive("book-more");
     main.moreActive("audio-more");
     main.moreActive("parts-more");
+
+    //鼠标悬停，切换商品
     //书籍分类请求
-    let bookCartgoryIds = [7, 8, 9, 10];
-    let bookdataIndexs = {
-        1: [5, 8, 10, 12, 14, 16, 18, 19],
-    }
     for (let i = 0; i < bookMoreLabel.length; i++) {
         ajaxGetData.ajaxGetProductBoxClass("book-box", bookMoreLabel[i].className,
-            "book", bookCartgoryIds[i], bookdataIndexs[i])
+            "book", moreData.bookCartgoryIds[i], moreData.bookdataIndexs[i])
     }
-    //家具分类请求
-    let hourseCartgoryIds = [11, 12];
-    let hoursedataIndexs = {
-        1: [5, 8, 10, 12, 14, 16, 18, 19],
-    }
+
     for (let i = 0; i < hourseMoreLabel.length; i++) {
         ajaxGetData.ajaxGetProductBoxClass("hourse-box", hourseMoreLabel[i].className,
-            "hourse", hourseCartgoryIds[i], hoursedataIndexs[i])
+            "hourse", moreData.hourseCartgoryIds[i], moreData.hoursedataIndexs[i])
     }
-    //音响分类请求
-    let audioCartgoryIds = [14, 15];
-    let audiodataIndexs = {
-        1: [0, 1, 2, 3, 4, 5, 6, 7],
-        2: [9, 10, 11, 12, 13, 14, 15, 16]
-    }
+
     for (let i = 0; i < audioMoreLabel.length; i++) {
         ajaxGetData.ajaxGetProductBoxClass("audio-box", audioMoreLabel[i].className,
-            "audio", audioCartgoryIds[i], audiodataIndexs[i])
+            "audio", moreData.audioCartgoryIds[i], moreData.audiodataIndexs[i])
+    }
+
+    for (let i = 0; i < partsMoreLabel.length; i++) {
+        ajaxGetData.ajaxGetProductBoxClass("parts-box", partsMoreLabel[i].className,
+            "parts", moreData.partsCartgoryIds[i], moreData.partsdataIndexs[i])
     }
 
     var utils = {
@@ -403,41 +555,63 @@ $(function () {
         window.open($(".user-login").attr("href"));
     })
 
-    if (utils.getCookie("isLoginHead") || $(".head-portrait").attr("value")) {
-        $.getJSON("http://localhost:8080/user/headAndInfo", {
-            "isLoginHead": utils.getCookie("isLoginHead")
+    if (utils.getCookie("isLoginHead") || localStorage.getItem("isLoginHead")) {
+        let userId;
+        if(utils.getCookie("isLoginHead")){
+            userId = utils.getCookie("isLoginHead")
+        }else if(localStorage.getItem("isLoginHead")){
+            userId = localStorage.getItem("isLoginHead");
+        }
+
+        $.getJSON("http://localhost:8080/eight/user/headAndInfo", {
+            "isLoginHead": localStorage.getItem("isLoginHead"),
+            "userId": userId
         }, function (data) {
             let headPortrait = $(".head-portrait")
             $(".login-head").css("display", "none");
             headPortrait.on("click", function () {
-                window.open("http://localhost:8080/user/index");
+                window.open("http://localhost:8080/eight/user/index");
             })
-            headPortrait.css("display", "block").attr("value", data.userId).children("img").attr("src", data.headUrl);
-            //登陆和注册变成用户信息和
-            $("#user-operator1").attr({
-                "class": "user-info",
-                "href": "http://localhost:8080/user/index/level"
-            }).text("我的等级");
-            $("#user-operator2").attr({
-                "class": "user-order",
-                "href": "http://localhost:8080/user/index/order"
-            }).text("我的订单");
-            $("#user-operator3").attr({
-                "class": "user-exits",
-                "target": ""
-            }).removeAttr("href").text("退出");
+            headPortrait.css("display", "block").attr("value", userId).children("img").attr("src", data.headUrl);
+        })
 
-            $(".user-exits").click(function () {
 
-                if (utils.getCookie("isLoginHead")) {
-                    utils.deleteCookie("isLoginHead");
+        //登陆和注册变成用户信息
+        $("#user-operator1").attr({
+            "class": "user-info",
+            "value":userId,
+            "href": "http://localhost:8080/eight/user/index/level"
+        }).text("我的等级");
+        $("#user-operator2").attr({
+            "class": "user-order",
+            "value":userId,
+            "href": "http://localhost:8080/eight/user/index/order"
+        }).text("我的订单");
+        $("#user-operator3").attr({
+            "class": "user-exits",
+            "value":userId,
+            "target": ""
+        }).removeAttr("href").text("退出");
+
+        $(".header-user-cart").attr("value",userId);
+        //用户退出时
+        $(".user-exits").click(function () {
+            if (utils.getCookie("isLoginHead") || localStorage.getItem("isLoginHead")) {
+                $.getJSON("http://localhost:8080/eight/user/exitsLogin",{
+                    "userId":userId
+                },function (data){
+                    if(localStorage.getItem("isLoginHead")){
+                        localStorage.removeItem("isLoginHead")
+                    }
+                    $(".header-user-cart").removeAttr("value");
                     window.location.reload();
-                } else {
-                    alert("退出失败")
-                }
-            })
-
+                })
+            } else {
+                alert("退出失败")
+            }
         })
 
     }
+
+
 })

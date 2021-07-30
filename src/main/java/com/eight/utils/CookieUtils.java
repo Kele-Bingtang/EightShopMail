@@ -2,6 +2,7 @@ package com.eight.utils;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class CookieUtils {
 
@@ -32,8 +33,14 @@ public class CookieUtils {
     }
 
     public static void deleteCookie(HttpServletResponse response, Cookie cookie) {
-        cookie.setMaxAge(0);//表示马上删除，不需要等待浏览器关闭
-        cookie.setPath("/EightShoppingMail");
-        response.addCookie(cookie);
+        if(cookie != null){
+            cookie.setMaxAge(0);//表示马上删除，不需要等待浏览器关闭
+            cookie.setPath("/");
+            response.addCookie(cookie);
+        }
+    }
+
+    public static Object getSession(HttpSession session,String sessionId){
+        return session.getAttribute(sessionId);
     }
 }

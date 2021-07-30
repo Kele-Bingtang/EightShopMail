@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.log.MUserPointLogMapper">
+
+    <select id="queryUserPointLogByUsername" resultType="com.eight.bean.UserPointLog">
+
+    </select>
+    <select id="queryUserPointLogList" resultType="com.eight.bean.UserPointLog">
+        select * from user_point_log
+    </select>
+
+    <insert id="addUserPointLog" parameterType="com.eight.bean.UserPointLog">
+
+    </insert>
+
+    <delete id="deleteUserPointLog" parameterType="com.eight.bean.UserPointLog">
+    </delete>
+
+    <update id="modifyUserPointLog" parameterType="com.eight.bean.UserPointLog">
+
+    </update>
+
+    <select id="queryUserPointLogPage" resultType="com.eight.bean.UserPointLog" >
+        select * from user_point_log
+        <where>
+            <if test="param != null">
+                and username like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{userPointLogPage.startIndex},#{userPointLogPage.singlePageSize}
+    </select>
+
+    <select id="queryUserPointLogCount" resultType="java.lang.Integer">
+        select count(*) from user_point_log
+    </select>
+    <select id="queryUserPointLogById" resultType="com.eight.bean.UserPointLog">
+        select * from user_point_log where point_id = #{pDetailId}
+    </select>
+</mapper>

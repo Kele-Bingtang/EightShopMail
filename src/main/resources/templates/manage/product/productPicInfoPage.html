@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>商品图片管理</title>
+    <link rel="stylesheet" th:href="@{/static/plugins/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/css/style.css}" media="all">
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-card">
+            <div class="layui-card-body" style="padding: 15px;">
+                <form class="layui-form layui-form-pane" action="">
+                    <input name="productPicId" th:value="${obj?.productPicId}" class="layui-input layui-hide"/>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">商品名称</label>
+                        <div class="layui-input-block">
+                            <div th:if="${obj?.productPicId == null}">
+                                <select name="productId" id="productId" lay-verify="required">
+                                    <option th:placeholder="请选择"></option>
+                                    <div th:each="productInfo:${productInfos}">
+                                        <option th:text="${productInfo.productName}" th:value="${productInfo.productId}"></option>
+                                    </div>
+                                </select>
+                            </div>
+                            <div th:if="${obj?.productPicId != null}">
+                                <select name="productId" id="productId" lay-verify="required">
+                                    <option th:placeholder="请选择"></option>
+                                    <div th:each="productInfo:${productInfos}">
+                                        <div th:if="${productInfo.productId} != ${obj?.productId}">
+                                            <option th:text="${productInfo.productName}"  th:value="${productInfo.productId}"></option>
+                                        </div>
+                                        <div th:if="${productInfo.productId} == ${obj?.productId}">
+                                            <option selected th:text="${productInfo.productName}"  th:value="${productInfo.productId}"></option>
+                                        </div>
+                                    </div>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">图片描述</label>
+                        <div class="layui-input-block">
+                            <textarea name="picDesc" th:text="${obj?.picDesc}" placeholder="请输入图片描述" autocomplete="off" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">图片URL</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="picUrl" th:value="${obj?.picUrl}" placeholder="请输入图片URL" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否主图</label>
+                        <div class="layui-input-block">
+                            <div th:if="${obj?.isMaster == null}">
+                                <select name="isMaster" id="isMaster">
+                                    <option value="0">请选择</option>
+                                    <option value="0">非主图</option>
+                                    <option value="1">主图</option>
+                                </select>
+                            </div>
+                            <div th:if="${obj?.isMaster != null}">
+                                <select name="isMaster" id="isMaster" th:switch="${obj?.isMaster}">
+                                    <div th:case="0">
+                                        <option value="0">请选择</option>
+                                        <option selected value="0">非主图</option>
+                                        <option value="1">主图</option>
+                                    </div>
+                                    <div th:case="1">
+                                        <option value="0">请选择</option>
+                                        <option value="0">非主图</option>
+                                        <option selected value="1">主图</option>
+                                    </div>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">是否有效</label>
+                        <div class="layui-input-block">
+                            <div th:if="${obj?.picStatus == null}">
+                                <select name="picStatus" id="picStatus">
+                                    <option value="0">请选择</option>
+                                    <option value="0">无效</option>
+                                    <option value="1">有效</option>
+                                </select>
+                            </div>
+                            <div th:if="${obj?.picStatus != null}">
+                                <select name="picStatus" id="picStatus" th:switch="${obj?.picStatus}">
+                                    <div th:case="0">
+                                        <option value="0">请选择</option>
+                                        <option selected value="0">无效</option>
+                                        <option value="1">有效</option>
+                                    </div>
+                                    <div th:case="1">
+                                        <option value="0">请选择</option>
+                                        <option value="0">无效</option>
+                                        <option selected value="1">有效</option>
+                                    </div>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-hide">
+                        <input type="button" lay-submit lay-filter="lay-front-submit" id="lay-front-submit" value="确认">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/static/plugins/layui/layui.js}"></script>
+    <script th:src="@{/static/js/manage/product/productPicInfo.js}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

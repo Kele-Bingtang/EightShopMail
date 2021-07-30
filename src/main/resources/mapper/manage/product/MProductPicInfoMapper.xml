@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.product.MProductPicInfoMapper">
+
+    <resultMap id="queryProduct" type="com.eight.bean.ProductPicInfo" autoMapping="true">
+        <id property="productPicId" column="product_pic_id"/>
+        <association property="productInfo" javaType="com.eight.bean.ProductInfo" autoMapping="true">
+            <id property="productId" column="product_id"/>
+        </association>
+    </resultMap>
+
+    <select id="queryProductPicInfoByUsername" resultType="com.eight.bean.ProductPicInfo">
+
+    </select>
+    <select id="queryProductPicInfoList" resultType="com.eight.bean.ProductPicInfo">
+        select * from product_pic_info
+    </select>
+
+    <insert id="addProductPicInfo"  parameterType="com.eight.bean.ProductPicInfo">
+        insert into product_pic_info(product_id, pic_desc, pic_url,is_master,pic_status)
+        VALUES (#{productId},#{picDesc},#{picUrl},#{isMaster},#{picStatus})
+    </insert>
+
+    <delete id="deleteProductPicInfo" parameterType="com.eight.bean.ProductPicInfo">
+        delete from product_pic_info where product_pic_id = #{productPicId}
+    </delete>
+
+    <update id="modifyProductPicInfo" parameterType="com.eight.bean.ProductPicInfo">
+        update product_pic_info set product_id=#{productId}, pic_desc=#{picDesc}
+      , pic_url=#{picUrl},is_master=#{isMaster},pic_status=#{picStatus}
+        where product_pic_id = #{productPicId}
+    </update>
+
+    <select id="queryProductPicInfoPage" resultMap="queryProduct">
+        select * from product_pic_info ppi
+        left join product_info pi on ppi.product_id = pi.product_id
+        <where>
+            <if test="param != null">
+                and pi.product_name like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{productPicInfoPage.startIndex},#{productPicInfoPage.singlePageSize}
+    </select>
+
+    <select id="queryProductPicInfoCount" resultType="java.lang.Integer">
+        select count(*) from product_pic_info
+    </select>
+    <select id="queryProductPicInfoById" resultMap="queryProduct">
+        select * from product_pic_info where product_pic_id = #{productPicId}
+    </select>
+
+</mapper>

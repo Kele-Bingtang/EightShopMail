@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.log.MUserBalanceLogMapper">
+
+    <select id="queryUserBalanceLogByUsername" resultType="com.eight.bean.UserBalanceLog">
+
+    </select>
+    <select id="queryUserBalanceLogList" resultType="com.eight.bean.UserBalanceLog">
+        select * from user_balance_log
+    </select>
+
+    <insert id="addUserBalanceLog" parameterType="com.eight.bean.UserBalanceLog">
+
+    </insert>
+
+    <delete id="deleteUserBalanceLog" parameterType="com.eight.bean.UserBalanceLog">
+    </delete>
+
+    <update id="modifyUserBalanceLog" parameterType="com.eight.bean.UserBalanceLog">
+
+    </update>
+
+    <select id="queryUserBalanceLogPage" resultType="com.eight.bean.UserBalanceLog" >
+        select * from user_balance_log
+        <where>
+            <if test="param != null">
+                and username like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{userBalanceLogPage.startIndex},#{userBalanceLogPage.singlePageSize}
+    </select>
+
+    <select id="queryUserBalanceLogCount" resultType="java.lang.Integer">
+        select count(*) from user_balance_log
+    </select>
+    <select id="queryUserBalanceLogById" resultType="com.eight.bean.UserBalanceLog">
+        select * from user_balance_log where balance_id = #{pDetailId}
+    </select>
+</mapper>

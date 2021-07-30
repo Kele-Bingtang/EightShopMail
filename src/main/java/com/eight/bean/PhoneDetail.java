@@ -24,6 +24,8 @@ public class PhoneDetail {
     // 商品编码
     private String productCore;
 
+    private ProductInfo productInfo;
+
     // 无参构造器
     public PhoneDetail() {
     }
@@ -42,104 +44,92 @@ public class PhoneDetail {
         this.productCore = productCore;
     }
 
-    // 获取 详细信息ID 的属性值
-    public Integer getPDetailId() {
+    public Integer getpDetailId() {
         return pDetailId;
     }
 
-    // 设置 详细信息ID 的属性值
-    public void setPDetailId(Integer pDetailId) {
+    public void setpDetailId(Integer pDetailId) {
         this.pDetailId = pDetailId;
     }
 
-    // 获取 高度 的属性值
-    public BigDecimal getPHeight() {
+    public BigDecimal getpHeight() {
         return pHeight;
     }
 
-    // 设置 高度 的属性值
-    public void setPHeight(BigDecimal pHeight) {
+    public void setpHeight(BigDecimal pHeight) {
         this.pHeight = pHeight;
     }
 
-    // 获取 宽度 的属性值
-    public BigDecimal getPWidth() {
+    public BigDecimal getpWidth() {
         return pWidth;
     }
 
-    // 设置 宽度 的属性值
-    public void setPWidth(BigDecimal pWidth) {
+    public void setpWidth(BigDecimal pWidth) {
         this.pWidth = pWidth;
     }
 
-    // 获取 尺寸 的属性值
-    public BigDecimal getPSize() {
+    public BigDecimal getpSize() {
         return pSize;
     }
 
-    // 设置 尺寸 的属性值
-    public void setPSize(BigDecimal pSize) {
+    public void setpSize(BigDecimal pSize) {
         this.pSize = pSize;
     }
 
-    // 获取 重量 的属性值
-    public BigDecimal getPWeight() {
+    public BigDecimal getpWeight() {
         return pWeight;
     }
 
-    // 设置 重量 的属性值
-    public void setPWeight(BigDecimal pWeight) {
+    public void setpWeight(BigDecimal pWeight) {
         this.pWeight = pWeight;
     }
 
-    // 获取 机身颜色 的属性值
-    public String getPColor() {
+    public String getpColor() {
         return pColor;
     }
 
-    // 设置 机身颜色 的属性值
-    public void setPColor(String pColor) {
+    public void setpColor(String pColor) {
         this.pColor = pColor;
     }
 
-    // 获取 套餐类型 的属性值
-    public String getPMeal() {
+    public String getpMeal() {
         return pMeal;
     }
 
-    // 设置 套餐类型 的属性值
-    public void setPMeal(String pMeal) {
+    public void setpMeal(String pMeal) {
         this.pMeal = pMeal;
     }
 
-    // 获取 版本 的属性值
-    public String getPVersion() {
+    public String getpVersion() {
         return pVersion;
     }
 
-    // 设置 版本 的属性值
-    public void setPVersion(String pVersion) {
+    public void setpVersion(String pVersion) {
         this.pVersion = pVersion;
     }
 
-    // 获取 内存容量 的属性值
-    public String getPCapacity() {
+    public String getpCapacity() {
         return pCapacity;
     }
 
-    // 设置 内存容量 的属性值
-    public void setPCapacity(String pCapacity) {
+    public void setpCapacity(String pCapacity) {
         this.pCapacity = pCapacity;
     }
 
-    // 获取 商品编码 的属性值
     public String getProductCore() {
         return productCore;
     }
 
-    // 设置 商品编码 的属性值
     public void setProductCore(String productCore) {
         this.productCore = productCore;
+    }
+
+    public ProductInfo getProductInfo() {
+        return productInfo;
+    }
+
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
     }
 
     // 重写toString方法，使用该方法可以在控制台打印属性的数据

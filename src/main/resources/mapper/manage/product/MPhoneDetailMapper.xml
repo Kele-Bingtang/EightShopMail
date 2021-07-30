@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.product.MPhoneDetailMapper">
+    <resultMap id="queryProductList" type="com.eight.bean.PhoneDetail" autoMapping="true">
+        <id property="pDetailId" column="p_detail_id"/>
+        <association property="productInfo" javaType="com.eight.bean.ProductInfo" autoMapping="true">
+            <id property="productId" column="product_id"/>
+        </association>
+    </resultMap>
+    <select id="queryPhoneDetailByUsername" resultType="com.eight.bean.PhoneDetail">
+
+    </select>
+    <select id="queryPhoneDetailList" resultType="com.eight.bean.PhoneDetail">
+        select * from phone_detail
+    </select>
+
+    <insert id="addPhoneDetail" parameterType="com.eight.bean.PhoneDetail">
+        insert into phone_detail(p_height, p_width, p_size, p_weight, p_color, p_meal, p_version, p_capacity, product_core)
+        values (#{pHeight},#{pWidth},#{pSize},#{pWeight},#{pColor},#{pMeal},#{pVersion},#{pCapacity},#{productCore})
+    </insert>
+
+    <delete id="deletePhoneDetail" parameterType="com.eight.bean.PhoneDetail">
+        delete from phone_detail where p_detail_id = #{pDetailId}
+    </delete>
+
+    <update id="modifyPhoneDetail" parameterType="com.eight.bean.PhoneDetail">
+        update phone_detail set p_height = #{pHeight}, p_width = #{pWidth}, p_size = #{pSize}
+        , p_weight = #{pWeight}, p_color = #{pColor}, p_meal = #{pMeal}, p_version = #{pVersion}
+          , p_capacity = #{pCapacity}, product_core = #{productCore} where p_detail_id = #{pDetailId}
+    </update>
+
+    <select id="queryPhoneDetailPage" resultMap="queryProductList">
+        select * from phone_detail pd,product_info pi
+        <where>
+            pd.product_core = pi.product_core
+            <if test="param != null">
+                and pi.product_name like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{phoneDetailPage.startIndex},#{phoneDetailPage.singlePageSize}
+    </select>
+
+    <select id="queryPhoneDetailCount" resultType="java.lang.Integer">
+        select count(*) from phone_detail pd,product_info pi where  pd.product_core = pi.product_core
+    </select>
+
+    <select id="queryPhoneDetailById" resultType="com.eight.bean.PhoneDetail">
+        select * from phone_detail where p_detail_id = #{pDetailId}
+    </select>
+
+</mapper>

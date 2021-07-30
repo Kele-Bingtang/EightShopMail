@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.product.MProductCategoryMapper">
+
+    <select id="queryProductCategoryByUsername" resultType="com.eight.bean.ProductCategory">
+
+    </select>
+    <select id="queryProductCategoryList" resultType="com.eight.bean.ProductCategory">
+        select * from product_category
+    </select>
+
+    <insert id="addProductCategory" parameterType="com.eight.bean.ProductCategory">
+        insert into product_category(category_name, category_code, parent_id, category_level, category_status)
+        values (#{categoryName},#{categoryCode},#{parentId},#{categoryLevel},#{categoryStatus})
+    </insert>
+
+    <delete id="deleteProductCategory" parameterType="com.eight.bean.ProductCategory">
+        delete from product_category where category_id = #{categoryId}
+    </delete>
+
+    <update id="modifyProductCategory" parameterType="com.eight.bean.ProductCategory">
+        update product_category set category_name = #{categoryName},category_code = #{categoryCode},
+        parent_id= #{parentId}, category_level = #{categoryLevel},category_status = #{categoryStatus}
+        where category_id = #{categoryId}
+    </update>
+
+    <select id="queryProductCategoryPage" resultType="com.eight.bean.ProductCategory" >
+        select * from product_category
+        <where>
+            <if test="param != null">
+                and category_name like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{productCategoryPage.startIndex},#{productCategoryPage.singlePageSize}
+    </select>
+
+    <select id="queryProductCategoryCount" resultType="java.lang.Integer">
+        select count(*) from product_category
+    </select>
+    <select id="queryProductCategoryById" resultType="com.eight.bean.ProductCategory">
+        select * from product_category where category_id = #{categoryId}
+    </select>
+</mapper>

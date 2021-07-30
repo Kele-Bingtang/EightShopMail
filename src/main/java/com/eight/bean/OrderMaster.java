@@ -32,7 +32,7 @@ public class OrderMaster {
     // 支付金额
     private BigDecimal paymentMoney;
     // 商城名称
-    private String shoppingMallName;
+    private String shoppingMailName;
     // 下单时间
     private Timestamp createTime;
     // 发货时间
@@ -53,7 +53,7 @@ public class OrderMaster {
     }
 
     // 有参构造器，进行属性值的初始化
-    public OrderMaster(Long orderId, BigInteger orderSn, Long userId, String shippingUser, Integer province, Integer city, Integer district, String address, Integer paymentMethod, BigDecimal orderMoney, BigDecimal districtMoney, BigDecimal shippingMoney, BigDecimal paymentMoney, String shoppingMallName, Timestamp createTime, Timestamp shippingTime, Timestamp payTime, Timestamp receiveTime, Integer orderStatus, Long orderPoint, Timestamp modifiedTime) {
+    public OrderMaster(Long orderId, BigInteger orderSn, Long userId, String shippingUser, Integer province, Integer city, Integer district, String address, Integer paymentMethod, BigDecimal orderMoney, BigDecimal districtMoney, BigDecimal shippingMoney, BigDecimal paymentMoney, String shoppingMailName, Timestamp createTime, Timestamp shippingTime, Timestamp payTime, Timestamp receiveTime, Integer orderStatus, Long orderPoint, Timestamp modifiedTime) {
         this.orderId = orderId;
         this.orderSn = orderSn;
         this.userId = userId;
@@ -67,7 +67,7 @@ public class OrderMaster {
         this.districtMoney = districtMoney;
         this.shippingMoney = shippingMoney;
         this.paymentMoney = paymentMoney;
-        this.shoppingMallName = shoppingMallName;
+        this.shoppingMailName = shoppingMailName;
         this.createTime = createTime;
         this.shippingTime = shippingTime;
         this.payTime = payTime;
@@ -208,13 +208,13 @@ public class OrderMaster {
     }
 
     // 获取 商城名称 的属性值
-    public String getShoppingMallName() {
-        return shoppingMallName;
+    public String getShoppingMailName() {
+        return shoppingMailName;
     }
 
     // 设置 商城名称 的属性值
-    public void setShoppingMallName(String shoppingMallName) {
-        this.shoppingMallName = shoppingMallName;
+    public void setShoppingMailName(String shoppingMallName) {
+        this.shoppingMailName = shoppingMallName;
     }
 
     // 获取 下单时间 的属性值
@@ -304,7 +304,7 @@ public class OrderMaster {
                 ", districtMoney='" + districtMoney + '\'' +
                 ", shippingMoney='" + shippingMoney + '\'' +
                 ", paymentMoney='" + paymentMoney + '\'' +
-                ", shoppingMallName='" + shoppingMallName + '\'' +
+                ", shoppingMallName='" + shoppingMailName + '\'' +
                 ", createTime='" + createTime + '\'' +
                 ", shippingTime='" + shippingTime + '\'' +
                 ", payTime='" + payTime + '\'' +

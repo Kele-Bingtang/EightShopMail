@@ -1,7 +1,11 @@
 package com.eight.bean;
 
+import com.eight.utils.DateUtil;
+
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.sql.Timestamp;
+import java.util.List;
 
 public class UserInfo {
     // 用户信息ID
@@ -9,17 +13,19 @@ public class UserInfo {
     // 用户ID
     private Long userId;
     // 昵称
-    private String userName;
+    private String username;
     // 真实姓名
     private String realName;
     // 1 身份证，2 军官证，3 护照
     private Integer identityCardType;
+    // 证件类型实例化 1 身份证，2 军官证，3 护照
+    private String identityCardTypeStr;
     // 证件号码
     private String identityCardNo;
     // 性别
     private String userSex;
     // 手机号码
-    private Integer mobilePhone;
+    private BigInteger mobilePhone;
     // 邮箱
     private String email;
     // 注册时间
@@ -31,17 +37,28 @@ public class UserInfo {
     // 最后修改时间
     private Timestamp modifiedTime;
     // 积分ID，识别等级
-    private Integer userLevel;
+    private Integer userLevelId;
+    // 积分数
+    private Integer levelPoint;
+
+    private User user;
+    //用户头像
+    private List<UserHead> userHeadList;
 
     // 无参构造器
     public UserInfo() {
     }
 
     // 有参构造器，进行属性值的初始化
-    public UserInfo(Long userInfoId, Long userId, String userName, String realName, Integer identityCardType, String identityCardNo, String userSex, Integer mobilePhone, String email, Timestamp registerTime, Timestamp birthday, BigDecimal userMoney, Timestamp modifiedTime, Integer userLevel) {
+
+
+    public UserInfo(Long userInfoId, Long userId, String username, String realName,
+                    Integer identityCardType, String identityCardNo, String userSex,
+                    BigInteger mobilePhone, String email, Timestamp registerTime, Timestamp birthday,
+                    BigDecimal userMoney, Timestamp modifiedTime, Integer userLevel, Integer levelPoint) {
         this.userInfoId = userInfoId;
         this.userId = userId;
-        this.userName = userName;
+        this.username = username;
         this.realName = realName;
         this.identityCardType = identityCardType;
         this.identityCardNo = identityCardNo;
@@ -52,7 +69,8 @@ public class UserInfo {
         this.birthday = birthday;
         this.userMoney = userMoney;
         this.modifiedTime = modifiedTime;
-        this.userLevel = userLevel;
+        this.userLevelId = userLevel;
+        this.levelPoint = levelPoint;
     }
 
     // 获取 用户信息ID 的属性值
@@ -76,13 +94,13 @@ public class UserInfo {
     }
 
     // 获取 昵称 的属性值
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
     // 设置 昵称 的属性值
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     // 获取 真实姓名 的属性值
@@ -126,12 +144,12 @@ public class UserInfo {
     }
 
     // 获取 手机号码 的属性值
-    public Integer getMobilePhone() {
+    public BigInteger getMobilePhone() {
         return mobilePhone;
     }
 
     // 设置 手机号码 的属性值
-    public void setMobilePhone(Integer mobilePhone) {
+    public void setMobilePhone(BigInteger mobilePhone) {
         this.mobilePhone = mobilePhone;
     }
 
@@ -160,8 +178,16 @@ public class UserInfo {
         return birthday;
     }
 
+    public String getBirthdayStr(){
+        return DateUtil.dateConvertString(birthday);
+    }
+
     // 设置 生日 的属性值
-    public void setBirthday(Timestamp birthday) {
+    public void setBirthday(String birthday) {
+        this.birthday = DateUtil.dataConvertTimeStamp(birthday);
+    }
+
+    public void setBirthdayOrigin(Timestamp birthday) {
         this.birthday = birthday;
     }
 
@@ -186,33 +212,67 @@ public class UserInfo {
     }
 
     // 获取 积分ID，识别等级 的属性值
-    public Integer getUserLevel() {
-        return userLevel;
+    public Integer getUserLevelId() {
+        return userLevelId;
     }
 
     // 设置 积分ID，识别等级 的属性值
-    public void setUserLevel(Integer userLevel) {
-        this.userLevel = userLevel;
+    public void setUserLevelId(Integer userLevelId) {
+        this.userLevelId = userLevelId;
+    }
+
+    public Integer getLevelPoint() {
+        return levelPoint;
+    }
+
+    public void setLevelPoint(Integer levelPoint) {
+        this.levelPoint = levelPoint;
+    }
+
+    public String getIdentityCardTypeStr() {
+        return identityCardTypeStr;
+    }
+
+    public void setIdentityCardTypeStr(String identityCardTypeStr) {
+        this.identityCardTypeStr = identityCardTypeStr;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<UserHead> getUserHeadList() {
+        return userHeadList;
+    }
+
+    public void setUserHeadList(List<UserHead> userHeadList) {
+        this.userHeadList = userHeadList;
     }
 
     // 重写toString方法，使用该方法可以在控制台打印属性的数据
+
     @Override
     public String toString() {
-        return "UserInfo {" +
-                ", userInfoId='" + userInfoId + '\'' +
-                ", userId='" + userId + '\'' +
-                ", userName='" + userName + '\'' +
+        return "UserInfo{" +
+                "userInfoId=" + userInfoId +
+                ", userId=" + userId +
+                ", userName='" + username + '\'' +
                 ", realName='" + realName + '\'' +
-                ", identityCardType='" + identityCardType + '\'' +
+                ", identityCardType=" + identityCardType +
                 ", identityCardNo='" + identityCardNo + '\'' +
                 ", userSex='" + userSex + '\'' +
-                ", mobilePhone='" + mobilePhone + '\'' +
+                ", mobilePhone=" + mobilePhone +
                 ", email='" + email + '\'' +
-                ", registerTime='" + registerTime + '\'' +
-                ", birthday='" + birthday + '\'' +
-                ", userMoney='" + userMoney + '\'' +
-                ", modifiedTime='" + modifiedTime + '\'' +
-                ", userLevel='" + userLevel + '\'' +
-                "}";
+                ", registerTime=" + registerTime +
+                ", birthday=" + birthday +
+                ", userMoney=" + userMoney +
+                ", modifiedTime=" + modifiedTime +
+                ", userLevel=" + userLevelId +
+                ", levelPoint=" + levelPoint +
+                '}';
     }
 }

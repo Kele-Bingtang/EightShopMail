@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.product.MHourseAppDetailMapper">
+
+    <resultMap id="queryProductList" type="com.eight.bean.HourseAppDetail" autoMapping="true">
+        <id property="hDetailId" column="h_detail_id"/>
+        <association property="productInfo" javaType="com.eight.bean.ProductInfo" autoMapping="true">
+            <id property="productId" column="product_id"/>
+        </association>
+    </resultMap>
+
+    <select id="queryHourseAppDetailByUsername" resultType="com.eight.bean.HourseAppDetail">
+
+    </select>
+    <select id="queryHourseAppDetailList" resultType="com.eight.bean.HourseAppDetail">
+        select * from hourse_app_detail
+    </select>
+
+    <insert id="addHourseAppDetail" parameterType="com.eight.bean.HourseAppDetail">
+        insert into hourse_app_detail (h_height, h_width, h_weight, product_core)
+        values (#{hHeight},#{hWidth},#{hWeight},#{productCore});
+    </insert>
+
+    <delete id="deleteHourseAppDetail" parameterType="com.eight.bean.HourseAppDetail">
+        delete from hourse_app_detail where h_detail_id = #{hDetailId}
+    </delete>
+
+    <update id="modifyHourseAppDetail" parameterType="com.eight.bean.HourseAppDetail">
+        update hourse_app_detail set h_height = #{hHeight}, h_width = #{hWidth},
+         h_weight = #{hWeight}, product_core = #{productCore} where h_detail_id = #{hDetailId}
+    </update>
+
+    <select id="queryHourseAppDetailPage" resultMap="queryProductList">
+        select * from hourse_app_detail had,product_info pi
+        <where>
+            had.product_core = pi.product_core
+            <if test="param != null">
+                and pi.product_name like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{hourseAppDetailPage.startIndex},#{hourseAppDetailPage.singlePageSize}
+    </select>
+
+    <select id="queryHourseAppDetailCount" resultType="java.lang.Integer">
+        select count(*) from hourse_app_detail had,product_info pi where had.product_core = pi.product_core
+    </select>
+    <select id="queryHourseAppDetailById" resultType="com.eight.bean.HourseAppDetail">
+        select * from hourse_app_detail where h_detail_id = #{hDetailId}
+    </select>
+</mapper>
