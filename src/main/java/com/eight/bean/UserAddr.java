@@ -7,14 +7,13 @@ public class UserAddr {
     private Long userAddrId;
     // 用户ID
     private Long userId;
-    // 邮编
-    private Integer zip;
-    // 省份的ID
-    private Integer province;
-    // 城市的ID
-    private Integer city;
-    // 区ID
-    private Integer district;
+
+    // 省份
+    private String province;
+    // 城市
+    private String city;
+    // 区
+    private String district;
     // 具体的地址门牌号
     private String address;
     // 最后修改时间
@@ -27,10 +26,9 @@ public class UserAddr {
     }
 
     // 有参构造器，进行属性值的初始化
-    public UserAddr(Long userAddrId, Long userId, Integer zip, Integer province, Integer city, Integer district, String address, Timestamp modifiedTime) {
+    public UserAddr(Long userAddrId, Long userId, String province, String city, String district, String address, Timestamp modifiedTime) {
         this.userAddrId = userAddrId;
         this.userId = userId;
-        this.zip = zip;
         this.province = province;
         this.city = city;
         this.district = district;
@@ -57,44 +55,34 @@ public class UserAddr {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
-
-    // 获取 邮编 的属性值
-    public Integer getZip() {
-        return zip;
-    }
-
-    // 设置 邮编 的属性值
-    public void setZip(Integer zip) {
-        this.zip = zip;
-    }
-
+    
     // 获取 省份的ID 的属性值
-    public Integer getProvince() {
+    public String getProvince() {
         return province;
     }
 
     // 设置 省份的ID 的属性值
-    public void setProvince(Integer province) {
+    public void setProvince(String province) {
         this.province = province;
     }
 
     // 获取 城市的ID 的属性值
-    public Integer getCity() {
+    public String getCity() {
         return city;
     }
 
     // 设置 城市的ID 的属性值
-    public void setCity(Integer city) {
+    public void setCity(String city) {
         this.city = city;
     }
 
     // 获取 区ID 的属性值
-    public Integer getDistrict() {
+    public String getDistrict() {
         return district;
     }
 
     // 设置 区ID 的属性值
-    public void setDistrict(Integer district) {
+    public void setDistrict(String district) {
         this.district = district;
     }
 
@@ -133,7 +121,6 @@ public class UserAddr {
         return "UserAddr {" +
                 ", userAddrId='" + userAddrId + '\'' +
                 ", userId='" + userId + '\'' +
-                ", zip='" + zip + '\'' +
                 ", province='" + province + '\'' +
                 ", city='" + city + '\'' +
                 ", district='" + district + '\'' +

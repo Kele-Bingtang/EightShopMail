@@ -247,13 +247,13 @@ $(function () {
                 $(".plain-right").append($("<ul></ul>"));
                 var str = "";
                 for (let i = 0; i < data.length; i++) {
-                    str += `<li>
-                                <a href="#">
-                                    <img src="${data[i].productPicInfo.picUrl}" alt="" class="img">
-                                    <p class="name">${data[i].productName}</p>
+                str += `<li data-value="${data[i].productId}">
+                                <a href="/pay/buyCart?productId=${data[i].productId}">
+                                     <img src="${data[i].productPicInfo.picUrl}" alt="" class="img">
+                                     <p class="name">${data[i].productName}</p>
                                     <p class="desc">${data[i].descript}</p>
-                                    <span class="price">${(data[i].price * 0.9).toFixed(1)}元</span>
-                                    <del class="del">${data[i].price}元</del>
+                                    <span class="price">${data[i].price}元</span>
+                                    <del class="del">${data[i].realPrice}元</del>
                                 </a>
                             </li>`
                 }
@@ -297,8 +297,8 @@ $(function () {
                     for (let i = 0; i < num; i++) {
                         str += `<li class="last-item ${ele}${data.length}">
                                 <div>
-                                    <a href="#">
-                                        <img src="${data[data.length - num].productPicInfo.picUrl}" alt="" class="img">
+                                    <a href="/pay/buyCart?productId=${data[i].productId}">
+                                        <img src="${data[data.length - num].productPicInfo.picUrl}" alt="">
                                         <p class="name">${data[data.length - num].productName}</p>
                                         <p class="price">${data[data.length - num].price}元</p>
                                     </a>
@@ -472,7 +472,7 @@ $(function () {
                 }, function (data) {
                     main.boxInfo("interact-box", data, 1);
                 })
-                
+
                 $.getJSON("http://localhost:8080/eight/index/commentArticle",{
                     "artcleFine":1
                 },function (data){
