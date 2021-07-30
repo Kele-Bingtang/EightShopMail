@@ -1,0 +1,58 @@
+body{
+    background: #f8f8f6 ;
+    margin: 0;/*消除body中的留白*/
+    padding: 0;
+    text-align: center;
+}
+
+.update{
+    width: 500px;
+    height: 600px;
+    background: #FFF;
+    font-size: 8px;
+    margin: 0 auto;
+}
+
+.title3{
+    position: relative;
+    top: 20px;
+    font-size: 20px;
+    font-weight: lighter;
+    color: coral;
+}
+
+.detail{
+    line-height: 60px;
+}
+
+/*边框*/
+.input{
+    float: right;
+    margin-right: 100px;
+    border-color: azure;
+    height: 35px;
+    position: relative;
+    top: 30px;
+}
+
+
+/*选择地址的框外字体*/
+.label{
+    margin-left: 100px;
+    float: left;
+    /*height: 20px;*/
+    position: relative;
+    top: 20px;
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+/*收货地址的按钮*/
+.btn3{
+    position: relative;
+    top: 30px;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    color: coral;
+}
