@@ -57,4 +57,7 @@ public interface IMUserInfoService {
     UserInfo queryUserInfoById(Integer userInfoId);
 
     public List<User> queryUserList();
+
+    UserInfo queryUserInfoByUserId(Long userId);
+
 }

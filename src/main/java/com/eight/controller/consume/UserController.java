@@ -79,6 +79,9 @@ public class UserController {
         }else {
             user = (User) request.getSession().getAttribute(userId);
         }
+        if(user == null){
+            return userService.queryUserHead(Long.parseLong(isLoginHead));
+        }
         return userService.queryUserHead(user.getUserId());
     }
     //用户注册，添加注册的用户名cookie

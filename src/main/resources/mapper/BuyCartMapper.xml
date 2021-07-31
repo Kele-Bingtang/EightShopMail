@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.eight.mapper.BuyCartMapper">
+<mapper namespace="com.eight.mapper.consume.BuyCartMapper">
     <!--立即购买、加入购物车界面-->
-    <select id="viewBuyCart" parameterType="Long" resultMap="Product">
+    <select id="viewProduct" parameterType="Long" resultMap="Product">
         select *
         from product_pic_info ppi, product_info pi, product_warehouse pw
         where pi.product_id = ppi.product_id and pi.product_id = pw.product_id and pi.product_id = #{value}
@@ -20,10 +20,17 @@
     </resultMap>
 
     <!--立即购买，订单表插入数据-->
-    <insert id="insertOrder" parameterType="Long">
-        insert into order_detail(product_id,product_name,product_amount,product_price)
-        values (#{product_id},#{product_name},#{product_amount},#{price})
+    <insert id="addOrderDetail" parameterType="com.eight.bean.OrderDetail">
+        insert into order_detail(order_id,product_id,product_name,product_amount,product_price,free_money)
+        values (#{orderId},#{productId},#{productName},#{productAmount},#{productPrice},#{freeMoney})
     </insert>
 
-
+    <insert id="addOrderMaster" parameterType="com.eight.bean.OrderMaster" useGeneratedKeys="true" keyProperty="orderId">
+        insert into order_master(order_id, order_sn, user_id, shipping_user, province, city, district,
+         address, payment_method, order_money, district_money, shipping_money, payment_money,create_time,
+         shoppingMail_name, pay_time, order_point)
+        values (#{orderId}, #{orderSn}, #{userId}, #{shippingUser}, #{province}, #{city}, #{district},
+                #{address}, #{paymentMethod}, #{orderMoney}, #{districtMoney}, #{shippingMoney}, #{paymentMoney},
+                #{createTime},#{shoppingMailName}, #{payTime}, #{orderPoint})
+    </insert>
 </mapper>

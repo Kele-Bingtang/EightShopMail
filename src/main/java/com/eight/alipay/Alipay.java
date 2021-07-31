@@ -36,6 +36,7 @@ public class Alipay {
         String signType = alipayProperties.getSign_type();
         String returnUrl = alipayProperties.getReturn_url();
         String notifyUrl = alipayProperties.getNotify_url();
+        
         AlipayClient alipayClient = new DefaultAlipayClient(serverUrl, appId, privateKey, format, charset, alipayPublicKey, signType);
         // 2、设置请求参数
         AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
@@ -46,10 +47,12 @@ public class Alipay {
         //账户订单号
         String out_trade_no = new Date().getTime() + UUID.randomUUID().toString();
         alipayBean.setOut_trade_no(out_trade_no);
+
         // 封装参数
         alipayRequest.setBizContent(JSON.toJSONString(alipayBean));
         // 3、请求支付宝进行付款，并获取支付结果
         String result = alipayClient.pageExecute(alipayRequest).getBody();
+        System.out.println(result);
         // 返回付款信息
         return result;
     }

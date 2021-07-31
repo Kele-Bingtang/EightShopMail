@@ -48,6 +48,9 @@
     <select id="queryUserInfoById" resultType="com.eight.bean.UserInfo">
         select * from user_info ui,user u where ui.user_id=u.user_id and user_info_id = #{userInfoId}
     </select>
+    <select id="queryUserInfoByUserId" parameterType="long" resultType="com.eight.bean.UserInfo">
+        select * from user_info where user_id = #{userId}
+    </select>
 
 
 </mapper>

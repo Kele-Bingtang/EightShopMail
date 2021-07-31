@@ -76,4 +76,9 @@ public class MUserInfoServiceImpl implements IMUserInfoService {
     public List<User> queryUserList(){
         return imUserService.queryUserList();
     }
+
+    @Override
+    public UserInfo queryUserInfoByUserId(Long userId) {
+        return mUserInfoMapper.queryUserInfoByUserId(userId);
+    }
 }

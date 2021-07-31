@@ -3,15 +3,19 @@
     padding: 0;
     text-decoration: none;
 }
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
 .wrapper{
     position: relative;
+    width: 1068px;
+    margin: 0 auto;
 }
 .top{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,0%);
-    width: 900px;
+    width: 100%;
     height: 45px;
     border: 1px solid red;
     text-align: center;
@@ -20,16 +24,16 @@
 }
 .title li{
     float: left;
-    width: 15%;
     list-style: none;
-    padding: 10px 5px;
+    padding: 10px 15px;
     font-size: 20px;
+    margin: 0 40px;
 }
 .title>li>a{
     color: white;
 }
 .title>li>a:hover{
-    color: yellow;
+    color: #008cff;
 }
 input{  
     background:none;  
@@ -37,24 +41,24 @@ input{
     border:none;
 }
 .prod-card{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,10%);
-    width: 860px;
-    height:1000px;
-    /* border: 1px solid red; */
-    border: 1px solid #E8E8E8;
+    width: 100%;
     padding: 20px;
+    margin-top: 80px;
 }
 .prod-info{
-    margin-top: 0px;
+    margin-top: 0;
     float: right;
 }
-.img{
+.imgBox{
     float: left;
     display: inline;
     margin-top: 50px;
+    width: 360px;
+    height: 360px;
+}
+.imgBox>img{
+    width: 100%;
+    height: 100%;
 }
 .desc{
     font-size: 15px;
@@ -84,8 +88,143 @@ input{
     background-color: red;
 }
 .yunfei{
-    margin: 20px;
+    line-height: 24px;
+    color: #333;
+    position: relative;
     font-size: 12px;
+}
+.metatit{
+    color: #999;
+    font-size: 12px;
+    text-align: left;
+    float: left;
+    width: 50px;
+    margin: 0 10px;
+    line-height: 36px;
+}
+.postAge{
+    line-height: 18px;
+    padding: 9px 0;
+}
+.deliveryAdd{
+    margin: 0 6px 0 0;
+}
+.mui_addr_tri{
+    color: #333;
+    margin-right: -12px;
+    padding-right: 12px;
+    background: 0 0;
+    border: none;
+    position: relative;
+    z-index: 2;
+
+}
+.postAge-info{
+    color: #333;
+    padding: 0 5px 0 0;
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+.buy-info{
+    border-top: 1px solid #d5d5d5;
+    margin: -1px 20px 0 0;
+    padding: 10px 0;
+    position: relative;
+    overflow: hidden;
+    clear: both;
+    display: flex;
+}
+
+.info-icon{
+    float: left;
+    width: 33%;
+    text-align: center;
+    position: relative;
+    left: -1px;
+    border-left: 1px solid #e5dfda;
+    flex: 1;
+    line-height: 16px;
+}
+.buy-count{
+    margin-right: 50px;
+}
+.amount{
+    font-size: 12px;
+    margin: 0;
+    height: 26px;
+    border: 1px solid #a7a6ac;
+    width: 36px;
+    background-position: -406px -41px;
+    color: #666;
+    padding: 3px 2px 0 3px;
+}
+.amount-btn{
+    position: relative;
+    width: 18px;
+    height: 31px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.amount-border1{
+    display: inline-block;
+    width: 16px;
+    height: 12px;
+    border: 1px solid #a7a6ab;
+    position: relative;
+    top: -5px;
+    left: 2px;
+}
+.amount-border2{
+    display: inline-block;
+    width: 16px;
+    height: 12px;
+    border: 1px solid #a7a6ab;
+    position: absolute;
+    bottom: 3px;
+    left: 2px;
+
+}
+.amount-increase{
+    position: absolute;
+    top: 2px;
+    left: 1px;
+    display: inline-block;
+    border-bottom: 7px solid #a7a6ab;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+}
+.amount-decrease{
+    position: absolute;
+    top: 2px;
+    left: 1px;
+    display: inline-block;
+    border-top: 7px solid #a7a6ab;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+}
+.amount-info{
+    color: #878787;
+    margin-left: 35px;
+}
+.total-price{
+    color: #EC4846;
+    font-weight: bold;
+    cursor: pointer;
+}
+.sale-label{
+    display: inline-block;
+    line-height: 16px;
+    height: 16px;
+    color: #999;
+}
+.sale-count{
+    display: inline-block;
+    line-height: 16px;
+    height: 16px;
+    color: #FF0036;
+    font-weight: 700;
+    margin-left: 3px;
 }
 .sale{
     padding:10px;
@@ -97,6 +236,13 @@ input{
     border-left: none;
     border-right: none;
 }
+.address-label{
+    margin: 20px 0;
+
+}
+.address-info{
+    margin-top: 20px;
+}
 #addr-show{
     width: 300px;
 }
@@ -107,6 +253,9 @@ input{
 .d,.m,.f,.mi,.n,.provice,.city,.district,.addr{
     /*display: none;*/
 }
+form{
+    position: relative;
+}
 .buybtn{
     width: 200px;
     font-size: 20px;
@@ -116,18 +265,106 @@ input{
     float: left;
     padding: 6px;
     text-align: center;
-    margin: 20px 0;
     transition: 0.4s opacity;
-    margin-right: 15px;
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    outline: none;
+    cursor: pointer;
+    margin: -40px 15px 20px 0;
 }
 .addbtn{
     width: 200px;
     font-size: 20px;
     color: white;
-    background-color: #FF0036;
+    background-color: #008cff;
+    border: 1px solid #FF0036;
     float: left;
     padding: 6px;
     text-align: center;
-    margin: 20px 0;
     transition: 0.4s opacity;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    margin: -40px 15px 20px 0;
+}
+
+/*下拉菜单*/
+.address-box{
+    position: relative;
+    display: inline-block;
+}
+.select-title{
+    position: relative;
+    display: inline-block;
+}
+.unSelect,.address-input{
+    border-radius: 0 2px 2px 0;
+    display: block;
+    width: 200px;
+    padding-left: 10px;
+    border: 1px solid #c2c2c2;
+    height: 38px;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+    position: relative;
+}
+.address-input{
+    width: 100%;
+    cursor: text;
+    height: 60px;
+    line-height: 26px;
+    margin-top: -10px;
+}
+.selected{
+    background: #5FB878;
+    color: #fff;
+}
+.arrow{
+    border-top: 7px solid #c2c2c2;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -11px;
+    cursor: pointer;
+}
+.address-option{
+    position: absolute;
+    left: 0;
+    top: 59px;
+    z-index: 111;
+    min-width: 100%;
+    max-height: 0;
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0 0 0 .12);
+    box-sizing: border-box;
+
+}
+.address-option dd,.option-init,.no-data{
+    padding: 0 10px;
+    line-height: 36px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    font-size: 14px;
+}
+.option-init{
+    margin-left: 15px;
+}
+.addr-option{
+    border-radius: 0 2px 2px 0;
+    display: block;
+    width: 100%;
+    padding-left: 10px;
+    border: 1px solid #fff;
+    height: 38px;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 15px;
 }

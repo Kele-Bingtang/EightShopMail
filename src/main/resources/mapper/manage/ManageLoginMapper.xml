@@ -21,7 +21,7 @@
 
     <select id="queryManagePowerByParentCode" parameterType="string" resultType="com.eight.bean.ManagerPower">
         select mp2.* from manager_power mp1,manager_power mp2
-        where mp1.power_code = mp2.power_parent_code and mp1.power_code=#{powerCode}
+        where mp1.power_code = mp2.power_parent_code and mp1.power_code=#{powerCode}  order by manager_power_id
     </select>
 
     <resultMap id="queryManagerList" type="com.eight.bean.ManagerInfo" autoMapping="true">

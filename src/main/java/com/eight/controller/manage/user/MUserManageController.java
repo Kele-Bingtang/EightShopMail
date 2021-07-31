@@ -83,7 +83,7 @@ public class MUserManageController {
      * 通过id查询信息
      */
     @RequestMapping("/queryUserById")
-    public String queryUserById(int userId,Model model){
+    public String queryUserById(Long userId,Model model){
         User user = mUserService.queryUserById(userId);
         model.addAttribute("obj", user);
         return "manage/user/userPage";

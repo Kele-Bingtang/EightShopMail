@@ -63,5 +63,5 @@ public interface MUserInfoMapper {
      */
     public int queryUserInfoCount();
 
-
+    UserInfo queryUserInfoByUserId(Long userId);
 }

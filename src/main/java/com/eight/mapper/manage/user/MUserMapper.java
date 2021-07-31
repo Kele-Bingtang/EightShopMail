@@ -26,5 +26,5 @@ public interface MUserMapper {
 
     public int queryUserCount();
 
-    User queryUserById(Integer userId);
+    User queryUserById(Long userId);
 }

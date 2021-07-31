@@ -2,6 +2,7 @@ package com.eight.service.manage.user.impl;
 
 import com.eight.bean.Page;
 import com.eight.bean.User;
+import com.eight.bean.UserInfo;
 import com.eight.mapper.manage.user.MUserMapper;
 import com.eight.service.manage.user.IMUserService;
 import com.eight.utils.EnMsgType;
@@ -53,7 +54,7 @@ public class MUserServiceImpl implements IMUserService {
     }
 
     @Override
-    public User queryUserById(Integer userId) {
+    public User queryUserById(Long userId) {
         return mUserMapper.queryUserById(userId);
     }
 
@@ -61,4 +62,7 @@ public class MUserServiceImpl implements IMUserService {
     public User queryUserIdByUsername(String username) {
         return mUserMapper.queryUserIdByUsername(username);
     }
+
+
+
 }

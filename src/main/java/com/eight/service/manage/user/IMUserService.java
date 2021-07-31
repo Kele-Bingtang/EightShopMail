@@ -2,6 +2,7 @@ package com.eight.service.manage.user;
 
 import com.eight.bean.Page;
 import com.eight.bean.User;
+import com.eight.bean.UserInfo;
 
 import java.util.List;
 
@@ -52,7 +53,9 @@ public interface IMUserService {
      * @param userId 用户id
      * @return 用户
      */
-    User queryUserById(Integer userId);
+    User queryUserById(Long userId);
 
     public User queryUserIdByUsername(String username);
+
+
 }

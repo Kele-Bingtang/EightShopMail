@@ -17,7 +17,7 @@ public class OrderDetail {
     // 购买商品单价
     private BigDecimal productPrice;
     // 优惠金额
-    private BigDecimal feeMoney;
+    private BigDecimal freeMoney;
     // 最后修改时间
     private Timestamp modifiedTime;
 
@@ -33,7 +33,7 @@ public class OrderDetail {
         this.productName = productName;
         this.productAmount = productAmount;
         this.productPrice = productPrice;
-        this.feeMoney = feeMoney;
+        this.freeMoney = feeMoney;
         this.modifiedTime = modifiedTime;
     }
 
@@ -98,13 +98,13 @@ public class OrderDetail {
     }
 
     // 获取 优惠金额 的属性值
-    public BigDecimal getFeeMoney() {
-        return feeMoney;
+    public BigDecimal getFreeMoney() {
+        return freeMoney;
     }
 
     // 设置 优惠金额 的属性值
-    public void setFeeMoney(BigDecimal feeMoney) {
-        this.feeMoney = feeMoney;
+    public void setFreeMoney(BigDecimal freeMoney) {
+        this.freeMoney = freeMoney;
     }
 
     // 获取 最后修改时间 的属性值
@@ -127,7 +127,7 @@ public class OrderDetail {
                 ", productName='" + productName + '\'' +
                 ", productAmount='" + productAmount + '\'' +
                 ", productPrice='" + productPrice + '\'' +
-                ", feeMoney='" + feeMoney + '\'' +
+                ", feeMoney='" + freeMoney + '\'' +
                 ", modifiedTime='" + modifiedTime + '\'' +
                 "}";
     }
