@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>编辑信息</title>
+    <link href="/css/WcyUpdate.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="update">
+    <h2 class="title3">个人资料编辑</h2>
+    <form method="post" class="form">
+
+        <input type="hidden" name="user_info_id" th:value="${updateInfo.user_info_id}">
+        <input type="hidden" name="user_id" th:value="${updateInfo.user_id}">
+        <div class="detail">
+            <label for="user_name" class="label">昵 称： </label>
+            <input type="text" name="user_name" id="user_name" class="input" th:value="${updateInfo.user_name}"><br>
+
+            <label for="real_name" class="label">真实姓名：</label>
+            <input type="text" name="real_name" id="real_name" class="input" th:value="${updateInfo.real_name}"><br>
+
+            <label for="identity_card_type" class="label">证件类型：</label>
+            <input type="text" name="identity_card_type" id="identity_card_type" class="input" th:value="${updateInfo.identity_card_type}"><br>
+
+            <label for="identity_card_no" class="label">证件号码：</label>
+            <input type="text" name="identity_card_no" id="identity_card_no" class="input"  th:value="${updateInfo.identity_card_no}"><br>
+
+            <label for="user_sex" class="label">性 别： </label>
+            <input type="text" name="user_sex" id="user_sex" class="input"  th:value="${updateInfo.user_sex}"><br>
+
+            <label for="mobile_phone" class="label">电话号码：</label>
+            <input type="text" name="mobile_phone" id="mobile_phone" class="input"  th:value="${updateInfo.mobile_phone}"><br>
+
+            <label for=e="email" class="label">邮 箱： </label>
+            <input type="text" name="email" id=e="email" class="input" th:value="${updateInfo.email}"><br>
+            <input type="button" class="btn3" value="提交"></input>
+            <input type="button" class="btn3 btn31" value="返回"></input>
+<!--            <button class="btn3 btn31">返回</button>-->
+        </div>
+    </form>
+</div>
+
+<script src="/js/jquery-1.7.2.js"></script>
+<script src="/static/js/WcyUpdateInfo.js"></script>
+</body>
+</html>

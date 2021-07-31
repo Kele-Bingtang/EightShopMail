@@ -1,0 +1,212 @@
+body{
+    background: #f8f8f6 ;
+    margin: 0;/*消除body中的留白*/
+    padding: 0;
+    text-align: center;
+}
+
+.container{
+    width: 1000px;
+    height: 1000px;
+    background: #FFF;
+    font-size: 8px;
+    margin: 0 auto;/*侧边的自动值与宽度结合使用，可以将布局居中对齐*/
+    /* text-align: left; */
+}
+
+/*账户管理标题栏*/
+.header{
+    width: 92%;
+    height: 65px;
+    background-color: #8a90a3;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    line-height: 65px;
+}
+
+/*左侧边栏框*/
+.sidebar{
+    float: left;/*侧边栏居左，改为right可令侧边栏居右*/
+    width: 200px;
+    height: 490px;
+    border: outset;
+    font-size: 30px;
+    overflow: hidden;/*溢出隐藏*/
+    text-align: center;
+
+
+}
+
+/*头像*/
+.sidebar img{
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+}
+
+/*头像下的用户等级*/
+#level{
+    text-align: center;
+    border: none;
+    width: 20px;
+    font-size: 20px
+}
+
+/*左侧个人资料、收货地址*/
+.nav li{
+    cursor: pointer;/*鼠标变成抓手样式*/
+    list-style: none;
+    font-weight: lighter;/*字体变细*/
+    margin-top: 60px;
+    line-height: 30px;/*设置行距*/
+}
+
+/*右侧整体内容*/
+.content{
+    width: 70%;
+    height:490px;
+    float: left;
+    margin-left: 10px;
+
+    overflow: hidden;
+    border-style: outset;
+}
+
+
+/*个人资料整体*/
+.infodetail{
+    position: relative;
+    top: 30px;
+}
+
+.ID{
+    display: none;
+}
+
+/*标题个人资料*/
+.title1{
+    font-size: 25px;
+    font-weight: lighter;
+    margin-top: 15px;
+    color: coral;
+}
+
+/*个人资料的确定按钮*/
+.btn1{
+    position: relative;
+    top: -30px;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    color: coral;
+}
+
+/*个人资料info的左侧部分*/
+.infodetail_l{
+    margin-left: 30px;
+    float: left;
+    font-size: 14px;
+    width: 50%;
+    height: 370px;
+    line-height: 45px;/*设置行距*/
+}
+
+/*左侧部分框外字体*/
+.userId_label_l{
+    margin-left: 20px;
+    float: left;
+    /*height: 20px;*/
+    position: relative;
+    top: -10px;
+}
+
+/*左侧部分边框*/
+.userId_inp_l{
+    float: right;
+    margin-right: 80px;
+    border-color: azure;
+    height: 25px;
+}
+
+/*个人资料info的右侧部分*/
+.infodetail_r{
+    margin-right: 70px;
+    float: right;
+    height: 370px;
+    line-height: 45px;/*设置行距*/
+}
+
+/*右侧部分框外字体*/
+.userId_label_r{
+    float: left;
+    margin-right: 15px;
+    font-size: 14px;
+    position: relative;
+    top: -10px;
+}
+
+/*右侧部分边框*/
+.userId_inp_r{
+    float: right;
+    border-color: azure;
+    height: 25px;
+}
+
+/*收货地址*/
+.title2{
+    position: relative;
+    top: 12px;
+    font-size: 20px;
+    font-weight: lighter;
+    color: coral;
+}
+
+.addressdetail{
+    float: left;
+    margin-left: 60px;
+    position: relative;
+    top: 15px;
+    line-height: 50px;
+}
+
+/*收货人、电话、邮编的边框*/
+.address_box1{
+    width: 195px;
+    height: 30px;
+    border: inset azure;
+}
+
+/*选择地址*/
+.address_select{
+    width: 205px;
+    height: 38px;
+    border: inset azure;
+    position: relative;
+    left: -27px;
+}
+
+/*祥址的边框样式*/
+.address_box{
+    width: 500px;height: 40px;
+    border: inset azure;
+}
+
+/*收货地址的按钮*/
+.btn2{
+    position: relative;
+    top: 10px;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    color: coral;
+}
+
+/*选择地址的框外字体*/
+.address_lable{
+    font-size: 15px;
+    font-weight: lighter;
+    position: relative;
+    left: -25px;
+}
+
