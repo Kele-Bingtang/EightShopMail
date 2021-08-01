@@ -131,12 +131,12 @@
 }
 
 .wb {
-    background: url("../images/index/wb.png") no-repeat;
+    background: url("../../images/index/wb.png") no-repeat;
     background-size: cover;
 }
 
 .wx {
-    background: url("../images/index/wx.png") no-repeat;
+    background: url("../../images/index/wx.png") no-repeat;
     background-size: cover;
 }
 
@@ -150,11 +150,11 @@
 }
 
 .wb:hover {
-    background-image: url("../images/index/wb@2x.png");
+    background-image: url("../../images/index/wb@2x.png");
 }
 
 .wx:hover {
-    background-image: url("../images/index/wx@2x.png");
+    background-image: url("../../images/index/wx@2x.png");
 }
 
 .wx:hover + img {
@@ -330,5 +330,8 @@
     right: 50px;
     font-size: 24px;
 }
-
+.skip-person{
+    width: 100%;
+    height: 100%;
+}
 /*侧边栏结束*/

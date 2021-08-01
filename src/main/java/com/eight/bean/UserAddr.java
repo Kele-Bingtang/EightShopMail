@@ -1,5 +1,6 @@
 package com.eight.bean;
 
+import java.math.BigInteger;
 import java.sql.Timestamp;
 
 public class UserAddr {
@@ -7,7 +8,8 @@ public class UserAddr {
     private Long userAddrId;
     // 用户ID
     private Long userId;
-
+    // 邮编
+    private String zip;
     // 省份
     private String province;
     // 城市
@@ -16,6 +18,8 @@ public class UserAddr {
     private String district;
     // 具体的地址门牌号
     private String address;
+    // 手机号码
+    private BigInteger addressPhone;
     // 最后修改时间
     private Timestamp modifiedTime;
 
@@ -55,7 +59,15 @@ public class UserAddr {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
-    
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
     // 获取 省份的ID 的属性值
     public String getProvince() {
         return province;
@@ -96,6 +108,14 @@ public class UserAddr {
         this.address = address;
     }
 
+    public BigInteger getAddressPhone() {
+        return addressPhone;
+    }
+
+    public void setAddressPhone(BigInteger addressPhone) {
+        this.addressPhone = addressPhone;
+    }
+
     // 获取 最后修改时间 的属性值
     public Timestamp getModifiedTime() {
         return modifiedTime;
@@ -116,16 +136,20 @@ public class UserAddr {
     }
 
     // 重写toString方法，使用该方法可以在控制台打印属性的数据
+
     @Override
     public String toString() {
-        return "UserAddr {" +
-                ", userAddrId='" + userAddrId + '\'' +
-                ", userId='" + userId + '\'' +
+        return "UserAddr{" +
+                "userAddrId=" + userAddrId +
+                ", userId=" + userId +
+                ", zip='" + zip + '\'' +
                 ", province='" + province + '\'' +
                 ", city='" + city + '\'' +
                 ", district='" + district + '\'' +
                 ", address='" + address + '\'' +
-                ", modifiedTime='" + modifiedTime + '\'' +
-                "}";
+                ", addressPhone=" + addressPhone +
+                ", modifiedTime=" + modifiedTime +
+                ", User=" + User +
+                '}';
     }
 }

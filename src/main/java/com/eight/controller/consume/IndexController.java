@@ -5,6 +5,8 @@ import com.eight.bean.ProductInfo;
 import com.eight.service.consume.IIndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,14 +23,6 @@ public class IndexController {
     @ResponseBody
     public List<ProductInfo> queryAllProductInfo() {
         return indexService.queryAllProductInfo();
-    }
-
-    public List<ProductInfo> queryProductInfosByName(String productName) {
-        return null;
-    }
-
-    public ProductInfo queryProductInfoByName(String productName) {
-        return null;
     }
 
     @RequestMapping(value = "/catrgory/*", method = RequestMethod.GET)

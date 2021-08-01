@@ -63,14 +63,21 @@
     </select>
 
     <select id="queryAllUserInfoByUserId" parameterType="long" resultMap="queryAllUserInfo">
-        select * from user_info ui,user u,user_head uh,user_addr ua where ui.user_id = u.user_id and ui.user_id = uh.user_id
+        select * from user_info ui,user u,user_head uh,user_addr ua,user_level ul where ui.user_id = u.user_id and ui.user_id = uh.user_id
           and ui.user_id = ua.user_id and ui.user_id = #{userId}
+    </select>
+    <select id="queryUserLvel" parameterType="com.eight.bean.UserInfo" resultType="com.eight.bean.UserLevel">
+        select * from user_level ul,user_info ui where ui.user_level_id = ul.user_level_id and ui.user_level_id = #{userLevelId}
     </select>
 
     <resultMap id="queryAllUserInfo" type="com.eight.bean.UserInfo" autoMapping="true">
         <id property="userInfoId" column="user_info_id"/>
+        <result property="userId" column="user_id"/>
         <association property="user" column="user_id" javaType="com.eight.bean.User" autoMapping="true">
             <id property="userId" column="user_id"/>
+        </association>
+        <association property="userLevel" javaType="com.eight.bean.UserLevel" autoMapping="true">
+            <id property="userLevelId" column="user_level_id"/>
         </association>
         <collection property="userHeadList" ofType="com.eight.bean.UserHead" autoMapping="true">
             <id property="userHeadId" column="user_head_id"/>

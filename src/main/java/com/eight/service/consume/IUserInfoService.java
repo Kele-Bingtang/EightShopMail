@@ -1,5 +1,6 @@
 package com.eight.service.consume;
 
+import com.eight.bean.UserAddr;
 import com.eight.bean.UserInfo;
 
 
@@ -17,5 +18,6 @@ public interface IUserInfoService {
 
     int modifyPersonSecurity(UserInfo userInfo);
 
+    int modifyPersonAddress(UserAddr userAddr);
 }
 

@@ -2,6 +2,7 @@ package com.eight.mapper.manage.user;
 
 import com.eight.bean.Page;
 import com.eight.bean.UserInfo;
+import com.eight.bean.UserLevel;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -75,4 +76,6 @@ public interface MUserInfoMapper {
     int modifyPersonInfo(UserInfo userInfo);
 
     int modifyPersonSecurity(UserInfo userInfo);
+
+    UserLevel queryUserLvel(UserInfo userInfo);
 }

@@ -46,6 +46,8 @@ public class UserInfo {
     private List<UserHead> userHeadList;
     //用户地址
     private List<UserAddr> userAddrList;
+    //积分等级
+    private UserLevel userLevel;
 
     // 无参构造器
     public UserInfo() {
@@ -255,6 +257,14 @@ public class UserInfo {
         this.userHeadList = userHeadList;
     }
 
+    public UserLevel getUserLevel() {
+        return userLevel;
+    }
+
+    public void setUserLevel(UserLevel userLevel) {
+        this.userLevel = userLevel;
+    }
+
     public List<UserAddr> getUserAddrList() {
         return userAddrList;
     }
@@ -265,14 +275,16 @@ public class UserInfo {
 
     // 重写toString方法，使用该方法可以在控制台打印属性的数据
 
+
     @Override
     public String toString() {
         return "UserInfo{" +
                 "userInfoId=" + userInfoId +
                 ", userId=" + userId +
-                ", userName='" + username + '\'' +
+                ", username='" + username + '\'' +
                 ", realName='" + realName + '\'' +
                 ", identityCardType=" + identityCardType +
+                ", identityCardTypeStr='" + identityCardTypeStr + '\'' +
                 ", identityCardNo='" + identityCardNo + '\'' +
                 ", userSex='" + userSex + '\'' +
                 ", mobilePhone=" + mobilePhone +
@@ -281,8 +293,12 @@ public class UserInfo {
                 ", birthday=" + birthday +
                 ", userMoney=" + userMoney +
                 ", modifiedTime=" + modifiedTime +
-                ", userLevel=" + userLevelId +
+                ", userLevelId=" + userLevelId +
                 ", levelPoint=" + levelPoint +
+                ", user=" + user +
+                ", userHeadList=" + userHeadList +
+                ", userAddrList=" + userAddrList +
+                ", userLevel=" + userLevel +
                 '}';
     }
 }

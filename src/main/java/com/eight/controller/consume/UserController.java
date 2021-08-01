@@ -94,7 +94,6 @@ public class UserController {
         return user;
     }
 
-
     @RequestMapping("exitsLogin")
     @ResponseBody
     public void exitsLogin(String userId,HttpSession session,HttpServletResponse response,HttpServletRequest request){

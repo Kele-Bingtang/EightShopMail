@@ -40,6 +40,7 @@ public class ProductInfo {
     // 商品的评论
     private List<ProductComment> productComments;
 
+    private Integer totalRecord;
 
     // 无参构造器
     public ProductInfo() {
@@ -225,6 +226,14 @@ public class ProductInfo {
 
     public void setProductComments(List<ProductComment> productComments) {
         this.productComments = productComments;
+    }
+
+    public Integer getTotalRecord() {
+        return totalRecord;
+    }
+
+    public void setTotalRecord(Integer totalRecord) {
+        this.totalRecord = totalRecord;
     }
 
     // 重写toString方法，使用该方法可以在控制台打印属性的数据

@@ -573,15 +573,22 @@ $(function () {
             let headPortrait = $(".head-portrait")
             $(".login-head").css("display", "none");
 
-            let str = `<a href="http://localhost:8080/eight/userInfo/queryUserInfo?userId=${userId}" target="_blank">
+            let str = `<span class="skip-person">
                           <img src="/static/images/head/default.jpg" alt="">
-                        </a>`;
+                        </span>`;
+
             if(data !== null){
-                str = `<a href="http://localhost:8080/eight/userInfo/queryUserInfo?userId=${userId}" target="_blank">
+              /*  str = `<a href="http://localhost:8080/eight/userInfo/queryUserInfo?userId=${userId}" target="_blank">
                           <img src="${data.headUrl}" alt="">
-                        </a>`;
+                        </a>`;*/
+                str = `<span class="skip-person">
+                          <img src="${data.headUrl}" alt="">
+                        </span>`;
             }
             headPortrait.css("display", "block").attr("value", userId).append(str);
+            $(".skip-person").on("click",function (){
+                window.open( "http://localhost:8080/eight/userInfo/queryUserInfo?userId=" + userId);
+            })
         })
 
         //登陆和注册变成用户信息

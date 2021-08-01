@@ -3,6 +3,7 @@ package com.eight;
 import com.eight.bean.*;
 import com.eight.mapper.consume.IndexMapper;
 import com.eight.mapper.manage.ManageLoginMapper;
+import com.eight.mapper.manage.user.MUserInfoMapper;
 import com.eight.mapper.manage.user.MUserMapper;
 import com.eight.service.consume.Impl.UserServiceImpl;
 import org.assertj.core.data.Index;
@@ -19,13 +20,14 @@ import java.util.Map;
 class EightsmApplicationTests {
     @Autowired
     private UserServiceImpl userService;
-
     @Autowired
     private MUserMapper mUserMapper;
     @Autowired
     private ManageLoginMapper manageLoginMapper;
     @Autowired
     private IndexMapper indexMapper;
+    @Autowired
+    private MUserInfoMapper mUserInfoMapper;
     @Test
     void contextLoads() {
     }
@@ -68,5 +70,10 @@ class EightsmApplicationTests {
         for (ProductComment productComment : productComments) {
             System.out.println(productComment);
         }
+    }
+    @Test
+    public void text02(){
+        UserInfo userInfo = mUserInfoMapper.queryAllUserInfoByUserId(1L);
+        System.out.println(userInfo);
     }
 }

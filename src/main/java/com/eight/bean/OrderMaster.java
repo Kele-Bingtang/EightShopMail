@@ -50,6 +50,8 @@ public class OrderMaster {
 
     private ProductInfo productInfo;
 
+    private ProductPicInfo productPicInfo;
+
     // 无参构造器
     public OrderMaster() {
     }
@@ -297,6 +299,14 @@ public class OrderMaster {
 
     public void setProductInfo(ProductInfo productInfo) {
         this.productInfo = productInfo;
+    }
+
+    public ProductPicInfo getProductPicInfo() {
+        return productPicInfo;
+    }
+
+    public void setProductPicInfo(ProductPicInfo productPicInfo) {
+        this.productPicInfo = productPicInfo;
     }
 
     // 重写toString方法，使用该方法可以在控制台打印属性的数据

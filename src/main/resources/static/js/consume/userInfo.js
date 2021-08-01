@@ -22,19 +22,32 @@ $(function () {
        let yearAll = new Date().getFullYear();
        let year = '';
        for (let i = yearAll; i >= 1990; i--) {
-           year += `<dd data-value="${i}">${i}</dd>`
+           if($(".year-input").val() == i){
+               year += `<dd data-value="${i}" data-status="selected" class="selected">${i}</dd>`
+           }else {
+               year += `<dd data-value="${i}">${i}</dd>`
+           }
        }
        $(".option1").append(year)
+
    }
     selectYear();
   function selectMonth(){
       // 月份列表
       let month = '';
       for (var i = 1; i <= 12; i++) {
-          month += `<dd data-value="${i}">${i}</dd>`;
+          if($(".month-input").val() == i) {
+              month += `<dd data-value="${i}" data-status="selected" class="selected">${i}</dd>`;
+          }else {
+              month += `<dd data-value="${i}">${i}</dd>`;
+
+          }
       }
       $(".option2").append(month);
 
+      if($(".month-input").val()){
+          selectDay($(".month-input").val());
+      }
       $(".option2").children("dd").on("click",function (){
           selectDay($(this).attr("data-value"));
       })
@@ -70,11 +83,21 @@ $(function () {
       }
       let day = "";
       for (let i = 1; i <= dayCount; i++) {
-          day += `<dd data-value="${i}">${i}</dd>`
+          if($(".day-input").val() == i) {
+              day += `<dd data-value="${i}" data-status="selected" class="selected">${i}</dd>`
+          }else {
+              day += `<dd data-value="${i}">${i}</dd>`
+          }
       }
       $(".option3").empty().append(day);
   }
 
+    $(".to-index").on("click",function (){
+        if(window.opener){
+            window.self.close();
+            window.opener.location.reload();
+        }
+    })
 
 
 });

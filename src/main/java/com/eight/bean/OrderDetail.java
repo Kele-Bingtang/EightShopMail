@@ -21,6 +21,9 @@ public class OrderDetail {
     // 最后修改时间
     private Timestamp modifiedTime;
 
+    private ProductPicInfo productPicInfo;
+
+    private ProductInfo productInfo;
     // 无参构造器
     public OrderDetail() {
     }
@@ -117,18 +120,37 @@ public class OrderDetail {
         this.modifiedTime = modifiedTime;
     }
 
+    public ProductPicInfo getProductPicInfo() {
+        return productPicInfo;
+    }
+
+    public void setProductPicInfo(ProductPicInfo productPicInfo) {
+        this.productPicInfo = productPicInfo;
+    }
+
+    public ProductInfo getProductInfo() {
+        return productInfo;
+    }
+
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
+    }
+
     // 重写toString方法，使用该方法可以在控制台打印属性的数据
+
     @Override
     public String toString() {
-        return "OrderDetail {" +
-                ", orderDetailId='" + orderDetailId + '\'' +
-                ", orderId='" + orderId + '\'' +
-                ", productId='" + productId + '\'' +
+        return "OrderDetail{" +
+                "orderDetailId=" + orderDetailId +
+                ", orderId=" + orderId +
+                ", productId=" + productId +
                 ", productName='" + productName + '\'' +
-                ", productAmount='" + productAmount + '\'' +
-                ", productPrice='" + productPrice + '\'' +
-                ", feeMoney='" + freeMoney + '\'' +
-                ", modifiedTime='" + modifiedTime + '\'' +
-                "}";
+                ", productAmount=" + productAmount +
+                ", productPrice=" + productPrice +
+                ", freeMoney=" + freeMoney +
+                ", modifiedTime=" + modifiedTime +
+                ", productPicInfo=" + productPicInfo +
+                ", productInfo=" + productInfo +
+                '}';
     }
 }

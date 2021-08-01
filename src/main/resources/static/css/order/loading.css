@@ -1,0 +1,22 @@
+.wrapper{
+    position: relative;
+    left: 500px;
+    top: 200px;
+    width: 500px;
+    height: 300px;
+    text-align:center;
+}
+.tu{
+    width: 300px;
+    height: 200px;
+    text-align:center;
+}
+.button{
+    text-align:center;
+}
+.b{
+    width: 100px;
+    height: 25px;
+    background:linear-gradient(to right,rgb(0, 255, 149) 0%,rgb(90, 163, 205) 100%);
+    border: 0px;
+}

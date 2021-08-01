@@ -27,6 +27,7 @@
 
     <update id="modifyUserAddr" parameterType="com.eight.bean.UserAddr">
         update user_addr set zip=#{zip},province=#{province},city=#{city},district=#{district},address=#{address}
+           ,address_phone=#{addressPhone}
         where user_addr_id = #{userAddrId}
     </update>
 

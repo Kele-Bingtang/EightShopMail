@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+    <link rel="stylesheet" href="/static/css/commodities.css">
+</head>
+<body>
+<h2 class="head2"></h2>
+<input type="hidden" th:value="${pageName}" id="pageName"/>
+<input id="curPage" type="hidden" name="curPage" value="1">
+<input id="pageSize" type="hidden" name="pageSize" value="15">
+<input id="totalRecord" class="totalRecord" type="hidden" name="totalRecord" value="0">
+<input id="pic_infoList" type="hidden">
+<div class="main">
+    <div id="variety">
+        <ul id="conditions"></ul>
+    </div>
+    <div id="commodities">
+        <ul id="commodityList"></ul>
+    </div>
+    <div id="page">
+        <input id="firstPage" type="button" name="toPage" value="首页">
+        <input id="prePage" type="button" name="toPage" value="上一页">
+        <input id="nextPage" type="button" name="toPage" value="下一页">
+        <input id="lastPage" type="button" name="toPage" value="尾页">
+    </div>
+</div>
+
+</body>
+<script src="/static/js/consume/jquery-1.7.2.js"></script>
+<script src="/static/js/consume/commodities.js"></script>
+</html>

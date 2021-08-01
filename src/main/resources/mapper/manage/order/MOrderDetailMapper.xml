@@ -14,6 +14,7 @@
     </insert>
 
     <delete id="deleteOrderDetail" parameterType="com.eight.bean.OrderDetail">
+        delete from order_detail where order_detail_id = #{orderDetailId}
     </delete>
 
     <update id="modifyOrderDetail" parameterType="com.eight.bean.OrderDetail">

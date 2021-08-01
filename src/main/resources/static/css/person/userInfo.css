@@ -103,7 +103,9 @@ dd a{
     margin-top: 60px;
     line-height: 30px;/*设置行距*/
 }
-
+.level,.point{
+    margin-top: 10px;
+}
 /*右侧整体内容*/
 .main{
     float: left;
@@ -120,7 +122,13 @@ dd a{
     font-size: 12px;
 }
 
-
+.tx-point{
+    float: right;
+}
+.tx-img{
+    width: 120px;
+    height: 120px;
+}
 /*个人资料整体*/
 .info-main{
     position: relative;
@@ -149,8 +157,15 @@ dd a{
 .birthday-label,.identity-label{
     margin-top: 5px;
 }
+.identity-num-label{
+    margin-left: -100px;
+    margin-top: 5px;
+}
 .label-f{
     float: left;
+}
+.select-title{
+    margin-left: -20px;
 }
 #realName,#phoneNum,#email{
     height: 18px;
@@ -187,6 +202,8 @@ dd a{
     height: 30px;
     font-size: 15px;
     color: coral;
+    outline: none;
+    cursor: pointer;
 }
 .info-submit-btn{
     bottom: -100px;
@@ -296,6 +313,8 @@ dd a{
     height: 30px;
     font-size: 15px;
     color: coral;
+    outline: none;
+    cursor: pointer;
 }
 
 /*选择地址的框外字体*/
@@ -337,3 +356,7 @@ dd a{
     margin-bottom: 15px;
     position: relative;
 }
+.address-zip{
+    width: 200px;
+}
+
