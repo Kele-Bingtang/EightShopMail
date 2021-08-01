@@ -5,10 +5,6 @@
 		DELETE FROM order_master WHERE order_id =#{value}
     </delete>
 
-    <select id="viewOrder" resultMap="orderMap">
-		SELECT * FROM order_master
-	</select>
-
     <resultMap id="orderMap" type="com.eight.bean.OrderMaster">
         <id property="orderId" column="order_id"></id>
         <result property="orderSn" column="order_sn"></result>
@@ -32,12 +28,4 @@
         <result property="orderPoint" column="order_soint"></result>
         <result property="modifiedTime" column="modified_time"></result>
     </resultMap>
-
-    <select id="getOrderById" resultMap="orderMap" parameterType="string">
-		SELECT * FROM order_master WHERE orderId=#{value}
-	</select>
-
-
-
-
 </mapper>

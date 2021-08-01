@@ -15,5 +15,8 @@
     text-align:center;
 }
 .b{
-    background-color: steelblue;
+    width: 100px;
+    height: 25px;
+    background:linear-gradient(to right,rgb(0, 255, 149) 0%,rgb(90, 163, 205) 100%);
+    border: 0px;
 }

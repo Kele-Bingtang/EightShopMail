@@ -12,8 +12,8 @@
 
     <resultMap id="orderDetailMap" type="com.eight.bean.OrderDetail">
         <id property="orderDetailId" column="order_detail_id"></id>
-        <result property="orderId" column="order_id"></result>
-        <result property="productId" column="product_id"></result>
+        <id property="orderId" column="order_id"></id>
+        <id property="productId" column="product_id"></id>
         <result property="productName" column="product_name"></result>
         <result property="productAmount" column="product_amount"></result>
         <result property="productPrice" column="product_price"></result>
@@ -24,23 +24,27 @@
             <result property="productCore" column="product_core"></result>
             <result property="productName" column="product_name"></result>
             <result property="price" column="price"></result>
+            <result property="realPrice" column="real_price"></result>
+            <result property="publishStatus" column="publish_status"></result>
+            <result property="productionDate" column="production_pate"></result>
+            <result property="shelfLife" column="shelf_life"></result>
+            <result property="descript" column="descript"></result>
+            <result property="indate" column="indate"></result>
+            <result property="modifiedTime" column="modified_time"></result>
         </association>
         <association property="productPicInfo" column="productPicId" javaType="com.eight.bean.ProductPicInfo">
             <id property="productPicId" column="product_pic_id"></id>
-            <result property="productId" column="product_id"></result>
-            <result property="picUrl" column="product_url"></result>
+            <id property="productId" column="product_id"></id>
+            <result property="picUrl" column="pic_url"></result>
         </association>
     </resultMap>
 
-<!--    <select id="getOrderDetailById" resultMap="orderDetailMap" parameterType="string">-->
-<!--		SELECT * FROM order_detail WHERE order_id=#{value}-->
-<!--	</select>-->
-
-
     <select id="getOrderProductById" resultMap="orderDetailMap" parameterType="string">
             select pic.pic_url,o.order_id,p.product_id,
-            p.product_core,p.product_name,p.price
+            p.product_core,p.product_name,p.price,p.real_price,
+            p.publish_status,p.production_date,p.shelf_life,
+            p.descript,p.indate,p.modified_time
             from order_detail o,product_info p,product_pic_info pic
-            where o.product_id=p.product_id and p.product_id=pic.product_id and p.product_id=1
+            where o.product_id=p.product_id and p.product_id=pic.product_id and o.order_id=#{orderId}
     </select>
 </mapper>

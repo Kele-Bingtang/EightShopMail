@@ -2,14 +2,29 @@
     width: 800px;
     height: 600px;
     position: relative;
-    border: 1px solid #000000;
     margin: 0 auto;
+
+}
+.all2{
+    width: 800px;
+    height: 600px;
+    background-image: url(/images/else/tuihuo3.jpg);
+    opacity:0.8;
+    z-index:1;
+    background-size:800px 600px;
+    position: absolute;
 }
 .all{
     width: 800px;
     height: 600px;
-    position: absolute;
     left: 170px;
+    position:absolute;
+}
+.ce{
+    list-style: none;
+    position: absolute;
+    top: -16px;
+    left: -30px;
 }
 .port{
     width: 500px;
@@ -22,7 +37,7 @@
     width: 400px;
     height: 100px;
     top: 50px;
-    border: 1px solid #000000;
+    /* border: 1px solid #adadad; */
 }
 .desc{
     position: absolute;
@@ -34,7 +49,7 @@
 .ding{
     width: 800px;
     height: 32px;
-    background-color: gainsboro;
+    background-color: #EEEEEE;
     position: absolute;
 
 }
@@ -45,7 +60,7 @@ a{
     left: 100px;
     top: 50px;
     border-radius:5px;
-    border: 1px solid black;
+    border: 1px solid #CCCCCC;
     width: 297px;
     height: auto;
     position: absolute;
@@ -54,25 +69,27 @@ a{
     left: 100px;
     top: 100px;
     border-radius:5px;
-    border: 1px solid black;
+    border: 1px solid #CCCCCC;
     width: 305px;
     height: 20px;
     position: absolute;
+    color:gray;
 }
 .shu3{
     left: 100px;
     top: 150px;
     border-radius:5px;
-    border: 1px solid black;
+    border: 1px solid #CCCCCC;
     width: 305px;
     height: 20px;
     position: absolute;
+    color:gray;
 }
 .shu4{
     left: 100px;
     top: 200px;
     border-radius:5px;
-    border: 1px solid black;
+    border: 1px solid #CCCCCC;
     width: 297px;
     height: 20px;
     position: absolute;
@@ -81,7 +98,7 @@ a{
     left: 100px;
     top: 250px;
     border-radius:5px;
-    border: 1px solid black;
+    border: 1px solid #CCCCCC;
     width: 297px;
     height: 80px;
     position: absolute;
@@ -90,7 +107,7 @@ a{
     left: 100px;
     top: 380px;
     border-radius:5px;
-    border: 1px solid black;
+    border: 1px solid #CCCCCC;
     width: 305px;
     height: 20px;
     position: absolute;
@@ -127,7 +144,7 @@ a{
     position: absolute;
 }
 .p4{
-    top: 233px;
+    top: 258px;
     position: absolute;
 }
 .p5{
@@ -135,11 +152,13 @@ a{
     position: absolute;
 }
 .tijiao{
-    width: 100px;
-    height: auto;
+    width: 105px;
+    height: 23px;
     position: absolute;
     left: 301px;
     top: 360px;
-    background-color: red;
+    background:linear-gradient(to right,turquoise 0%,slateblue 100%);
     text-align: center;
+    border: 0px;
+    border-radius: 5px;
 }

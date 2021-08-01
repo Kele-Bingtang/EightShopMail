@@ -53,7 +53,5 @@ public interface ProductService {
      */
     public List<ProductInfo> queryProductInfoByBox(String boxName, String code);
 
-    ProductInfo getProductById(String productId);
-    List<ProductInfo> viewProduct();
-    ProductPicInfo getPicById(String productId);
+    ProductInfo viewProductById(String productId);
 }

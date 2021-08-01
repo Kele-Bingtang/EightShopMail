@@ -22,6 +22,7 @@ public class OrderDetailServiceImpl implements IOrderDetailService {
     public OrderDetail getOrderProductById(String orderId) {
         return orderDetailMapper.getOrderProductById(orderId);
     }
+
     @Override
     public void deleteOrderDetail(String orderId) {
         orderDetailMapper.deleteOrderDetail(orderId);

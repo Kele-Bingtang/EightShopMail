@@ -5,5 +5,4 @@ import com.eight.bean.OrderMaster;
 public interface IOrderService {
 
     void deleteOrder(String orderId);
-    OrderMaster getOrderById(String orderId);
 }

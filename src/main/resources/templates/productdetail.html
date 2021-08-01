@@ -3,39 +3,93 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Thymeleaf demo</title>
+    <style>
+        .table1{
+            background-color: gainsboro;
+            color:cadetblue;
+        }
+        .tab{
+            width: 800px;
+            height: 20px;
+
+        }
+        a{
+            color:cadetblue;
+            text-decoration: none;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table caption{
+            font-size: 2em;
+            font-weight: bold;
+            margin: 1em 0;
+        }
+
+        th,td{
+            border: 1px solid #999;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        table thead tr{
+            background-color: #008c8c;
+            color: #fff;
+        }
+
+        table tbody tr:nth-child(odd){
+            background-color: #eee;
+        }
+
+        table tbody tr:hover{
+            background-color: #ccc;
+        }
+
+        table tbody tr td:first-child{
+            color: #f40;
+        }
+
+        table tfoot tr td{
+            text-align: right;
+            padding-right: 20px;
+        }
+    </style>
 </head>
 <body>
+<div class="tab">
+    <a href="index"><h4><< 返回 </h4></a>
+</div>
 <table border="1">
-    <tr>
+    <thead>
+    <tr class="table1">
         <th>商品ID</th>
         <th>商品编码</th>
         <th>商品名称</th>
-        <th>一级分类ID</th>
-        <th>二级分类ID</th>
         <th>商品原价</th>
         <th>商品销售价格</th>
         <th>上下架状态</th>
-        <th>生产日期</th>
         <th>商品有效期</th>
         <th>商品描述</th>
         <th>商品录入时间</th>
         <th>最后修改时间</th>
     </tr>
-    <tr th:each="productInfo,productStat : ${productInfos}">
+    </thead>
+    <tbody>
+    <tr th:each="productInfo,productStat : ${orderDetail}">
         <td th:text="${productInfo.productId}"></td>
         <td th:text="${productInfo.productCore}"></td>
         <td th:text="${productInfo.productName}"></td>
-        <td th:text="${productInfo.oneCategoryId}"></td>
-        <td th:text="${productInfo.twoCategoryId}"></td>
         <td th:text="${productInfo.realPrice}"></td>
         <td th:text="${productInfo.price}"></td>
         <td th:text="${productInfo.publishStatus}"></td>
-        <td th:text="${productInfo.productionDate}"></td>
         <td th:text="${productInfo.shelfLife}"></td>
         <td th:text="${productInfo.descript}"></td>
         <td th:text="${productInfo.indate}"></td>
         <td th:text="${productInfo.modifiedTime}"></td>
     </tr>
+    </tbody>
 </table>
 </body>
 </html>

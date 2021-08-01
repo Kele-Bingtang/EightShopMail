@@ -10,7 +10,5 @@ import java.util.List;
 @Component
 public interface OrderMapper {
     void deleteOrder(String orderId);
-    OrderMaster getOrderById(String orderId);
-    List<OrderMapper> viewOrder();
 
 }

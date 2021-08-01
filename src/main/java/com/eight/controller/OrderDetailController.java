@@ -28,23 +28,14 @@ public class OrderDetailController {
         return "redirect:orderDetail";
     }
 
-
-    @GetMapping("loading")
-    public String loading(Model model){
-        return "loading";
-    }
-
     @GetMapping("getOrderProductById")
     public String getOrderProductById(String orderId, Model model) {
-        model.addAttribute("orderDetails", orderDetailService.getOrderProductById(orderId));
-//        商品信息
-        model.addAttribute("productCoreInfos", orderDetailService.getOrderProductById(orderId).getProductInfo().getProductCore());
-        model.addAttribute("productNameInfos", orderDetailService.getOrderProductById(orderId).getProductName());
-        model.addAttribute("productPrices", orderDetailService.getOrderProductById(orderId).getProductInfo().getPrice());
-
-//        图片
-        model.addAttribute("productPicInfos",orderDetailService.getOrderProductById(orderId).getProductPicInfo().getPicUrl());
-        System.out.println(orderDetailService.getOrderProductById(orderId).getProductPicInfo().getPicUrl());
-        return "orderDetail";
+        System.out.println(orderDetailService.getOrderProductById("1"));
+        model.addAttribute("orderDetails",orderDetailService.getOrderProductById("1"));
+        return "returnAndExchange";
+    }
+    @GetMapping("returnAndExchange")
+    public String returnAndExchange() {
+        return "returnAndExchange";
     }
 }

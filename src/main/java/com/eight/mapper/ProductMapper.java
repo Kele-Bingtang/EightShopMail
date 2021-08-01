@@ -44,8 +44,5 @@ public interface ProductMapper {
 
     public ProductInfo queryProductInfoBycode(String productCode);
 
-    ProductInfo getProductById(String productId);
-    List<ProductInfo> viewProduct();
-    ProductPicInfo getPicById(String productId);
-
+    ProductInfo viewProductById(String productId);
 }

@@ -65,19 +65,8 @@ public class ProductServiceImpl implements ProductService {
 
     }
 
-
     @Override
-    public ProductInfo getProductById(String productId) {
-        return productMapper.getProductById(productId);
-    }
-
-    @Override
-    public List<ProductInfo> viewProduct() {
-        return productMapper.viewProduct();
-    }
-
-    @Override
-    public ProductPicInfo getPicById(String productId) {
-        return productMapper.getPicById(productId);
+    public ProductInfo viewProductById(String productId) {
+        return productMapper.viewProductById(productId);
     }
 }

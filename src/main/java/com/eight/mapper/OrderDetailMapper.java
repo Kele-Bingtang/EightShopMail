@@ -12,4 +12,5 @@ public interface OrderDetailMapper {
     List<OrderDetail> orderDetail();
     OrderDetail getOrderProductById(String orderId);
     void deleteOrderDetail(String orderId);
+
 }

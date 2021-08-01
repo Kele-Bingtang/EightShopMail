@@ -5,6 +5,9 @@
     <select id="viewDeleteOrder" resultMap="deleteOrderMap">
 		SELECT * FROM delete_order
 	</select>
+    <select id="listOrderByName"  resultMap="deleteOrderMap" parameterType="com.eight.utils.OrderQuery" resultType="com.eight.bean.DeleteOrder">
+        select * from delete_order
+    </select>
 
     <resultMap id="deleteOrderMap" type="com.eight.bean.DeleteOrder">
         <id property="orderId" column="order_id"></id>
@@ -15,7 +18,6 @@
         <result property="returnState" column="return_state"></result>
     </resultMap>
 
-
     <insert id="saveRequestUser" parameterType="com.eight.bean.DeleteOrder">
         INSERT INTO delete_order VALUES(#{orderId},#{returnType},#{returnReason},#{returnPrice},#{returnDesc},#{returnState})
     </insert>
@@ -24,8 +26,6 @@
 		SELECT * FROM delete_order where order_id=#{orderId}
 	</select>
 
-
-<!--    动态-->
     <update id="returnDeleteOrder" parameterType="com.eight.bean.DeleteOrder">
 		UPDATE delete_order SET return_state=1 where order_id=#{orderId}
 	</update>

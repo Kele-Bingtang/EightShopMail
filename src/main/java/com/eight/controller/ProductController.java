@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller("productController")
-@RequestMapping("/product")
+@RequestMapping("/orderDetail")
 public class ProductController {
     @Autowired
     private ProductService productService;
@@ -53,25 +53,11 @@ public class ProductController {
         return productService.queryProductInfoByBox(boxName, code);
     }
 
-
-    @GetMapping("viewProduct")
-    public String viewProduct(HttpServletRequest request, HttpSession session) {
-        //把数据准备好，放入request作用域
-//        System.out.println(productService.getProductById()
-        request.setAttribute("productInfos", productService.viewProduct());
-        return "product";
+    @GetMapping("productDetail")
+    public String productDetail(String productId,Model model){
+        model.addAttribute("orderDetail",productService.viewProductById(productId));
+        return "productDetail";
     }
-    @GetMapping("getProductById")
-    public String getProductById(String productId, Model model) {
 
-        model.addAttribute("productIdInfos", productService.getProductById(productId).getProductId());
-//        商品信息
-        model.addAttribute("productCoreInfos", productService.getProductById(productId).getProductCore());
-        model.addAttribute("productNameInfos", productService.getProductById(productId).getProductName());
-        model.addAttribute("productPrices", productService.getProductById(productId).getPrice());
-//        图片
-        model.addAttribute("productPicInfos",productService.getPicById(productId).getPicUrl());
-        return "returnAndExchange";
-    }
 }
 

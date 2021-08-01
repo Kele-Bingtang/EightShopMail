@@ -1,64 +1,71 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--&lt;!&ndash;<form action="/orderDetail/returnDeleteOrder" method="get">&ndash;&gt;-->
-<!--    <div th:each="deleteOrder,deleteStat : ${deleteOrders}">-->
-
-<!--        <span th:text="${deleteOrder.order_id}"></span>-->
-<!--&lt;!&ndash;        <input type="text" th:value="${deldeteOrer.orderId}" name="order_id">&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;        <input type="text" th:value="${deleteOrder.returnType}" name="return_type">&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;        <input type="text" th:value="${deleteOrder.returnReason}" name="return_reason">&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;        <input type="text" th:value="${deleteOrder.returnPrice}" name="return_price">&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;        <input type="text" th:value="${deleteOrder.returnDesc}" name="return_desc">&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;        <input type="text" th:value="${deleteOrder.returnState}" name="return_state">&ndash;&gt;-->
-
-<!--    </div>-->
-<!--    <input type="button" value="保存">-->
-<!--&lt;!&ndash;</form>&ndash;&gt;-->
-<!--</body>-->
-<!--</html>-->
-
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>修改用户</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=drive-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        body{
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+        }
+        #login-box{
+            width: 20%;
+            height: auto;
+            margin: 0 auto;
+            margin-top: 15%;
+            text-align: center;
+            background:lightsteelblue;
+            padding: 20px 50px;
+            border-radius: 5px;
+        }
+        #login-box h2{
+            color:rebeccapurple;
+        }
+        #login-box .form .item input{
+            margin-top: 15px;
+        }
+        #login-box .form i{
+            font-size: 18px;
+            color: white;
+        }
+        #login-box .form .item input {
+            width: 180px;
+            font-size: 18px;
+            border: 0;
+            border-bottom: 2px solid#fff;
+            padding: 5px 10px;
+            background:#ffffff00;
+            color: black;
+        }
+        #login-box button{
+            margin-top: 15px;
+            width: 150px;
+            height: 30px;
+            font-size: 20px;
+            font-weight: 700;
+            color:lightgray;
+            background:linear-gradient(to right,turquoise 0%,slateblue 100%);
+            border: 0;
+            border-radius: 15px;
+            background-color:turquoise
+        }
+    </style>
 </head>
+<div id="login-box">
+    <h2>修改状态</h2>
+    <div class="form">
+        <div class="item">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            <input type="text" th:value="${modifyDeleteOrders.orderId}" name="orderId" placeholder="订单ID" readonly>
+        </div>
+        <div class="item">
+            <i class="fa fa-key" aria-hidden="true"></i>
+            <input type="text" th:value="${modifyDeleteOrders.returnState}" name="returnState" placeholder="状态">
+        </div>
+    </div>
+    <a href="viewDeleteOrder"><button class="btn">保存修改</button></a>
+</div>
 <body>
-<h3>修改状态</h3>
-<form action="/orderDetail/returnDeleteOrder" method="get">
-<table>
-    <td>
-        <label>状态：</label>
-    </td>
-    <td>
-        <label>
-            <input type="text" th:value="${modifyDeleteOrders.orderId}" name="orderId">
-        </label>
-    </td>
-    <td>
-        <label>
-            <input type="text" th:value="${modifyDeleteOrders.returnState}" name="returnState">
-        </label>
-    </td>
-    <td>
-        <input type="submit" value="提交">
-    </td>
-</table>
-</form>
 </body>
 </html>

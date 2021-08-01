@@ -3,6 +3,9 @@ package com.eight.service.Impl;
 import com.eight.bean.DeleteOrder;
 import com.eight.mapper.DeleteOrderMapper;
 import com.eight.service.IDeleteOrderService;
+import com.eight.utils.OrderQuery;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +36,12 @@ public class DeleteOrderImpl implements IDeleteOrderService {
     public void returnDeleteOrder(DeleteOrder deleteOrder) {
 
         deleteOrderMapper.returnDeleteOrder(deleteOrder);
+    }
+
+    @Override
+    public PageInfo<DeleteOrder> listOrderByName(OrderQuery orderQuery) {
+        PageHelper.startPage(orderQuery.getPageNum(),orderQuery.getPageSize());
+        return new PageInfo<DeleteOrder>(deleteOrderMapper.listOrderByName(orderQuery));
     }
 
 }

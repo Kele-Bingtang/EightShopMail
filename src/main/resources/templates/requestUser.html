@@ -3,29 +3,146 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Thymeleaf demo</title>
+    <style>
+        .wrapper{
+            position: relative;
+        }
+        .table1{
+            background-color: gainsboro;
+            color:cadetblue;
+        }
+        .tab{
+            width: 800px;
+            height: 20px;
+
+        }
+        a{
+            color:cadetblue;
+            text-decoration: none;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table caption{
+            font-size: 2em;
+            font-weight: bold;
+            margin: 1em 0;
+        }
+
+        th,td{
+            border: 1px solid #999;
+            text-align: center;
+            padding: 20px 0;
+        }
+        table thead tr{
+            background-color: #008c8c;
+            color: #fff;
+        }
+
+        table tbody tr:nth-child(odd){
+            background-color: #eee;
+        }
+
+        table tbody tr:hover{
+            background-color: #ccc;
+        }
+
+        table tbody tr td:first-child{
+            color: #f40;
+        }
+
+        table tfoot tr td{
+            text-align: right;
+            padding-right: 20px;
+        }
+        .fenye{
+            width: 800px;
+            height: 30px;
+            position: absolute;
+            margin-top: 400px;
+        }
+        .shang{
+
+            position: absolute;
+            left: 10px;
+        }
+        .yeshu{
+            position: absolute;
+            left: 80px;
+        }
+        .tiaozhuan{
+            position: absolute;
+            left: 270px;
+            top:-3px;
+        }
+        .xia{
+            position: absolute;
+            left: 420px;
+        }
+    </style>
 </head>
 <body>
-<table border="1">
-    <tr>
-        <th>订单ID</th>
-        <th>退款类型</th>
-        <th>退款原因</th>
-        <th>退款金额</th>
-        <th>退款说明</th>
-        <th>退款状态</th>
-    </tr>
-    <tr th:each="deleteOrder,deleteStat : ${deleteOrders}">
-        <td th:text="${deleteOrder.orderId}"></td>
-        <td th:text="${deleteOrder.returnType}"></td>
-        <td th:text="${deleteOrder.returnReason}"></td>
-        <td th:text="${deleteOrder.returnPrice}"></td>
-        <td th:text="${deleteOrder.returnDesc}"></td>
-        <td th:text="${deleteOrder.returnState}"></td>
-        <td>
-        <a th:href="@{deleteOrder(orderId=${deleteOrder.orderId})}">同意退货</a>
-        <a th:href="@{modifyDeleteOrder(orderId=${deleteOrder.orderId})}">修改状态</a>
-        </td>
-    </tr>
-</table>
+<div class="wrapper">
+    <div class="port">
+        <div class="tab">
+            <a href="orderDetail"> <h4><< 返回 </h4></a>
+        </div>
+        <table>
+            <thead>
+            <tr class="table1">
+                <th>订单ID</th>
+                <th>退款类型</th>
+                <th>退款原因</th>
+                <th>退款金额</th>
+                <th>退款说明</th>
+                <th>退款状态</th>
+                <th>退款操作</th>
+                <th>修改操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="deleteOrder : ${page.list}">
+                <td th:text="${deleteOrder.orderId}"></td>
+                <td th:text="${deleteOrder.returnType}"></td>
+                <td th:text="${deleteOrder.returnReason}"></td>
+                <td th:text="${deleteOrder.returnPrice}"></td>
+                <td th:text="${deleteOrder.returnDesc}"></td>
+                <td th:text="${deleteOrder.returnState}"></td>
+                <td>
+                    <a th:href="@{deleteOrder(orderId=${deleteOrder.orderId})}" class="return">同意退货</a>
+                </td>
+                <td>
+                    <a th:href="@{modifyDeleteOrder(orderId=${deleteOrder.orderId})}"class="State">修改状态</a>
+                </td>
+            </tr>
+            </tbody>
+    </div>
+    <div class="fenye">
+        <a th:href="@{/orderDetail/fenView/(pageNum=${page.pageNum-1})}" class="shang" th:unless="${page.isFirstPage}"><input type="button" value="上一页"></a>
+        <div class="yeshu">
+            第
+            <h8 th:text="${page.pageNum}">2</h8>
+            页 / 共
+            <h8 th:text="${page.pages}">4</h8>
+            页
+            共
+            <h8 th:text="${page.total}">29</h8>
+            条
+        </div>
+        <div class="tiaozhuan">
+            <form name="pageForm" th:action="@{/orderDetail/fenView/}" method="get">
+
+                <input type="text" name="pageNum" placeholder="页码"style="width:100px;height:15px;" required/>
+                <button type="submit" style="font-size: 11px;border: none;margin: 5px;padding: 0;" class="button mini">
+                    跳转
+                </button>
+            </form>
+        </div>
+        <a th:href="@{/orderDetail/fenView/(pageNum=${page.pageNum+1})}" class="xia" th:unless="${page.isLastPage}"><input type="button" value="下一页"></a>
+    </div>
+    </table>
+</div>
 </body>
 </html>

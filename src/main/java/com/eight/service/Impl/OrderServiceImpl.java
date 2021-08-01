@@ -17,11 +17,4 @@ public class OrderServiceImpl implements IOrderService {
     public void deleteOrder(String orderId) {
         orderMapper.deleteOrder(orderId);
     }
-
-    @Override
-    public OrderMaster getOrderById(String orderId) {
-        return orderMapper.getOrderById(orderId);
-    }
-
-
 }

@@ -24,3 +24,10 @@ logging:
     com:
       example:
         mapper : debug
+
+# pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

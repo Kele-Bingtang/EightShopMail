@@ -1,14 +1,21 @@
 package com.eight.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller("indexController")
+@RequestMapping("orderDetail")
 public class IndexController {
 
     @RequestMapping("index")
     private String indexUI(){
         return "index";
+    }
+
+    @GetMapping("loading")
+    public String loading(){
+        return "loading";
     }
 
     @RequestMapping("loginUser")
