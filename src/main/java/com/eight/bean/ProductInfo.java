@@ -38,6 +38,15 @@ public class ProductInfo {
     // 商品的评论
     private List<ProductComment> productComments;
 
+    private Integer totalRecord;
+
+    public Integer getTotalRecord() {
+        return totalRecord;
+    }
+
+    public void setTotalRecord(Integer totalRecord) {
+        this.totalRecord = totalRecord;
+    }
 
     // 无参构造器
     public ProductInfo() {

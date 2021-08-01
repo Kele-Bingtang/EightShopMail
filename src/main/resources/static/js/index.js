@@ -75,7 +75,7 @@ $(function () {
                 $(select).after(navHead);
                 var str = "";
                 for (let i = 0; i < 8; i++) {
-                    str += `<li><a href=\"#\"> 
+                    str += `<li><a href=\"#\">
                             <img src="${data[i].productPicInfo.picUrl}" alt="">
                             <p>${data[i].productName}</p>
                             <p>￥<span>${data[i].price}</span></p>
@@ -438,6 +438,5 @@ $(function () {
             })
 
         })
-
     }
 })
