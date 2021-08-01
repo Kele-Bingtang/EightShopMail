@@ -1,8 +1,6 @@
 package com.eight.bean;
 
 import java.sql.Timestamp;
-
-
 /**
  * @Author
  * @CreateTime 2021-07-22 11:35:47

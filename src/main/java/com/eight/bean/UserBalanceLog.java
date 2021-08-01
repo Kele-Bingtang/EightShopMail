@@ -2,7 +2,11 @@ package com.eight.bean;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
-
+/**
+ * @Author
+ * @CreateTime 2021-07-16 10:38:19
+ * @Version 1.0
+ */
 public class UserBalanceLog {
 	// 余额日志ID
 	private Long balanceId;

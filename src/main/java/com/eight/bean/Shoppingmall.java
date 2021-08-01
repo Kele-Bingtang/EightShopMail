@@ -1,5 +1,9 @@
 package com.eight.bean;
-
+/**
+ * @Author
+ * @CreateTime 2021-07-16 10:38:19
+ * @Version 1.0
+ */
 public class Shoppingmall {
 	// 商城ID
 	private Long shoppingMallId;

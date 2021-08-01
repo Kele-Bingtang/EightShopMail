@@ -1,7 +1,11 @@
 package com.eight.bean;
 
 import java.math.BigDecimal;
-
+/**
+ * @Author
+ * @CreateTime 2021-07-16 10:38:19
+ * @Version 1.0
+ */
 public class HourseAppDetail {
 	// 详细id
 	private Integer hDetailId;
