@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/static/css/reset.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/static/css/select.css">
+    <link href="/static/css/userInfo.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<form action="">
+    <div class="security-list">
+        <h2 class="title1">安全设置</h2>
+        <div class="info-main">
+            <div class="info-item">
+                <span class="label">用户名：</span>
+                <div class="label-f"><strong>kele</strong></div>
+            </div>
+            <div class="info-item">
+                <span class="label">手机号：</span>
+                <div class="label-f">
+                    <input type="text" id="phoneNum" maxlength="20" name="" autocomplete="off">
+                </div>
+            </div>
+            <div class="info-item">
+                <span class="label">邮箱：</span>
+                <div class="label-f">
+                    <input type="text" id="email" maxlength="20" name=""  autocomplete="off">
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span class="label identity-label">证件类型：</span>
+                <div class="label-f">
+                    <div class="birthday-box">
+                        <div class="address-select">
+                            <div class="address-box">
+                                <div class="address-info" style="">
+                                    <div class="select-title">
+                                        <input type="text" placeholder="请选择" value="" readonly class="unSelect">
+                                        <i class="arrow"></i>
+                                    </div>
+                                    <dl class="option">
+                                        <dd data-value="1">身份证</dd>
+                                        <dd data-value="2">军官证</dd>
+                                        <dd data-value="3">护照证</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                            <input type="text" placeholder="请输入证件号"  class="identityNum">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <input type="button" class="security-submit-btn" value="提交">
+
+        </div>
+
+    </div>
+
+</form>
+
+
+<!--先导入jQuery，再导入js文件，顺序有要求-->
+<script src="/static/js/consume/jquery-1.7.2.js"></script>
+<script src="/static/js/consume/userInfo.js"></script>
+<script src="/static/js/consume/WcyUpdateInfo.js"></script>
+<script src="/static/js/consume/select.js"></script>
+</body>
+</html>

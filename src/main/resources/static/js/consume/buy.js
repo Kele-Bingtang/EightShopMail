@@ -11,7 +11,7 @@ $(function(){
         var pri = $(".price").text();
         var total = pri * num;
         $(".total").text(total.toFixed(2));
-        var price = $(".total").text(total.toFixed(2)).text();
+        var price = $(".total-price").text(total.toFixed(2)).text();
         $(".f").val(price);
         JSON.stringify($(".f").val(price));
         $(".n").val(num);
@@ -33,47 +33,6 @@ $(function(){
         getTotalPrice(num);
     });
 
-
-    //模拟下拉菜单，出现和隐藏，添加滑动动画
-    for (let i = 0; i < $(".unSelect").length; i++) {
-        $(".unSelect").eq(i).on("click",function (){
-            selectAnim($(this));
-        })
-        $(".arrow").eq(i).on("click",function (){
-            selectAnim($(this));
-        })
-    }
-    //触发下拉菜单显示
-    function selectAnim(ele){
-        let option = $(ele).parent().next()
-        $(".unSelect").not($(ele)).parent().next().css({
-            "max-height":"0",
-            "padding":"0",
-            "border": "0",
-            "transition": "all .1s"
-        })
-        if(option.children("dd").length <= 0){
-            option.remove("p")
-            option.html("<span class='no-data'>无数据</span>")
-        }else {
-            option.remove("span");
-        }
-        if(option.css("height") == "0" || option.css("height") == "0px" ){
-            option.css({
-                "max-height":"300px",
-                "padding":"5px 0",
-                "border": "1px solid #d2d2d2",
-                "transition": "all .3s"
-            });
-        }else {
-            option.css({
-                "max-height":"0",
-                "padding":"0",
-                "border": "0",
-                "transition": "all .3s"
-            });
-        }
-    }
 
     var utils = {
         getCookie(key) {
@@ -104,6 +63,7 @@ $(function(){
 
     $(".user-id").val(utils.getCookie("isLoginHead"))
 
+
     $(".buybtn").on("click",function (){
         $.ajax({
             url:"http://localhost:8080/eight/alipay",
@@ -120,6 +80,5 @@ $(function(){
             }
         })
     })
-
 
 })

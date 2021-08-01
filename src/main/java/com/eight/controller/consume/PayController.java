@@ -74,8 +74,6 @@ public class PayController {
             }
             orderHashMap.put(name, valueStr);
         }
-        System.out.println(alipayProperties.getPublicKey());
-        System.out.println(alipayProperties.getCharset());
         //调用支付宝SDK，进行验签
         boolean signVerified = AlipaySignature.rsaCheckV1(orderHashMap, alipayProperties.getPublicKey(), alipayProperties.getCharset(), alipayProperties.getSign_type());
         //判断是否支付成功

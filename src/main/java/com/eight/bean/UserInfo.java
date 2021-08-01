@@ -40,10 +40,12 @@ public class UserInfo {
     private Integer userLevelId;
     // 积分数
     private Integer levelPoint;
-
+    // 用户信息
     private User user;
     //用户头像
     private List<UserHead> userHeadList;
+    //用户地址
+    private List<UserAddr> userAddrList;
 
     // 无参构造器
     public UserInfo() {
@@ -251,6 +253,14 @@ public class UserInfo {
 
     public void setUserHeadList(List<UserHead> userHeadList) {
         this.userHeadList = userHeadList;
+    }
+
+    public List<UserAddr> getUserAddrList() {
+        return userAddrList;
+    }
+
+    public void setUserAddrList(List<UserAddr> userAddrList) {
+        this.userAddrList = userAddrList;
     }
 
     // 重写toString方法，使用该方法可以在控制台打印属性的数据

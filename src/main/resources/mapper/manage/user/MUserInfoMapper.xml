@@ -27,9 +27,19 @@
     </delete>
 
     <update id="modifyUserInfo" parameterType="com.eight.bean.UserInfo">
-        update user_info set username = #{username},real_name = #{realName},identity_card_no = #{identityCardNo}
-                           ,user_sex = #{userSex},mobile_phone = #{mobilePhone},email = #{email}
-                           ,birthday = #{birthday} where user_info_id = #{userInfoId}
+        update user_info set user_id=#{userId}, username=#{username},real_name=#{realName}
+           ,identity_card_type=#{identityCardType},identity_card_no=#{identityCardNo}
+           ,user_sex=#{userSex},mobile_phone=#{mobilePhone},email=#{email},birthday = #{birthday}
+        where user_info_id=#{userInfoId}
+    </update>
+    <update id="modifyPersonInfo" parameterType="com.eight.bean.UserInfo">
+        update user_info set real_name=#{realName},user_sex=#{userSex},birthday = #{birthday}
+        where user_info_id=#{userInfoId}
+    </update>
+    <update id="modifyPersonSecurity">
+        update user_info set identity_card_type=#{identityCardType},identity_card_no=#{identityCardNo}
+                           ,mobile_phone=#{mobilePhone},email=#{email}
+        where user_info_id=#{userInfoId}
     </update>
 
     <select id="queryUserInfoPage" resultType="com.eight.bean.UserInfo" >
@@ -52,5 +62,22 @@
         select * from user_info where user_id = #{userId}
     </select>
 
+    <select id="queryAllUserInfoByUserId" parameterType="long" resultMap="queryAllUserInfo">
+        select * from user_info ui,user u,user_head uh,user_addr ua where ui.user_id = u.user_id and ui.user_id = uh.user_id
+          and ui.user_id = ua.user_id and ui.user_id = #{userId}
+    </select>
+
+    <resultMap id="queryAllUserInfo" type="com.eight.bean.UserInfo" autoMapping="true">
+        <id property="userInfoId" column="user_info_id"/>
+        <association property="user" column="user_id" javaType="com.eight.bean.User" autoMapping="true">
+            <id property="userId" column="user_id"/>
+        </association>
+        <collection property="userHeadList" ofType="com.eight.bean.UserHead" autoMapping="true">
+            <id property="userHeadId" column="user_head_id"/>
+        </collection>
+        <collection property="userAddrList" ofType="com.eight.bean.UserAddr" autoMapping="true">
+            <id property="userAddrId" column="user_addr_id"/>
+        </collection>
+    </resultMap>
 
 </mapper>

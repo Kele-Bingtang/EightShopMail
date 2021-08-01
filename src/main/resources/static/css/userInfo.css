@@ -1,19 +1,56 @@
 body{
-    background: #f8f8f6 ;
-    margin: 0;/*消除body中的留白*/
-    padding: 0;
-    text-align: center;
+    text-align: left;
+    background: #fff;
 }
 
 .container{
-    width: 1000px;
-    height: 1000px;
-    background: #FFF;
-    font-size: 8px;
+    display: block;
+    width: 1110px;
     margin: 0 auto;/*侧边的自动值与宽度结合使用，可以将布局居中对齐*/
-    /* text-align: left; */
+    height: 800px;
 }
 
+/*导航栏*/
+.nav{
+    background: #8a90a3;
+    width: 100%;
+    height: 80px;
+}
+.navitems{
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    padding: 10px 0;
+    margin: 13px 0 0 40px;
+}
+.item{
+    float: left;
+    margin: 0 40px
+}
+.item>a{
+    color: #fff;
+}
+#option{
+    height: 28px;
+    line-height: 28px;
+    color: #333;
+    font-weight: 700;
+    margin-top: 10px;
+}
+dl,.dl dd{
+    display: block;
+    font-size: 14px;
+}
+#option dd{
+    padding: 10px;
+}
+.aside-item>dl dd{
+    color: #666;
+    line-height: 24px;
+}
+dd a{
+    color: #777;
+}
 /*账户管理标题栏*/
 .header{
     width: 92%;
@@ -27,15 +64,11 @@ body{
 
 /*左侧边栏框*/
 .sidebar{
-    float: left;/*侧边栏居左，改为right可令侧边栏居右*/
-    width: 200px;
-    height: 490px;
-    border: outset;
-    font-size: 30px;
-    overflow: hidden;/*溢出隐藏*/
-    text-align: center;
-
-
+    float: left;
+    width: 120px;
+    position: relative;
+    left: 20px;
+    display: block;
 }
 
 /*头像*/
@@ -54,7 +87,16 @@ body{
 }
 
 /*左侧个人资料、收货地址*/
-.nav li{
+
+.aside-item{
+    float: left;
+    width: 120px;
+}
+.aside-content{
+    width: 100px;
+    padding-left: 10px;
+}
+.aside-content li{
     cursor: pointer;/*鼠标变成抓手样式*/
     list-style: none;
     font-weight: lighter;/*字体变细*/
@@ -63,19 +105,24 @@ body{
 }
 
 /*右侧整体内容*/
-.content{
-    width: 70%;
-    height:490px;
+.main{
     float: left;
-    margin-left: 10px;
-
+    height: 630px;
+    width: 900px;
     overflow: hidden;
-    border-style: outset;
+    background-color: #fff;
+}
+.content{
+    padding-left: 60px;
+    padding-top: 20px;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 12px;
 }
 
 
 /*个人资料整体*/
-.infodetail{
+.info-main{
     position: relative;
     top: 30px;
 }
@@ -83,7 +130,46 @@ body{
 .ID{
     display: none;
 }
+.info-item{
+    display: block;
+    margin-bottom: 20px;
+    line-height: 30px;
+    height: 30px;
+}
+.label{
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    padding: 6px 0;
+    width: 100px;
+    text-align: right;
+    color: #666;
+}
 
+.birthday-label,.identity-label{
+    margin-top: 5px;
+}
+.label-f{
+    float: left;
+}
+#realName,#phoneNum,#email{
+    height: 18px;
+    width: 127px;
+    padding: 5px 23px 5px 5px;
+    line-height: 18px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    outline: none;
+}
+
+.sex{
+    vertical-align: -2px;
+    margin: 0 3px 0 0;
+    padding: 0;
+}
+.sex-label{
+    margin-right: 10px;
+}
 /*标题个人资料*/
 .title1{
     font-size: 25px;
@@ -93,17 +179,21 @@ body{
 }
 
 /*个人资料的确定按钮*/
-.btn1{
-    position: relative;
-    top: -30px;
+.security-submit-btn,.info-submit-btn{
+    position: absolute;
+    bottom: -140px;
+    left: 50px;
     width: 100px;
     height: 30px;
     font-size: 15px;
     color: coral;
 }
+.info-submit-btn{
+    bottom: -100px;
 
+}
 /*个人资料info的左侧部分*/
-.infodetail_l{
+.info-form{
     margin-left: 30px;
     float: left;
     font-size: 14px;
@@ -160,6 +250,7 @@ body{
     font-size: 20px;
     font-weight: lighter;
     color: coral;
+    margin-bottom: 20px;
 }
 
 .addressdetail{
@@ -172,9 +263,14 @@ body{
 
 /*收货人、电话、邮编的边框*/
 .address_box1{
-    width: 195px;
-    height: 30px;
-    border: inset azure;
+    height: 18px;
+    width: 127px;
+    padding: 5px 23px 5px 5px;
+    line-height: 18px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    outline: none;
+
 }
 
 /*选择地址*/
@@ -208,5 +304,36 @@ body{
     font-weight: lighter;
     position: relative;
     left: -25px;
+    text-align: right;
+
 }
 
+/*下拉菜单*/
+.address-box{
+    margin-left: 20px;
+}
+.unSelect{
+    width: 150px;
+}
+.address-option{
+    top: 37px;
+}
+.address-option dd{
+    white-space: normal;
+}
+
+#address-input{
+    margin-top: 20px;
+}
+
+.identityNum{
+    border-radius: 0 2px 2px 0;
+    display: block;
+    width: 400px;
+    padding-left: 10px;
+    border: 1px solid #c2c2c2;
+    height: 38px;
+    outline: none;
+    margin-bottom: 15px;
+    position: relative;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/static/css/reset.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/static/css/select.css">
+    <link href="/static/css/userInfo.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<form id="person-form">
+    <div class="person-list">
+        <h2 class="title1">个人资料</h2>
+        <div class="info-main">
+            <div class="info-item">
+                <span class="label">用户名：</span>
+                <div class="label-f"><strong th:text="${userInfo.username}"></strong></div>
+            </div>
+            <div class="info-item">
+                <span class="label">登录名：</span>
+                <div class="label-f"><strong th:text="${userInfo.username}"></strong></div>
+            </div>
+            <div class="info-item">
+                <span class="label">真实姓名：</span>
+                <div class="label-f">
+                    <input type="text" id="realName" maxlength="20" name="realName" th:value="${userInfo.realName}}">
+                </div>
+            </div>
+            <div class="info-item">
+                <span class="label">性别：</span>
+                <div class="label-f">
+                    <input  type="radio" name="userSex" class="sex" id="man" value="0">
+                    <label for="man" class="sex-label">男</label>
+                    <input type="radio" name="userSex" id="woman" value="0">
+                    <label for="woman" class="sex-label">女</label>
+                    <input type="radio" name="userSex" id="secret" value="1">
+                    <label for="secret" class="sex-label">保密</label>
+                </div>
+            </div>
+            <div class="info-item">
+                <span class="label birthday-label">生日：</span>
+                <div class="label-f">
+
+                    <div class="birthday-box">
+                        <div class="address-select">
+                            <div class="address-box">
+                                <div class="address-info" style="">
+                                    <div class="select-title">
+                                        <input type="text" name="year" placeholder="请选择" value="" readonly class="unSelect">
+                                        <i class="arrow"></i>
+                                    </div>
+                                    <dl class="option option1"></dl>
+                                </div>
+                            </div>
+                            <label>年</label>
+
+                            <div class="address-box">
+                                <div class="address-info" style="">
+                                    <div class="select-title">
+                                        <input type="text" name="month" placeholder="请选择" value="" readonly class="unSelect">
+                                        <i class="arrow"></i>
+                                    </div>
+                                    <dl class="option option2">
+                                    </dl>
+                                </div>
+                            </div>
+                            <label>月</label>
+                            <div class="address-box">
+                                <div class="address-info" style="">
+                                    <div class="select-title">
+                                        <input type="text" name="day" placeholder="请选择" value="" readonly class="unSelect">
+                                        <i class="arrow"></i>
+                                    </div>
+                                    <dl class="option option3"></dl>
+                                </div>
+                            </div>
+                            <label>日</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <input type="button" class="info-submit-btn" value="提交">
+
+            </div>
+        </div>
+
+
+    </div>
+</form>
+<!--先导入jQuery，再导入js文件，顺序有要求-->
+<script src="/static/js/consume/jquery-1.7.2.js"></script>
+<script src="/static/js/consume/userInfo.js"></script>
+<script src="/static/js/consume/WcyUpdateInfo.js"></script>
+<script src="/static/js/consume/select.js"></script>
+<script>
+    $(function (){
+        $(".info-submit-btn").on("click",function (){
+            $.ajax({
+                url:""
+            })
+        })
+    })
+</script>
+</body>
+</html>

@@ -11,7 +11,7 @@ import java.util.List;
 public interface MUserInfoMapper {
 
     /**
-     * 通过用户信息名查询用户信息
+     * 通过用户名查询用户信息
      * @param userInfo 用户信息
      * @return 用户信息
      */
@@ -63,5 +63,16 @@ public interface MUserInfoMapper {
      */
     public int queryUserInfoCount();
 
+    /**
+     * 通过用户id查询数据
+     * @param userId
+     * @return
+     */
     UserInfo queryUserInfoByUserId(Long userId);
+
+    UserInfo queryAllUserInfoByUserId(Long userId);
+
+    int modifyPersonInfo(UserInfo userInfo);
+
+    int modifyPersonSecurity(UserInfo userInfo);
 }

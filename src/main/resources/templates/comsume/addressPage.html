@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>地址管理</title>
+    <link href="/static/css/reset.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/static/css/select.css">
+    <link href="/static/css/userInfo.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="address-list">
+    <h2 class="title2">请填写收货地址</h2>
+    <div class="addressdetail">
+        <!--收货人-->
+        <div class="info-item">
+            <label for="name" class="address_lable">收货人：</label><input type="text" id="name" class="address_box1" autocomplete="off">
+        </div>
+
+        <!--收货电话-->
+        <div class="info-item">
+             <label for="phone" class="address_lable">电 话 ：</label><input type="text" id="phone" class="address_box1" autocomplete="off">
+        </div>
+        <div class="address-select">
+            <div class="address-select">
+                <div class="address-box">
+                    <div class="address-info" style="">
+                        <div class="select-title">
+                            <input type="text" placeholder="请选择" value="" readonly class="unSelect address-unSelect">
+                            <i class="arrow"></i>
+                        </div>
+                        <dl id="prov" class="option address-option" onclick="showCity(this)">
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="address-box">
+                    <div class="address-info" style="">
+                        <div class="select-title">
+                            <input type="text" placeholder="请选择" value="" readonly class="unSelect address-unSelect">
+                            <i class="arrow"></i>
+                        </div>
+                        <dl id="city" class="option address-option" onclick="showCountry(this)">
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="address-box">
+                    <div class="address-info" style="">
+                        <div class="select-title">
+                            <input type="text" placeholder="请选择" value="" readonly class="unSelect address-unSelect">
+                            <i class="arrow"></i>
+                        </div>
+                        <dl id="country" class="option address-option">
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="address-detail">
+                    <div class="address-info" style="">
+                        <div class="input-title">
+                            <textarea id="address-input" placeholder="请输入详细地址" class="area ddress-input"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!--邮编填写-->
+        <label for="zip" class="address_lable">邮 编 ：</label>
+        <input type="text" id="zip" class="address_box1" style="position: relative;left: -26px"><br>
+
+
+        <!--确定按钮-->
+        <input type="button" class="btn2 met2" onClick="showAddr()" id="button-show" value="确定" >
+    </div>
+</div>
+
+<script src="/static/js/consume/jquery-1.7.2.js"></script>
+<script src="/static/js/consume/userInfo.js"></script>
+<script src="/static/js/consume/WcyUpdateInfo.js"></script>
+<script src="/static/js/consume/city.js"></script>
+<script src="/static/js/consume/method.js"></script>
+</body>
+</html>

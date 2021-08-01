@@ -572,12 +572,17 @@ $(function () {
         }, function (data) {
             let headPortrait = $(".head-portrait")
             $(".login-head").css("display", "none");
-            headPortrait.on("click", function () {
-                window.open("http://localhost:8080/eight/user/index");
-            })
-            headPortrait.css("display", "block").attr("value", userId).children("img").attr("src", data.headUrl);
-        })
 
+            let str = `<a href="http://localhost:8080/eight/userInfo/queryUserInfo?userId=${userId}" target="_blank">
+                          <img src="/static/images/head/default.jpg" alt="">
+                        </a>`;
+            if(data !== null){
+                str = `<a href="http://localhost:8080/eight/userInfo/queryUserInfo?userId=${userId}" target="_blank">
+                          <img src="${data.headUrl}" alt="">
+                        </a>`;
+            }
+            headPortrait.css("display", "block").attr("value", userId).append(str);
+        })
 
         //登陆和注册变成用户信息
         $("#user-operator1").attr({
@@ -607,6 +612,7 @@ $(function () {
                         localStorage.removeItem("isLoginHead")
                     }
                     $(".header-user-cart").removeAttr("value");
+                    $(".head-portrait").empty().css("display","none").off("click");
                     window.location.reload();
                 })
             } else {

@@ -80,7 +80,7 @@ public class UserController {
             user = (User) request.getSession().getAttribute(userId);
         }
         if(user == null){
-            return userService.queryUserHead(Long.parseLong(isLoginHead));
+            return userService.queryUserHead((Long) request.getSession().getAttribute("isLoginHead"));
         }
         return userService.queryUserHead(user.getUserId());
     }
