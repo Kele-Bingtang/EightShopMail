@@ -172,7 +172,7 @@ $(function () {
                 var str = "";
                 for (let i = 0; i < 8; i++) {
                     str += `<li>
-                                <a href="/eight/viewProduct?productId=${data[i].productId}" target="_blank"> 
+                                <a href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}" target="_blank"> 
                                     <img src="${data[i].productPicInfo.picUrl}" alt="">
                                     <p>${data[i].productName}</p>
                                     <p>￥<span>${data[i].price}</span></p>
@@ -251,7 +251,7 @@ $(function () {
                 var str = "";
                 for (let i = 0; i < data.length; i++) {
                 str += `<li data-value="${data[i].productId}">
-                                <a href="/eight/viewProduct?productId=${data[i].productId}" target="_blank">
+                                <a href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}" target="_blank">
                                      <img src="${data[i].productPicInfo.picUrl}" alt="" class="img">
                                      <p class="name">${data[i].productName}</p>
                                     <p class="desc">${data[i].descript}</p>
@@ -288,7 +288,7 @@ $(function () {
                 var str = "";
                 for (let i = 0; i < data.length - num; i++) {
                     str += ` <li class="${ele}${i + 1}">
-                            <a href="/eight/viewProduct?productId=${data[i].productId}" target="_blank">
+                            <a href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}" target="_blank">
                                 <img src="${data[i].productPicInfo.picUrl}" alt="" class="img">
                                 <p class="name">${data[i].productName}</p>
                                 <p class="desc">${data[i].descript}</p>
@@ -300,7 +300,7 @@ $(function () {
                     for (let i = 0; i < num; i++) {
                         str += `<li class="last-item ${ele}${data.length}">
                                 <div>
-                                    <a href="/eight/viewProduct?productId=${data[i].productId}">
+                                    <a href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}">
                                         <img src="${data[data.length - num].productPicInfo.picUrl}" alt="">
                                         <p class="name">${data[data.length - num].productName}</p>
                                         <p class="price">${data[data.length - num].price}元</p>

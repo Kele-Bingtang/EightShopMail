@@ -210,7 +210,7 @@ function CreateCommodities(ele, data) {
         if (i % 3 === 0 && i !== 0) {
             str += '<br/>'
         }
-        str += `<li><a id=${commodityId} href=\"#\">
+        str += `<li><a id=${commodityId} href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}" target="_blank">
                             <img id=${pId} src="${data[i].productPicInfo.picUrl}" alt="">
                             <p id=${nId}>${data[i].productName}</p>
                             <p>￥<span id=${price_id}>${data[i].price}</span></p>
