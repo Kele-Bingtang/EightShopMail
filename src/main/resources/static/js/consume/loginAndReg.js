@@ -266,7 +266,7 @@ $(function () {
                 data: $(".main-form").serialize(),
                 dataType: "json",
                 success: function (data) {
-                    window.location.href = "http://localhost:8080/userLoginAndReg/loginUser.html"
+                    window.location.href = "../../userLoginAndReg/loginUser.html"
                 }
             })
         }
