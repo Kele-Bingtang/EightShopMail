@@ -22,6 +22,13 @@ $(function () {
                     //取消选中
                     if ($(this).css("background-position") !== "0% 0%" && $(this).css("background-position") !== "0px 0px") {
                         $(this).css("background-position", "0 0");
+                        $(this).children("#remember").val(0);
+                    } else {
+                        //选中
+                        $(this).css("background-position", "-39px -25px");
+                        $(this).children("#remember").val(1);
+                    }
+                })
                         $(this).children("#remember").attr("value",0);
                     } else {
                         //选中
@@ -142,6 +149,7 @@ $(function () {
                     }).children("p").text("用户名不合法！");
                     return false;
                 } else {
+                    $.getJSON("http://localhost:8080/user/queryUsername", {"username": inpValue}, function (data) {
                     $.getJSON("http://localhost:8080/eight/user/queryUsername", {"username": inpValue}, function (data) {
                         if (data === null) {
                             $(".reg-username-tip").css({
@@ -266,6 +274,23 @@ $(function () {
     // 登陆的操作，1.判断用户名密码是否正确，2.判断是否启用记住状态
     $(".login-btn").on("click", function () {
         $.ajax({
+            url: "http://localhost:8080/user/login",
+            type: "POST",
+            data: $("#main-form").serialize(),
+            dataType: "json",
+            success: function (data) {
+                console.log(data)
+                if (utils.getCookie('loginInfo-Error')) {
+                    $(".tip-box").css("display", "table").children(".tip-font").text(utils.getCookie('loginInfo-Error'));
+                } else if (utils.getCookie('loginInfo-Success')) {
+                    if (window.opener) {
+                        window.self.close();
+                        window.opener.location.reload();
+                    } else {//为空则跳转首页
+                        window.location.href = "http://localhost:8080/index";
+                    }
+                } else {
+                    $(".tip-box").css("display", "none").children(".tip-font").text("");
             url: "http://localhost:8080/eight/user/login",
             type: "POST",
             data: $("#main-form").serialize(),
@@ -316,6 +341,7 @@ $(function () {
     }
     if (utils.getCookie("rememberLogin")) {
         $(".login-password").val(utils.getCookie("rememberLogin"));
+        $(".checkBox").css("background-position", "-39px -25px").attr("value", "1");
     }
     if(localStorage.getItem("rememberLogin")){
         $(".checkBox").css("background-position", "-39px -25px").children("#remember").attr("value", "1");
@@ -330,17 +356,28 @@ $(function () {
         if (tipInfo.regUsernameTip(regUser.val()) && tipInfo.regPasswordTip(regPassword.val())
             && tipInfo.regRePasswordTip(regRePassword.val(), regPassword.val()) && codeInput.val() === "xplm") {
             $.ajax({
+                url: "http://localhost:8080/user/register",
                 url: "http://localhost:8080/eight/user/register",
                 type: "POST",
                 data: $(".main-form").serialize(),
                 dataType: "json",
                 success: function (data) {
+                    window.location.href = "../../userLoginAndReg/loginUser.html"
                     window.location.href = "http://localhost:8080/eight/userLoginAndReg/loginUser.html"
                 }
             })
         }
         if (regUser.val().length === 0) {
             $(".reg-username-tip").css("display", "block").children("p").text("用户名不能为空！");
+        }
+        if (regPassword.val().length === 0) {
+            $(".reg-password-tip").css("display", "block").children("p").text("密码不能为空！");
+        }
+        if (regRePassword.val().length === 0) {
+            $(".reg-re-password-tip").css("display", "block").children("p").text("确认密码不能为空！");
+        }
+        if (codeInput.val() !== "xplm") {
+            $(".code-info").css("display", "block").children("p").text("验证码错误！");
             status.shake("reg-username-tip");
         }
         if (regPassword.val().length === 0) {

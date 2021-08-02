@@ -24,18 +24,21 @@ $(document).ready(function () {
     }else if(pageName==="parts"){
         oneCategoryId="16"
     }
+    $.getJSON("http://localhost:8080/view/getCategory", {
     $.getJSON("http://localhost:8080/eight/view/getCategory", {
         "categoryId": oneCategoryId
     }, function (data) {
         CreateVariety_Category("variety", data);
     })
     if(pageName==="book"){
+        $.getJSON("http://localhost:8080/view/getDetail", {
         $.getJSON("http://localhost:8080/eight/view/getDetail", {
             "pageName": pageName,
         }, function (data) {
             CreateVariety_Detail("variety", data);
         })
     }
+    $.getJSON("http://localhost:8080/redirectPage/init", {
     $.getJSON("http://localhost:8080/eight/redirectPage/init", {
         "pageName": pageName,
         "oneCategoryId":oneCategoryId,
@@ -62,6 +65,7 @@ $("input[name='toPage']").click(function () {
     } else if (this.id === "lastPage") {
         curPage.val(totalPage);
     }
+    $.getJSON("http://localhost:8080/redirectPage/limit", {
     $.getJSON("http://localhost:8080/eight/redirectPage/limit", {
         "pageName": pageName,
         "oneCategoryId":oneCategoryId,
@@ -118,6 +122,7 @@ $("#variety").on("click", ".condition", function () {
         conLen++;
     });
     curPage.val(1);
+    $.getJSON("http://localhost:8080/redirectPage/updateCom", {
     $.getJSON("http://localhost:8080/eight/redirectPage/updateCom", {
         "pageName": pageName,
         "oneCategoryId":oneCategoryId,
@@ -202,6 +207,7 @@ function CreateCommodities(ele, data) {
     var nId;
     var price_id;
     totalRecord.val(data[0].totalRecord);
+    for (let i = 0; i < pageSize&&i<data.length; i++) {
     for (let i = 0; i < pageSize; i++) {
         commodityId = "commodity_" + i;
         pId = "pic_" + i;
@@ -210,6 +216,7 @@ function CreateCommodities(ele, data) {
         if (i % 3 === 0 && i !== 0) {
             str += '<br/>'
         }
+        str += `<li><a id=${commodityId} href=\"#\">
         str += `<li><a id=${commodityId} href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}" target="_blank">
                             <img id=${pId} src="${data[i].productPicInfo.picUrl}" alt="">
                             <p id=${nId}>${data[i].productName}</p>
@@ -236,6 +243,7 @@ function CreateVariety_Category(ele, data) {
     var str = "";
     var tmp;
     str += `<li>类型:`;
+
     for (var i = 0; i < data.length; i++) {
         tmp = "two_category_id_" + i;
         str += `<input id=${tmp} class="condition" type="button" name="condition" value=${data[i].categoryName} data=${data[i].categoryId}>`
