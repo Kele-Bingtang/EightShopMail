@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>物流信息</title>
+    <link href="/static/css/viewLogistics.css" rel="stylesheet">
+</head>
+<body>
+<div class="part">
+    <header> <p th:text="${message}"></p>
+        <div th:each="logistics:${Logistics}">
+            <span th:text="${logistics.message}"></span>
+        </div>
+
+        <ul class="explain">
+            <li>待揽件</li>
+            <li>运输</li>
+            <li>派送</li>
+            <li>驿站代取</li>
+            <li>取件</li>
+        </ul>
+    </header>
+    <div class="pickUp">
+        <p style="font-size: 10px">待取件</p>
+        <div class="mainstay">
+            <div class="status-box">
+                <ul class="status-list">
+                    <li>
+                        <div class="status-content-before">您的订单开始处理</div>
+                        <div class="status-time-before">2021-05-17 23:31 周四</div>
+                        <div class="status-line"></div>
+                    </li>
+                    <li>
+                        <div class="status-content-before">卖家发货</div>
+                        <div class="status-time-before">2021-05-18 09:11 周五</div>
+                        <div class="status-line"></div>
+                    </li>
+                    <li>
+                        <div class="status-content-before">发往广西中转站</div>
+                        <div class="status-time-before">2021-05-19 01:21 周六</div>
+                        <div class="status-line"></div>
+                    </li>
+                    <li>
+                        <div class="status-content-before">到达南宁</div>
+                        <div class="status-time-before">2021-05-19 06:21 周六</div>
+                        <div class="status-line"></div>
+                    </li>
+                    <li>
+                        <div class="status-content-before">快递发往桂林中转站</div>
+                        <div class="status-time-before">2021-05-19 09:21 周六</div>
+                        <div class="status-line"></div>
+                    </li>
+                    <li>
+                        <div class="status-content-before">快递到达桂林中转站</div>
+                        <div class="status-time-before">2021-05-20 14:16 周日</div>
+                        <div class="status-line"></div>
+                    </li>
+                    <li class="latest">
+                        <div class="status-content-latest">快递到达收货地址附近的菜鸟驿站</div>
+                        <div class="status-time-latest">2021-05-20 14:16 周日</div>
+                        <div class="status-line"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="pickUp-footer">
+            <ul>
+                <li id="yizhan">代收驿站:</li>
+                <li>营业时间：周一至周五10点到21点</li>
+                <li>驿站电话：13077610083</li>
+                <li>收货地址：获取用户的收货地址</li>
+            </ul>
+        </div>
+    </div>
+    <div class="downside">
+        <img src="/images/book042.jpg" alt="图片正在加载">
+    </div>
+</div>
+</body>
+</html>

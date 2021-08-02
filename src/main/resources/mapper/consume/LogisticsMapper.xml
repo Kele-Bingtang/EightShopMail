@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.consume.logisticsMapper">
+
+    <insert id="insertLogistics" parameterType="com.eight.bean.Logistics">
+        insert into Logistics(user_id,order_id,message)values(#{user_id},#{order_id},#{message})
+    </insert>
+
+    <resultMap id="LogisticsMap" type="com.eight.bean.Logistics">
+        <id property="userId" column="user_id"/>
+        <id property="orderId" column="order_id"/>
+        <result property="message" column="message"/>
+        <result property="currentTime" column="current_time"/>
+    </resultMap>
+
+    <select id="getLogistics" resultMap="LogisticsMap">
+        select * from Logistics where user_id=#{user_id} and order_id=#{order_id}
+    </select>
+</mapper>

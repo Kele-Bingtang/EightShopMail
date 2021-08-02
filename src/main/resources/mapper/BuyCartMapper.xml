@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.eight.mapper.consume.BuyCartMapper">
+
     <!--立即购买、加入购物车界面-->
     <select id="viewProduct" parameterType="Long" resultMap="Product">
         select *
@@ -33,4 +34,9 @@
                 #{address}, #{paymentMethod}, #{orderMoney}, #{districtMoney}, #{shippingMoney}, #{paymentMoney},
                 #{createTime},#{shoppingMailName}, #{payTime}, #{orderPoint})
     </insert>
+
+    <update id="modifyProductWarehouse" parameterType="com.eight.bean.ProductWarehouse">
+        update product_warehouse set current_cnt=current_cnt+#{currentCnt},product_sales=product_sales-#{productSales},product_sell_price=product_sell_price+#{productSellPrice}
+        where product_id = #{productId}
+    </update>
 </mapper>

@@ -10,7 +10,8 @@
     </select>
 
     <insert id="addUserLoginLog" parameterType="com.eight.bean.UserLoginLog">
-
+        insert into user_login_log(user_id, login_time, login_ip, login_type)
+        values (#{userId},#{loginTime},#{loginIp},#{loginType})
     </insert>
 
     <delete id="deleteUserLoginLog" parameterType="com.eight.bean.UserLoginLog">

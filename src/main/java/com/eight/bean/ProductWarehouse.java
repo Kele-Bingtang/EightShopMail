@@ -9,9 +9,9 @@ public class ProductWarehouse {
     // 商品ID
     private Long productId;
     // 当前商品数量
-    private Long currentCnt;
+    private Integer currentCnt;
     // 当前商品销量
-    private Long productSales;
+    private Integer productSales;
     // 当前商品卖出价格
     private BigDecimal productSellPrice;
     // 最后修改时间
@@ -22,7 +22,7 @@ public class ProductWarehouse {
     }
 
     // 有参构造器，进行属性值的初始化
-    public ProductWarehouse(Long pwId, Long productId, Long currentCnt, Long productSales, BigDecimal productSellPrice, Timestamp modifiedTime) {
+    public ProductWarehouse(Long pwId, Long productId, Integer currentCnt, Integer productSales, BigDecimal productSellPrice, Timestamp modifiedTime) {
         this.pwId = pwId;
         this.productId = productId;
         this.currentCnt = currentCnt;
@@ -52,22 +52,22 @@ public class ProductWarehouse {
     }
 
     // 获取 当前商品数量 的属性值
-    public Long getCurrentCnt() {
+    public Integer getCurrentCnt() {
         return currentCnt;
     }
 
     // 设置 当前商品数量 的属性值
-    public void setCurrentCnt(Long currentCnt) {
+    public void setCurrentCnt(Integer currentCnt) {
         this.currentCnt = currentCnt;
     }
 
     // 获取 当前商品销量 的属性值
-    public Long getProductSales() {
+    public Integer getProductSales() {
         return productSales;
     }
 
     // 设置 当前商品销量 的属性值
-    public void setProductSales(Long productSales) {
+    public void setProductSales(Integer productSales) {
         this.productSales = productSales;
     }
 

@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+.wrapper{
+    position: relative;
+    background-color: #E5E5E5;
+    top: 100px;
+    margin: auto;
+    width: 1000px;
+    height:400px;
+    display: flex;
+}
+.remain{
+    font-size: 40px;
+    position: absolute;
+    left: 550px;
+    color: red;
+}
+
+.backdrop{
+    position:absolute;
+    width:100%;
+    height: 100%;
+    left:0;
+    top:0;
+    z-index:-1;
+}
+
+
+img{
+    display: inline;
+}
+.pro{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,10%);
+    width: 1000px;
+    height:100%;
+    padding: 20px;
+}
+.all{
+    position: absolute;
+    margin: auto;
+    left: 720px;
+    top: 50px;
+}
+.return{
+    position: absolute;
+    left: 50px;
+    font-size: 20px;
+    text-decoration: none;
+    color: blue;
+    top:35px
+}
+
+/* 商品信息框 */
+.productinfo{
+    border: 1px solid red;
+    width:90%;
+    height: 300px;
+    transform: translate(-50%,-50%);
+    position: relative;
+    flex: 1;
+    left: 50%;
+    top: -20%;
+}
+.describe{
+    position: absolute;
+    left: 250px;
+    top: 30%;
+    height: 200px;
+    width: 300px;
+}
+.price{
+    position: absolute;
+    left: 70px;
+    top: 240px;
+    color: red;
+}
+
+
+.review{
+    position: absolute;
+    height: 70px;
+    width: 70px;
+
+    right: 80px;
+    top: 32%;
+    display: flex;
+}
+.review li{
+    margin: auto;
+    list-style: none;
+    margin: auto;
+    flex: 1;
+    left: 30px;
+}
+img{
+    position: absolute;
+    margin-top: 30px;
+    height: 200px;
+    left: 20px;
+}

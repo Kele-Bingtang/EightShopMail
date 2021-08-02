@@ -45,8 +45,7 @@ public class DateUtil {
 
     public static void main(String[] args) {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        Timestamp timestamp1 = timestamp1DBefor(timestamp);
-        System.out.println(timestamp1);
+        System.out.println(timestamp);
 
     }
 

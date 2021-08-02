@@ -21,9 +21,14 @@ public class OrderDetail {
     // 最后修改时间
     private Timestamp modifiedTime;
 
+    //在这里添加商品图片详情信息表
     private ProductPicInfo productPicInfo;
-
+    //根据订单id找到Order_master表中一些需要的数据
+    private OrderMaster orderMaster;
+    //获取该商品的描述
     private ProductInfo productInfo;
+    //根据用户的id查看该用户的订单
+    private UserInfo userInfo;
     // 无参构造器
     public OrderDetail() {
     }
@@ -134,6 +139,22 @@ public class OrderDetail {
 
     public void setProductInfo(ProductInfo productInfo) {
         this.productInfo = productInfo;
+    }
+
+    public OrderMaster getOrderMaster() {
+        return orderMaster;
+    }
+
+    public void setOrderMaster(OrderMaster orderMaster) {
+        this.orderMaster = orderMaster;
+    }
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
     }
 
     // 重写toString方法，使用该方法可以在控制台打印属性的数据

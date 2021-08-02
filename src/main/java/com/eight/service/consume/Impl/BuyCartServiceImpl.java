@@ -1,9 +1,6 @@
 package com.eight.service.consume.Impl;
 
-import com.eight.bean.OrderDetail;
-import com.eight.bean.OrderMaster;
-import com.eight.bean.ProductInfo;
-import com.eight.bean.UserInfo;
+import com.eight.bean.*;
 import com.eight.mapper.consume.BuyCartMapper;
 import com.eight.mapper.consume.UserMapper;
 import com.eight.mapper.manage.user.MUserInfoMapper;
@@ -64,5 +61,12 @@ public class BuyCartServiceImpl implements IBuyCartService {
         }else {
             System.out.println("插入失败");
         }
+        //销量增加，库存减少
+        ProductWarehouse productWarehouse = new ProductWarehouse();
+        productWarehouse.setProductId(productInfo.getProductId());
+        productWarehouse.setCurrentCnt(orderDetail.getProductAmount());
+        productWarehouse.setProductSales(orderDetail.getProductAmount());
+        productWarehouse.setProductSellPrice(orderDetail.getProductPrice());
+        buyCartMapper.modifyProductWarehouse(productWarehouse);
     }
 }

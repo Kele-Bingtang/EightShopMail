@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>Product Card</title>
+        <link rel="stylesheet" href="/static/css/order/myorders.css">
+    </head>
+<body>
+    <div class="overall">
+    <a class="return" href="#">返回</a>
+    <span class="remain" th:text="${remain}"></span><!--当该用户没有购买商品时显示-->
+    <div th:each="order : ${Orders}">
+        <div class="wrapper">
+            <div class="pro">
+                <div class="productinfo">
+                        <img th:src="${order.productPicInfo.picUrl}"alt="图片无法访问">
+                            <div class="describe">
+                                <span th:text="${order.productInfo.descript}"></span>
+                            </div>
+                            <div class="price">
+                                <span th:text="${order.productInfo.price}"></span>
+                            </div>
+                            <div class="review">
+                                <ul>
+                                    <li><a href="#">快递状态</a></li>
+                                    <li><a href="#">订单详情</a></li>
+                                    <li><p  th:href="@{getLogistics(orderId=${order.orderId})}"><a th:href="@{propic(orderId=${order.orderId})}">查看物流</a></p></li>
+                                    <li><a href="@{propic(orderId=${order.orderId})}">退货</a></li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/static/js/consume/jquery-1.7.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".return").mouseover(function () {
+                $(this).css("color", "red");
+            })
+            $(".return").mouseout(function () {
+                $(this).css("color", "blue");
+            })
+        })
+    </script>
+    </div>
+
+</body>
+</html>

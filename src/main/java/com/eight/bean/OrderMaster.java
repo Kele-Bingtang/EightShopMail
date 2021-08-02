@@ -52,6 +52,11 @@ public class OrderMaster {
 
     private ProductPicInfo productPicInfo;
 
+    //每一个订单对应一个订单详情表
+    private OrderDetail orderDetail;
+    //根据用户id 找到用户的手机号
+    private UserInfo userInfo;
+
     // 无参构造器
     public OrderMaster() {
     }
@@ -309,31 +314,52 @@ public class OrderMaster {
         this.productPicInfo = productPicInfo;
     }
 
+    public OrderDetail getOrderDetail() {
+        return orderDetail;
+    }
+
+    public void setOrderDetail(OrderDetail orderDetail) {
+        this.orderDetail = orderDetail;
+    }
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
+    }
+
     // 重写toString方法，使用该方法可以在控制台打印属性的数据
+
     @Override
     public String toString() {
-        return "OrderMaster {" +
-                ", orderId='" + orderId + '\'' +
+        return "OrderMaster{" +
+                "orderId=" + orderId +
                 ", orderSn='" + orderSn + '\'' +
-                ", userId='" + userId + '\'' +
+                ", userId=" + userId +
                 ", shippingUser='" + shippingUser + '\'' +
                 ", province='" + province + '\'' +
                 ", city='" + city + '\'' +
                 ", district='" + district + '\'' +
                 ", address='" + address + '\'' +
-                ", paymentMethod='" + paymentMethod + '\'' +
-                ", orderMoney='" + orderMoney + '\'' +
-                ", districtMoney='" + districtMoney + '\'' +
-                ", shippingMoney='" + shippingMoney + '\'' +
-                ", paymentMoney='" + paymentMoney + '\'' +
-                ", shoppingMallName='" + shoppingMailName + '\'' +
-                ", createTime='" + createTime + '\'' +
-                ", shippingTime='" + shippingTime + '\'' +
-                ", payTime='" + payTime + '\'' +
-                ", receiveTime='" + receiveTime + '\'' +
-                ", orderStatus='" + orderStatus + '\'' +
-                ", orderPoint='" + orderPoint + '\'' +
-                ", modifiedTime='" + modifiedTime + '\'' +
-                "}";
+                ", paymentMethod=" + paymentMethod +
+                ", orderMoney=" + orderMoney +
+                ", districtMoney=" + districtMoney +
+                ", shippingMoney=" + shippingMoney +
+                ", paymentMoney=" + paymentMoney +
+                ", shoppingMailName='" + shoppingMailName + '\'' +
+                ", createTime=" + createTime +
+                ", shippingTime=" + shippingTime +
+                ", payTime=" + payTime +
+                ", receiveTime=" + receiveTime +
+                ", orderStatus=" + orderStatus +
+                ", orderPoint=" + orderPoint +
+                ", modifiedTime=" + modifiedTime +
+                ", productInfo=" + productInfo +
+                ", productPicInfo=" + productPicInfo +
+                ", orderDetail=" + orderDetail +
+                ", userInfo=" + userInfo +
+                '}';
     }
 }

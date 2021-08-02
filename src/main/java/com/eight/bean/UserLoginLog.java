@@ -10,7 +10,7 @@ public class UserLoginLog {
     // 用户登陆时间
     private Timestamp loginTime;
     // 登陆IP
-    private Long loginIp;
+    private String loginIp;
     // 登陆类型：0未成功，1成功
     private Integer loginType;
 
@@ -19,7 +19,7 @@ public class UserLoginLog {
     }
 
     // 有参构造器，进行属性值的初始化
-    public UserLoginLog(Long loginId, Long userId, Timestamp loginTime, Long loginIp, Integer loginType) {
+    public UserLoginLog(Long loginId, Long userId, Timestamp loginTime, String loginIp, Integer loginType) {
         this.loginId = loginId;
         this.userId = userId;
         this.loginTime = loginTime;
@@ -58,12 +58,12 @@ public class UserLoginLog {
     }
 
     // 获取 登陆IP 的属性值
-    public Long getLoginIp() {
+    public String getLoginIp() {
         return loginIp;
     }
 
     // 设置 登陆IP 的属性值
-    public void setLoginIp(Long loginIp) {
+    public void setLoginIp(String loginIp) {
         this.loginIp = loginIp;
     }
 

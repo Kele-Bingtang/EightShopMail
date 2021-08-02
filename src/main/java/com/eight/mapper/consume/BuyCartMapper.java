@@ -3,6 +3,7 @@ package com.eight.mapper.consume;
 import com.eight.bean.OrderDetail;
 import com.eight.bean.OrderMaster;
 import com.eight.bean.ProductInfo;
+import com.eight.bean.ProductWarehouse;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -13,4 +14,6 @@ public interface BuyCartMapper {
     int addOrderMaster(OrderMaster orderMaster);
 
     int addOrderDetail(OrderDetail orderDetail);
+
+    int modifyProductWarehouse(ProductWarehouse productWarehouse);
 }

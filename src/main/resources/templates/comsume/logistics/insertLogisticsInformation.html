@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<form th:action="@{insertLogistics}" method="post">
+    添加用户id：<input name="userId" type="text">
+    添加订单id：<input name="orderId" type="text">
+    添加消息：<input name="message" type="text">
+    <input th:type="submit" value="确定">
+</form>
+</body>
+</html>
