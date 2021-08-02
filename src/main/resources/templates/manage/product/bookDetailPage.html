@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>书籍详细管理</title>
+    <link rel="stylesheet" th:href="@{/static/plugins/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/css/manage/style.css}" media="all">
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-card">
+            <div class="layui-card-body" style="padding: 15px;">
+                <form class="layui-form layui-form-pane" action="">
+                    <input name="bDetailId" th:value="${obj?.bDetailId}" class="layui-input layui-hide"/>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">商品名称</label>
+                        <div class="layui-input-block" th:if="${obj?.productCore == null}">
+                            <select name="productCore" id="productCore" lay-verify="required">
+                                <option value="">请选择</option>
+                                <div th:each="product : ${products}">
+                                    <option th:text="${product.productName}" th:value="${product.productCore}"></option>
+                                </div>
+                            </select>
+                        </div>
+                        <div class="layui-input-block" th:if="${obj?.productCore != null}">
+                            <select name="productCore" id="productCore" lay-verify="required">
+                                <option value="">请选择</option>
+                                <div th:each="product : ${products}">
+                                    <option selected th:if="${product.productCore} == ${obj?.productCore}" th:text="${product.productName}" th:value="${product.productCore}"></option>
+                                    <option th:if="${product.productCore} != ${obj?.productCore}" th:text="${product.productName}" th:value="${product.productCore}"></option>
+                                </div>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">作者</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="bAuthor" th:value="${obj?.bAuthor}" placeholder="请输入作者" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">出版社</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="bPublisher" th:value="${obj?.bPublisher}" placeholder="请输入出版社" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-hide">
+                        <input type="button" lay-submit lay-filter="lay-front-submit" id="lay-front-submit" value="确认">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/static/plugins/layui/layui.js}"></script>
+    <script th:src="@{/static/js/manage/product/bookDetail.js}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

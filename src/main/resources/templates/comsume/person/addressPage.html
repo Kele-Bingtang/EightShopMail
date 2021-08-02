@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>地址管理</title>
+    <link href="/static/css/index/reset.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/static/css/select.css">
+    <link href="/static/css/person/userInfo.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<form id="address-form">
+    <div class="address-list">
+        <h2 class="title2">请填写收货地址</h2>
+        <div class="addressdetail">
+            <!--收货人-->
+            <div class="info-item">
+                <label for="name" class="address_lable">收货人：</label>
+                <input type="text" name="realName" th:value="${userInfo.realName}"  id="name" class="address_box1" autocomplete="off" style="margin-left: -5px;">
+            </div>
+
+            <!--收货电话-->
+            <div class="info-item" th:if="!${#strings.isEmpty(userInfo.userAddrList[userInfo.userAddrList.size()-1].addressPhone)}">
+                <label for="phone" class="address_lable">电 话 ：</label>
+                <input type="text" name="addressPhone" th:value="${userInfo.userAddrList[userInfo.userAddrList.size()-1].addressPhone}" id="phone" class="address_box1" autocomplete="off">
+            </div>
+            <div class="info-item" th:if="${#strings.isEmpty(userInfo.userAddrList[userInfo.userAddrList.size()-1].addressPhone)}">
+                <label for="phone" class="address_lable">电 话 ：</label>
+                <input type="text" name="addressPhone" value="" id="phone" class="address_box1" autocomplete="off">
+            </div>
+
+            <!--邮编填写-->
+            <div class="info-item" th:if="!${#strings.isEmpty(userInfo.userAddrList[userInfo.userAddrList.size()-1].zip)}">
+                <label for="zip" class="address_lable address-zip-label">邮 编 ：</label>
+                <input type="text" name="zip" th:value="${userInfo.userAddrList[userInfo.userAddrList.size()-1].zip}" id="zip" class="address_box1 zip-input">
+            </div>
+            <div class="info-item" th:if="${#strings.isEmpty(userInfo.userAddrList[userInfo.userAddrList.size()-1].zip)}">
+                <label for="zip" class="address_lable address-zip-label">邮 编 ：</label>
+                <input type="text" name="zip" id="zip" class="address_box1 zip-input" style="position: relative;left: -26px">
+            </div>
+            <div class="address-select">
+                <div class="address-select">
+                    <label for="phone" class="address_lable">地 址 ：</label>
+
+                    <div class="address-box">
+                        <div class="address-info" style="">
+                            <div class="select-title" th:if="!${#strings.isEmpty(userInfo.userAddrList[userInfo.userAddrList.size()-1].province)}">
+                                <input type="text" name="province" placeholder="请选择" th:value="${userInfo.userAddrList[userInfo.userAddrList.size()-1].province}" readonly class="unSelect address-unSelect">
+                                <i class="arrow"></i>
+                            </div>
+                            <div class="select-title" th:if="${#strings.isEmpty(userInfo.userAddrList[userInfo.userAddrList.size()-1].province)}">
+                                <input type="text" name="province" placeholder="请选择" value="" readonly class="unSelect address-unSelect">
+                                <i class="arrow"></i>
+                            </div>
+                            <dl id="prov" class="option address-option" onclick="showCity(this)">
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="address-box">
+                        <div class="address-info" style="">
+                            <div class="select-title" th:if="!${#strings.isEmpty(userInfo.userAddrList[userInfo.userAddrList.size()-1].city)}">
+                                <input type="text" name="city" placeholder="请选择" th:value="${userInfo.userAddrList[userInfo.userAddrList.size()-1].city}" readonly class="unSelect address-unSelect">
+                                <i class="arrow"></i>
+                            </div>
+                            <div class="select-title" th:if="${#strings.isEmpty(userInfo.userAddrList[userInfo.userAddrList.size()-1].city)}">
+                                <input type="text" name="city" placeholder="请选择" value="" readonly class="unSelect address-unSelect">
+                                <i class="arrow"></i>
+                            </div>
+                            <dl id="city" class="option address-option" onclick="showCountry(this)">
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="address-box">
+                        <div class="address-info" style="">
+                            <div class="select-title"  th:if="!${#strings.isEmpty(userInfo.userAddrList[userInfo.userAddrList.size()-1].district)}">
+                                <input type="text" name="district" placeholder="请选择" th:value="${userInfo.userAddrList[userInfo.userAddrList.size()-1].district}" readonly class="unSelect address-unSelect">
+                                <i class="arrow"></i>
+                            </div>
+                            <div class="select-title"  th:if="${#strings.isEmpty(userInfo.userAddrList[userInfo.userAddrList.size()-1].district)}">
+                                <input type="text" name="district" placeholder="请选择" value="" readonly class="unSelect address-unSelect">
+                                <i class="arrow"></i>
+                            </div>
+                            <dl id="country" class="option address-option">
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="address-detail">
+                        <div class="address-info" style="">
+                            <div class="input-title" th:if="!${#strings.isEmpty(userInfo.userAddrList[userInfo.userAddrList.size()-1].address)}">
+                                <textarea id="address-input" name="address" th:text="${userInfo.userAddrList[userInfo.userAddrList.size()-1].address}" placeholder="请输入详细地址" class="area ddress-input"></textarea>
+                            </div>
+                            <div class="input-title" th:if="${#strings.isEmpty(userInfo.userAddrList[userInfo.userAddrList.size()-1].address)}">
+                                <textarea id="address-input" name="address" placeholder="请输入详细地址" class="area address-input"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--确定按钮-->
+                <input type="text" name="userAddrId" th:value="${userInfo.userAddrList[userInfo.userAddrList.size()-1].userAddrId}" hidden class="userInfoId">
+                <input type="button" class="btn2 met2" onClick="showAddr()" id="button-show" value="确定" >
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="/static/js/consume/jquery-1.7.2.js"></script>
+<script src="/static/js/consume/userInfo.js"></script>
+<script src="/static/js/consume/WcyUpdateInfo.js"></script>
+<script src="/static/js/consume/city.js"></script>
+<script src="/static/js/consume/method.js"></script>
+<script>
+    $(function (){
+        $(".met2").on("click",function (){
+            $.ajax({
+                url:"http://localhost:8080/eight/userInfo/modifypersonAddress",
+                data:$("#address-form").serialize(),
+                type:"post",
+                success:function (data){
+                    if(data.code == 0){
+                        window.location.reload();
+                    }
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

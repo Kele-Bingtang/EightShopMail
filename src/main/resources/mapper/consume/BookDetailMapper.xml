@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.consume.BookDetailMapper">
+    <resultMap id="queryBookDetail" type="com.eight.bean.BookDetail" autoMapping="true">
+        <id property="bDetailId" column="b_detail_id"/>
+        <id property="bAuthor" column="b_author"/>
+        <id property="bPublisher" column="b_publisher"/>
+        <id property="productCore" column="product_core"/>
+    </resultMap>
+    <select id="queryBookDetailBylimitWithCondition" resultMap="queryBookDetail">
+        select * from book_detail
+        where ${condition}
+        order by ${sortCon}
+        limit ${m},${pageSize}
+    </select>
+    <select id="queryAllBookDetail" resultMap="queryBookDetail">
+        select * from book_detail
+    </select>
+    <select id="queryBookDetailCountWithCondition" resultMap="queryBookDetail">
+        select count(*) from book_detail
+        where ${condition}
+    </select>
+    <select id="queryBookDetailCount" resultMap="queryBookDetail">
+        select count(*) from book_detail
+    </select>
+</mapper>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>主订单管理</title>
+    <link rel="stylesheet" th:href="@{/static/plugins/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/css/manage/style.css}" media="all">
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-card">
+            <div class="layui-card-body" style="padding: 15px;">
+                <form class="layui-form layui-form-pane" action="">
+                    <input name="orderId" th:value="${obj?.orderId}" class="layui-input layui-hide"/>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">订单编号</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="orderSn" th:value="${obj?.orderSn}" lay-verify="required" placeholder="请输入订单编号" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">下单人ID</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="userId" th:value="${obj?.userId}" lay-verify="required" placeholder="请输入下单人ID" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">收货人姓名</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="shippingUser" th:value="${obj?.shippingUser}" lay-verify="required" placeholder="请输入收货人姓名" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">省</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="province" th:value="${obj?.province}" lay-verify="required" placeholder="请输入省" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">市</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="city" th:value="${obj?.city}" lay-verify="required" placeholder="请输入市" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">区</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="district" th:value="${obj?.district}" lay-verify="required" placeholder="请输入区" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">地址</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="address" th:value="${obj?.address}" lay-verify="required" placeholder="请输入地址" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">支付方式</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="paymentMethod" th:value="${obj?.paymentMethod}" lay-verify="required" placeholder="请输入支付方式" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">订单金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="orderMoney" th:value="${obj?.orderMoney}" lay-verify="required" placeholder="请输入订单金额" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">优惠金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="districtMoney" th:value="${obj?.districtMoney}" lay-verify="required" placeholder="请输入优惠金额" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">运费金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="shippingMoney" th:value="${obj?.shippingMoney}" lay-verify="required" placeholder="请输入运费金额" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">支付金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="paymentMoney" th:value="${obj?.paymentMoney}" lay-verify="required" placeholder="请输入支付金额" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">商城名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="shoppingMailName" th:value="${obj?.shoppingMailName}" lay-verify="required" placeholder="请输入商城名称" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">下单时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="createTime" th:value="${obj?.createTime}" lay-verify="required" placeholder="请输入下单时间" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">发货时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="shippingTime" th:value="${obj?.shippingTime}" lay-verify="required" placeholder="请输入发货时间" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">支付时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="payTime" th:value="${obj?.payTime}" lay-verify="required" placeholder="请输入支付时间" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">收货时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="receiveTime" th:value="${obj?.receiveTime}" lay-verify="required" placeholder="请输入收货时间" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">订单状态</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="orderStatus" th:value="${obj?.orderStatus}" lay-verify="required" placeholder="请输入订单状态" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">订单积分</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="orderPoint" th:value="${obj?.orderPoint}" lay-verify="required" placeholder="请输入订单积分" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-hide">
+                        <input type="button" lay-submit lay-filter="lay-front-submit" id="lay-front-submit" value="确认">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/static/plugins/layui/layui.js}"></script>
+    <script th:src="@{/static/js/manage/order/orderMaster.js}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class UserLevel {
     // 积分ID
-    private Integer userLevel;
+    private Integer userLevelId;
     // 级别名称
     private String levelName;
     // 级别最低积分
@@ -14,13 +14,14 @@ public class UserLevel {
     // 最后修改时间
     private Timestamp modifiedTime;
 
+    private User user;
     // 无参构造器
     public UserLevel() {
     }
 
     // 有参构造器，进行属性值的初始化
-    public UserLevel(Integer userLevel, String levelName, Integer minPoint, Integer maxPoint, Timestamp modifiedTime) {
-        this.userLevel = userLevel;
+    public UserLevel(Integer userLevelId, String levelName, Integer minPoint, Integer maxPoint, Timestamp modifiedTime) {
+        this.userLevelId = userLevelId;
         this.levelName = levelName;
         this.minPoint = minPoint;
         this.maxPoint = maxPoint;
@@ -28,13 +29,13 @@ public class UserLevel {
     }
 
     // 获取 积分ID 的属性值
-    public Integer getUserLevel() {
-        return userLevel;
+    public Integer getUserLevelId() {
+        return userLevelId;
     }
 
     // 设置 积分ID 的属性值
-    public void setUserLevel(Integer userLevel) {
-        this.userLevel = userLevel;
+    public void setUserLevelId(Integer userLevelId) {
+        this.userLevelId = userLevelId;
     }
 
     // 获取 级别名称 的属性值
@@ -77,11 +78,20 @@ public class UserLevel {
         this.modifiedTime = modifiedTime;
     }
 
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     // 重写toString方法，使用该方法可以在控制台打印属性的数据
     @Override
     public String toString() {
         return "UserLevel {" +
-                ", userLevel='" + userLevel + '\'' +
+                ", userLevelId='" + userLevelId + '\'' +
                 ", levelName='" + levelName + '\'' +
                 ", minPoint='" + minPoint + '\'' +
                 ", maxPoint='" + maxPoint + '\'' +

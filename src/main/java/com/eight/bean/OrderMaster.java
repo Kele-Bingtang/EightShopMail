@@ -8,17 +8,17 @@ public class OrderMaster {
     // 订单ID
     private Long orderId;
     // 订单编号 yyyymmddnnnnnnnn
-    private BigInteger orderSn;
+    private String orderSn;
     // 下单人ID
     private Long userId;
     // 收货人姓名
     private String shippingUser;
     // 省
-    private Integer province;
+    private String province;
     // 市
-    private Integer city;
+    private String city;
     // 区
-    private Integer district;
+    private String district;
     // 地址
     private String address;
     // 支付方式：1余额，2支付宝，3微信
@@ -32,7 +32,7 @@ public class OrderMaster {
     // 支付金额
     private BigDecimal paymentMoney;
     // 商城名称
-    private String shoppingMallName;
+    private String shoppingMailName;
     // 下单时间
     private Timestamp createTime;
     // 发货时间
@@ -48,12 +48,18 @@ public class OrderMaster {
     // 最后修改时间
     private Timestamp modifiedTime;
 
+    private ProductInfo productInfo;
+
+    private ProductPicInfo productPicInfo;
+
     // 无参构造器
     public OrderMaster() {
     }
 
     // 有参构造器，进行属性值的初始化
-    public OrderMaster(Long orderId, BigInteger orderSn, Long userId, String shippingUser, Integer province, Integer city, Integer district, String address, Integer paymentMethod, BigDecimal orderMoney, BigDecimal districtMoney, BigDecimal shippingMoney, BigDecimal paymentMoney, String shoppingMallName, Timestamp createTime, Timestamp shippingTime, Timestamp payTime, Timestamp receiveTime, Integer orderStatus, Long orderPoint, Timestamp modifiedTime) {
+    public OrderMaster(Long orderId, String orderSn, Long userId, String shippingUser,
+                       String province, String city, String district, String address,
+                       Integer paymentMethod, BigDecimal orderMoney, BigDecimal districtMoney, BigDecimal shippingMoney, BigDecimal paymentMoney, String shoppingMailName, Timestamp createTime, Timestamp shippingTime, Timestamp payTime, Timestamp receiveTime, Integer orderStatus, Long orderPoint, Timestamp modifiedTime) {
         this.orderId = orderId;
         this.orderSn = orderSn;
         this.userId = userId;
@@ -67,7 +73,7 @@ public class OrderMaster {
         this.districtMoney = districtMoney;
         this.shippingMoney = shippingMoney;
         this.paymentMoney = paymentMoney;
-        this.shoppingMallName = shoppingMallName;
+        this.shoppingMailName = shoppingMailName;
         this.createTime = createTime;
         this.shippingTime = shippingTime;
         this.payTime = payTime;
@@ -88,12 +94,12 @@ public class OrderMaster {
     }
 
     // 获取 订单编号 yyyymmddnnnnnnnn 的属性值
-    public BigInteger getOrderSn() {
+    public String getOrderSn() {
         return orderSn;
     }
 
     // 设置 订单编号 yyyymmddnnnnnnnn 的属性值
-    public void setOrderSn(BigInteger orderSn) {
+    public void setOrderSn(String orderSn) {
         this.orderSn = orderSn;
     }
 
@@ -118,32 +124,32 @@ public class OrderMaster {
     }
 
     // 获取 省 的属性值
-    public Integer getProvince() {
+    public String getProvince() {
         return province;
     }
 
     // 设置 省 的属性值
-    public void setProvince(Integer province) {
+    public void setProvince(String province) {
         this.province = province;
     }
 
     // 获取 市 的属性值
-    public Integer getCity() {
+    public String getCity() {
         return city;
     }
 
     // 设置 市 的属性值
-    public void setCity(Integer city) {
+    public void setCity(String city) {
         this.city = city;
     }
 
     // 获取 区 的属性值
-    public Integer getDistrict() {
+    public String getDistrict() {
         return district;
     }
 
     // 设置 区 的属性值
-    public void setDistrict(Integer district) {
+    public void setDistrict(String district) {
         this.district = district;
     }
 
@@ -208,13 +214,13 @@ public class OrderMaster {
     }
 
     // 获取 商城名称 的属性值
-    public String getShoppingMallName() {
-        return shoppingMallName;
+    public String getShoppingMailName() {
+        return shoppingMailName;
     }
 
     // 设置 商城名称 的属性值
-    public void setShoppingMallName(String shoppingMallName) {
-        this.shoppingMallName = shoppingMallName;
+    public void setShoppingMailName(String shoppingMallName) {
+        this.shoppingMailName = shoppingMallName;
     }
 
     // 获取 下单时间 的属性值
@@ -287,6 +293,22 @@ public class OrderMaster {
         this.modifiedTime = modifiedTime;
     }
 
+    public ProductInfo getProductInfo() {
+        return productInfo;
+    }
+
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
+    }
+
+    public ProductPicInfo getProductPicInfo() {
+        return productPicInfo;
+    }
+
+    public void setProductPicInfo(ProductPicInfo productPicInfo) {
+        this.productPicInfo = productPicInfo;
+    }
+
     // 重写toString方法，使用该方法可以在控制台打印属性的数据
     @Override
     public String toString() {
@@ -304,7 +326,7 @@ public class OrderMaster {
                 ", districtMoney='" + districtMoney + '\'' +
                 ", shippingMoney='" + shippingMoney + '\'' +
                 ", paymentMoney='" + paymentMoney + '\'' +
-                ", shoppingMallName='" + shoppingMallName + '\'' +
+                ", shoppingMallName='" + shoppingMailName + '\'' +
                 ", createTime='" + createTime + '\'' +
                 ", shippingTime='" + shippingTime + '\'' +
                 ", payTime='" + payTime + '\'' +

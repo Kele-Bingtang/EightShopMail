@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.order.MOrderDetailMapper">
+
+    <select id="queryOrderDetailByUsername" resultType="com.eight.bean.OrderDetail">
+
+    </select>
+    <select id="queryOrderDetailList" resultType="com.eight.bean.OrderDetail">
+        select * from order_detail
+    </select>
+
+    <insert id="addOrderDetail" parameterType="com.eight.bean.OrderDetail">
+
+    </insert>
+
+    <delete id="deleteOrderDetail" parameterType="com.eight.bean.OrderDetail">
+        delete from order_detail where order_detail_id = #{orderDetailId}
+    </delete>
+
+    <update id="modifyOrderDetail" parameterType="com.eight.bean.OrderDetail">
+
+    </update>
+
+    <select id="queryOrderDetailPage" resultType="com.eight.bean.OrderDetail" >
+        select * from order_detail
+        <where>
+            <if test="param != null">
+                and username like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{orderDetailPage.startIndex},#{orderDetailPage.singlePageSize}
+    </select>
+
+    <select id="queryOrderDetailCount" resultType="java.lang.Integer">
+        select count(*) from order_detail
+    </select>
+    <select id="queryOrderDetailById" resultType="com.eight.bean.OrderDetail">
+        select * from order_detail where order_detail_id = #{pDetailId}
+    </select>
+</mapper>

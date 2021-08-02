@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>八八商城后台系统</title>
+    <link rel="stylesheet" th:href="@{/static/plugins/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/css/manage/style.css}" media="all">
+</head>
+<body class="layui-layout-body">
+<!--顶部-->
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">八八商城后台系统</div>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item"><a href="/eight/manage/logout">退出系统</a></li>
+        </ul>
+    </div>
+    <!--左侧菜单-->
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <ul class="layui-nav layui-nav-tree" lay-accordion="true">
+                <!--使用数据库-->
+                <li class="layui-nav-item" th:each="powerKeys : ${managePowers}">
+                    <a href="javascript:;" class="layui-nav-item" th:if="!${#lists.isEmpty(powerKeys.value)}" th:text="${powerKeys.key.powerContent}"></a>
+                    <dl class="layui-nav-child" th:each="powerValues : ${powerKeys.value}">
+                        <dd>
+                            <a th:text="${powerValues.powerContent}" href="javascript:;" class="site-demo-active" th:lay-href="${powerValues.powerContentUrl}" th:data-id="${powerValues.powerCode}" th:data-title="${powerValues.powerContent}"></a>
+                        </dd>
+                    </dl>
+                    <a href="javascript:;" th:if="${#lists.isEmpty(powerKeys.value)}" th:text="${powerKeys.key.powerContent}" class="site-demo-active" th:lay-href="${powerKeys.key.powerContentUrl}" th:data-id="${powerKeys.key.powerCode}" th:data-title="${powerKeys.key.powerContent}"></a>
+                </li>
+
+             <!-- 不使用数据库的菜单源码  -->
+             <!--   <li class="layui-nav-item">
+                    <a href="javascript:;" class="layui-nav-item">用户管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/user/userManage" data-id="111" data-title="用户名管理">用户名管理</a></dd>
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/userInfo/userInfoManage" data-id="112" data-title="用户信息管理">用户信息管理</a> </dd>
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/userAddr/userAddrManage" data-id="113" data-title="用户地址管理">用户地址管理</a></dd>
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/userLevel/userLevelManage" data-id="114" data-title="用户积分管理">用户积分管理</a></dd>
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/userBuyHistory/userBuyHistoryManage" data-id="115" data-title="用户购买记录">用户购买记录</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;" class="layui-nav-item">商品管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/productCategory/productCategoryManage" data-id="211" data-title="商品分类">商品分类</a></dd>
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/productInfo/productInfoManage" data-id="212" data-title="商品信息">商品信息</a></dd>
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/productPicInfo/productPicInfoManage" data-id="213" data-title="商品图片">商品图片</a></dd>
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/productComment/productCommentManage" data-id="214" data-title="商品评论">商品评论</a></dd>
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/phoneDetail/phoneDetailManage" data-id="215" data-title="手机详细信息">手机详细信息</a></dd>
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/hourseAppDetail/hourseAppDetailManage" data-id="216" data-title="家具详细信息">家具详细信息</a></dd>
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/bookDetail/bookDetailManage" data-id="217" data-title="书籍详细信息">书籍详细信息</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;" class="layui-nav-item">订单管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/orderMaster/orderMasterManage" data-id="311" data-title="主订单">主订单</a></dd>
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/orderDetail/orderDetailManage" data-id="312" data-title="订单详细">订单明细</a></dd>
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/orderCart/orderCartManage" data-id="313" data-title="购物车信息">购物车信息</a></dd>
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/orderMaster/orderMasterManage" data-id="314" data-title="退货信息">退货信息</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;" class="layui-nav-item">日志管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/userLoginLog/userLoginLogManage" data-id="411" data-title="用户登录日志">用户登录日志</a></dd>
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/userBalanceLog/userBalanceLogManage" data-id="412" data-title="用户余额日志">用户余额日志</a></dd>
+                        <dd><a href="#" class="site-demo-active" lay-href="/eight/manage/userPointLog/userPointLogManage" data-id="413" data-title="用户积分日志">用户积分日志</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;" class="site-demo-active" lay-href="/eight/manage/shoppingMail/shoppingMailManage" data-id="511" data-title="商城信息管理">商城信息管理</a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+    <!--主体部分-->
+    <div class="layui-body">
+        <div class="layui-tab" lay-filter="demo" lay-allowclose="true" style="margin: 0;">
+            <ul class="layui-tab-title"></ul>
+            <div class="layui-tab-content"></div>
+        </div>
+    </div>
+    <!--底部区域-->
+    <div class="layui-footer">
+        八八商城管理系统 -- 底部固定区域
+    </div>
+</div>
+<script th:src="@{/static/plugins/layui/layui.js}"></script>
+<script>
+    layui.use(['element','layer','jquery'],function () {
+        var element = layui.element;
+        var $ = layui.$;
+        //左侧菜单树叶点击事件
+        $(".site-demo-active").on("click",function () {
+            var data = $(this);
+            //判断右侧是否有tab
+            if($(".layui-tab-title li[lay-id]").length <= 0){
+                //没有tab，直接打开新的tab
+                active.tabAdd(data.attr('lay-href'),data.attr('data-id'),data.attr('data-title'));
+            }else{
+                //判断该tab项是否已经存在
+                var isExist = false;
+                $.each($(".layui-tab-title li[lay-id]"),function () {
+                    //如果点击左侧菜单栏传入的id在右侧tab项中的lay-id可以找到，说明该tab项已经打开
+                    if($(this).attr("lay-id") === data.attr("data-id")){
+                        isExist = true;
+                    }
+                });
+                if(isExist === false){
+                    //不存在当前id对应的tab，直接打开新的tab
+                    active.tabAdd(data.attr('lay-href'),data.attr('data-id'),data.attr('data-title'));
+                }
+            }
+            //不管是不是新增了tab，最后都要转到要打开的选项页面
+            active.tabChange(data.attr("data-id"));
+        });
+
+        //配置active，绑定几项事件，后面可以用active调用这些事件
+        var active = {
+            //新增tab项
+            //url是页面地址，id对应data-id,name对应标题
+            tabAdd: function (url,id,name) {
+                element.tabAdd('demo',{
+                    title:name,
+                    content:'<iframe data-frameid="'+id+'" scrolling="no" frameborder="0" src="'+url+'" style="width:100%;height:670px;"></iframe>',
+                    id:id
+                });
+            },
+            //根据id切换到指定的tab
+            tabChange: function (id) {
+                element.tabChange('demo',id);
+            },
+            //关闭指定的tab
+            tabDelete: function (id) {
+                element.tabDelete('demo',id);
+            }
+        }
+    });
+</script>
+</body>
+</html>
+

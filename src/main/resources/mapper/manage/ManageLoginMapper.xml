@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.ManageLoginMapper">
+
+    <select id="queryManageByUsername" parameterType="com.eight.bean.User" resultType="com.eight.bean.ManagerInfo">
+        select * from manager_info where manager_username = #{managerUsername}
+    </select>
+
+    <select id="queryManageIDByUsername" parameterType="string" resultType="com.eight.bean.ManagerInfo">
+        select * from manager_info where manager_username = #{managerUsername}
+    </select>
+    <select id="queryManagerPowerListByCode" resultMap="queryManagerList">
+        select mi.*,mp.* from manager_info mi,manager_and_power map,manager_power mp
+        where mi.manager_code=map.manager_code and mp.power_code=map.power_code
+        and mi.manager_code = #{managerCode}
+    </select>
+
+    <select id="queryManagePowerList" resultType="com.eight.bean.ManagerPower">
+        select * from manager_power
+    </select>
+
+    <select id="queryManagePowerByParentCode" parameterType="string" resultType="com.eight.bean.ManagerPower">
+        select mp2.* from manager_power mp1,manager_power mp2
+        where mp1.power_code = mp2.power_parent_code and mp1.power_code=#{powerCode}  order by manager_power_id
+    </select>
+
+    <resultMap id="queryManagerList" type="com.eight.bean.ManagerInfo" autoMapping="true">
+        <id property="managerId" column="manager_id"/>
+        <collection property="managerPowers" ofType="com.eight.bean.ManagerPower" autoMapping="true">
+            <id property="managerPowerId" column="manager_power_id"/>
+        </collection>
+    </resultMap>
+</mapper>

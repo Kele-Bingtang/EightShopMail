@@ -1,0 +1,44 @@
+/*轮播图开始*/
+.carousel {
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 26px;
+    overflow: hidden;
+    height: 680px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.cartun {
+    width: 18444px;
+    height: 670px;
+}
+
+.cartun img {
+    width: 2560px;
+    height: 680px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+.circle {
+    position: absolute;
+    right: 50%;
+    bottom: 20px;
+    margin-left: -200px;
+    text-align: right;
+}
+
+.circle > .cir {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    margin: 5px 8px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/*轮播图结束*/

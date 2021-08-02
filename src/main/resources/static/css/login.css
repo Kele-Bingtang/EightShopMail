@@ -263,6 +263,7 @@ body {
     color: grey;
     font-size: 14px;
     text-align: center;
+    outline: none;
 }
 
 .inp-phone {
@@ -365,4 +366,32 @@ body {
     top: 12px;
     right: 10px;
 }
-
+/*弹窗提示*/
+.dialog{
+    position: absolute;
+    height: 64px;
+    border: 1px solid #D3D4D3;
+    box-shadow: none;
+    top: 367px;
+    left: 590px;
+    z-index: 99999;
+    transform: rotate(-90deg);
+}
+.dialog-content{
+    padding: 20px 20px 20px 55px;
+    text-align: left;
+    line-height: 24px;
+    overflow: hidden;
+    font-size: 14px;
+}
+.tipIcon{
+    width: 30px;
+    height: 30px;
+    background: url("../images/login/tipStatus.png") no-repeat;
+    background-size: 144px 67px;
+    display: inline-block;
+    vertical-align: center;
+    position: absolute;
+    top: 18px;
+    left: 15px;
+}

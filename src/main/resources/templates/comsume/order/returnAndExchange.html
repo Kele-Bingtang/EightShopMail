@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+    <title>退货</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/order/eight.css"/>
+    <script type = "text/javascript" src="/static/js/returnAndExchange.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="ding">
+        <a href="orderDetail">< 申请退款</a>
+    </div>
+    <div class="all2">
+        <div class="all">
+            <div th:each="orderDetail :${orderDetails}">
+                <a th:href="@{productDetail(productId=${orderDetail.productInfo.productId})}">
+                <div class="product">
+                    <img th:src="${orderDetail.productPicInfo.picUrl}" alt="" style="width: 100px;height: 100px;" id="pic">
+                    <div style="width: 296px;height: 94px;" class="desc">
+                        <ul class="ce">
+                            <li>
+                                编号： <span th:text="${orderDetail.productInfo.productId}" style="display:inline-block;width: 200px;height:21px;"></span>
+                            </li>
+                            <li>
+                                编码： <span th:text="${orderDetail.productInfo.productCore}" style="display:inline-block;width: 200px;height:21px;"></span>
+                            </li>
+                            <li>
+                                名称： <span th:text="${orderDetail.productInfo.productName}" style="display:inline-block;width: 200px;height:21px;"></span>
+                            </li>
+                            <li>
+                                价格： <span th:text="${orderDetail.productInfo.price}" style="display:inline-block;width: 200px;height:21px;"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </a>
+                <div class="port">
+                    <form th:action="@{http://localhost:8080/eight/orderDetail/success}" method="Get">
+                        <!--                动态-->
+                        <p class=p0>订单编号:*</p>
+                        <input type="text" name="orderId" class=shu1 th:value="${orderDetail.orderId}" readonly>
+                        <p class=p1>退款类型:*</p>
+                        <select class=shu2 name="returnType">
+                            <option>我要退款（无需退货）</option>
+                            <option>我要退货</option>
+                        </select>
+                        <p class=p2>退款原因:*</p>
+                        <select class=shu3 name="returnReason">
+                            <option>多拍，错拍，不想要</option>
+                            <option>效果不好，不想要</option>
+                            <option>货物与描述不符</option>
+                            <option>质量问题</option>
+                            <option>收到商品少件，破损或污渍</option>
+                            <option>商家发错货</option>
+                            <option>假冒品牌</option>
+                            <option>其他</option>
+                        </select>
+                        <div id="must">
+                            <p class=p3>退款金额:*</p>
+                            <!--                动态-->
+                            <input required="required" type="text" class=shu4 name="returnPrice" th:value="${orderDetail.productInfo.price}">
+                        </div>
+                        <p class=p4>退款说明:</p>
+                        <textarea name="returnDesc" style="width: 296px;height: 80px;" class="shu5"></textarea>
+                        <input type="text" class=shu6 style="display:none;" name="returnState" value="0"/>
+                        <input id="btn" type="submit" value="提交申请" class=tijiao>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

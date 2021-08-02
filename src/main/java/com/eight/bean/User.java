@@ -14,6 +14,8 @@ public class User {
     private Integer userStatus;
     // 最后修改时间
     private Timestamp modifiedTime;
+    //用户状态字面化 0.离线 1.在线
+    private String userStatusStr;
     // 用户地址
     private UserAddr userAddr;
     //用户等级
@@ -91,6 +93,14 @@ public class User {
     // 设置 最后修改时间 的属性值
     public void setModifiedTime(Timestamp modifiedTime) {
         this.modifiedTime = modifiedTime;
+    }
+
+    public String getUserStatusStr() {
+        return userStatusStr;
+    }
+
+    public void setUserStatusStr(String userStatusStr) {
+        this.userStatusStr = userStatusStr;
     }
 
     public UserAddr getUserAddr() {

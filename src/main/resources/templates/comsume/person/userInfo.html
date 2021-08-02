@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+ 
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>我的信息</title>
+        <link href="/static/css/index/reset.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/static/css/select.css">
+        <link href="/static/css/person/userInfo.css" rel="stylesheet" type="text/css">
+    </head>
+	<body>
+    <div class="nav">
+        <div class="container">
+            <div class="navitems">
+                <ul>
+                    <li class="item item1">
+                        <a href="http://localhost:8080/eight/index" class="to-index">首页</a>
+                    </li>
+                    <li class="item item2">
+                        <a href="http://localhost:8080/eight/orderCart">我的购物车</a>
+                    </li>
+                    <li class="item item3">
+                        <a href="http://localhost:8080/eight/order">我的订单</a>
+                    </li>
+                    <li class="item item4">
+                        <a href="http://localhost:8080/eight/commont">我的评价</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="container">
+            <!--左侧边栏-->
+            <aside class="sidebar">
+                <!--头像以及用户等级-->
+                <!--<div class="avatar">-->
+                <!--    <img th:src="${userInfo.userHeadList[userInfo.userHeadList.size() - 1].headUrl}"/><br>-->
+                <!--    <label style="font-size: 20px">>等级及积分></label>-->
+                <!--    <input type="text" id="level"  th:value="${userInfo.levelPoint}">-->
+                <!--</div>-->
+                <nav class="aside-item">
+                    <dl class="aside-content">
+                        <dt id="option">设置</dt>
+                        <dd>
+                            <a th:href="@{'http://localhost:8080/eight/userInfo/personPage?userId=' + ${userId}}" target="iframe"  class="person-info">个人资料</a>
+                        </dd>
+                        <dd>
+                            <a th:href="@{'http://localhost:8080/eight/userInfo/addressPage?userId=' + ${userId}}" target="iframe" class="address-info">收货地址</a>
+                        </dd>
+                        <dd>
+                            <a th:href="@{'http://localhost:8080/eight/userInfo/userSecurityPage?userId=' + ${userId}}" target="iframe" class="address-info">安全设置</a>
+                        </dd>
+                    </dl>
+
+                </nav>
+            </aside>
+
+            <!--个人资料-->
+            <main class="main">
+                <div class="content">
+                    <iframe name="iframe" class="iframe"  th:src="@{'http://localhost:8080/eight/userInfo/personPage?userId=' + ${userId}}"  frameborder="0"  style="width:100%;height:670px;"></iframe>
+                </div>
+            </main>
+        </div>
+    </div>
+    <!--先导入jQuery，再导入js文件，顺序有要求-->
+    <script src="/static/js/consume/jquery-1.7.2.js"></script>
+    <script src="/static/js/consume/userInfo.js"></script>
+    <script src="/static/js/consume/select.js"></script>
+	</body>
+</html>

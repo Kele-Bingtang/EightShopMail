@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录日志管理</title>
+    <link rel="stylesheet" th:href="@{/static/plugins/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/css/manage/style.css}" media="all">
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-card">
+            <div class="layui-card-body" style="padding: 15px;">
+                <form class="layui-form layui-form-pane" action="">
+                    <input name="loginId" th:value="${obj?.loginId}" class="layui-input layui-hide"/>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">登陆日志ID</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="loginId" th:value="${obj?.loginId}" lay-verify="required" placeholder="请输入登陆日志ID" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">登陆用户ID</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="userId" th:value="${obj?.userId}" lay-verify="required" placeholder="请输入登陆用户ID" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户登陆时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="loginTime" th:value="${obj?.loginTime}" lay-verify="required" placeholder="请输入用户登陆时间" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">登陆IP</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="loginIp" th:value="${obj?.loginIp}" lay-verify="required" placeholder="请输入登陆IP" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">登陆类型(0未成功，1成功)</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="loginType" th:value="${obj?.loginType}" lay-verify="required" placeholder="请输入登陆类型" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-hide">
+                        <input type="button" lay-submit lay-filter="lay-front-submit" id="lay-front-submit" value="确认">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/static/plugins/layui/layui.js}"></script>
+    <script th:src="@{/static/js/manage/log/userLoginLog.js}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

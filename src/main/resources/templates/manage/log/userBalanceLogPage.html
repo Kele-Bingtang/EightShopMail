@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户余额日志管理</title>
+    <link rel="stylesheet" th:href="@{/static/plugins/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/css/manage/style.css}" media="all">
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-card">
+            <div class="layui-card-body" style="padding: 15px;">
+                <form class="layui-form layui-form-pane" action="">
+                    <input name="balanceId" th:value="${obj?.balanceId}" class="layui-input layui-hide"/>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">余额日志ID</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="balanceId" th:value="${obj?.balanceId}" lay-verify="required" placeholder="请输入余额日志ID" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">用户ID</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="userId" th:value="${obj?.userId}" lay-verify="required" placeholder="请输入用户ID" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">记录来源(1订单,2退货单)</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="source" th:value="${obj?.source}" lay-verify="required" placeholder="请输入记录来源" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">相关单据ID</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="sourceSn" th:value="${obj?.sourceSn}" lay-verify="required" placeholder="请输入相关单据ID" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">记录生成时间</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="createTime" th:value="${obj?.createTime}" lay-verify="required" placeholder="请输入记录生成时间" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">变动金额</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="amount" th:value="${obj?.amount}" lay-verify="required" placeholder="请输入变动金额" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-hide">
+                        <input type="button" lay-submit lay-filter="lay-front-submit" id="lay-front-submit" value="确认">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/static/plugins/layui/layui.js}"></script>
+    <script th:src="@{/static/js/manage/log/userBalanceLog.js}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

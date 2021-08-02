@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.product.MProductCommentMapper">
+
+    <select id="queryProductCommentByUsername" resultType="com.eight.bean.ProductComment">
+
+    </select>
+    <select id="queryProductCommentList" resultType="com.eight.bean.ProductComment">
+        select * from product_comment
+    </select>
+
+    <insert id="addProductComment" parameterType="com.eight.bean.ProductComment">
+
+    </insert>
+
+    <delete id="deleteProductComment" parameterType="com.eight.bean.ProductComment">
+    </delete>
+
+    <update id="modifyProductComment" parameterType="com.eight.bean.ProductComment">
+
+    </update>
+
+    <select id="queryProductCommentPage" resultType="com.eight.bean.ProductComment" >
+        select * from product_comment
+        <where>
+            <if test="param != null">
+                and username like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{productCommentPage.startIndex},#{productCommentPage.singlePageSize}
+    </select>
+
+    <select id="queryProductCommentCount" resultType="java.lang.Integer">
+        select count(*) from product_comment
+    </select>
+    <select id="queryProductCommentById" resultType="com.eight.bean.ProductComment">
+        select * from product_comment where comment_id = #{productCommentId}
+    </select>
+</mapper>

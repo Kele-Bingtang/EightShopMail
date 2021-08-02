@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.consume.order.DeleteOrderMapper">
+
+    <select id="viewDeleteOrder" resultMap="deleteOrderMap">
+		SELECT * FROM order_return
+	</select>
+    <select id="listOrderByName"  resultMap="deleteOrderMap" parameterType="com.eight.bean.OrderQuery" resultType="com.eight.bean.OrderReturn">
+        select * from order_return
+    </select>
+
+    <resultMap id="deleteOrderMap" type="com.eight.bean.OrderReturn">
+        <id property="orderId" column="order_id"/>
+        <result property="returnType" column="return_type"/>
+        <result property="returnReason" column="return_reason"/>
+        <result property="returnPrice" column="return_price"/>
+        <result property="returnDesc" column="return_desc"/>
+        <result property="returnState" column="return_state"/>
+    </resultMap>
+
+    <insert id="saveRequestUser" parameterType="com.eight.bean.OrderReturn">
+        INSERT INTO order_return(order_id, return_type, return_reason, return_price, return_desc, return_state)
+        VALUES(#{orderId},#{returnType},#{returnReason},#{returnPrice},#{returnDesc},#{returnState})
+    </insert>
+
+    <select id="modifyDeleteOrder" resultMap="deleteOrderMap">
+		SELECT * FROM order_return where order_id=#{orderId}
+	</select>
+
+    <update id="returnDeleteOrder" parameterType="com.eight.bean.OrderReturn">
+		UPDATE order_return SET return_state = 1 where order_id=#{orderId}
+	</update>
+
+</mapper>

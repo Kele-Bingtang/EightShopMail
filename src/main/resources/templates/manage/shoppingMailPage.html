@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户余额日志管理</title>
+    <link rel="stylesheet" th:href="@{/static/plugins/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/css/manage/style.css}" media="all">
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-card">
+            <div class="layui-card-body" style="padding: 15px;">
+                <form class="layui-form layui-form-pane" action="">
+                    <input name="shoppingMailId" th:value="${obj?.shoppingMailId}" class="layui-input layui-hide"/>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">logo路径</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="logUrl" th:value="${obj?.logUrl}" lay-verify="required" placeholder="请输入logo路径" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">商城名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="shoppingMailName" th:value="${obj?.shoppingMailName}" lay-verify="required" placeholder="请输入商城名称" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">商城联系人</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="shoppingMailContacts" th:value="${obj?.shoppingMailContacts}" lay-verify="required" placeholder="请输入商城联系人" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">商城联系电话</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="shoppingMailPhone" th:value="${obj?.shoppingMailPhone}" lay-verify="required" placeholder="请输入商城联系电话" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-hide">
+                        <input type="button" lay-submit lay-filter="lay-front-submit" id="lay-front-submit" value="确认">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/static/plugins/layui/layui.js}"></script>
+    <script th:src="@{/static/js/manage/shoppingMail.js}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

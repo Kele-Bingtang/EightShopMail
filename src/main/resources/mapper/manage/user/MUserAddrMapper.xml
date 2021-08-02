@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.user.MUserAddrMapper">
+
+    <resultMap id="queryUserList" type="com.eight.bean.UserAddr" autoMapping="true">
+        <id property="userAddrId" column="user_addr_id"/>
+        <collection property="user" ofType="com.eight.bean.User" autoMapping="true">
+            <id property="userId" column="user_id"/>
+        </collection>
+    </resultMap>
+
+    <select id="queryUserAddrByUsername" resultType="com.eight.bean.UserAddr">
+
+    </select>
+    <select id="queryUserAddrList" resultMap="queryUserList">
+        select * from user_addr ua,user u where ua.user_id = u.user_id
+    </select>
+
+    <insert id="addUserAddr" parameterType="com.eight.bean.UserAddr">
+        insert into user_addr(user_id, zip, province, city, district, address)
+        VALUES (#{userId},#{userAddr.zip},#{userAddr.province},#{userAddr.city},#{userAddr.district},#{userAddr.address})
+    </insert>
+
+    <delete id="deleteUserAddr" parameterType="com.eight.bean.UserAddr">
+        delete from user_addr where user_addr_id = #{userAddrId}
+    </delete>
+
+    <update id="modifyUserAddr" parameterType="com.eight.bean.UserAddr">
+        update user_addr set zip=#{zip},province=#{province},city=#{city},district=#{district},address=#{address}
+           ,address_phone=#{addressPhone}
+        where user_addr_id = #{userAddrId}
+    </update>
+
+    <select id="queryUserAddrPage" resultMap="queryUserList" >
+        select * from user_addr ua,user u
+        <where>
+            ua.user_id = u.user_id
+            <if test="param != null">
+                and u.username like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{userAddrPage.startIndex},#{userAddrPage.singlePageSize}
+    </select>
+
+    <select id="queryUserAddrCount" resultType="java.lang.Integer">
+        select count(*) from user_addr ua,user u where ua.user_id = u.user_id
+    </select>
+    <select id="queryUserAddrById" resultMap="queryUserList">
+        select * from user_addr ui,user u where ui.user_id=u.user_id and user_addr_id = #{userAddrId}
+    </select>
+</mapper>

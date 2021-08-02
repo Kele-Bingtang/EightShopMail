@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=drive-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        body{
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+        }
+        #login-box{
+            width: 20%;
+            height: auto;
+            margin: 0 auto;
+            margin-top: 15%;
+            text-align: center;
+            background:lightsteelblue;
+            padding: 20px 50px;
+            border-radius: 5px;
+        }
+        #login-box h2{
+            color:rebeccapurple;
+        }
+        #login-box .form .item input{
+            margin-top: 15px;
+        }
+        #login-box .form i{
+            font-size: 18px;
+            color: white;
+        }
+        #login-box .form .item input {
+            width: 180px;
+            font-size: 18px;
+            border: 0;
+            border-bottom: 2px solid#fff;
+            padding: 5px 10px;
+            background:#ffffff00;
+            color: black;
+        }
+        #login-box button{
+            margin-top: 15px;
+            width: 150px;
+            height: 30px;
+            font-size: 20px;
+            font-weight: 700;
+            color:lightgray;
+            background:linear-gradient(to right,turquoise 0%,slateblue 100%);
+            border: 0;
+            border-radius: 15px;
+            background-color:turquoise
+        }
+    </style>
+</head>
+<div id="login-box">
+    <h2>修改状态</h2>
+    <div class="form">
+        <div class="item">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+            <input type="text" th:value="${modifyDeleteOrders.orderId}" name="orderId" placeholder="订单ID" readonly>
+        </div>
+        <div class="item">
+            <i class="fa fa-key" aria-hidden="true"></i>
+            <input type="text" th:value="${modifyDeleteOrders.returnState}" name="returnState" placeholder="状态">
+        </div>
+    </div>
+    <a href="viewDeleteOrder"><button class="btn">保存修改</button></a>
+</div>
+<body>
+</body>
+</html>

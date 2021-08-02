@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/order/bootstrap.min.css}">
+<!--    <script th:src="@{/javascript/jquery-3.2.1.js}" type="text/javascript"></script>-->
+    <script type = "text/javascript" src = "/static/js/jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+
+        var register = '${msg}';
+        if(register != null){
+            var i = 4 ;
+            var Interval = setInterval(function() {
+                document.getElementById("automate").innerHTML = i +"";
+                i--;
+                if (i==0) {
+                    clearInterval(Interval);
+                    window.location.href="index";
+                }
+            },1000);
+        }
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <br>
+    <hr>
+
+    <div class="text-center">
+
+        <span style="color: red; font-weight: bold; font-size: 30px">
+            <h1 th:text="${msg}"></h1>
+            <h2><a th:href="@{/account/index}">立即跳转</a></h2>
+            <br>
+            <h2><span id="automate">5</span>秒后自动跳转首页</h2>
+        </span>
+
+    </div>
+
+    <hr>
+</div>
+</body>
+</html>

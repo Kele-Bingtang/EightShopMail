@@ -17,10 +17,13 @@ public class OrderDetail {
     // 购买商品单价
     private BigDecimal productPrice;
     // 优惠金额
-    private BigDecimal feeMoney;
+    private BigDecimal freeMoney;
     // 最后修改时间
     private Timestamp modifiedTime;
 
+    private ProductPicInfo productPicInfo;
+
+    private ProductInfo productInfo;
     // 无参构造器
     public OrderDetail() {
     }
@@ -33,7 +36,7 @@ public class OrderDetail {
         this.productName = productName;
         this.productAmount = productAmount;
         this.productPrice = productPrice;
-        this.feeMoney = feeMoney;
+        this.freeMoney = feeMoney;
         this.modifiedTime = modifiedTime;
     }
 
@@ -98,13 +101,13 @@ public class OrderDetail {
     }
 
     // 获取 优惠金额 的属性值
-    public BigDecimal getFeeMoney() {
-        return feeMoney;
+    public BigDecimal getFreeMoney() {
+        return freeMoney;
     }
 
     // 设置 优惠金额 的属性值
-    public void setFeeMoney(BigDecimal feeMoney) {
-        this.feeMoney = feeMoney;
+    public void setFreeMoney(BigDecimal freeMoney) {
+        this.freeMoney = freeMoney;
     }
 
     // 获取 最后修改时间 的属性值
@@ -117,18 +120,37 @@ public class OrderDetail {
         this.modifiedTime = modifiedTime;
     }
 
+    public ProductPicInfo getProductPicInfo() {
+        return productPicInfo;
+    }
+
+    public void setProductPicInfo(ProductPicInfo productPicInfo) {
+        this.productPicInfo = productPicInfo;
+    }
+
+    public ProductInfo getProductInfo() {
+        return productInfo;
+    }
+
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
+    }
+
     // 重写toString方法，使用该方法可以在控制台打印属性的数据
+
     @Override
     public String toString() {
-        return "OrderDetail {" +
-                ", orderDetailId='" + orderDetailId + '\'' +
-                ", orderId='" + orderId + '\'' +
-                ", productId='" + productId + '\'' +
+        return "OrderDetail{" +
+                "orderDetailId=" + orderDetailId +
+                ", orderId=" + orderId +
+                ", productId=" + productId +
                 ", productName='" + productName + '\'' +
-                ", productAmount='" + productAmount + '\'' +
-                ", productPrice='" + productPrice + '\'' +
-                ", feeMoney='" + feeMoney + '\'' +
-                ", modifiedTime='" + modifiedTime + '\'' +
-                "}";
+                ", productAmount=" + productAmount +
+                ", productPrice=" + productPrice +
+                ", freeMoney=" + freeMoney +
+                ", modifiedTime=" + modifiedTime +
+                ", productPicInfo=" + productPicInfo +
+                ", productInfo=" + productInfo +
+                '}';
     }
 }

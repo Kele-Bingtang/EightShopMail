@@ -18,10 +18,18 @@ public class ProductComment {
     private String content;
     // 审核状态：0未审核，1已审核
     private Integer auditStatus;
+    // 是否精品 0普通 1热评
+    private Integer articleFine;
     // 评论时间
     private Timestamp auditTime;
     // 最后修改时间
     private Timestamp modifiedTime;
+
+    private UserInfo userInfo;
+
+    private ProductInfo productInfo;
+    private UserHead userHead;
+    private ProductPicInfo productPicInfo;
 
     // 无参构造器
     public ProductComment() {
@@ -130,19 +138,66 @@ public class ProductComment {
         this.modifiedTime = modifiedTime;
     }
 
+    public Integer getArticleFine() {
+        return articleFine;
+    }
+
+    public void setArticleFine(Integer articleFine) {
+        this.articleFine = articleFine;
+    }
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
+    }
+
+    public ProductInfo getProductInfo() {
+        return productInfo;
+    }
+
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
+    }
+
+    public UserHead getUserHead() {
+        return userHead;
+    }
+
+    public void setUserHead(UserHead userHead) {
+        this.userHead = userHead;
+    }
+
+    public ProductPicInfo getProductPicInfo() {
+        return productPicInfo;
+    }
+
+    public void setProductPicInfo(ProductPicInfo productPicInfo) {
+        this.productPicInfo = productPicInfo;
+    }
+
     // 重写toString方法，使用该方法可以在控制台打印属性的数据
+
+
     @Override
     public String toString() {
-        return "ProductComment {" +
-                ", commentId='" + commentId + '\'' +
-                ", productId='" + productId + '\'' +
-                ", orderId='" + orderId + '\'' +
-                ", userId='" + userId + '\'' +
+        return "ProductComment{" +
+                "commentId=" + commentId +
+                ", productId=" + productId +
+                ", orderId=" + orderId +
+                ", userId=" + userId +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", auditStatus='" + auditStatus + '\'' +
-                ", auditTime='" + auditTime + '\'' +
-                ", modifiedTime='" + modifiedTime + '\'' +
-                "}";
+                ", auditStatus=" + auditStatus +
+                ", articleFine=" + articleFine +
+                ", auditTime=" + auditTime +
+                ", modifiedTime=" + modifiedTime +
+                ", userInfo=" + userInfo +
+                ", productInfo=" + productInfo +
+                ", userHead=" + userHead +
+                ", productPicInfo=" + productPicInfo +
+                '}';
     }
 }

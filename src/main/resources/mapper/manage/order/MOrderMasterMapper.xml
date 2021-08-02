@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.order.MOrderMasterMapper">
+
+    <select id="queryOrderMasterByUsername" resultType="com.eight.bean.OrderMaster">
+
+    </select>
+    <select id="queryOrderMasterList" resultType="com.eight.bean.OrderMaster">
+        select * from order_master
+    </select>
+
+    <insert id="addOrderMaster" parameterType="com.eight.bean.OrderMaster">
+
+    </insert>
+
+    <delete id="deleteOrderMaster" parameterType="com.eight.bean.OrderMaster">
+    </delete>
+
+    <update id="modifyOrderMaster" parameterType="com.eight.bean.OrderMaster">
+
+    </update>
+
+    <select id="queryOrderMasterPage" resultType="com.eight.bean.OrderMaster" >
+        select * from order_master
+        <where>
+            <if test="param != null">
+                and username like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{orderMasterPage.startIndex},#{orderMasterPagesinglePageSize}
+    </select>
+
+    <select id="queryOrderMasterCount" resultType="java.lang.Integer">
+        select count(*) from order_master
+    </select>
+    <select id="queryOrderMasterById" resultType="com.eight.bean.OrderMaster">
+        select * from order_master where order_id = #{pDetailId}
+    </select>
+</mapper>

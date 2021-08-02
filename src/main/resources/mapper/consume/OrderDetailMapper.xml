@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.consume.order.OrderDetailMapper">
+
+    <select id="orderDetail" resultMap="orderDetailMap">
+		SELECT * FROM order_detail
+	</select>
+
+    <delete id="deleteOrderDetail" parameterType="string">
+		DELETE FROM order_detail WHERE order_id=#{value}
+    </delete>
+
+    <resultMap id="orderDetailMap" type="com.eight.bean.OrderDetail" autoMapping="true">
+        <id property="orderDetailId" column="order_detail_id"/>
+        <association property="productInfo" column="productId" javaType="com.eight.bean.ProductInfo" autoMapping="true">
+            <id property="productId" column="product_id"/>
+        </association>
+        <association property="productPicInfo" column="productPicId" javaType="com.eight.bean.ProductPicInfo" autoMapping="true">
+            <id property="productPicId" column="product_pic_id"/>
+        </association>
+    </resultMap>
+
+    <select id="getOrderProductById" resultMap="orderDetailMap" parameterType="string">
+            select *
+            from order_detail o,product_info p,product_pic_info pic
+            where o.product_id=p.product_id and p.product_id=pic.product_id and o.order_id=#{orderId}
+    </select>
+</mapper>

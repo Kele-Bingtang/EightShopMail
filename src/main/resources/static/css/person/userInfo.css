@@ -1,0 +1,362 @@
+body{
+    text-align: left;
+    background: #fff;
+}
+
+.container{
+    display: block;
+    width: 1110px;
+    margin: 0 auto;/*侧边的自动值与宽度结合使用，可以将布局居中对齐*/
+    height: 800px;
+}
+
+/*导航栏*/
+.nav{
+    background: #8a90a3;
+    width: 100%;
+    height: 80px;
+}
+.navitems{
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    padding: 10px 0;
+    margin: 13px 0 0 40px;
+}
+.item{
+    float: left;
+    margin: 0 40px
+}
+.item>a{
+    color: #fff;
+}
+#option{
+    height: 28px;
+    line-height: 28px;
+    color: #333;
+    font-weight: 700;
+    margin-top: 10px;
+}
+dl,.dl dd{
+    display: block;
+    font-size: 14px;
+}
+#option dd{
+    padding: 10px;
+}
+.aside-item>dl dd{
+    color: #666;
+    line-height: 24px;
+}
+dd a{
+    color: #777;
+}
+/*账户管理标题栏*/
+.header{
+    width: 92%;
+    height: 65px;
+    background-color: #8a90a3;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    line-height: 65px;
+}
+
+/*左侧边栏框*/
+.sidebar{
+    float: left;
+    width: 120px;
+    position: relative;
+    left: 20px;
+    display: block;
+}
+
+/*头像*/
+.sidebar img{
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+}
+
+/*头像下的用户等级*/
+#level{
+    text-align: center;
+    border: none;
+    width: 20px;
+    font-size: 20px
+}
+
+/*左侧个人资料、收货地址*/
+
+.aside-item{
+    float: left;
+    width: 120px;
+}
+.aside-content{
+    width: 100px;
+    padding-left: 10px;
+}
+.aside-content li{
+    cursor: pointer;/*鼠标变成抓手样式*/
+    list-style: none;
+    font-weight: lighter;/*字体变细*/
+    margin-top: 60px;
+    line-height: 30px;/*设置行距*/
+}
+.level,.point{
+    margin-top: 10px;
+}
+/*右侧整体内容*/
+.main{
+    float: left;
+    height: 630px;
+    width: 900px;
+    overflow: hidden;
+    background-color: #fff;
+}
+.content{
+    padding-left: 60px;
+    padding-top: 20px;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+
+.tx-point{
+    float: right;
+}
+.tx-img{
+    width: 120px;
+    height: 120px;
+}
+/*个人资料整体*/
+.info-main{
+    position: relative;
+    top: 30px;
+}
+
+.ID{
+    display: none;
+}
+.info-item{
+    display: block;
+    margin-bottom: 20px;
+    line-height: 30px;
+    height: 30px;
+}
+.label{
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    padding: 6px 0;
+    width: 100px;
+    text-align: right;
+    color: #666;
+}
+
+.birthday-label,.identity-label{
+    margin-top: 5px;
+}
+.identity-num-label{
+    margin-left: -100px;
+    margin-top: 5px;
+}
+.label-f{
+    float: left;
+}
+.select-title{
+    margin-left: -20px;
+}
+#realName,#phoneNum,#email{
+    height: 18px;
+    width: 127px;
+    padding: 5px 23px 5px 5px;
+    line-height: 18px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    outline: none;
+}
+
+.sex{
+    vertical-align: -2px;
+    margin: 0 3px 0 0;
+    padding: 0;
+}
+.sex-label{
+    margin-right: 10px;
+}
+/*标题个人资料*/
+.title1{
+    font-size: 25px;
+    font-weight: lighter;
+    margin-top: 15px;
+    color: coral;
+}
+
+/*个人资料的确定按钮*/
+.security-submit-btn,.info-submit-btn{
+    position: absolute;
+    bottom: -140px;
+    left: 50px;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    color: coral;
+    outline: none;
+    cursor: pointer;
+}
+.info-submit-btn{
+    bottom: -100px;
+
+}
+/*个人资料info的左侧部分*/
+.info-form{
+    margin-left: 30px;
+    float: left;
+    font-size: 14px;
+    width: 50%;
+    height: 370px;
+    line-height: 45px;/*设置行距*/
+}
+
+/*左侧部分框外字体*/
+.userId_label_l{
+    margin-left: 20px;
+    float: left;
+    /*height: 20px;*/
+    position: relative;
+    top: -10px;
+}
+
+/*左侧部分边框*/
+.userId_inp_l{
+    float: right;
+    margin-right: 80px;
+    border-color: azure;
+    height: 25px;
+}
+
+/*个人资料info的右侧部分*/
+.infodetail_r{
+    margin-right: 70px;
+    float: right;
+    height: 370px;
+    line-height: 45px;/*设置行距*/
+}
+
+/*右侧部分框外字体*/
+.userId_label_r{
+    float: left;
+    margin-right: 15px;
+    font-size: 14px;
+    position: relative;
+    top: -10px;
+}
+
+/*右侧部分边框*/
+.userId_inp_r{
+    float: right;
+    border-color: azure;
+    height: 25px;
+}
+
+/*收货地址*/
+.title2{
+    position: relative;
+    top: 12px;
+    font-size: 20px;
+    font-weight: lighter;
+    color: coral;
+    margin-bottom: 20px;
+}
+
+.addressdetail{
+    float: left;
+    margin-left: 60px;
+    position: relative;
+    top: 15px;
+    line-height: 50px;
+}
+
+/*收货人、电话、邮编的边框*/
+.address_box1{
+    height: 18px;
+    width: 127px;
+    padding: 5px 23px 5px 5px;
+    line-height: 18px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    outline: none;
+
+}
+
+/*选择地址*/
+.address_select{
+    width: 205px;
+    height: 38px;
+    border: inset azure;
+    position: relative;
+    left: -27px;
+}
+
+/*祥址的边框样式*/
+.address_box{
+    width: 500px;height: 40px;
+    border: inset azure;
+}
+
+/*收货地址的按钮*/
+.btn2{
+    position: relative;
+    top: 10px;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    color: coral;
+    outline: none;
+    cursor: pointer;
+}
+
+/*选择地址的框外字体*/
+.address_lable{
+    font-size: 15px;
+    font-weight: lighter;
+    position: relative;
+    left: -25px;
+    text-align: right;
+
+}
+
+/*下拉菜单*/
+.address-box{
+    margin-left: 20px;
+}
+.unSelect{
+    width: 150px;
+}
+.address-option{
+    top: 37px;
+}
+.address-option dd{
+    white-space: normal;
+}
+
+#address-input{
+    margin-top: 20px;
+}
+
+.identityNum{
+    border-radius: 0 2px 2px 0;
+    display: block;
+    width: 400px;
+    padding-left: 10px;
+    border: 1px solid #c2c2c2;
+    height: 38px;
+    outline: none;
+    margin-bottom: 15px;
+    position: relative;
+}
+.address-zip{
+    width: 200px;
+}
+

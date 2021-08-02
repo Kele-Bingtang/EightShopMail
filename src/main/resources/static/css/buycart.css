@@ -1,0 +1,291 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+.wrapper{
+    position: relative;
+    width: 1068px;
+    margin: 0 auto;
+}
+.top{
+    width: 100%;
+    height: 45px;
+    border: 1px solid red;
+    text-align: center;
+    background-color: #FF4400;
+    color: white;
+}
+.title li{
+    float: left;
+    list-style: none;
+    padding: 10px 15px;
+    font-size: 20px;
+    margin: 0 40px;
+}
+.title>li>a{
+    color: white;
+}
+.title>li>a:hover{
+    color: #008cff;
+}
+input{  
+    background:none;  
+    outline:none;  
+    border:none;
+}
+.prod-card{
+    width: 100%;
+    padding: 20px;
+    margin-top: 80px;
+}
+.prod-info{
+    margin-top: 0;
+    float: right;
+}
+.imgBox{
+    float: left;
+    display: inline;
+    margin-top: 50px;
+    width: 360px;
+    height: 360px;
+}
+.imgBox>img{
+    width: 100%;
+    height: 100%;
+}
+.desc{
+    font-size: 15px;
+    width: 500px;
+	margin-bottom:20px;
+}
+.price{
+    color: #FF0036;
+    font-size: 30px;
+    font-weight: 700;
+}
+.prod-info .count{
+    margin-top: 10px;
+    width: 200px;
+    height: 30px;
+    border: 1px solid #E8E8E8;
+    font-size: 20px;
+    padding-top: 5px;
+    text-align: center;
+    background-color: #EC4846;
+    color: white;
+    cursor: pointer;
+    display: none;
+	
+}
+.prod-info .count:hover{
+    background-color: red;
+}
+.yunfei{
+    line-height: 24px;
+    color: #333;
+    position: relative;
+    font-size: 12px;
+}
+.metatit{
+    color: #999;
+    font-size: 12px;
+    text-align: left;
+    float: left;
+    width: 50px;
+    margin: 0 10px;
+    line-height: 36px;
+}
+.postAge{
+    line-height: 18px;
+    padding: 9px 0;
+}
+.deliveryAdd{
+    margin: 0 6px 0 0;
+}
+.mui_addr_tri{
+    color: #333;
+    margin-right: -12px;
+    padding-right: 12px;
+    background: 0 0;
+    border: none;
+    position: relative;
+    z-index: 2;
+
+}
+.postAge-info{
+    color: #333;
+    padding: 0 5px 0 0;
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+.buy-info{
+    border-top: 1px solid #d5d5d5;
+    margin: -1px 20px 0 0;
+    padding: 10px 0;
+    position: relative;
+    overflow: hidden;
+    clear: both;
+    display: flex;
+}
+
+.info-icon{
+    float: left;
+    width: 33%;
+    text-align: center;
+    position: relative;
+    left: -1px;
+    border-left: 1px solid #e5dfda;
+    flex: 1;
+    line-height: 16px;
+}
+.buy-count{
+    margin-right: 50px;
+}
+.amount{
+    font-size: 12px;
+    margin: 0;
+    height: 26px;
+    border: 1px solid #a7a6ac;
+    width: 36px;
+    background-position: -406px -41px;
+    color: #666;
+    padding: 3px 2px 0 3px;
+}
+.amount-btn{
+    position: relative;
+    width: 18px;
+    height: 31px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.amount-border1{
+    display: inline-block;
+    width: 16px;
+    height: 12px;
+    border: 1px solid #a7a6ab;
+    position: relative;
+    top: -5px;
+    left: 2px;
+}
+.amount-border2{
+    display: inline-block;
+    width: 16px;
+    height: 12px;
+    border: 1px solid #a7a6ab;
+    position: absolute;
+    bottom: 3px;
+    left: 2px;
+
+}
+.amount-increase{
+    position: absolute;
+    top: 2px;
+    left: 1px;
+    display: inline-block;
+    border-bottom: 7px solid #a7a6ab;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+}
+.amount-decrease{
+    position: absolute;
+    top: 2px;
+    left: 1px;
+    display: inline-block;
+    border-top: 7px solid #a7a6ab;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+}
+.amount-info{
+    color: #878787;
+    margin-left: 35px;
+}
+.total-price{
+    color: #EC4846;
+    font-weight: bold;
+    cursor: pointer;
+}
+.sale-label{
+    display: inline-block;
+    line-height: 16px;
+    height: 16px;
+    color: #999;
+}
+.sale-count{
+    display: inline-block;
+    line-height: 16px;
+    height: 16px;
+    color: #FF0036;
+    font-weight: 700;
+    margin-left: 3px;
+}
+.sale{
+    padding:10px;
+    border: 1px dotted gray;
+    width: 550px;
+    height: 100px;
+    font-size: 10px;
+    color: grey;
+    border-left: none;
+    border-right: none;
+}
+.address-label{
+    margin: 20px 0;
+
+}
+.address-info{
+    margin-top: 20px;
+}
+#addr-show{
+    width: 300px;
+}
+#addr-show,#button-show{
+    font-size: 10px;
+    color: grey;
+}
+.d,.m,.f,.mi,.n,.provice,.city,.district,.addr{
+    /*display: none;*/
+}
+form{
+    position: relative;
+}
+.buybtn{
+    width: 200px;
+    font-size: 20px;
+    color: #FF0036;
+    background-color: #FFEDED;
+    border: 1px solid #FF0036;
+    float: left;
+    padding: 6px;
+    text-align: center;
+    transition: 0.4s opacity;
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    outline: none;
+    cursor: pointer;
+    margin: -40px 15px 20px 0;
+}
+.addbtn{
+    width: 200px;
+    font-size: 20px;
+    color: white;
+    background-color: #008cff;
+    border: 1px solid #FF0036;
+    float: left;
+    padding: 6px;
+    text-align: center;
+    transition: 0.4s opacity;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    margin: -40px 15px 20px 0;
+}
+

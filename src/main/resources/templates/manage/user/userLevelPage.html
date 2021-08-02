@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户积分管理</title>
+    <link rel="stylesheet" th:href="@{/static/plugins/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/css/manage/style.css}" media="all">
+</head>
+<body>
+    <div class="layui-fluid">
+        <div class="layui-card">
+            <div class="layui-card-body" style="padding: 15px;">
+                <form class="layui-form layui-form-pane" action="">
+                    <input name="userLevelId" th:value="${obj?.userLevelId}" class="layui-input layui-hide"/>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">级别名称</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="levelName" th:value="${obj?.levelName}" lay-verify="required" placeholder="请输入级别名称" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">级别最低积分</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="minPoint" th:value="${obj?.minPoint}" lay-verify="required" placeholder="请输入级别最低积分" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">级别最高积分</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="maxPoint" th:value="${obj?.maxPoint}" lay-verify="required" placeholder="请输入级别最高积分" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-hide">
+                        <input type="button" lay-submit lay-filter="lay-front-submit" id="lay-front-submit" value="确认">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/static/plugins/layui/layui.js}"></script>
+    <script th:src="@{/static/js/manage/user/userLevel.js}"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

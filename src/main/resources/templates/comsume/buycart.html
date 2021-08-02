@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>立即购买、加入购物车</title>
+    <link rel="stylesheet" href="/static/css/buycart.css">
+    <link rel="stylesheet" href="/static/css/select.css">
+</head>
+<body>
+<div class="wrapper">
+    <!--一级菜单-->
+    <div class="top">
+        <ul class="title">
+            <li>
+                <a href="/index">首页</a>
+            </li>
+            <li style="font-size:15px">
+                欢迎光临八八商城！
+            </li>
+            <li>
+                <a href="/static/userLoginAndReg/loginUser.html">请登录</a>
+            </li>
+            <li>
+                <a href="/static/userLoginAndReg/registerUser.html">注册</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">订单</a>
+            </li>
+            <li>
+                <a href="javascript:void(0)">购物车</a>
+            </li>
+        </ul>
+    </div>
+
+    <!--商品信息卡-->
+    <div class="prod-card">
+        <div class="imgBox">
+            <img th:src="${productInfo.productPicInfo.picUrl}" alt="图片加载失败" style="cursor: pointer"
+                 th:title="${productInfo.productPicInfo.picDesc}" class="img">
+        </div>
+        <div class="prod-info">
+
+            <!--商品名称-->
+            <h2 id="title" style="padding-bottom: 10px;" th:text="${productInfo.productName}"></h2>
+
+            <!--商品描述-->
+            <div class="desc" th:text="${productInfo.descript}" style="width: 400px;">
+            </div>
+
+            <!--商品价格-->
+            <div>
+                <span style="font-size: 25px;color: #FF0036;">￥</span>
+                <span class="price" th:text="${productInfo.price}"></span>
+            </div>
+
+            <!--商品优惠券不显示-->
+            <div class="count" title="5元">
+                优惠券
+            </div>
+
+            <!--运费、地址-->
+            <div class="yunfei">
+                <dt class="metatit">运费</dt>
+                <dd>
+                    <div class="postAge">
+                        <span class="deliveryAdd">八八</span>至
+                        <span class="mui_addr_tri">桂林</span>
+                        <div class="postAge-info">快递 0.00</div>
+                    </div>
+                </dd>
+
+                <ul class="buy-info">
+                    <li class="info-icon">
+                        <div class="info">
+                            <span class="info-label">月销量</span>
+                            <span class="info-count" th:text="${productInfo.productWarehouse.productSales}"></span>
+                        </div>
+                    </li>
+                    <li class="info-icon">
+                        <div class="info">
+                            <span class="info-label">累计评价</span>
+                            <span class="info-count">63</span>
+                        </div>
+                    </li>
+                    <li class="info-icon">
+                        <div class="info">
+                            <span class="info-label">送积分</span>
+                            <span class="info-count">63 <span>起</span></span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="sale">
+                    <!--商品购买数量-->
+                    <div style="margin-top:10px">
+                        <span class="buy-count">数量</span>
+                        <input type="text" class="amount" value="1" maxlength="8">
+                        <span class="amount-btn">
+                        <div class="amount-border1">
+                             <span class="amount-increase"></span>
+                        </div>
+                        <div class="amount-border2">
+                            <span class="amount-decrease"></span>
+                        </div>
+                    </span>
+                        <span class="amount-info">
+                        <span class="price-title">总金额</span>
+                        <span class="total-price" th:text="${productInfo.price}"></span>元
+                    </span>
+                        <span class="amount-info">
+                        <span class="price-title">库存</span>
+                        <span class="cnt-count" th:text="${productInfo.productWarehouse.currentCnt}"></span>件
+                    </span>
+                    </div>
+                    <!--发货地址、收货地址-->
+                    <div class="address-label">
+                        广西壮族自治区桂林市灵川县&nbsp;&nbsp;至&nbsp;&nbsp;
+                        <span class="addr-show provice" readonly></span>
+                        <span class="addr-show city" readonly></span>
+                        <span class="addr-show district" readonly></span>
+                        <span class="addr-show address" readonly></span>
+                    </div>
+                </div>
+
+                <div class="address-select">
+                    <div class="address-box">
+                        <div class="address-info" style="">
+                            <div class="select-title">
+                                <input type="text" placeholder="请选择" value="" readonly class="unSelect address-unSelect">
+                                <i class="arrow"></i>
+                            </div>
+                            <dl id="prov" class="option address-option" onclick="showCity(this)">
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="address-box">
+                        <div class="address-info" style="">
+                            <div class="select-title">
+                                <input type="text" placeholder="请选择" value="" readonly class="unSelect address-unSelect">
+                                <i class="arrow"></i>
+                            </div>
+                            <dl id="city" class="option address-option" onclick="showCountry(this)">
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="address-box">
+                        <div class="address-info" style="">
+                            <div class="select-title">
+                                <input type="text" placeholder="请选择" value="" readonly class="unSelect address-unSelect">
+                                <i class="arrow"></i>
+                            </div>
+                            <dl id="country" class="option address-option">
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="address-detail">
+                        <div class="address-info" style="">
+                            <div class="input-title">
+                                <textarea id="address-input" placeholder="请输入详细地址" class="area ddress-input"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--隐藏提交表单-->
+                <form id="pay-form" action="http://localhost:8080/eight/alipay" method="post">
+                    <!--   *商户订单 :-->
+                    <input class="d" type="text" name="outTradeNo" value="" hidden><br>
+                    <input class="m" type="text" name="subject" value="" hidden><br>
+                    <input class="n" type="text" name="num" value="" hidden><br>
+                    <input class="f" type="text" name="total_amount" value="" hidden><br>
+                    <input class="mi" type="text" name="body" value="" hidden><br>
+                    <input class="provice" type="text" name="province" value="" hidden><br>
+                    <input class="city" type="text" name="city" value="" hidden><br>
+                    <input class="district" type="text" name="district" value="" hidden><br>
+                    <input class="address" type="text" name="address" value="" hidden><br>
+                    <input class="user-id" type="text" name="userId" value="" hidden><br>
+                    <input class="product-id" type="text" name="productId" th:value="${productInfo.productId}" hidden><br>
+                    <input class="product-price" type="text" name="price" th:value="${productInfo.price}" hidden><br>
+                    <input class="product-name" type="text" name="productName" th:value="${productInfo.productName}" hidden><br>
+
+                    <input type="button" class="buybtn" value="立即购买">
+                    <a class="addbtn" href="javascript:void(0)">加入购物车</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/js/consume/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="/static/js/consume/city.js"></script>
+<script type="text/javascript" src="/static/js/consume/method.js"></script>
+<script type="text/javascript" src="/static/js/consume/buy.js"></script>
+</body>
+</html>

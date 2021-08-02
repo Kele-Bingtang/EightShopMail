@@ -28,6 +28,9 @@ $(function () {
             "boxName": "hourse",
             "code": "hs020&hs007&hs001&hs022&hs005&hs015&hs004&hs010",
         },
+        "boxName": "hourse",
+        "code": "hs020&hs007&hs001&hs022&hs005&hs015&hs004&hs010",
+       },
         //导航书籍机数据
         bookData:{
             "boxName": "book",
@@ -50,6 +53,7 @@ $(function () {
         phoneData:{
             "boxName": "phone",
             "code": "mi007&mi002&mi004&hw010&hw008&hw001&pg001&pg009"
+                "code": "mi007&mi002&mi004&hw010&hw008&hw001&pg001&pg009"
         },
         //主界面家电数据
         hourseData:{
@@ -82,6 +86,14 @@ $(function () {
         },
         //家具分类请求
         hourseCartgoryIds: [11, 12],//家具分类
+       //书籍分类请求
+        bookCartgoryIds: [7, 8, 9, 10], //书籍分类
+        //获得数据的顺序，前面的数字代表除热门以外的标签数量，数组是悬停时显示的商品内容顺序，都是从0开始算
+        bookdataIndexs: { //获取的书籍，只选择八个存放
+           0: [5, 8, 10, 12, 14, 16, 18, 20],
+       },
+        //家具分类请求
+         hourseCartgoryIds: [11, 12],//家具分类
         //悬停显示的商品id
         //获得数据的顺序，前面的数字代表除热门以外的标签数量，数组是悬停时显示的商品内容顺序，都是从0开始算
         hoursedataIndexs: {
@@ -91,6 +103,9 @@ $(function () {
         audioCartgoryIds : [14, 15],//音响分类
         //获得数据的顺序，前面的数字代表除热门以外的标签数量，数组是悬停时显示的商品内容顺序，都是从0开始算
         audiodataIndexs : {
+         audioCartgoryIds : [14, 15],//音响分类
+        //获得数据的顺序，前面的数字代表除热门以外的标签数量，数组是悬停时显示的商品内容顺序，都是从0开始算
+         audiodataIndexs : {
             0: [0, 1, 2, 3, 4, 5, 6, 7],
             1: [0, 1, 2, 3, 4, 5, 6, 7],
         },
@@ -251,6 +266,7 @@ $(function () {
                 var str = "";
                 for (let i = 0; i < data.length; i++) {
                     str += `<li data-value="${data[i].productId}">
+                str += `<li data-value="${data[i].productId}">
                                 <a href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}" target="_blank">
                                      <img src="${data[i].productPicInfo.picUrl}" alt="" class="img">
                                      <p class="name">${data[i].productName}</p>
@@ -581,6 +597,9 @@ $(function () {
                 /*  str = `<a href="http://localhost:8080/eight/userInfo/queryUserInfo?userId=${userId}" target="_blank">
                             <img src="${data.headUrl}" alt="">
                           </a>`;*/
+              /*  str = `<a href="http://localhost:8080/eight/userInfo/queryUserInfo?userId=${userId}" target="_blank">
+                          <img src="${data.headUrl}" alt="">
+                        </a>`;*/
                 str = `<span class="skip-person">
                           <img src="${data.headUrl}" alt="">
                         </span>`;

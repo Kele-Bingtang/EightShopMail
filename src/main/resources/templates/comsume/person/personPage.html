@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/static/css/index/reset.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/static/css/select.css">
+    <link href="/static/css/person/userInfo.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<form id="person-form">
+    <div class="person-list">
+        <h2 class="title1">个人资料</h2>
+        <div class="info-main">
+           <div class="tx-point">
+               <img th:src="${userInfo.userHeadList[userInfo.userHeadList.size()-1].headUrl}" alt="" class="tx-img">
+               <div>
+                   <p class="level">
+                       <span>积分等级：</span>
+                       <span th:text="${userInfo.userLevel.levelName}"></span>
+                   </p>
+                   <p class="point">
+                      <span>积分：</span>
+                       <span th:text="${userInfo.levelPoint}"></span>
+                   </p>
+
+               </div>
+           </div>
+            <div class="info-item">
+                <span class="label">用户名：</span>
+                <div class="label-f"><strong th:text="${userInfo.username}"></strong></div>
+            </div>
+            <div class="info-item">
+                <span class="label">登录名：</span>
+                <div class="label-f"><strong th:text="${userInfo.username}"></strong></div>
+            </div>
+            <div class="info-item">
+                <span class="label">真实姓名：</span>
+                <div class="label-f">
+                    <input type="text" id="realName" maxlength="20" name="realName" th:value="${userInfo.realName}">
+                </div>
+            </div>
+            <div class="info-item">
+                <span class="label">性别：</span>
+                <div class="label-f">
+                    <div th:if="${userInfo.userSex} == '男'">
+                        <input checked type="radio" name="userSex" id="man" value="男">
+                        <label for="man" class="sex-label">男</label>
+                        <input type="radio" name="userSex" id="woman" value="女">
+                        <label for="woman" class="sex-label">女</label>
+                        <input th:checked type="radio" name="userSex" id="secret" value="保密">
+                        <label for="secret" class="sex-label">保密</label>
+                    </div>
+                    <div th:if="${userInfo.userSex} == '女'">
+                        <input type="radio" name="userSex" id="man" value="男">
+                        <label for="man" class="sex-label">男</label>
+                        <input type="radio" name="userSex" id="woman" value="女">
+                        <label for="woman" class="sex-label">女</label>
+                        <input type="radio" name="userSex" id="secret" value="保密">
+                        <label for="secret" class="sex-label">保密</label>
+                    </div>
+                    <div th:if="${userInfo.userSex} == '保密'">
+                        <input type="radio" name="userSex" id="man" value="男">
+                        <label for="man" class="sex-label">男</label>
+                        <input checked type="radio" name="userSex" id="woman" value="女">
+                        <label for="woman" class="sex-label">女</label>
+                        <input checked type="radio" name="userSex" id="secret" value="保密">
+                        <label for="secret" class="sex-label">保密</label>
+                    </div>
+                </div>
+            </div>
+            <div class="info-item">
+                <span class="label birthday-label">生日：</span>
+                <div class="label-f">
+                    <div class="birthday-box">
+                        <div class="address-select">
+                            <div class="address-box">
+                                <div class="address-info" style="">
+                                    <div class="select-title" th:if="!${#strings.isEmpty(userInfo.birthday)}">
+                                        <input type="text" placeholder="请选择" th:value="${#strings.substring(userInfo.birthday,0,4)}" readonly class="unSelect year-input">
+                                        <i class="arrow"></i>
+                                    </div>
+                                    <div class="select-title" th:if="${#strings.isEmpty(userInfo.birthday)}">
+                                        <input type="text" placeholder="请选择" value="" readonly class="unSelect year-input">
+                                        <i class="arrow"></i>
+                                    </div>
+                                    <dl class="option option1"></dl>
+                                </div>
+                            </div>
+                            <label>年</label>
+
+                            <div class="address-box">
+                                <div class="address-info" style="">
+                                    <div class="select-title" th:if="!${#strings.isEmpty(userInfo.birthday)}">
+                                        <input type="text" placeholder="请选择" th:value="${#strings.substring(userInfo.birthday,6,7)}" readonly class="unSelect month-input">
+                                        <i class="arrow"></i>
+                                    </div>
+                                    <div class="select-title" th:if="${#strings.isEmpty(userInfo.birthday)}">
+                                        <input type="text" placeholder="请选择" value="" readonly class="unSelect month-input">
+                                        <i class="arrow"></i>
+                                    </div>
+                                    <dl class="option option2">
+                                    </dl>
+                                </div>
+                            </div>
+                            <label>月</label>
+                            <div class="address-box">
+                                <div class="address-info" style="">
+                                    <div class="select-title" th:if="!${#strings.isEmpty(userInfo.birthday)}">
+                                            <input type="text" placeholder="请选择" th:value="${#strings.substring(userInfo.birthday,9,10)}" readonly class="unSelect day-input">
+                                        <i class="arrow"></i>
+                                    </div>
+                                    <div class="select-title" th:if="${#strings.isEmpty(userInfo.birthday)}">
+                                        <input type="text" placeholder="请选择" value="" readonly class="unSelect day-input">
+                                        <i class="arrow"></i>
+                                    </div>
+                                    <dl class="option option3"></dl>
+                                </div>
+                            </div>
+                            <label>日</label>
+                        </div>
+                    </div>
+                </div>
+                <input type="text" name="userInfoId" th:value="${userInfo.userInfoId}" hidden class="userInfoId">
+                <input type="text" name="birthday" value="" hidden class="birthday">
+                <input type="button" class="info-submit-btn" value="提交">
+
+            </div>
+        </div>
+
+
+    </div>
+</form>
+<!--先导入jQuery，再导入js文件，顺序有要求-->
+<script src="/static/js/consume/jquery-1.7.2.js"></script>
+<script src="/static/js/consume/userInfo.js"></script>
+<script src="/static/js/consume/WcyUpdateInfo.js"></script>
+<script src="/static/js/consume/select.js"></script>
+<script>
+    $(function (){
+        $(".info-submit-btn").on("click",function (){
+            let year = $(".year-input").val();
+            let month = $(".month-input").val();
+            let day = $(".day-input").val();
+            if(month < 10){
+                month = '0' + month;
+            }
+            if(day < 10){
+                day = '0' + day;
+            }
+            $(".birthday").val(year + '-' + month + '-' + day);
+            console.log()
+            $.ajax({
+                url:"http://localhost:8080/eight/userInfo/modifyPersonInfo",
+                data:$("#person-form").serialize(),
+                type:"post",
+                success:function (data){
+                    if(data.code == 0){
+                        window.location.reload();
+                    }
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

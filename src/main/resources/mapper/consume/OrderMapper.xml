@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.consume.order.OrderMapper">
+    <delete id="deleteOrder" parameterType="string">
+		DELETE FROM order_master WHERE order_id =#{value}
+    </delete>
+
+    <resultMap id="orderMap" type="com.eight.bean.OrderMaster">
+        <id property="orderId" column="order_id"></id>
+        <result property="orderSn" column="order_sn"></result>
+        <result property="userId" column="user_id"></result>
+        <result property="shippingUser" column="shipping_user"></result>
+        <result property="province" column="province"></result>
+        <result property="city" column="city"></result>
+        <result property="district" column="district"></result>
+        <result property="address" column="address"></result>
+        <result property="paymentMethod" column="payment_method"></result>
+        <result property="orderMoney" column="order_money"></result>
+        <result property="districtMoney" column="district_money"></result>
+        <result property="shippingMoney" column="shipping_money"></result>
+        <result property="paymentMoney" column="payment_money"></result>
+        <result property="shoppingMallName" column="shopping_mallName"></result>
+        <result property="createTime" column="create_time"></result>
+        <result property="shippingTime" column="shipping_time"></result>
+        <result property="payTime" column="pay_time"></result>
+        <result property="receiveTime" column="receive_time"></result>
+        <result property="orderStatus" column="order_status"></result>
+        <result property="orderPoint" column="order_soint"></result>
+        <result property="modifiedTime" column="modified_time"></result>
+    </resultMap>
+</mapper>

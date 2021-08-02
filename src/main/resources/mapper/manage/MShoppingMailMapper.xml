@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.MShoppingMailMapper">
+
+    <select id="queryShoppingMailByUsername" resultType="com.eight.bean.ShoppingMail">
+
+    </select>
+    <select id="queryShoppingMailList" resultType="com.eight.bean.ShoppingMail">
+        select * from shoppingmail
+    </select>
+
+    <insert id="addShoppingMail">
+
+    </insert>
+
+    <delete id="deleteShoppingMail">
+    </delete>
+
+    <update id="modifyShoppingMail">
+
+    </update>
+
+    <select id="queryShoppingMailPage" resultType="com.eight.bean.ShoppingMail" >
+        select * from shoppingmail
+        <where>
+            <if test="param != null">
+                and shoppingMailName like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{shoppingMailPage.startIndex},#{shoppingMailPage.singlePageSize}
+    </select>
+
+    <select id="queryShoppingMailCount" resultType="java.lang.Integer">
+        select count(*) from shoppingmail
+    </select>
+    <select id="queryShoppingMailById" resultType="com.eight.bean.ShoppingMail">
+        select * from shoppingmail where shoppingMail_id = #{pDetailId}
+    </select>
+</mapper>

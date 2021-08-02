@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.user.MUserInfoMapper">
+
+    <resultMap id="queryUserList" type="com.eight.bean.UserInfo" autoMapping="true">
+        <id property="userInfoId" column="user_info_id"/>
+        <collection property="user" ofType="com.eight.bean.User" autoMapping="true">
+            <id property="userId" column="user_id"/>
+        </collection>
+    </resultMap>
+
+    <select id="queryUserInfoByUsername" resultType="com.eight.bean.UserInfo">
+        select * from user_info where username = #{username}
+    </select>
+    <select id="queryUserInfoList" resultMap="queryUserList">
+        select * from user_info ui,user u where u.user_id = ui.user_id;
+    </select>
+
+    <insert id="addUserInfo" parameterType="com.eight.bean.UserInfo">
+        insert into
+            user_info(user_id, username, real_name, identity_card_no, user_sex, mobile_phone, email, birthday)
+            VALUES (#{userId},#{username},#{realName},#{identityCardNo},#{userSex},#{mobilePhone},#{email},#{birthday})
+    </insert>
+
+    <delete id="deleteUserInfo" parameterType="com.eight.bean.UserInfo">
+        delete from user_info where user_info_id = #{userInfoId}
+    </delete>
+
+    <update id="modifyUserInfo" parameterType="com.eight.bean.UserInfo">
+        update user_info set user_id=#{userId}, username=#{username},real_name=#{realName}
+           ,identity_card_type=#{identityCardType},identity_card_no=#{identityCardNo}
+           ,user_sex=#{userSex},mobile_phone=#{mobilePhone},email=#{email},birthday = #{birthday}
+        where user_info_id=#{userInfoId}
+    </update>
+    <update id="modifyPersonInfo" parameterType="com.eight.bean.UserInfo">
+        update user_info set real_name=#{realName},user_sex=#{userSex},birthday = #{birthday}
+        where user_info_id=#{userInfoId}
+    </update>
+    <update id="modifyPersonSecurity">
+        update user_info set identity_card_type=#{identityCardType},identity_card_no=#{identityCardNo}
+                           ,mobile_phone=#{mobilePhone},email=#{email}
+        where user_info_id=#{userInfoId}
+    </update>
+
+    <select id="queryUserInfoPage" resultType="com.eight.bean.UserInfo" >
+        select * from user_info
+        <where>
+            <if test="param != null">
+                and username like "%"#{param}"%"
+            </if>
+        </where>
+        limit #{userInfoPage.startIndex},#{userInfoPage.singlePageSize}
+    </select>
+
+    <select id="queryUserInfoCount" resultType="java.lang.Integer">
+        select count(*) from user_info
+    </select>
+    <select id="queryUserInfoById" resultType="com.eight.bean.UserInfo">
+        select * from user_info ui,user u where ui.user_id=u.user_id and user_info_id = #{userInfoId}
+    </select>
+    <select id="queryUserInfoByUserId" parameterType="long" resultType="com.eight.bean.UserInfo">
+        select * from user_info where user_id = #{userId}
+    </select>
+
+    <select id="queryAllUserInfoByUserId" parameterType="long" resultMap="queryAllUserInfo">
+        select * from user_info ui,user u,user_head uh,user_addr ua,user_level ul where ui.user_id = u.user_id and ui.user_id = uh.user_id
+          and ui.user_id = ua.user_id and ui.user_id = #{userId}
+    </select>
+    <select id="queryUserLvel" parameterType="com.eight.bean.UserInfo" resultType="com.eight.bean.UserLevel">
+        select * from user_level ul,user_info ui where ui.user_level_id = ul.user_level_id and ui.user_level_id = #{userLevelId}
+    </select>
+
+    <resultMap id="queryAllUserInfo" type="com.eight.bean.UserInfo" autoMapping="true">
+        <id property="userInfoId" column="user_info_id"/>
+        <result property="userId" column="user_id"/>
+        <association property="user" column="user_id" javaType="com.eight.bean.User" autoMapping="true">
+            <id property="userId" column="user_id"/>
+        </association>
+        <association property="userLevel" javaType="com.eight.bean.UserLevel" autoMapping="true">
+            <id property="userLevelId" column="user_level_id"/>
+        </association>
+        <collection property="userHeadList" ofType="com.eight.bean.UserHead" autoMapping="true">
+            <id property="userHeadId" column="user_head_id"/>
+        </collection>
+        <collection property="userAddrList" ofType="com.eight.bean.UserAddr" autoMapping="true">
+            <id property="userAddrId" column="user_addr_id"/>
+        </collection>
+    </resultMap>
+
+</mapper>

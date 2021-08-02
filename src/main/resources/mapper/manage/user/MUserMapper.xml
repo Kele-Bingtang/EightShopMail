@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eight.mapper.manage.user.MUserMapper">
+
+    <insert id="addUser" parameterType="com.eight.bean.User">
+        insert into  user(username, password) VALUES (#{username},#{password})
+    </insert>
+    <update id="modifyPassword" parameterType="com.eight.bean.User">
+        update user set password = #{password} where username = #{username}
+    </update>
+    <delete id="deleteUser" parameterType="com.eight.bean.User">
+        delete from user where user_id = #{userId}
+    </delete>
+    <select id="queryUserByUsername" parameterType="com.eight.bean.User" resultType="com.eight.bean.User">
+        select * from user where username = #{username}
+    </select>
+
+    <select id="queryUserIdByUsername" parameterType="string" resultType="com.eight.bean.User">
+        select * from user where username = #{username}
+    </select>
+
+    <select id="queryUserList" resultType="com.eight.bean.User">
+        select * from user
+    </select>
+
+    <select id="queryUserPage" resultType="com.eight.bean.User" >
+        select * from user
+    <where>
+        <if test="param != null">
+            and username like "%"#{param}"%"
+        </if>
+    </where>
+        limit #{userPage.startIndex},#{userPage.singlePageSize}
+    </select>
+    
+    <select id="queryUserCount" resultType="java.lang.Integer">
+        select count(*) from user
+    </select>
+    <select id="queryUserById" parameterType="integer" resultType="com.eight.bean.User">
+        select * from user where user_id = #{userId}
+    </select>
+
+</mapper>
