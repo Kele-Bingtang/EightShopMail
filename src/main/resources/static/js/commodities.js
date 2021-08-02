@@ -1,4 +1,3 @@
-// let con = $("#variety").children('ul').children('li').children('input');
 var curPage = $("#curPage");
 var totalRecord = $(".totalRecord");
 var pageSize = Number($("#pageSize").val());
