@@ -2,6 +2,7 @@ package com.eight.bean;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.List;
 
 public class OrderDetail {
     // 订单详情表ID
@@ -29,6 +30,8 @@ public class OrderDetail {
     private ProductInfo productInfo;
     //根据用户的id查看该用户的订单
     private UserInfo userInfo;
+
+    private List<Logistics> logistics;
     // 无参构造器
     public OrderDetail() {
     }
@@ -157,7 +160,16 @@ public class OrderDetail {
         this.userInfo = userInfo;
     }
 
+    public List<Logistics> getLogistics() {
+        return logistics;
+    }
+
+    public void setLogistics(List<Logistics> logistics) {
+        this.logistics = logistics;
+    }
+
     // 重写toString方法，使用该方法可以在控制台打印属性的数据
+
 
     @Override
     public String toString() {
@@ -171,7 +183,10 @@ public class OrderDetail {
                 ", freeMoney=" + freeMoney +
                 ", modifiedTime=" + modifiedTime +
                 ", productPicInfo=" + productPicInfo +
+                ", orderMaster=" + orderMaster +
                 ", productInfo=" + productInfo +
+                ", userInfo=" + userInfo +
+                ", logistics=" + logistics +
                 '}';
     }
 }

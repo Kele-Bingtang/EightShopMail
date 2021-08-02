@@ -1,7 +1,7 @@
 package com.eight.controller.consume;
 
 import com.eight.bean.Logistics;
-import com.eight.service.consume.logisticsService;
+import com.eight.service.consume.IIogisticsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +13,10 @@ import java.util.Random;
 
 
 @Controller
-@RequestMapping("/eight/user/index")
+@RequestMapping("/eight/user/logistic")
 public class LogisticsController {
     @Autowired
-    private logisticsService logisticsService;
+    private IIogisticsService logisticsService;
 
     //点击我的淘宝后跳转到信息界面
     @GetMapping("insert")
@@ -32,27 +32,28 @@ public class LogisticsController {
     }
 
     @GetMapping("getLogistics")
-    private String getLog(String user_id, String order_id, Model model){
-        model.addAttribute("Logistics",logisticsService.getLogistics(order_id,"1"));
-        return "comsume/logistics/ddd";
+    private String getLog(Long user_id, Long order_id, Model model){
+        model.addAttribute("Logistics",logisticsService.getLogistics(order_id,1L));
+        return "comsume/logistics/logisticsUI";
     }
 
     @GetMapping("propic")
-    private String getPicByProId(Model model, String orderId){
+    private String getPicByProId(Model model, Long orderId){
         if(logisticsService.getOrder(orderId)==null){
         model.addAttribute("remain","商品正在飞速打包中，请耐心等待");
     }else
-        model.addAttribute("Information",logisticsService.getOrder(orderId));
+        model.addAttribute("informations",logisticsService.getOrder(orderId));
+
         //生成取件码
         Random random=new Random();
         int code=10000;
         code+=random.nextInt(99999);
         model.addAttribute("code",code);
-        return "comsume/logistics/ddd";
+        return "comsume/logistics/logisticsUI";
     }
 
     @GetMapping("order")
-    private String getMyOrders(Model model, String userId){
+    private String getMyOrders(Model model, Long userId){
     ////登入后根据用户id判断用户是否已经买有东西,如果有则显示所有的订单消息,没有则提醒用户
         if(logisticsService.getOrdersList(userId).size()==0){
             model.addAttribute("remain","亲，您没有购买商品呢");
@@ -63,7 +64,6 @@ public class LogisticsController {
         }
         return "comsume/logistics/myorders";
     }
-
 
 }
 

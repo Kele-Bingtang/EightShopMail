@@ -36,7 +36,7 @@
     </insert>
 
     <update id="modifyProductWarehouse" parameterType="com.eight.bean.ProductWarehouse">
-        update product_warehouse set current_cnt=current_cnt+#{currentCnt},product_sales=product_sales-#{productSales},product_sell_price=product_sell_price+#{productSellPrice}
+        update product_warehouse set current_cnt=current_cnt-#{currentCnt},product_sales=product_sales+#{productSales},product_sell_price=product_sell_price+#{productSellPrice}
         where product_id = #{productId}
     </update>
 </mapper>

@@ -7,7 +7,7 @@
     </head>
 <body>
     <div class="overall">
-    <a class="return" href="#">返回</a>
+    <a class="return" href="http://localhost:8080/eight/index">返回</a>
     <span class="remain" th:text="${remain}"></span><!--当该用户没有购买商品时显示-->
     <div th:each="order : ${Orders}">
         <div class="wrapper">
@@ -24,7 +24,7 @@
                                 <ul>
                                     <li><a href="#">快递状态</a></li>
                                     <li><a href="#">订单详情</a></li>
-                                    <li><p  th:href="@{getLogistics(orderId=${order.orderId})}"><a th:href="@{propic(orderId=${order.orderId})}">查看物流</a></p></li>
+                                    <li><p><a th:href="@{http://localhost:8080/eight/user/logistic/propic(orderId=${order.orderId})}">查看物流</a></p></li>
                                     <li><a href="@{propic(orderId=${order.orderId})}">退货</a></li>
                                 </ul>
                             </div>

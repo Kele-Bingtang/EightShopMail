@@ -2,6 +2,7 @@ package com.eight;
 
 import com.eight.bean.*;
 import com.eight.mapper.consume.IndexMapper;
+import com.eight.mapper.consume.LogisticsMapper;
 import com.eight.mapper.manage.ManageLoginMapper;
 import com.eight.mapper.manage.user.MUserInfoMapper;
 import com.eight.mapper.manage.user.MUserMapper;
@@ -28,6 +29,8 @@ class EightsmApplicationTests {
     private IndexMapper indexMapper;
     @Autowired
     private MUserInfoMapper mUserInfoMapper;
+    @Autowired
+    private LogisticsMapper logisticsMapper;
     @Test
     void contextLoads() {
     }
@@ -75,5 +78,13 @@ class EightsmApplicationTests {
     public void text02(){
         UserInfo userInfo = mUserInfoMapper.queryAllUserInfoByUserId(1L);
         System.out.println(userInfo);
+    }
+
+    @Test
+    public void text03(){
+        List<OrderDetail> order = logisticsMapper.getOrder(11L);
+        for (OrderDetail orderDetail : order) {
+            System.out.println(orderDetail);
+        }
     }
 }

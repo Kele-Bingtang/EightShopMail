@@ -210,7 +210,6 @@ input{
 .total-price{
     color: #EC4846;
     font-weight: bold;
-    cursor: pointer;
 }
 .sale-label{
     display: inline-block;

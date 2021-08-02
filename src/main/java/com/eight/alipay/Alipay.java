@@ -52,7 +52,6 @@ public class Alipay {
         alipayRequest.setBizContent(JSON.toJSONString(alipayBean));
         // 3、请求支付宝进行付款，并获取支付结果
         String result = alipayClient.pageExecute(alipayRequest).getBody();
-        System.out.println(result);
         // 返回付款信息
         return result;
     }

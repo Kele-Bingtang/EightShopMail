@@ -35,8 +35,6 @@ html{
     margin: auto;
 }
 .return{
-    position: relative;
-    left: -450px;
     font-size: 20px;
     text-decoration: none;
     color: blue;
@@ -80,9 +78,7 @@ html{
 .downside {
     width: 100%;
     height: 250px;
-    left: 50px;
-    top: 20px;
-    position: relative;
+    margin-top: 70px;
     float: left;
 }
 .status-box{
@@ -138,13 +134,14 @@ html{
 .information{
     position: relative;
     height: 120px;
-    width: 200px;
+    width: 800px;
     left: 200px;
-    top: -135px;
+    top: -157px;
 }
 
 li{
     list-style: none;
+    margin-bottom: 10px;
 }
 .money{
     position: relative;

@@ -1,19 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.eight.mapper.consume.logisticsMapper">
+<mapper namespace="com.eight.mapper.consume.LogisticsMapper">
 
     <insert id="insertLogistics" parameterType="com.eight.bean.Logistics">
-        insert into Logistics(user_id,order_id,message)values(#{user_id},#{order_id},#{message})
+        insert into Logistics(user_id,order_id,message)values(#{userId},#{orderId},#{message})
     </insert>
 
-    <resultMap id="LogisticsMap" type="com.eight.bean.Logistics">
-        <id property="userId" column="user_id"/>
-        <id property="orderId" column="order_id"/>
-        <result property="message" column="message"/>
-        <result property="currentTime" column="current_time"/>
+    <resultMap id="LogisticsMap" type="com.eight.bean.Logistics" autoMapping="true">
+        <id property="logisticsId" column="logistics_id"/>
     </resultMap>
 
     <select id="getLogistics" resultMap="LogisticsMap">
-        select * from Logistics where user_id=#{user_id} and order_id=#{order_id}
+        select * from Logistics where user_id=#{userId} and order_id=#{orderId}
     </select>
+
+
+    <select id="getOrdersList" resultMap="OrdersList" parameterType="long">
+        select DISTINCT
+            u.user_id,m.order_id,m.user_id,
+            d.product_id did,d.product_name dname,d.order_id,
+            p.product_id pid,p.pic_url purl,p.product_pic_id ppid,
+            pi.product_id,pi.price,pi.descript,pi.price
+        from order_detail d,product_info pi,product_pic_info p,order_master m,user_info u
+        where d.product_id=p.product_id and p.product_id=pi.product_id
+          and m.order_id=d.order_id and m.user_id=u.user_id and u.user_id=#{userId}
+    </select>
+
+    <resultMap id="OrdersList" type="com.eight.bean.OrderDetail">
+        <id property="orderId" column="order_id"/>
+        <id property="productId" column="did"/>
+        <result property="productName" column="dname"/>
+        <association property="productPicInfo" javaType="com.eight.bean.ProductPicInfo">
+            <id property="productId" column="pid"/>
+            <result property="picUrl" column="purl"/>
+            <result property="productPicId" column="ppid"/>
+        </association>
+
+        <association property="productInfo" javaType="com.eight.bean.ProductInfo">
+            <id property="productId" column="product_id"/>
+            <result property="descript" column="descript"/>
+            <result property="price" column="price"/>
+        </association>
+
+        <association property="orderMaster" javaType="com.eight.bean.OrderMaster">
+            <id property="userId" column="user_id"/>
+            <id property="orderId" column="order_id"/>
+            <association property="userInfo" javaType="com.eight.bean.UserInfo">
+                <id property="userId" column="user_id"/>
+            </association>
+        </association>
+    </resultMap>
+
+    <select id="getOrder" resultMap="orderPic" parameterType="long">
+        select *
+        from product_pic_info p,order_detail d,order_master m,user_info u,Logistics l
+        where d.product_id=p.product_id and m.order_id=d.order_id and u.user_id=m.user_id and d.order_id=l.order_id and l.order_id=#{orderId}
+    </select>
+
+    <resultMap id="orderPic" type="com.eight.bean.OrderDetail" autoMapping="true">
+        <id property="orderDetailId" column="order_detail_id"/>
+        <association property="productPicInfo" javaType="com.eight.bean.ProductPicInfo" autoMapping="true">
+            <id property="productPicId" column="product_pic_id"/>
+        </association>
+        <association property="orderMaster" javaType="com.eight.bean.OrderMaster" autoMapping="true">
+            <id property="orderId" column="order_id"/>
+            <result property="province" column="province"/>
+            <result property="city" column="city"/>
+            <result property="district" column="district"/>
+            <result property="address" column="address"/>
+            <association property="userInfo" javaType="com.eight.bean.UserInfo" autoMapping="true">
+                <id property="userId" column="user_id"/>
+            </association>
+        </association>
+        <collection property="logistics" ofType="com.eight.bean.Logistics" autoMapping="true">
+            <id property="logisticsId" column="logistics_id"/>
+        </collection>
+    </resultMap>
+
+
 </mapper>

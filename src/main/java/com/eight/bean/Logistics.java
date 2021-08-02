@@ -3,32 +3,43 @@ package com.eight.bean;
 import java.sql.Timestamp;
 
 public class Logistics {
+    //物流id
+    private Long logisticsId;
     //用户id
-    private int userId;
+    private Long userId;
     //订单id
-    private int orderId;
+    private Long orderId;
     //消息
     private String message;
     //当前时间
-    private Timestamp currentTime;
+    private Timestamp modifiedTime;
     //无参构造函数
+
     public Logistics(){
 
     }
 
-    public int getUserId() {
+    public Long getLogisticsId() {
+        return logisticsId;
+    }
+
+    public void setLogisticsId(Long logisticsId) {
+        this.logisticsId = logisticsId;
+    }
+
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public int getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 
@@ -40,12 +51,12 @@ public class Logistics {
         this.message = message;
     }
 
-    public Timestamp getCurrentTime() {
-        return currentTime;
+    public Timestamp getModifiedTime() {
+        return modifiedTime;
     }
 
-    public void setCurrentTime(Timestamp currentTime) {
-        this.currentTime = currentTime;
+    public void setModifiedTime(Timestamp modifiedTime) {
+        this.modifiedTime = modifiedTime;
     }
     @Override
     public String toString() {
@@ -53,7 +64,7 @@ public class Logistics {
                 "userId=" + userId +
                 ", orderId=" + orderId +
                 ", message='" + message + '\'' +
-                ", currentTime=" + currentTime +
+                ", currentTime=" + modifiedTime +
                 '}';
     }
 }

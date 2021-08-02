@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="overall">
+<head>
+    <title>信息表</title>
+    <meta charset="UTF-8">
+    <script src="/static/js/consume/jquery-1.7.2.js"></script>
+    <link href="/static/css/order/viewLogistics.css" rel="stylesheet">
+</head>
+<script>
+    $(document).ready(function () {
+        $(".return").mouseover(function () {
+            $(this).css("color", "red");
+        })
+        $(".return").mouseout(function () {
+            $(this).css("color", "blue");
+        })
+    })
+</script>
+    <p class="remain" th:text="${remain}"></p>
+<body>
+
+<li class="latest">
+    <div th:each="logistics:${Logistics}">
+        信息：<span  class="status-content-latest" th:text="${logistics.message}"></span><br>
+        时间：<span class="status-time-latest" th:text="${logistics.modifiedTime}"></span>
+        <div class="status-line"></div>
+    </div>
+</li>
+<a class="return" th:href="@{'http://localhost:8080/eight/user/logistic/order?userId='+${informations[0].orderMaster.userId}}">返回</a>
+    <!--循环四张表中需要到的数据，以便在下方使用，若要加信息需要去xml文件下修改sql语句和resultMap添加想要的数据-->
+    <div th:each="information : ${informations}"> <!--循环拿出各种需要的信息-->
+<div class="part">
+
+    <header>
+
+        <ul class="explain">
+            <li>待揽件</li>
+            <li>运输</li>
+            <li>派送</li>
+            <li>驿站代取</li>
+            <li>取件</li>
+        </ul>
+
+
+
+    </header>
+    <div class="pickUp">
+        <div class="mainstay">
+            <div class="status-box">
+                <ul class="status-list">
+                    <li>
+                        <span class="status-content-before"></span><div class="logisticsend"></div>
+<!--                        <div class="status-time-before" th:text="${information.order_master.create_time}"></div>-->
+                        下单时间：<span class="status-time-before" th:text="${information.orderMaster.createTime}"></span><br>
+                        <div class="status-line"></div>
+                    <li class="latest">
+                        <div th:each="logistics:${information.logistics}">
+                            信息：<span  class="status-content-latest" th:text="${logistics.message}"></span><br>
+                            时间：<span class="status-time-latest" th:text="${logistics.modifiedTime}"></span>
+                            <div class="status-line"></div>
+                        </div>
+                    </li>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="pickUp-footer">
+            <ul>
+                <li id="yizhan">代收驿站：<span th:text="${information.orderMaster.address}"></span>菜鸟驿站<br></li>
+                <li>营业时间：周一至周五10点到21点</li>
+                <li>驿站电话：13077610083</li>
+                <li>取件码：<span th:text="${code}"></span></li>
+                <li>详细地址：<span th:text="${information.orderMaster.address}"></span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="downside">
+        <img th:src="${information.productPicInfo.picUrl}" alt="正在加载">
+        <div class="information">
+            <li>运单号码：<span th:text="${information.orderMaster.orderSn}"></span></li>
+            <li>物流公司：<span th:text="${information.orderMaster.shoppingMailName}"></span></li>
+            <li>卖家名称：<span th:text="${information.orderMaster.shoppingMailName}"></span></li>
+            <li>发货地址：<span></span>桂林</li>
+            <li>收货地址：<span th:text="${information.orderMaster.province}+${information.orderMaster.city}+${information.orderMaster.district}+${information.orderMaster.address}"></span></li><!--收货地址-->
+            <li>个人信息：<span th:text="${information.orderMaster.shippingUser}"></span></li>  <!--买家姓名和电话号码-->
+<!--            <span th:text="${information.user_info.mobile_phone}"></span>-->
+        </div>
+        <span class="money" th:text="${information.orderMaster.paymentMoney}"></span>
+    </div>
+
+
+    </div>
+    </div>
+    <img class="backdrop" src="/static/images/backdrop/a.jpg">
+</body>
+</div>
+</html>

@@ -3,6 +3,7 @@ package com.eight.bean;
 import java.math.BigInteger;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.List;
 
 public class OrderMaster {
     // 订单ID
@@ -56,6 +57,8 @@ public class OrderMaster {
     private OrderDetail orderDetail;
     //根据用户id 找到用户的手机号
     private UserInfo userInfo;
+
+
 
     // 无参构造器
     public OrderMaster() {
@@ -330,8 +333,8 @@ public class OrderMaster {
         this.userInfo = userInfo;
     }
 
-    // 重写toString方法，使用该方法可以在控制台打印属性的数据
 
+    // 重写toString方法，使用该方法可以在控制台打印属性的数据
     @Override
     public String toString() {
         return "OrderMaster{" +

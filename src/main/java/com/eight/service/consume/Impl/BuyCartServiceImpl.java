@@ -5,8 +5,10 @@ import com.eight.mapper.consume.BuyCartMapper;
 import com.eight.mapper.consume.UserMapper;
 import com.eight.mapper.manage.user.MUserInfoMapper;
 import com.eight.service.consume.IBuyCartService;
+import com.eight.service.consume.IIogisticsService;
 import com.eight.service.manage.user.IMUserInfoService;
 import com.eight.service.manage.user.impl.MUserServiceImpl;
+import com.eight.utils.EnMsgType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +21,8 @@ public class BuyCartServiceImpl implements IBuyCartService {
     private BuyCartMapper buyCartMapper;
     @Autowired
     private IMUserInfoService imUserInfoService;
+    @Autowired
+    private IIogisticsService iIogisticsService;
 
     @Override
     public ProductInfo viewProduct(Long productId) {
@@ -68,5 +72,12 @@ public class BuyCartServiceImpl implements IBuyCartService {
         productWarehouse.setProductSales(orderDetail.getProductAmount());
         productWarehouse.setProductSellPrice(orderDetail.getProductPrice());
         buyCartMapper.modifyProductWarehouse(productWarehouse);
+
+        //物流信息添加
+        Logistics logistics = new Logistics();
+        logistics.setUserId(orderMaster.getUserId());
+        logistics.setOrderId(orderMaster.getOrderId());
+        logistics.setMessage(EnMsgType.LOGISTICS);
+        iIogisticsService.insertLogistics(logistics);
     }
 }
