@@ -55,7 +55,7 @@
         pc.category_id = pi.one_category_id and
         pw.product_id = pi.product_id and
         de.product_core=pi.product_core and ${condition}
-        order by #{sortCon}
+        order by pi.${sortCon}
         limit ${m},${pageSize}
     </select>
 </mapper>

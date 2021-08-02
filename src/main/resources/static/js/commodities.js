@@ -202,7 +202,7 @@ function CreateCommodities(ele, data) {
     var nId;
     var price_id;
     totalRecord.val(data[0].totalRecord);
-    for (let i = 0; i < pageSize; i++) {
+    for (let i = 0; i < pageSize&&i<data.length; i++) {
         commodityId = "commodity_" + i;
         pId = "pic_" + i;
         nId = "productName_" + i;
@@ -236,6 +236,7 @@ function CreateVariety_Category(ele, data) {
     var str = "";
     var tmp;
     str += `<li>类型:`;
+
     for (var i = 0; i < data.length; i++) {
         tmp = "two_category_id_" + i;
         str += `<input id=${tmp} class="condition" type="button" name="condition" value=${data[i].categoryName} data=${data[i].categoryId}>`

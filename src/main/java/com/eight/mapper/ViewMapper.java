@@ -1,7 +1,6 @@
 package com.eight.mapper;
 
 import com.eight.bean.ProductInfo;
-import com.eight.bean.ViewInfo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

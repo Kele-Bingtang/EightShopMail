@@ -1,7 +1,6 @@
 package com.eight.service;
 
 import com.eight.bean.ProductInfo;
-import com.eight.bean.ViewInfo;
 
 import java.util.List;
 import java.util.Map;
