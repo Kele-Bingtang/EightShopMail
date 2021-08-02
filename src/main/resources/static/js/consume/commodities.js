@@ -251,14 +251,14 @@ function CreateVariety_Detail(ele, data) {
     str += `<li><label>出版社:</label>`;
     for (var i = 0; i < data.length; i++) {
         tmp = "b_publisher_" + i;
-        str += `<input id=${tmp} class="condition" type="button" name="condition" value=${data[i].bpublisher} data=${data[i].bpublisher}>`
+        str += `<input id=${tmp} class="condition" type="button" name="condition" value=${data[i].bPublisher} data=${data[i].bPublisher}>`
     }
     str += `</li>`
     $(select).children("ul").append(str);
     str = `<li><label>作者:</label>`;
     for (var i = 0; i < data.length; i++) {
         tmp = "b_author_" + i;
-        str += `<input id=${tmp} class="condition" type="button" name="condition" value=${data[i].bauthor} data=${data[i].bauthor}>`
+        str += `<input id=${tmp} class="condition" type="button" name="condition" value=${data[i].bAuthor} data=${data[i].bAuthor}>`
     }
     str += `</li>`
     $(select).children("ul").append(str);

@@ -78,4 +78,6 @@ public interface MUserInfoMapper {
     int modifyPersonSecurity(UserInfo userInfo);
 
     UserLevel queryUserLvel(UserInfo userInfo);
+
+    int registerAddUserInfo(UserInfo userInfo);
 }

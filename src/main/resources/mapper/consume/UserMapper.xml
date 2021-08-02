@@ -11,7 +11,7 @@
         insert into user(username, password) values (#{username},#{password})
     </insert>
     <insert id="saveUserHead" parameterType="com.eight.bean.User">
-        insert into user_head(user_id,head_name) values (#{userId},#{username})
+        insert into user_head(user_id,head_name) values (#{userId},'八八')
     </insert>
 
     <select id="queryUserHead" parameterType="long" resultType="com.eight.bean.UserHead">

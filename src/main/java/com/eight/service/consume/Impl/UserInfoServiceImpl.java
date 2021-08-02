@@ -54,4 +54,9 @@ public class UserInfoServiceImpl implements IUserInfoService {
     public int modifyPersonAddress(UserAddr userAddr) {
         return userAddrMapper.modifyUserAddr(userAddr);
     }
+
+    @Override
+    public int registerAddUserInfo(UserInfo userInfo) {
+        return userInfoMapper.registerAddUserInfo(userInfo);
+    }
 }

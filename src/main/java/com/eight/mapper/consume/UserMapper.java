@@ -29,7 +29,7 @@ public interface UserMapper {
 
     UserHead queryUserHead(Long userId);
 
-    void saveUserHead(User user);
+    void saveUserHead(UserHead userHead);
 
 
 }

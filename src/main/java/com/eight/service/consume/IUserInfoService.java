@@ -19,5 +19,7 @@ public interface IUserInfoService {
     int modifyPersonSecurity(UserInfo userInfo);
 
     int modifyPersonAddress(UserAddr userAddr);
+
+    int registerAddUserInfo(UserInfo userInfo);
 }
 

@@ -1,11 +1,14 @@
 package com.eight.service.consume.Impl;
 
+import com.eight.bean.UserInfo;
 import com.eight.mapper.consume.UserMapper;
 import com.eight.bean.User;
 import com.eight.bean.UserHead;
+import com.eight.service.consume.IUserInfoService;
 import com.eight.service.consume.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Service("userService")
@@ -13,6 +16,8 @@ public class UserServiceImpl implements IUserService {
 
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    IUserInfoService userInfoService;
 
     public UserMapper getUserMapper(){
         return userMapper;
@@ -24,7 +29,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User queryUserByUsername(String username) {
-        return userMapper.queryUserByUsername("kele");
+        return userMapper.queryUserByUsername(username);
     }
 
     @Override
@@ -33,10 +38,16 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)  //异常自动回滚
     public void saveUser(User user) {
         userMapper.saveUser(user);
-        System.out.println(user.getUserId());
-        userMapper.saveUserHead(user);
+        UserHead userHead = new UserHead();
+        userHead.setUserId(user.getUserId());
+        userMapper.saveUserHead(userHead);
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUserId(user.getUserId());
+        userInfo.setUsername(user.getUsername());
+        userInfoService.registerAddUserInfo(userInfo);
     }
 
 }

@@ -15,7 +15,7 @@
             <!--收货人-->
             <div class="info-item">
                 <label for="name" class="address_lable">收货人：</label>
-                <input type="text" name="realName" th:value="${userInfo.realName}"  id="name" class="address_box1" autocomplete="off" style="margin-left: -5px;">
+                <input type="text" name="realName" th:value="${userInfo.nickname} != null?${userInfo.nickname}:(${userInfo.realName} != null?${userInfo.realName}:${userInfo.username})"  id="name" class="address_box1" autocomplete="off" style="margin-left: -5px;">
             </div>
 
             <!--收货电话-->

@@ -47,33 +47,39 @@ $(function () {
         //登录成功，弹窗提示
         dialogTip(msg,icon){
             return (()=>{
-                let str = `<div class="dialog">
-                        <div class="dialog-content">
-                            <i class="tipIcon"></i>${msg}
-                        </div>
-                    </div>`
-                $("body").append(str);
-                //雪碧图显示✔或×
-                if(icon == "2"){
-                    $(".tip-Icon").css("background-position","0 -38px")
-                }else if(icon == "1"){
-                    $(".tip-Icon").css("background-position","0 0")
-                }else {
-                    $(".tip-Icon").css("background-position","0 0")
+                if($(".dialog").length == 0 && $(".dialog").length < 2){
+                    let str = `<div class="dialog">
+                                    <div class="dialog-content">
+                                        <i class="tipIcon"></i>${msg}
+                                    </div>
+                                </div>`
+                    $("body").append(str);
+                    //雪碧图显示✔或×
+                    if(icon == "2" || icon == 2){
+                        $(".tip-Icon").css("background-position","0 -38px")
+                    }else if(icon == "1"){
+                        $(".tip-Icon").css("background-position","0 0")
+                    }else {
+                        $(".tip-Icon").css("background-position","0 0")
+                    }
+                    //动画效果  右侧旋转
+
+                    $(".dialog").animate({
+                        "transform": "rotate(0)",
+                    }).css({
+                        "top": "45%",
+                        "left": "45%",
+                        "transform": "rotate(0)",
+                        "transition": "all .4s",
+                        "margin-left": -parseInt($(".dialog").css("width"))/2 + 'px',
+                        "margin-top": -parseInt($(".dialog").css("height"))/2 + 'px',
+                    })
+                    //两秒后自动清除弹窗
+                    setTimeout(function (){
+                        $(".dialog").remove()
+                    },2000)
                 }
-                //动画效果  右侧旋转
-                $(".dialog").animate({
-                    "transform": "rotate(0)",
-                }).css({
-                    "top": "387px",
-                    "left": "747px",
-                    "transform": "rotate(0)",
-                    "transition": "all .4s",
-                })
-                //两秒后自动清除弹窗
-                setTimeout(function (){
-                    $(".dialog").remove()
-                },2000)
+
             })()
         }
     }
@@ -335,7 +341,7 @@ $(function () {
                 data: $(".main-form").serialize(),
                 dataType: "json",
                 success: function (data) {
-                    window.location.href = "http://localhost:8080/eight/userLoginAndReg/loginUser.html"
+                    window.location.href = "http://localhost:8080/static/userLoginAndReg/loginUser.html"
                 }
             })
         }

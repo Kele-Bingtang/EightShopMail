@@ -21,6 +21,9 @@
             user_info(user_id, username, real_name, identity_card_no, user_sex, mobile_phone, email, birthday)
             VALUES (#{userId},#{username},#{realName},#{identityCardNo},#{userSex},#{mobilePhone},#{email},#{birthday})
     </insert>
+    <insert id="registerAddUserInfo">
+        insert into user_info(user_id, username) VALUES (#{userId},#{username})
+    </insert>
 
     <delete id="deleteUserInfo" parameterType="com.eight.bean.UserInfo">
         delete from user_info where user_info_id = #{userInfoId}

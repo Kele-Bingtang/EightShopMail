@@ -12,8 +12,10 @@ public class UserInfo {
     private Long userInfoId;
     // 用户ID
     private Long userId;
-    // 昵称
+    // 用户名
     private String username;
+    // 昵称
+    private String nickname;
     // 真实姓名
     private String realName;
     // 1 身份证，2 军官证，3 护照
@@ -105,6 +107,14 @@ public class UserInfo {
     // 设置 昵称 的属性值
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     // 获取 真实姓名 的属性值
@@ -274,14 +284,13 @@ public class UserInfo {
     }
 
     // 重写toString方法，使用该方法可以在控制台打印属性的数据
-
-
     @Override
     public String toString() {
         return "UserInfo{" +
                 "userInfoId=" + userInfoId +
                 ", userId=" + userId +
                 ", username='" + username + '\'' +
+                ", nickname='" + nickname + '\'' +
                 ", realName='" + realName + '\'' +
                 ", identityCardType=" + identityCardType +
                 ", identityCardTypeStr='" + identityCardTypeStr + '\'' +

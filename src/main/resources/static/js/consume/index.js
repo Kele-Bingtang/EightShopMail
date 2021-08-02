@@ -85,7 +85,7 @@ $(function () {
         //悬停显示的商品id
         //获得数据的顺序，前面的数字代表除热门以外的标签数量，数组是悬停时显示的商品内容顺序，都是从0开始算
         hoursedataIndexs: {
-            0: [5, 8, 10, 12, 14, 16, 18, 19],
+            0: [0, 1, 2, 3, 4, 5, 6, 7],
         },
         //音响分类请求
         audioCartgoryIds : [14, 15],//音响分类
@@ -255,8 +255,8 @@ $(function () {
                                      <img src="${data[i].productPicInfo.picUrl}" alt="" class="img">
                                      <p class="name">${data[i].productName}</p>
                                     <p class="desc">${data[i].descript}</p>
-                                    <span class="price">${data[i].price}元</span>
-                                    <del class="del">${data[i].realPrice}元</del>
+                                    <span class="price">${(data[i].price * 0.9).toFixed(1)}元</span>
+                                    <del class="del">${data[i].price}元</del>
                                 </a>
                             </li>`
                 }
@@ -268,12 +268,12 @@ $(function () {
             return (() => {
                 let select = "." + ele;
                 var homeLeft = ` <div>
-                            <a href="#">
+                            <a href="javascript:;">
                                 <img src="${img[0]}" alt="">
                             </a>
                         </div>
                         <div>
-                            <a href="#">
+                            <a href="javascript:;">
                                 <img src="${img[1]}" alt="">
                             </a>
                         </div>`;
@@ -384,7 +384,7 @@ $(function () {
             return (()=>{
                 let str = '';
                 for (let i = 0; i < 8; i++) {
-                    str += `<a href="#">
+                    str += `<a href="javascript:;">
                             <div class="community-item community-item${i + 1}">
                                 <img style="width: 240px;" src="${data[i].productPicInfo.picUrl}" alt="" class="community-item-img">
                                 <div class="community-user">
@@ -552,6 +552,44 @@ $(function () {
                 myDate.setTime(-1000);//设置立即消失的时间
                 document.cookie = cookie + "=''; expires=" + myDate.toUTCString() + ";path=/";
             })()
+        },
+        //登录成功，弹窗提示
+        dialogTip(msg,icon){
+            return (()=>{
+               if($(".dialog").length == 0 && $(".dialog").length < 2){
+                   let str = `<div class="dialog">
+                                    <div class="dialog-content">
+                                        <i class="tipIcon"></i>${msg}
+                                    </div>
+                                </div>`
+                   $("body").append(str);
+                   //雪碧图显示✔或×
+                   if(icon == "2" || icon == 2){
+                       $(".tip-Icon").css("background-position","0 -38px")
+                   }else if(icon == "1"){
+                       $(".tip-Icon").css("background-position","0 0")
+                   }else {
+                       $(".tip-Icon").css("background-position","0 0")
+                   }
+                   //动画效果  右侧旋转
+
+                   $(".dialog").animate({
+                       "transform": "rotate(0)",
+                   }).css({
+                       "top": "45%",
+                       "left": "45%",
+                       "transform": "rotate(0)",
+                       "transition": "all .4s",
+                       "margin-left": -parseInt($(".dialog").css("width"))/2 + 'px',
+                       "margin-top": -parseInt($(".dialog").css("height"))/2 + 'px',
+                   })
+                   //两秒后自动清除弹窗
+                   setTimeout(function (){
+                       $(".dialog").remove()
+                   },2000)
+               }
+
+            })()
         }
     }
 
@@ -630,5 +668,9 @@ $(function () {
 
     }
 
+    //功能未实现弹窗
+    $(".no-achieve").on("click",function (){
+        utils.dialogTip("该功能还在开发，请实时关注官方消息",2);
+    })
 
 })

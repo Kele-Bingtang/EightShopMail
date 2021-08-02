@@ -164,9 +164,7 @@ dd a{
 .label-f{
     float: left;
 }
-.select-title{
-    margin-left: -20px;
-}
+
 #realName,#phoneNum,#email{
     height: 18px;
     width: 127px;
@@ -328,14 +326,12 @@ dd a{
 }
 
 /*下拉菜单*/
-.address-box{
-    margin-left: 20px;
-}
+
 .unSelect{
     width: 150px;
 }
 .address-option{
-    top: 37px;
+    top: 45px;
 }
 .address-option dd{
     white-space: normal;
