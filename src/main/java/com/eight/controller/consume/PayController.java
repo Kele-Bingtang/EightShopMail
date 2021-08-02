@@ -8,6 +8,7 @@ import com.eight.alipay.AlipayProperties;
 import com.eight.bean.OrderMaster;
 import com.eight.bean.ProductInfo;
 import com.eight.service.consume.IBuyCartService;
+import com.eight.utils.CookieUtils;
 import com.eight.utils.DateUtil;
 import com.eight.utils.EnMsgType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
@@ -51,7 +53,8 @@ public class PayController {
     @PostMapping(value = "/alipay")
     @ResponseBody
 //    String outTradeNo, String subject, String totalAmount, String body
-    public String alipay(AlipayBean alipayBean, OrderMaster orderMaster,ProductInfo productInfo, HttpSession session) throws AlipayApiException {
+    public String alipay(AlipayBean alipayBean, OrderMaster orderMaster,ProductInfo productInfo, HttpSession session,HttpServletRequest request) throws AlipayApiException {
+        //判断是否登录
         if(orderMaster.getUserId() == null){
             return EnMsgType.LOGINNEED;
         }

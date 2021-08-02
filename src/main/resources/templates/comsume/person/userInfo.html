@@ -21,7 +21,7 @@
                         <a href="http://localhost:8080/eight/orderCart">我的购物车</a>
                     </li>
                     <li class="item item3">
-                        <a href="http://localhost:8080/eight/order">我的订单</a>
+                        <a th:href="@{'http://localhost:8080/eight/user/logistic/order?userId='+${userId}}" target="_blank">我的订单</a>
                     </li>
                     <li class="item item4">
                         <a href="http://localhost:8080/eight/commont">我的评价</a>

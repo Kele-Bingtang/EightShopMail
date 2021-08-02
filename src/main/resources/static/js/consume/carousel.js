@@ -49,7 +49,15 @@ $(function () {
         lis[index].style.backgroundColor = "transparent";
         lis[index].style.border = "1px solid #fff";
         // 更改超链接
-        link.href = 'html/' + index + '.html';
+        if((parseInt(index) + 1) == 1){
+            link.href = "http://localhost:8080/eight/view/commodities?pageName=hourse";
+        }else if((parseInt(index) + 1) == 2){
+            link.href = "http://localhost:8080/eight/view/commodities?pageName=phone";
+        }else if((parseInt(index) + 1) == 3){
+            link.href = "http://localhost:8080/eight/view/commodities?pageName=hourse";
+        }else if((parseInt(index) + 1) == 4){
+            link.href = "http://localhost:8080/eight/view/commodities?pageName=audio";
+        }
     }
 
     // 定义一个方法，该方法的作用是启动切换图片、超链接、li的背景色
