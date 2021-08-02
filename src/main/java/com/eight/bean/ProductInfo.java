@@ -1,5 +1,7 @@
 package com.eight.bean;
 
+import com.eight.utils.DateUtil;
+
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
@@ -39,14 +41,6 @@ public class ProductInfo {
     private List<ProductComment> productComments;
 
     private Integer totalRecord;
-
-    public Integer getTotalRecord() {
-        return totalRecord;
-    }
-
-    public void setTotalRecord(Integer totalRecord) {
-        this.totalRecord = totalRecord;
-    }
 
     // 无参构造器
     public ProductInfo() {
@@ -161,7 +155,11 @@ public class ProductInfo {
     }
 
     // 设置 生产日期 的属性值
-    public void setProductionDate(Timestamp productionDate) {
+    public void setProductionDate(String productionDate) {
+        this.productionDate = DateUtil.dataConvertTimeStamp(productionDate);
+    }
+
+    public void setProductionDateOrigin(Timestamp productionDate) {
         this.productionDate = productionDate;
     }
 
@@ -228,6 +226,14 @@ public class ProductInfo {
 
     public void setProductComments(List<ProductComment> productComments) {
         this.productComments = productComments;
+    }
+
+    public Integer getTotalRecord() {
+        return totalRecord;
+    }
+
+    public void setTotalRecord(Integer totalRecord) {
+        this.totalRecord = totalRecord;
     }
 
     // 重写toString方法，使用该方法可以在控制台打印属性的数据
