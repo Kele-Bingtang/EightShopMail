@@ -13,7 +13,7 @@ window.onload = function (){
                     if(result.code === "1"){
                         layer.msg(result.msg,{icon:result.icon,anim:result.anim},function () {
                             console.log(result)
-                            location.href = "/eight/manage/index?username=" + result.username;    //登录成功，转向后台主页
+                            location.href = "/eight/manage/index";    //登录成功，转向后台主页
                         });
                     }else{
                         layer.msg(result.msg,{icon:result.icon,anim:result.anim});

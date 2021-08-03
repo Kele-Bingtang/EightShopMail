@@ -50,17 +50,17 @@ $(function () {
                 if($(".dialog").length == 0 && $(".dialog").length < 2){
                     let str = `<div class="dialog">
                                     <div class="dialog-content">
-                                        <i class="tipIcon"></i>${msg}
+                                        <i class="tip-icon"></i>${msg}
                                     </div>
                                 </div>`
                     $("body").append(str);
                     //雪碧图显示✔或×
                     if(icon == "2" || icon == 2){
-                        $(".tip-Icon").css("background-position","0 -38px")
+                        $(".tip-icon").css("background-position","0 -38px")
                     }else if(icon == "1"){
-                        $(".tip-Icon").css("background-position","0 0")
+                        $(".tip-icon").css("background-position","0 0")
                     }else {
-                        $(".tip-Icon").css("background-position","0 0")
+                        $(".tip-icon").css("background-position","0 0")
                     }
                     //动画效果  右侧旋转
 

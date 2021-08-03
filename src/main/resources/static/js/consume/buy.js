@@ -70,13 +70,7 @@ $(function(){
             type:"post",
             data: $("#pay-form").serialize(),
             success:function (data){
-                console.log(data)
-                if(data == "需要登录"){
-                    console.log(data)
-                    window.open("http://localhost:8080/static/userLoginAndReg/loginUser.html");
-                }else {
-                    $("#pay-form").submit();
-                }
+                $("#pay-form").submit();
             }
         })
     })

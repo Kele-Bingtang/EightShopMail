@@ -10,11 +10,14 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,7 +36,7 @@ public class MUserLoginController {
 
     @RequestMapping("/logging")
     @ResponseBody
-    public HashMap<String,Object> login(String username, String password){
+    public HashMap<String,Object> login(String username, String password, HttpServletRequest request){
         if(username == null || password == null){
             return ResultMapUtils.loginResult("用户名或者密码不能为空", "2",null);
         }
@@ -46,13 +49,15 @@ public class MUserLoginController {
         }catch (IncorrectCredentialsException e){
             return ResultMapUtils.loginResult("密码错误","2",null);
         }
+        request.getSession().setAttribute("username", username);
         return ResultMapUtils.loginResult("验证成功","1",username);
     }
     /**
      * 转向后台管理首页
      */
     @RequestMapping("/index")
-    public String index(String username,Model model){
+    public String index(Model model, HttpServletRequest request){
+        String username = (String) request.getSession().getAttribute("username");
         HashMap<ManagerPower, List<ManagerPower>> managePowerResultMap = managePowerResultMap(username);
         model.addAttribute("managePowers", managePowerResultMap);
         return "/manage/index";
@@ -62,9 +67,10 @@ public class MUserLoginController {
     * 退出登录
      */
     @RequestMapping(value = "/logout")
-    public String logout(){
+    public String logout(HttpServletRequest request){
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
+        request.getSession().removeAttribute("username");
         return "redirect:/eight/manage/login";
     }
 

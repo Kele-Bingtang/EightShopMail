@@ -27,8 +27,7 @@ public class UserInfoController {
      * @return
      */
     @GetMapping("/queryUserInfo")
-    public String queryUserInfo(Long userId,Model model){
-        model.addAttribute("userId", userId);
+    public String queryUserInfo(){
         return "comsume/person/userInfo";
     }
 

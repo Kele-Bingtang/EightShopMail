@@ -36,7 +36,6 @@ public class UserController {
             response.addCookie(cookie);
             cookie = CookieUtils.createSingleCookie("isLoginHead", user.getUserId().toString(), -2, "/");
             response.addCookie(cookie);
-
             session.setAttribute(user.getUserId().toString(), user);
             if (remember == 1) {
                 cookie = CookieUtils.createSingleCookie("rememberLogin", user.getPassword(), 60 * 60 * 24 * 7, "/");
@@ -107,5 +106,8 @@ public class UserController {
         CookieUtils.deleteCookie(response, CookieUtils.getCookie(request.getCookies(), "JSESSIONID"));
     }
 
-
+    @RequestMapping("cart")
+    public String orderCart(){
+        return null;
+    }
 }

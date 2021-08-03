@@ -54,10 +54,6 @@ public class PayController {
     @ResponseBody
 //    String outTradeNo, String subject, String totalAmount, String body
     public String alipay(AlipayBean alipayBean, OrderMaster orderMaster,ProductInfo productInfo, HttpSession session,HttpServletRequest request) throws AlipayApiException {
-        //判断是否登录
-        if(orderMaster.getUserId() == null){
-            return EnMsgType.LOGINNEED;
-        }
         orderMaster.setProductInfo(productInfo);
         session.setAttribute("orderMaster", orderMaster);
         return alipay.pay(alipayBean);
@@ -99,12 +95,11 @@ public class PayController {
             orderMaster.setPayTime(DateUtil.dataConvertTimeStamp(orderHashMap.get("timestamp")));
             buyCartService.addOrder(orderMaster);
 
-
         } else {
             //TODO 验签失败业务处理
         }
         //设置返回视图
-        modelAndView.setViewName("index");
+        modelAndView.setViewName("redirect:index");
         return modelAndView;
     }
 

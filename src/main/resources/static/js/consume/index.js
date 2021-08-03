@@ -563,17 +563,17 @@ $(function () {
                if($(".dialog").length == 0 && $(".dialog").length < 2){
                    let str = `<div class="dialog">
                                     <div class="dialog-content">
-                                        <i class="tipIcon"></i>${msg}
+                                        <i class="tip-icon"></i>${msg}
                                     </div>
                                 </div>`
                    $("body").append(str);
                    //雪碧图显示✔或×
                    if(icon == "2" || icon == 2){
-                       $(".tip-Icon").css("background-position","0 -38px")
+                       $(".tip-icon").css("background-position","0 -38px")
                    }else if(icon == "1"){
-                       $(".tip-Icon").css("background-position","0 0")
+                       $(".tip-icon").css("background-position","0 0")
                    }else {
-                       $(".tip-Icon").css("background-position","0 0")
+                       $(".tip-icon").css("background-position","0 0")
                    }
                    //动画效果  右侧旋转
 
@@ -592,7 +592,6 @@ $(function () {
                        $(".dialog").remove()
                    },2000)
                }
-
             })()
         }
     }
@@ -613,7 +612,7 @@ $(function () {
             "isLoginHead": localStorage.getItem("isLoginHead"),
             "userId": userId
         }, function (data) {
-            let headPortrait = $(".head-portrait")
+            let headPortrait = $(".head-portrait");
             $(".login-head").css("display", "none");
 
             let str = `<span class="skip-person">
@@ -630,7 +629,7 @@ $(function () {
             }
             headPortrait.css("display", "block").attr("value", userId).append(str);
             $(".skip-person").on("click",function (){
-                window.open( "http://localhost:8080/eight/userInfo/queryUserInfo?userId=" + userId);
+                window.open( "http://localhost:8080/eight/userInfo/queryUserInfo");
             })
         })
 
@@ -671,6 +670,12 @@ $(function () {
         })
 
     }
+
+    // 购物车点击事件
+    $(".header-user-cart").on("click",function (){
+        window.open("http://localhost:8080/eight/user/cart");
+
+    })
 
     //功能未实现弹窗
     $(".no-achieve").on("click",function (){
