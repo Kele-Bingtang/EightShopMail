@@ -2,33 +2,35 @@ var curPage = $("#curPage");
 var totalRecord = $(".totalRecord");
 var pageSize = Number($("#pageSize").val());
 var totalPage;
-var pageName=$("#pageName").val();
+var pageName = $("#pageName").val();
 var flag = "false";
+var f = "false";
 var selectedList = [];
 var condition = "null";
 var conLen = 0;
 var oneCategoryId;
 
+$(".title_").html(pageName);
 $(".head2").html(pageName);
 
 $(document).ready(function () {
-    if(pageName==="phone"){
-        oneCategoryId="1";
-    }else if(pageName==="book"){
-        oneCategoryId="2"
-    }else if(pageName==="hourse"){
-        oneCategoryId="3"
-    }else if(pageName==="audio"){
-        oneCategoryId="13"
-    }else if(pageName==="parts"){
-        oneCategoryId="16"
+    if (pageName === "phone") {
+        oneCategoryId = "1";
+    } else if (pageName === "book") {
+        oneCategoryId = "2"
+    } else if (pageName === "hourse") {
+        oneCategoryId = "3"
+    } else if (pageName === "audio") {
+        oneCategoryId = "13"
+    } else if (pageName === "parts") {
+        oneCategoryId = "16"
     }
     $.getJSON("http://localhost:8080/eight/view/getCategory", {
         "categoryId": oneCategoryId
     }, function (data) {
         CreateVariety_Category("variety", data);
     })
-    if(pageName==="book"){
+    if (pageName === "book") {
         $.getJSON("http://localhost:8080/eight/view/getDetail", {
             "pageName": pageName,
         }, function (data) {
@@ -37,7 +39,7 @@ $(document).ready(function () {
     }
     $.getJSON("http://localhost:8080/eight/redirectPage/init", {
         "pageName": pageName,
-        "oneCategoryId":oneCategoryId,
+        "oneCategoryId": oneCategoryId,
         "pageSize": pageSize,
         "curPage": curPage.val(),
         "condition": condition,
@@ -63,7 +65,7 @@ $("input[name='toPage']").click(function () {
     }
     $.getJSON("http://localhost:8080/eight/redirectPage/limit", {
         "pageName": pageName,
-        "oneCategoryId":oneCategoryId,
+        "oneCategoryId": oneCategoryId,
         "pageSize": pageSize,
         "curPage": curPage.val(),
         "condition": condition,
@@ -110,8 +112,7 @@ $("#variety").on("click", ".condition", function () {
         var c = "&condition_" + n + "=" + e.id.substring(0, e.id.length - 1) + e.data;
         if (n === 0) {
             condition = c;
-        }
-        else{
+        } else {
             condition += c;
         }
         conLen++;
@@ -119,7 +120,7 @@ $("#variety").on("click", ".condition", function () {
     curPage.val(1);
     $.getJSON("http://localhost:8080/eight/redirectPage/updateCom", {
         "pageName": pageName,
-        "oneCategoryId":oneCategoryId,
+        "oneCategoryId": oneCategoryId,
         "pageSize": pageSize,
         "condition": condition,
         "conLen": conLen
@@ -158,7 +159,9 @@ function UpdateCommodities(data) {
             var e = $("#pic_" + i);
             var n = $("#productName_" + i);
             var p = $("#price_" + i);
+            var a = $("#commodity_" + i);
             if (i < data.length) {
+                a.attr("href", "http://localhost:8080/eight/viewProduct?productId=" + data[i].productId);
                 e.attr("src", data[i].productPicInfo.picUrl);
                 n.html(data[i].productName)
                 p.html(data[i].price);
@@ -183,7 +186,9 @@ function ChangeByLimit(data) {
         var e = $("#pic_" + i);
         var n = $("#productName_" + i);
         var p = $("#price_" + i);
+        var a = $("#commodity_" + i);
         if (i < data.length) {
+            a.attr("href", "http://localhost:8080/eight/viewProduct?productId=" + data[i].productId);
             e.attr("src", data[i].productPicInfo.picUrl);
             n.html(data[i].productName)
             p.html(data[i].price);
@@ -201,7 +206,7 @@ function CreateCommodities(ele, data) {
     var nId;
     var price_id;
     totalRecord.val(data[0].totalRecord);
-    for (let i = 0; i < pageSize&&i<data.length; i++) {
+    for (let i = 0; i < pageSize && i < data.length; i++) {
         commodityId = "commodity_" + i;
         pId = "pic_" + i;
         nId = "productName_" + i;
@@ -209,7 +214,7 @@ function CreateCommodities(ele, data) {
         if (i % 3 === 0 && i !== 0) {
             str += '<br/>'
         }
-        str += `<li><a id=${commodityId} href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}"">
+        str += `<li><a id="${commodityId}" href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}">
                             <img id=${pId} src="${data[i].productPicInfo.picUrl}" alt="">
                             <p id=${nId}>${data[i].productName}</p>
                             <p>￥<span id=${price_id}>${data[i].price}</span></p>
@@ -218,15 +223,15 @@ function CreateCommodities(ele, data) {
     $(select).children("ul").append(str);
     for (var i = 0; i < pageSize; i++) {
         var commodities = $("#commodity_" + i);
-        var pic =$("#pic_"+i);
+        var pic = $("#pic_" + i);
         commodities.css("position", "absolute");
         commodities.css("width", "20%");
         commodities.css("height", "50%");
         commodities.css("left", (10 + 30 * (i % 3)).toString() + "%");
         commodities.css("top", (parseInt((i / 3)) * 50).toString() + "%");
-        pic.css("border","black solid 2px");
-        pic.css("width","95%");
-        pic.css("height","70%");
+        pic.css("border", "black solid 2px");
+        pic.css("width", "95%");
+        pic.css("height", "70%");
     }
 }
 
@@ -242,6 +247,7 @@ function CreateVariety_Category(ele, data) {
     }
     str += `</li>`
     $(select).children("ul").append(str);
+    f = "true";
 }
 
 function CreateVariety_Detail(ele, data) {

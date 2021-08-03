@@ -64,7 +64,7 @@ public class MOrderReturnContoller {
      */
     @RequestMapping("/deleteOrderReturn")
     @ResponseBody
-    public HashMap<String,Object> returnIddeleteOrderReturn(OrderReturn orderReturn){
+    public HashMap<String,Object> deleteOrderReturn(OrderReturn orderReturn){
         int i = mOrderReturnService.deleteOrderReturn(orderReturn);
         return ResultMapUtils.deleteResult(i);
     }
@@ -74,7 +74,7 @@ public class MOrderReturnContoller {
      */
     @RequestMapping("/modifyOrderReturn")
     @ResponseBody
-    public HashMap<String,Object> modifyPassword(OrderReturn orderReturn,Long orderDetailId){
+    public HashMap<String,Object> modifyOrderReturn(OrderReturn orderReturn,Long orderDetailId){
         int i = mOrderReturnService.modifyOrderReturn(orderReturn,orderDetailId);
         return ResultMapUtils.saveResult(i);
     }

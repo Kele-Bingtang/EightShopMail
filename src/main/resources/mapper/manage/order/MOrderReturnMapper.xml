@@ -24,9 +24,9 @@
     </update>
 
     <select id="queryOrderReturnPage" resultMap="queryOrderDetail">
-        select * from order_return ore,order_detail od
+        select * from order_return ore
+        left join order_detail od on ore.order_id = od.order_id
         <where>
-            ore.order_id = od.order_id
             <if test="param != null">
                 and order_id like "%"#{param}"%"
             </if>

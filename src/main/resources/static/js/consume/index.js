@@ -301,8 +301,8 @@ $(function () {
                     for (let i = 0; i < num; i++) {
                         str += `<li class="last-item ${ele}${data.length}">
                                 <div>
-                                    <a href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}">
-                                        <img src="${data[data.length - num].productPicInfo.picUrl}" alt="">
+                                    <a href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}" class="item-link" target="_blank">
+                                        <img src="${data[data.length - num].productPicInfo.picUrl}" alt=""  class="img">
                                         <p class="name">${data[data.length - num].productName}</p>
                                         <p class="price">${data[data.length - num].price}元</p>
                                     </a>
@@ -362,6 +362,7 @@ $(function () {
                     if (dataIndex === undefined || dataIndex === "") {
                         for (let i = 0; i < data.length; i++) {
                             let selector = boxNameSelect + (i + 1);
+                            $(selector).find(".item-link").attr("href", "http://localhost:8080/eight/viewProduct?productId=" + data[i].productId)
                             $(selector).find(".img").attr("src", data[i].productPicInfo.picUrl);
                             $(selector).find(".name").text(data[i].productName);
                             $(selector).find(".desc").text(data[i].descript);
@@ -370,11 +371,14 @@ $(function () {
                     } else {    //其他是这个循环
                         for (let i = 0; i < dataIndex.length; i++) {
                             let selector = boxNameSelect + (i + 1);
+
+                            $(selector).find(".item-link").attr("href","http://localhost:8080/eight/viewProduct?productId=" + data[i].productId)
                             $(selector).find(".img").attr("src", data[dataIndex[i]].productPicInfo.picUrl);
                             $(selector).find(".name").text(data[dataIndex[i]].productName);
                             $(selector).find(".desc").text(data[dataIndex[i]].descript);
                             $(selector).find(".price").text(data[dataIndex[i]].price + "元");
                         }
+
                     }
                 })
             })()

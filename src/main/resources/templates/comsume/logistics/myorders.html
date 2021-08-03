@@ -25,7 +25,7 @@
                                     <li><a href="#">快递状态</a></li>
                                     <li><a href="#">订单详情</a></li>
                                     <li><p><a th:href="@{http://localhost:8080/eight/user/logistic/propic(orderId=${order.orderId})}">查看物流</a></p></li>
-                                    <li><a href="@{propic(orderId=${order.orderId})}">退货</a></li>
+                                    <li><a th:href="@{http://localhost:8080/eight/orderDetail/getOrderProductById(orderId=${order.orderId})}">退货</a></li>
                                 </ul>
                             </div>
                     </div>

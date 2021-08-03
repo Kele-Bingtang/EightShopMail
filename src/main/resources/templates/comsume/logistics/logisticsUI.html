@@ -72,7 +72,7 @@
                 <li>营业时间：周一至周五10点到21点</li>
                 <li>驿站电话：13077610083</li>
                 <li>取件码：<span th:text="${code}"></span></li>
-                <li>详细地址：<span th:text="${information.orderMaster.address}"></span></li>
+                <li>详细地址：<span th:text="${information.orderMaster.province}+${information.orderMaster.city}+${information.orderMaster.district}+${information.orderMaster.address}"></span></li>
             </ul>
         </div>
     </div>

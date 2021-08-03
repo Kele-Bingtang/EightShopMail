@@ -283,7 +283,7 @@ $(function () {
                 } else {
                     if($("#remember").val() != 0){
                         if(!localStorage.getItem("isLoginHead")){
-                            localStorage.setItem("isLoginHead",data.userId);
+                            localStorage.setItem("isLoginHead",result.userId);
                         }
                         if(!localStorage.getItem("rememberLogin")){
                             localStorage.setItem("rememberLogin","1");
@@ -367,6 +367,9 @@ $(function () {
         }
     })
 
-
+    //功能未实现弹窗
+    $(".no-achieve").on("click",function (){
+        status.dialogTip("该功能还在开发，请实时关注官方消息",2);
+    })
 
 })

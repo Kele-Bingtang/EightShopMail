@@ -40,7 +40,6 @@ public class MOrderReturnServiceImpl implements IMOrderReturnService {
     @Override
     public int modifyOrderReturn(OrderReturn orderReturn,Long orderDetailId) {
         OrderDetail orderDetail = new OrderDetail();
-        System.out.println(orderDetailId);
         orderDetail.setOrderDetailId(orderDetailId);
         if(orderReturn.getReturnState().equals("1")){
             mOrderDetailService.deleteOrderDetail(orderDetail);

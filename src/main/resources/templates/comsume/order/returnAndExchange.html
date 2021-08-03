@@ -4,17 +4,16 @@
 <head>
     <title>退货</title>
     <link rel="stylesheet" type="text/css" href="/static/css/order/eight.css"/>
-    <script type = "text/javascript" src="/static/js/returnAndExchange.js"></script>
 </head>
 <body>
 <div class="wrapper">
     <div class="ding">
-        <a href="orderDetail">< 申请退款</a>
+        <a href="orderDetail">< 返回</a>
     </div>
     <div class="all2">
         <div class="all">
             <div th:each="orderDetail :${orderDetails}">
-                <a th:href="@{productDetail(productId=${orderDetail.productInfo.productId})}">
+                <a th:href="@{http://localhost:8080/orderDetail/productDetail(productId=${orderDetail.productInfo.productId})}">
                 <div class="product">
                     <img th:src="${orderDetail.productPicInfo.picUrl}" alt="" style="width: 100px;height: 100px;" id="pic">
                     <div style="width: 296px;height: 94px;" class="desc">
@@ -71,5 +70,6 @@
         </div>
     </div>
 </div>
+<script type = "text/javascript" src="/static/js/consume/returnAndExchange.js"></script>
 </body>
 </html>

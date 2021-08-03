@@ -26,7 +26,7 @@ window.onload = function (){
                     {field:'returnState',title:'是否同意退货',algin:'center',width:95},
                     {field:'modifiedTime',title:'最后修改时间',algin:'center',width:200,
                         templet: function (data) {return layui.util.toDateString(data.modifiedTime,'yyyy-MM-dd HH:mm:ss')}},
-                    {title:'操作',align:'center',toolbar:'#barDemo',fixed:'right',width:230}
+                    {title:'操作',align:'center',toolbar:'#barDemo',fixed:'right',width:350}
                 ]
             ],
             //某一页数据删完后跳回上一个页面
@@ -149,7 +149,15 @@ window.onload = function (){
                     layer.confirm('确认同意退货吗？',function (index) {
                         $.ajax({
                             url: '/eight/manage/orderReturn/modifyOrderReturn?returnId=' +data.returnId,
-                            data: {"returnState":"1","orderId":data.orderId,"orderDetailId":data.orderDetail.orderDetailId},
+                            data: {
+                                "returnState":"1",
+                                "orderId":data.orderId,
+                                "orderDetailId":data.orderDetail.orderDetailId,
+                                "returnType":data.returnType,
+                                "returnReason":data.returnReason,
+                                "returnPrice":data.returnPrice,
+                                "returnDesc":data.returnDesc
+                            },
                             async: false,
                             cache: false,
                             success: function (str) {
@@ -163,7 +171,15 @@ window.onload = function (){
                     layer.confirm('确认不同意退货吗？',function (index) {
                         $.ajax({
                             url: '/eight/manage/orderReturn/modifyOrderReturn?returnId=' +data.returnId,
-                            data: {"returnState":"1"},
+                            data: {
+                                "returnState":"2",
+                                "orderId":data.orderId,
+                                "orderDetailId":data.orderDetail.orderDetailId,
+                                "returnType":data.returnType,
+                                "returnReason":data.returnReason,
+                                "returnPrice":data.returnPrice,
+                                "returnDesc":data.returnDesc
+                            },
                             async: false,
                             cache: false,
                             success: function (str) {

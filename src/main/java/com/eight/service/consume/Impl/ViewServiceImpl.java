@@ -33,7 +33,7 @@ public class ViewServiceImpl implements ViewService {
             }
             condition = new StringBuffer(condition.toString().substring(0, condition.length() - " and ".length()));
             List<ProductInfo> list = viewMapper.queryProductInfoWithlimitWithCondition(detailName, categoryId, condition.toString(), "product_id", m, pageSize);
-            int totalRecord = viewMapper.queryCountFromProductInfoWithCondition(detailName, condition.toString(), "product_id", m, pageSize);
+            int totalRecord = viewMapper.queryCountFromProductInfoWithCondition(detailName, condition.toString(), "product_id", 0, pageSize);
             if (list.size() > 0) {
                 list.get(0).setTotalRecord(totalRecord);
             }
