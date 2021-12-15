@@ -3,6 +3,7 @@ package com.eight.aop;
 import com.eight.bean.HostHolder;
 import com.eight.bean.User;
 import com.eight.utils.CookieUtils;
+import org.apache.ibatis.plugin.Intercepts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -12,6 +13,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+// 登录拦截、或是权限校验、或是防重复提交拦截器
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
     @Autowired

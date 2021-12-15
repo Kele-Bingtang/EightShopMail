@@ -10,13 +10,21 @@ import com.eight.service.manage.user.IMUserInfoService;
 import com.eight.service.manage.user.impl.MUserServiceImpl;
 import com.eight.utils.EnMsgType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.DefaultTransactionAttribute;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import java.math.BigDecimal;
 
 @Service
 public class BuyCartServiceImpl implements IBuyCartService {
+    // 事务管理数据库源
+   /* @Autowired 
+    DataSourceTransactionManager dataSourceTransactionManager;*/
     @Autowired
     private BuyCartMapper buyCartMapper;
     @Autowired
@@ -31,8 +39,16 @@ public class BuyCartServiceImpl implements IBuyCartService {
 
 
     @Override
-    @Transactional(rollbackFor = Exception.class)  //异常自动回滚
+    @Transactional(rollbackFor = Exception.class)  // 检查时异常回滚，运行异常源码已经会自动回滚
     public void addOrder(OrderMaster orderMaster) {
+
+        // 检查时异常手动回滚，运行异常会自动回滚
+       /* DefaultTransactionDefinition def = new DefaultTransactionAttribute();
+        def.setName("addOrder");
+        def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+        TransactionStatus transaction = dataSourceTransactionManager.getTransaction(def);
+        dataSourceTransactionManager.rollback(transaction);*/
+
         ProductInfo productInfo = orderMaster.getProductInfo();
         //判断支付时金额是否有优惠，有就加回来，获得实际总价
         BigDecimal realMoney = orderMaster.getPaymentMoney();

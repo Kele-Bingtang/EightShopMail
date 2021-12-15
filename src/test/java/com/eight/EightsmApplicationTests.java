@@ -12,10 +12,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.DateFormat;
+import java.util.*;
 
 @SpringBootTest
 class EightsmApplicationTests {
@@ -38,6 +36,11 @@ class EightsmApplicationTests {
     public void queryUsernameAndPassword(){
         User user = userService.queryUserByUsername("kele");
         System.out.println("running ..." + user);
+    }
+    
+    @Test
+    public void date(){
+        System.out.println(new Date());
     }
 
     @Test
