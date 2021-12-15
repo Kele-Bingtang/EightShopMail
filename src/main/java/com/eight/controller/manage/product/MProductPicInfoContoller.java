@@ -22,13 +22,13 @@ public class MProductPicInfoContoller {
 
     @RequestMapping("/productPicInfoManage")
     public String ProductPicInfoManage(){
-        return "/manage/product/productPicInfoManage";
+        return "manage/product/productPicInfoManage";
     }
 
     @RequestMapping("/productPicInfoPage")
     public String ProductPicInfoPage(Model model){
         model.addAttribute("productInfos", mProductPicInfoService.queryProductInfoList());
-        return "/manage/product/productPicInfoPage";
+        return "manage/product/productPicInfoPage";
     }
 
     /**

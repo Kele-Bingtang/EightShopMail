@@ -36,12 +36,12 @@ public class DeleteOrderConntroller {
     @GetMapping("modifyDeleteOrder")
     public String modifyDeleteOrder(String orderId, Model model) {
         model.addAttribute("modifyDeleteOrders", deleteOrderService.modifyDeleteOrder(orderId));
-        return "/comsume/order/modifyDeleteOrder";
+        return "comsume/order/modifyDeleteOrder";
     }
     @GetMapping("returnDeleteOrder")
     public String returnDeleteOrder(OrderReturn deleteOrder) {
         deleteOrderService.returnDeleteOrder(deleteOrder);
-        return "/comsume/order/requestUser";
+        return "comsume/order/requestUser";
     }
 
     private List<OrderReturn> viewDeleteOrder() {
@@ -52,13 +52,13 @@ public class DeleteOrderConntroller {
     @PostMapping("saveRequestUser")
     public String saveRequestUser(OrderReturn orderReturn, Model model){
         deleteOrderService.saveRequestUser(orderReturn);
-        return "/comsume/order/requestUser";
+        return "comsume/order/requestUser";
     }
     @GetMapping("success")
     public String success(OrderReturn orderReturn){
         System.out.println(orderReturn);
         deleteOrderService.saveRequestUser(orderReturn);
-        return "/comsume/order/success";
+        return "comsume/order/success";
     }
 
     @GetMapping("fenView")
@@ -76,7 +76,7 @@ public class DeleteOrderConntroller {
                 System.out.println("已为订单" + orderId + "退货");
             }
         }
-        return "/comsume/order/requestUser";
+        return "comsume/order/requestUser";
     }
 
 }

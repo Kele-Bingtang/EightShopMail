@@ -22,12 +22,12 @@ public class MOrderCartContoller {
 
     @RequestMapping("/orderCartManage")
     public String OrderCartManage(){
-        return "/manage/order/orderCartManage";
+        return "manage/order/orderCartManage";
     }
 
     @RequestMapping("/orderCartPage")
     public String OrderCartPage(){
-        return "/manage/order/orderCartPage";
+        return "manage/order/orderCartPage";
     }
 
     /**

@@ -23,12 +23,12 @@ public class MUserLevelContoller {
 
     @RequestMapping("/userLevelManage")
     public String UserLevelManage(){
-        return "/manage/user/userLevelManage";
+        return "manage/user/userLevelManage";
     }
 
     @RequestMapping("/userLevelPage")
     public String UserLevelPage(){
-        return "/manage/user/userLevelPage";
+        return "manage/user/userLevelPage";
     }
 
     /**

@@ -22,12 +22,12 @@ public class MUserManageController {
 
     @RequestMapping("/userManage")
     public String userManage(){
-        return "/manage/user/userManage";
+        return "manage/user/userManage";
     }
 
     @RequestMapping("/userPage")
     public String userPage(){
-        return "/manage/user/userPage";
+        return "manage/user/userPage";
     }
 
     /**

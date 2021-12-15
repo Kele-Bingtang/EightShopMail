@@ -30,7 +30,7 @@ public class OrderDetailController {
     @GetMapping("orderDetail")
     public String orderDetail(Model model) {
         model.addAttribute("orderDetails", orderDetailService.orderDetail());
-        return "/comsume/order/orderDetail";
+        return "comsume/order/orderDetail";
     }
 
     @GetMapping("deleteOrderDetail")
@@ -46,15 +46,15 @@ public class OrderDetailController {
             System.out.println(orderDetail);
         }
         model.addAttribute("orderDetails",orderDetailService.getOrderProductById(orderId));
-        return "/comsume/order/returnAndExchange";
+        return "comsume/order/returnAndExchange";
     }
     @GetMapping("returnAndExchange")
     public String returnAndExchange() {
-        return "/comsume/order/returnAndExchange";
+        return "comsume/order/returnAndExchange";
     }
 
     @GetMapping("loading")
     public String loading(){
-        return "/comsume/order/loading";
+        return "comsume/order/loading";
     }
 }

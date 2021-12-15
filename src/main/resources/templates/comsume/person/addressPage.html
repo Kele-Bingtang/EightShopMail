@@ -115,7 +115,7 @@
     $(function (){
         $(".met2").on("click",function (){
             $.ajax({
-                url:"http://localhost:8080/eight/userInfo/modifypersonAddress",
+                url:"/eight/userInfo/modifypersonAddress",
                 data:$("#address-form").serialize(),
                 type:"post",
                 success:function (data){

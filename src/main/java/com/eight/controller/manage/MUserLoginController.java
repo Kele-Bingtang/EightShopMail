@@ -30,8 +30,8 @@ public class MUserLoginController {
     private IManagerLoginService managerLoginService;
 
     @RequestMapping("/login")
-    public String toLogin(){
-        return "/manage/login";
+    public String willLogin(){
+        return "manage/login";
     }
 
     @RequestMapping("/logging")
@@ -60,7 +60,7 @@ public class MUserLoginController {
         String username = (String) request.getSession().getAttribute("username");
         HashMap<ManagerPower, List<ManagerPower>> managePowerResultMap = managePowerResultMap(username);
         model.addAttribute("managePowers", managePowerResultMap);
-        return "/manage/index";
+        return "manage/index";
     }
 
     /**
@@ -71,7 +71,7 @@ public class MUserLoginController {
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
         request.getSession().removeAttribute("username");
-        return "redirect:/eight/manage/login";
+        return "redirect:eight/manage/login";
     }
 
     /**

@@ -27,7 +27,7 @@
         <td th:text="${orderDetail.freeMoney}"></td>
         <td th:text="${orderDetail.modifiedTime}"></td>
         <td>
-            <a th:href="@{http://localhost:8080/eight/orderDetail/getOrderProductById(orderId=${orderDetail.orderId})}">退货</a>
+            <a th:href="@{/eight/orderDetail/getOrderProductById(orderId=${orderDetail.orderId})}">退货</a>
         </td>
     </tr>
 </table>

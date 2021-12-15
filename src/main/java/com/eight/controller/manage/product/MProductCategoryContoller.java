@@ -22,12 +22,12 @@ public class MProductCategoryContoller {
 
     @RequestMapping("/productCategoryManage")
     public String ProductCategoryManage(){
-        return "/manage/product/productCategoryManage";
+        return "manage/product/productCategoryManage";
     }
 
     @RequestMapping("/productCategoryPage")
     public String ProductCategoryPage(){
-        return "/manage/product/productCategoryPage";
+        return "manage/product/productCategoryPage";
     }
 
     /**

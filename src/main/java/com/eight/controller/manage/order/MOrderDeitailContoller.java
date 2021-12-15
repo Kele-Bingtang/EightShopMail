@@ -22,12 +22,12 @@ public class MOrderDeitailContoller {
 
     @RequestMapping("/orderDetailManage")
     public String OrderDetailManage(){
-        return "/manage/order/orderDetailManage";
+        return "manage/order/orderDetailManage";
     }
 
     @RequestMapping("/orderDetailPage")
     public String OrderDetailPage(){
-        return "/manage/order/orderDetailPage";
+        return "manage/order/orderDetailPage";
     }
 
     /**

@@ -22,12 +22,12 @@ public class MShoppingMailContoller {
 
     @RequestMapping("/shoppingMailManage")
     public String ShoppingMailManage(){
-        return "/manage/shoppingMailManage";
+        return "manage/shoppingMailManage";
     }
 
     @RequestMapping("/shoppingMailPage")
     public String ShoppingMailPage(){
-        return "/manage/shoppingMailPage";
+        return "manage/shoppingMailPage";
     }
 
     /**

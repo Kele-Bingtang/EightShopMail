@@ -17,7 +17,7 @@ public class ProductController {
     @GetMapping("productDetail")
     public String productDetail(String productId,Model model){
         model.addAttribute("orderDetail",productService.viewProductById(productId));
-        return "/comsume/order/productDetail";
+        return "comsume/order/productDetail";
     }
 
 }

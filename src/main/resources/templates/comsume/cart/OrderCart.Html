@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>购物车</title>
-    <link rel="stylesheet" href="css/style2.css">
+  <meta charset="utf-8">
+  <title>购物车</title>
+  <link rel="stylesheet" href="/static/css/buycart.css">
 </head>
 <body>
 <div class="wrapper">
-    <div class="top">
-        <ul class="title">
-            <li><a href="#">首页</a></li>
-            <li><a href="#">返回</a></li>
-            <li><a href="#">退出</a></li>
-            <li><a href="#">我的购物车</a></li>
-            <li><a href="#">我的收藏夹</a></li>
-            <li><a href="#">查看物流</a></li>
-        </ul>
+  <div class="top">
+    <ul class="title">
+      <li><a href="#">首页</a></li>
+      <li><a href="#">返回</a></li>
+      <li><a href="#">退出</a></li>
+      <li><a href="#">我的购物车</a></li>
+      <li><a href="#">我的收藏夹</a></li>
+      <li><a href="#">查看物流</a></li>
+    </ul>
+  </div>
+  <div class="research">
+     <form action="" style="margin-top: 10px">
+      <input type="text" style="outline:none;width: 70%;height: 28px;font-size: 16px;" placeholder="请输入您要搜索的商品">
+      <input type="submit" value="搜索"
+             style="width: 30%;height:32px;font-size: 16px;background-color: #FF0036;color: white;margin-left: -5px;cursor: pointer;">
+    </form>
+  </div>
+  <div class="pro">
+    <div class="all" style="color: #FF4400;font-size: 20px;font-weight: bold;margin-top: 10px">
+      全部商品<span style="color: #FF4400;font-size: 20px;font-weight: bold;">3</span>
     </div>
-    <div class="research">
-        <form action="">
-            <input type="text" style="outline:none;width: 70%;height: 28px;font-size: 16px;" placeholder="请输入您要搜索的商品">
-            <input type="submit" value="搜索" style="width: 30%;height:32px;font-size: 16px;background-color: #FF0036;color: white;margin-left: -5px;cursor: pointer;">
-        </form>
+    <div class="title" style="margin-top: 20px">
+      <ul class="ch">
+        <li>商品信息</li>
+        <li style="margin-left: 60px">单价</li>
+        <li style="margin-left: 60px">数量</li>
+        <li style="margin-left: 60px">折扣</li>
+        <li style="margin-left: 60px">金额</li>
+        <li style="margin-left: 60px">操作</li>
+      </ul>
     </div>
-    <div class="pro">
-        <div class="all" style="color: #FF4400;font-size: 20px;font-weight: bold">
-            全部商品<span style="color: #FF4400;font-size: 20px;font-weight: bold;">3</span>
-        </div>
-        <div class="title" style="margin-top: 20px">
-            <ul class="ch">
-                <li>商品信息</li>
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单价</li>
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;数量</li>
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;折扣</li>
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金额</li>
-                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;操作 ${xxx}</li>
-            </ul>
-        </div>
-        <div>
+    <div>
                     <span>
-                        <img style="margin-top:30px"src="img/book008.jpg"alt="图片无法访问">
+                        <img style="margin-top:30px" src="/static/images/me.png" alt="图片无法访问">
                         <div style="margin-left: 25px">
                             <div>
                                 <input type="checkbox" name="1"/>
@@ -47,26 +48,28 @@
                             </div>
                         </div>
                     </span>
-            <span>
+      <span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥18.00
                     </span>
-            <span>
+      <span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input style="width: 100px;height: 30px;background-color: #F0F0F0;text-align: center;" type="number"min = "1" step="1" value="1">
+                        <input style="width: 100px;height: 30px;background-color: #F0F0F0;text-align: center;"
+                               type="number" min="1" step="1" value="1">
                     </span>
-            <span>
+      <span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥5
                     </span>
-            <span>
+      <span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥18.00
                     </span>
-            <span>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"style="color: black">删除</a>
+      <span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+          href="#" style="color: black">删除</a>
                     </span>
-        </div>
-        <div>
+    </div>
+    <div>
                     <span>
-                        <img style="margin-top:30px"src="img/book008.jpg"alt="图片无法访问">
+                        <img style="margin-top:30px" src="/static/images/me.png" alt="图片无法访问">
                         <div style="margin-left: 25px">
                             <div>
                                 <input type="checkbox" name="1"/>
@@ -74,26 +77,28 @@
                             </div>
                         </div>
                     </span>
-            <span>
+      <span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥18.00
                     </span>
-            <span>
+      <span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input style="width: 100px;height: 30px;background-color: #F0F0F0;text-align: center;" type="number"min = "1" step="1" value="1">
+                        <input style="width: 100px;height: 30px;background-color: #F0F0F0;text-align: center;"
+                               type="number" min="1" step="1" value="1">
                     </span>
-            <span>
+      <span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥5
                     </span>
-            <span>
+      <span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥18.00
                     </span>
-            <span>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"style="color: black">删除</a>
+      <span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+          href="#" style="color: black">删除</a>
                     </span>
-        </div>
-        <div>
+    </div>
+    <div>
                     <span>
-                        <img style="margin-top:30px"src="img/book008.jpg"alt="图片无法访问">
+                        <img style="margin-top:30px" src="/static/images/me.png" alt="图片无法访问">
                         <div style="margin-left: 25px">
                             <div>
                                 <input type="checkbox" name="1"/>
@@ -101,38 +106,44 @@
                             </div>
                         </div>
                     </span>
-            <span>
+      <span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥18.00
                     </span>
-            <span>
+      <span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input style="width: 100px;height: 30px;background-color: #F0F0F0;text-align: center;" type="number"min = "1" step="1" value="1">
+                        <input style="width: 100px;height: 30px;background-color: #F0F0F0;text-align: center;"
+                               type="number" min="1" step="1" value="1">
                     </span>
-            <span>
+      <span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥5
                     </span>
-            <span>
+      <span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥18.00
                     </span>
-            <span>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"style="color: black">删除</a>
+      <span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+          href="#" style="color: black">删除</a>
                     </span>
-        </div>
+    </div>
 
-        <div style="background-color:#E5E5E5;height: 50px;margin-top: 25px;">
-            <form action="">
-                <span><input type="checkbox" style="margin-top: 20px"/><span style="cursor: pointer;">全选</span</span>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style="color:black">删除</a></span>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style="color:black">移入收藏夹</a></span>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已选商品&nbsp;<span style="color: #FF4400;">0</span>&nbsp;件</span>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div style="background-color:#E5E5E5;height: 50px;margin-top: 25px;">
+      <form action="">
+        <span><input type="checkbox" style="margin-top: 20px"/><span style="cursor: pointer;">全选</span></span>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+            href="#" style="color:black">删除</a></span>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+            href="#" style="color:black">移入收藏夹</a></span>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已选商品&nbsp;<span
+            style="color: #FF4400;">0</span>&nbsp;件</span>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;合计（不含运费）：</span>
-                <span style="color: #FF4400;font-size: 25px;font-weight: bold;">0.00
+        <span style="color: #FF4400;font-size: 25px;font-weight: bold;">0.00
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                <input type="submit" value="结&nbsp;&nbsp;算" style="background-color: #FF4400;width: 114px;height: 50px;font-size: 20px;color: white;">
-            </form>
-        </div>
+        <input type="submit" value="结&nbsp;&nbsp;算"
+               style="background-color: #FF4400;width: 114px;height: 50px;font-size: 20px;color: white;">
+      </form>
     </div>
+  </div>
 </div>
 </body>
 </html>

@@ -22,13 +22,13 @@ public class MBookDetailContoller {
 
     @RequestMapping("/bookDetailManage")
     public String BookDetailManage(){
-        return "/manage/product/bookDetailManage";
+        return "manage/product/bookDetailManage";
     }
 
     @RequestMapping("/bookDetailPage")
     public String BookDetailPage(Integer categoryId,Model model){
         model.addAttribute("products", mBookDetailService.queryProductInfoByCategory(categoryId));
-        return "/manage/product/bookDetailPage";
+        return "manage/product/bookDetailPage";
     }
 
     /**

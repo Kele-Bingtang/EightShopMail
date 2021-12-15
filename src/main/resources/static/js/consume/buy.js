@@ -66,7 +66,7 @@ $(function(){
 
     $(".buybtn").on("click",function (){
         $.ajax({
-            url:"http://localhost:8080/eight/alipay",
+            url:"/eight/alipay",
             type:"post",
             data: $("#pay-form").serialize(),
             success:function (data){

@@ -22,12 +22,12 @@ public class MUserPointLogContoller {
 
     @RequestMapping("/userPointLogManage")
     public String UserPointLogManage(){
-        return "/manage/log/userPointLogManage";
+        return "manage/log/userPointLogManage";
     }
 
     @RequestMapping("/userPointLogPage")
     public String UserPointLogPage(){
-        return "/manage/log/userPointLogPage";
+        return "manage/log/userPointLogPage";
     }
 
     /**

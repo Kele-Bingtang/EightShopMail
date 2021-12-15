@@ -22,13 +22,13 @@ public class MProductInfoContoller {
 
     @RequestMapping("/productInfoManage")
     public String ProductInfoManage(){
-        return "/manage/product/productInfoManage";
+        return "manage/product/productInfoManage";
     }
 
     @RequestMapping("/productInfoPage")
     public String ProductInfoPage(Model model){
         model.addAttribute("productCategoryList", mProductInfoService.queryProductCategoryList());
-        return "/manage/product/productInfoPage";
+        return "manage/product/productInfoPage";
     }
 
     /**

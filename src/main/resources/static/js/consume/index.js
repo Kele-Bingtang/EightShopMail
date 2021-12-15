@@ -172,7 +172,7 @@ $(function () {
                 var str = "";
                 for (let i = 0; i < 8; i++) {
                     str += `<li>
-                                <a href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}" target="_blank"> 
+                                <a href="/eight/viewProduct?productId=${data[i].productId}" target="_blank"> 
                                     <img src="${data[i].productPicInfo.picUrl}" alt="">
                                     <p>${data[i].productName}</p>
                                     <p>￥<span>${data[i].price}</span></p>
@@ -251,7 +251,7 @@ $(function () {
                 var str = "";
                 for (let i = 0; i < data.length; i++) {
                     str += `<li data-value="${data[i].productId}">
-                                <a href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}" target="_blank">
+                                <a href="/eight/viewProduct?productId=${data[i].productId}" target="_blank">
                                      <img src="${data[i].productPicInfo.picUrl}" alt="" class="img">
                                      <p class="name">${data[i].productName}</p>
                                     <p class="desc">${data[i].descript}</p>
@@ -289,7 +289,7 @@ $(function () {
                 var str = "";
                 for (let i = 0; i < data.length - num; i++) {
                     str += ` <li class="${ele}${i + 1}">
-                            <a href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}" target="_blank">
+                            <a href="/eight/viewProduct?productId=${data[i].productId}" target="_blank">
                                 <img src="${data[i].productPicInfo.picUrl}" alt="" class="img">
                                 <p class="name">${data[i].productName}</p>
                                 <p class="desc">${data[i].descript}</p>
@@ -301,7 +301,7 @@ $(function () {
                     for (let i = 0; i < num; i++) {
                         str += `<li class="last-item ${ele}${data.length}">
                                 <div>
-                                    <a href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}" class="item-link" target="_blank">
+                                    <a href="/eight/viewProduct?productId=${data[i].productId}" class="item-link" target="_blank">
                                         <img src="${data[data.length - num].productPicInfo.picUrl}" alt=""  class="img">
                                         <p class="name">${data[data.length - num].productName}</p>
                                         <p class="price">${data[data.length - num].price}元</p>
@@ -309,7 +309,7 @@ $(function () {
                                 </div>
                                  <div>
                                     <div class="more1">
-                                        <a href="http://localhost:8080/eight/view/commodities?pageName=${boxName}" target="_blank">
+                                        <a href="/eight/view/commodities?pageName=${boxName}" target="_blank">
                                             <span class="iconfont">&#xe619;</span>
                                             <p>预览更多</p>
                                             <small>热门</small>
@@ -362,7 +362,7 @@ $(function () {
                     if (dataIndex === undefined || dataIndex === "") {
                         for (let i = 0; i < data.length; i++) {
                             let selector = boxNameSelect + (i + 1);
-                            $(selector).find(".item-link").attr("href", "http://localhost:8080/eight/viewProduct?productId=" + data[i].productId)
+                            $(selector).find(".item-link").attr("href", "/eight/viewProduct?productId=" + data[i].productId)
                             $(selector).find(".img").attr("src", data[i].productPicInfo.picUrl);
                             $(selector).find(".name").text(data[i].productName);
                             $(selector).find(".desc").text(data[i].descript);
@@ -372,7 +372,7 @@ $(function () {
                         for (let i = 0; i < dataIndex.length; i++) {
                             let selector = boxNameSelect + (i + 1);
 
-                            $(selector).find(".item-link").attr("href","http://localhost:8080/eight/viewProduct?productId=" + data[i].productId)
+                            $(selector).find(".item-link").attr("href","/eight/viewProduct?productId=" + data[i].productId)
                             $(selector).find(".img").attr("src", data[dataIndex[i]].productPicInfo.picUrl);
                             $(selector).find(".name").text(data[dataIndex[i]].productName);
                             $(selector).find(".desc").text(data[dataIndex[i]].descript);
@@ -411,23 +411,23 @@ $(function () {
         navAjax() {
             return (() => {
                 // 获取手机商品数据
-                $.getJSON("http://localhost:8080/eight/index/box", navData.phoneData, function (data) {
+                $.getJSON("/eight/index/box", navData.phoneData, function (data) {
                     nav.navHeadSub("phone-item", data);
                 })
                 //获取家电
-                $.getJSON("http://localhost:8080/eight/index/box", navData.hourseData, function (data) {
+                $.getJSON("/eight/index/box", navData.hourseData, function (data) {
                     nav.navHeadSub("hourse-item", data);
                 })
                 //获取书籍
-                $.getJSON("http://localhost:8080/eight/index/box", navData.bookData, function (data) {
+                $.getJSON("/eight/index/box", navData.bookData, function (data) {
                     nav.navHeadSub("book-item", data);
                 })
                 //获取音响
-                $.getJSON("http://localhost:8080/eight/index/box", navData.audioData, function (data) {
+                $.getJSON("/eight/index/box", navData.audioData, function (data) {
                     nav.navHeadSub("audio-item", data);
                 })
                 //获取配件
-                $.getJSON("http://localhost:8080/eight/index/box", navData.partsData, function (data) {
+                $.getJSON("/eight/index/box", navData.partsData, function (data) {
                     nav.navHeadSub("parts-item", data);
                 })
             })()
@@ -436,23 +436,23 @@ $(function () {
         mainAjax() {
             return (() => {
                 //商品秒杀
-                $.getJSON("http://localhost:8080/eight/index/seckill", null, function (data) {
+                $.getJSON("/eight/index/seckill", null, function (data) {
                     main.seckill(data);
                 })
                 //手机模块
-                $.getJSON("http://localhost:8080/eight/index/box",mainData.phoneData , function (data) {
+                $.getJSON("/eight/index/box",mainData.phoneData , function (data) {
                     //左侧图片
                     main.boxInfo("phone-box", data, 0);
                 })
                 //家电模块
-                $.getJSON("http://localhost:8080/eight/index/box", mainData.hourseData, function (data) {
+                $.getJSON("/eight/index/box", mainData.hourseData, function (data) {
                     //左侧图片
                     main.boxInfoPic("hourse-left", hourseImg);
                     main.boxInfo("hourse-box", data, 1);
                     main.productSwitch("hourse-box", "hourse-more .hot-active", data);
                 })
                 //书籍模块
-                $.getJSON("http://localhost:8080/eight/index/box",mainData.bookData , function (data) {
+                $.getJSON("/eight/index/box",mainData.bookData , function (data) {
                     //左侧图片
                     main.boxInfoPic("book-left", bookImg);
                     main.boxInfo("book-box", data, 1);
@@ -460,28 +460,28 @@ $(function () {
                 })
 
                 //音响模块
-                $.getJSON("http://localhost:8080/eight/index/box",mainData.audioData , function (data) {
+                $.getJSON("/eight/index/box",mainData.audioData , function (data) {
                     main.boxInfoPic("audio-left", audioImg);
                     main.boxInfo("audio-box", data, 1);
                     main.productSwitch("audio-box", "audio-more .hot-active", data);
 
                 })
                 //配件模块
-                $.getJSON("http://localhost:8080/eight/index/box", mainData.partsData, function (data) {
+                $.getJSON("/eight/index/box", mainData.partsData, function (data) {
                     main.boxInfoPic("parts-left", partsImg);
                     main.boxInfo("parts-box", data, 1);
                     main.productSwitch("parts-box", "parts-more .hot-active", data);
 
                 })
                 //互动模块
-                $.getJSON("http://localhost:8080/eight/index/box", {
+                $.getJSON("/eight/index/box", {
                     "boxName": "hourse",
                     "code": "hs003&hs014&hs015&hs026&hs010&hs030&hs036&hs039"
                 }, function (data) {
                     main.boxInfo("interact-box", data, 1);
                 })
 
-                $.getJSON("http://localhost:8080/eight/index/commentArticle",{
+                $.getJSON("/eight/index/commentArticle",{
                     "artcleFine":1
                 },function (data){
                     main.communityBox(data);
@@ -491,7 +491,7 @@ $(function () {
         //模块悬停，切换商品
         //参数1：模块名 参数2：鼠标悬停元素的class 参数3：数据类型名 参数4：数据类型id 参数5：显示数据的id，8个
         ajaxGetProductBoxClass(boxName, boxLabelSelect, catrgoryName, catrgoryId, dataIndex) {
-            $.getJSON("http://localhost:8080/eight/index/catrgory/" + catrgoryName, {
+            $.getJSON("/eight/index/catrgory/" + catrgoryName, {
                 "catrgoryId": catrgoryId
             }, function (data) {
                 main.productSwitch(boxName, boxLabelSelect, data, dataIndex);
@@ -587,7 +587,7 @@ $(function () {
                        "margin-left": -parseInt($(".dialog").css("width"))/2 + 'px',
                        "margin-top": -parseInt($(".dialog").css("height"))/2 + 'px',
                    })
-                   //两秒后自动清除弹窗
+                   // 两秒后自动清除弹窗
                    setTimeout(function (){
                        $(".dialog").remove()
                    },2000)
@@ -608,7 +608,7 @@ $(function () {
             userId = localStorage.getItem("isLoginHead");
         }
 
-        $.getJSON("http://localhost:8080/eight/user/headAndInfo", {
+        $.getJSON("/eight/user/headAndInfo", {
             "isLoginHead": localStorage.getItem("isLoginHead"),
             "userId": userId
         }, function (data) {
@@ -620,7 +620,7 @@ $(function () {
                         </span>`;
 
             if(data !== null){
-                /*  str = `<a href="http://localhost:8080/eight/userInfo/queryUserInfo?userId=${userId}" target="_blank">
+                /*  str = `<a href="/eight/userInfo/queryUserInfo?userId=${userId}" target="_blank">
                             <img src="${data.headUrl}" alt="">
                           </a>`;*/
                 str = `<span class="skip-person">
@@ -629,7 +629,7 @@ $(function () {
             }
             headPortrait.css("display", "block").attr("value", userId).append(str);
             $(".skip-person").on("click",function (){
-                window.open( "http://localhost:8080/eight/userInfo/queryUserInfo");
+                window.open( "/eight/userInfo/queryUserInfo");
             })
         })
 
@@ -637,12 +637,12 @@ $(function () {
         $("#user-operator1").attr({
             "class": "user-info",
             "value":userId,
-            "href": "http://localhost:8080/eight/user/index/level"
+            "href": "/eight/user/index/level"
         }).text("我的等级");
         $("#user-operator2").attr({
             "class": "user-order",
             "value":userId,
-            "href": "http://localhost:8080/eight/user/logistic/order?userId=" + userId
+            "href": "/eight/user/logistic/order?userId=" + userId
         }).text("我的订单");
         $("#user-operator3").attr({
             "class": "user-exits",
@@ -654,7 +654,7 @@ $(function () {
         //用户退出时
         $(".user-exits").click(function () {
             if (utils.getCookie("isLoginHead") || localStorage.getItem("isLoginHead")) {
-                $.getJSON("http://localhost:8080/eight/user/exitsLogin",{
+                $.getJSON("/eight/user/exitsLogin",{
                     "userId":userId
                 },function (data){
                     if(localStorage.getItem("isLoginHead")){
@@ -673,8 +673,8 @@ $(function () {
 
     // 购物车点击事件
     $(".header-user-cart").on("click",function (){
-        window.open("http://localhost:8080/eight/user/cart");
-
+        // window.open("/eight/user/cart");
+        utils.dialogTip("该功能还在开发，请实时关注官方消息",2);
     })
 
     //功能未实现弹窗

@@ -35,11 +35,11 @@ public class AccountController {
             accountService.transfer(payer, payee, money);
         } catch (Exception e) {
             e.printStackTrace();
-            return "/comsume/order/error";
+            return "comsume/order/error";
         }
 
         model.addAttribute("msg", "转账成功！");
-        return "/comsume/order/transferHint";
+        return "comsume/order/transferHint";
     }
     @GetMapping("returnSuccess")
     public void viewDeleteOrder() {

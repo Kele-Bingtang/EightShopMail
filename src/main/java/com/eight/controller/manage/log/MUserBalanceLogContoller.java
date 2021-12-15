@@ -22,12 +22,12 @@ public class MUserBalanceLogContoller {
 
     @RequestMapping("/userBalanceLogManage")
     public String UserBalanceLogManage(){
-        return "/manage/log/userBalanceLogManage";
+        return "manage/log/userBalanceLogManage";
     }
 
     @RequestMapping("/userBalanceLogPage")
     public String UserBalanceLogPage(){
-        return "/manage/log/userBalanceLogPage";
+        return "manage/log/userBalanceLogPage";
     }
 
     /**

@@ -22,13 +22,13 @@ public class MPhoneDetailContoller {
 
     @RequestMapping("/phoneDetailManage")
     public String PhoneDetailManage(){
-        return "/manage/product/phoneDetailManage";
+        return "manage/product/phoneDetailManage";
     }
 
     @RequestMapping("/phoneDetailPage")
     public String PhoneDetailPage(Integer categoryId,Model model){
         model.addAttribute("products",mPhoneDetailService.queryProductInfoByCategory(categoryId));
-        return "/manage/product/phoneDetailPage";
+        return "manage/product/phoneDetailPage";
     }
 
     /**

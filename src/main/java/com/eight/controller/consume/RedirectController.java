@@ -7,12 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Controller("redirectController")
+@RestController("redirectController")
 @RequestMapping("/eight/redirectPage")
 
 public class RedirectController {
@@ -20,19 +21,16 @@ public class RedirectController {
     private ViewService viewService;
 
     @RequestMapping(value = "/init", method = RequestMethod.GET)
-    @ResponseBody
     private List<ProductInfo> Init(String pageName, String oneCategoryId,String pageSize, String curPage, String conLen, String condition) {
         return Process(pageName, oneCategoryId,pageSize, curPage, conLen, condition, false);
     }
 
     @RequestMapping(value = "/limit", method = RequestMethod.GET)
-    @ResponseBody
     public List<ProductInfo> Limit(String pageName, String oneCategoryId,String pageSize, String curPage, String conLen, String condition) {
         return Process(pageName,oneCategoryId, pageSize, curPage, conLen, condition, true);
     }
 
     @RequestMapping(value = "/updateCom", method = RequestMethod.GET)
-    @ResponseBody
     public List<ProductInfo> UpdateCom(String pageName,String oneCategoryId,String pageSize,String condition,String conLen){
         return Process(pageName,oneCategoryId,pageSize,"1",conLen,condition,true);
     }

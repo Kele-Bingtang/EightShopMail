@@ -76,7 +76,7 @@
     $(function (){
         $(".security-submit-btn").on("click",function (){
             $.ajax({
-                url:"http://localhost:8080/eight/userInfo/modifyPersonSecurity",
+                url:"/eight/userInfo/modifyPersonSecurity",
                 data:$("#security-from").serialize(),
                 type:"post",
                 success:function (data){

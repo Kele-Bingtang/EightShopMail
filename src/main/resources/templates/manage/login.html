@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="zh_CN" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>八八商城后台管理系统</title>
-    <link rel="stylesheet" th:href="@{/static/plugins/layui/css/layui.css}" media="all">
-    <link rel="stylesheet" th:href="@{/static/css/manage/style.css}" media="all">
+  <meta charset="UTF-8">
+  <title>八八商城后台管理系统</title>
+  <link rel="stylesheet" th:href="@{/static/plugins/layui/css/layui.css}" media="all">
+  <link rel="stylesheet" th:href="@{/static/css/manage/style.css}" media="all">
 </head>
 <body>
 <div class="login-main">
-    <header class="layui-elip">登录</header>
-    <form class="layui-form">
-        <div class="layui-form-item">
-            <div class="layui-input-inline">
-                <input type="text" name="username" required lay-verify="required" placeholder="用户名" class="layui-input" autocomplete="off">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <div class="layui-input-inline">
-                <input type="password" name="password" required lay-verify="required" placeholder="密码" class="layui-input" autocomplete="off">
-            </div>
-        </div>
-        <div class="layui-input-inline login-btn">
-            <button lay-submit lay-filter="login" class="layui-btn">登录</button>
-        </div>
-    </form>
+  <header class="layui-elip">登录</header>
+  <form class="layui-form">
+    <div class="layui-form-item">
+      <div class="layui-input-inline">
+        <input type="text" name="username" required lay-verify="required" placeholder="用户名" class="layui-input"
+               autocomplete="off" value="admin">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-input-inline">
+        <input type="password" name="password" required lay-verify="required" placeholder="密码" class="layui-input"
+               autocomplete="off" value="admin1234">
+      </div>
+    </div>
+    <div class="layui-input-inline login-btn">
+      <button lay-submit lay-filter="login" class="layui-btn">登录</button>
+    </div>
+  </form>
 </div>
-    <script th:src="@{/static/plugins/layui/layui.js}"></script>
-    <script th:src="@{/static/js/manage/user/login.js}"></script>
+<script th:src="@{/static/plugins/layui/layui.js}"></script>
+<script th:src="@{/static/js/manage/user/login.js}"></script>
 </body>
 </html>
 

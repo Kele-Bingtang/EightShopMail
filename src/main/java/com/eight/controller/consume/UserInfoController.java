@@ -34,20 +34,20 @@ public class UserInfoController {
     @RequestMapping("personPage")
     public String userInfoPage(Long userId,Model model){
         model.addAttribute("userInfo",userInfoService.queryAllUserInfoByUserId(userId));
-        return "/comsume/person/personPage";
+        return "comsume/person/personPage";
     }
 
     @RequestMapping("addressPage")
     public String addressPage(Long userId,Model model){
         model.addAttribute("userInfo",userInfoService.queryAllUserInfoByUserId(userId));
 
-        return "/comsume/person/addressPage";
+        return "comsume/person/addressPage";
     }
     @RequestMapping("userSecurityPage")
     public String userSecurityPage(Long userId,Model model){
         model.addAttribute("userInfo",userInfoService.queryAllUserInfoByUserId(userId));
 
-        return "/comsume/person/userSecurityPage";
+        return "comsume/person/userSecurityPage";
     }
 
 

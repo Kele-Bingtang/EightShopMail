@@ -152,7 +152,7 @@
             $(".birthday").val(year + '-' + month + '-' + day);
             console.log()
             $.ajax({
-                url:"http://localhost:8080/eight/userInfo/modifyPersonInfo",
+                url:"/eight/userInfo/modifyPersonInfo",
                 data:$("#person-form").serialize(),
                 type:"post",
                 success:function (data){

@@ -50,13 +50,13 @@ $(function () {
         lis[index].style.border = "1px solid #fff";
         // 更改超链接
         if((parseInt(index) + 1) == 1){
-            link.href = "http://localhost:8080/eight/view/commodities?pageName=hourse";
+            link.href = "/eight/view/commodities?pageName=hourse";
         }else if((parseInt(index) + 1) == 2){
-            link.href = "http://localhost:8080/eight/view/commodities?pageName=phone";
+            link.href = "/eight/view/commodities?pageName=phone";
         }else if((parseInt(index) + 1) == 3){
-            link.href = "http://localhost:8080/eight/view/commodities?pageName=hourse";
+            link.href = "/eight/view/commodities?pageName=hourse";
         }else if((parseInt(index) + 1) == 4){
-            link.href = "http://localhost:8080/eight/view/commodities?pageName=audio";
+            link.href = "/eight/view/commodities?pageName=audio";
         }
     }
 

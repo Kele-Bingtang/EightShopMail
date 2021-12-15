@@ -22,12 +22,12 @@ public class MProductCommentContoller {
 
     @RequestMapping("/productCommentManage")
     public String ProductCommentManage(){
-        return "/manage/product/productCommentManage";
+        return "manage/product/productCommentManage";
     }
 
     @RequestMapping("/productCommentPage")
     public String ProductCommentPage(){
-        return "/manage/product/productCommentPage";
+        return "manage/product/productCommentPage";
     }
 
     /**

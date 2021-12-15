@@ -22,13 +22,13 @@ public class MHourseAppDetaillContoller {
 
     @RequestMapping("/hourseAppDetailManage")
     public String HourseAppDetailManage(){
-        return "/manage/product/hourseAppDetailManage";
+        return "manage/product/hourseAppDetailManage";
     }
 
     @RequestMapping("/hourseAppDetailPage")
     public String HourseAppDetailPage(Integer categoryId,Model model){
         model.addAttribute("products", mHourseAppDetailService.queryProductInfoByCategory(categoryId));
-        return "/manage/product/hourseAppDetailPage";
+        return "manage/product/hourseAppDetailPage";
     }
 
     /**

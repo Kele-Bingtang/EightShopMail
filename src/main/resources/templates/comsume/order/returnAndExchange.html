@@ -13,7 +13,7 @@
     <div class="all2">
         <div class="all">
             <div th:each="orderDetail :${orderDetails}">
-                <a th:href="@{http://localhost:8080/orderDetail/productDetail(productId=${orderDetail.productInfo.productId})}">
+                <a th:href="@{/orderDetail/productDetail(productId=${orderDetail.productInfo.productId})}">
                 <div class="product">
                     <img th:src="${orderDetail.productPicInfo.picUrl}" alt="" style="width: 100px;height: 100px;" id="pic">
                     <div style="width: 296px;height: 94px;" class="desc">
@@ -35,7 +35,7 @@
                 </div>
                 </a>
                 <div class="port">
-                    <form th:action="@{http://localhost:8080/eight/orderDetail/success}" method="Get">
+                    <form th:action="@{/eight/orderDetail/success}" method="Get">
                         <!--                动态-->
                         <p class=p0>订单编号:*</p>
                         <input type="text" name="orderId" class=shu1 th:value="${orderDetail.orderId}" readonly>

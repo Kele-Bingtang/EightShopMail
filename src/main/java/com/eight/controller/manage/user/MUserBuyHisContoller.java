@@ -22,12 +22,12 @@ public class MUserBuyHisContoller {
 
     @RequestMapping("/userBuyHistoryManage")
     public String UserBuyHistoryManage(){
-        return "/manage/user/userBuyHistoryManage";
+        return "manage/user/userBuyHistoryManage";
     }
 
     @RequestMapping("/userBuyHistoryPage")
     public String UserBuyHistoryPage(){
-        return "/manage/user/userBuyHistoryPage";
+        return "manage/user/userBuyHistoryPage";
     }
 
     /**

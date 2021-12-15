@@ -25,14 +25,14 @@ public class MUserInfoController{
 
     @RequestMapping("/userInfoManage")
     public String UserInfoManage(){
-        return "/manage/user/userInfoManage";
+        return "manage/user/userInfoManage";
     }
 
     @RequestMapping("/userInfoPage")
     public String UserInfoPage(Model model){
 
         model.addAttribute("users", mUserInfoService.queryUserList());
-        return "/manage/user/userInfoPage";
+        return "manage/user/userInfoPage";
     }
 
     /**

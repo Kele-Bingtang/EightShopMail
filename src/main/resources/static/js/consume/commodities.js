@@ -25,19 +25,19 @@ $(document).ready(function () {
     } else if (pageName === "parts") {
         oneCategoryId = "16"
     }
-    $.getJSON("http://localhost:8080/eight/view/getCategory", {
+    $.getJSON("/eight/view/getCategory", {
         "categoryId": oneCategoryId
     }, function (data) {
         CreateVariety_Category("variety", data);
     })
     if (pageName === "book") {
-        $.getJSON("http://localhost:8080/eight/view/getDetail", {
+        $.getJSON("/eight/view/getDetail", {
             "pageName": pageName,
         }, function (data) {
             CreateVariety_Detail("variety", data);
         })
     }
-    $.getJSON("http://localhost:8080/eight/redirectPage/init", {
+    $.getJSON("/eight/redirectPage/init", {
         "pageName": pageName,
         "oneCategoryId": oneCategoryId,
         "pageSize": pageSize,
@@ -63,7 +63,7 @@ $("input[name='toPage']").click(function () {
     } else if (this.id === "lastPage") {
         curPage.val(totalPage);
     }
-    $.getJSON("http://localhost:8080/eight/redirectPage/limit", {
+    $.getJSON("/eight/redirectPage/limit", {
         "pageName": pageName,
         "oneCategoryId": oneCategoryId,
         "pageSize": pageSize,
@@ -118,7 +118,7 @@ $("#variety").on("click", ".condition", function () {
         conLen++;
     });
     curPage.val(1);
-    $.getJSON("http://localhost:8080/eight/redirectPage/updateCom", {
+    $.getJSON("/eight/redirectPage/updateCom", {
         "pageName": pageName,
         "oneCategoryId": oneCategoryId,
         "pageSize": pageSize,
@@ -161,7 +161,7 @@ function UpdateCommodities(data) {
             var p = $("#price_" + i);
             var a = $("#commodity_" + i);
             if (i < data.length) {
-                a.attr("href", "http://localhost:8080/eight/viewProduct?productId=" + data[i].productId);
+                a.attr("href", "/eight/viewProduct?productId=" + data[i].productId);
                 e.attr("src", data[i].productPicInfo.picUrl);
                 n.html(data[i].productName)
                 p.html(data[i].price);
@@ -188,7 +188,7 @@ function ChangeByLimit(data) {
         var p = $("#price_" + i);
         var a = $("#commodity_" + i);
         if (i < data.length) {
-            a.attr("href", "http://localhost:8080/eight/viewProduct?productId=" + data[i].productId);
+            a.attr("href", "/eight/viewProduct?productId=" + data[i].productId);
             e.attr("src", data[i].productPicInfo.picUrl);
             n.html(data[i].productName)
             p.html(data[i].price);
@@ -214,7 +214,7 @@ function CreateCommodities(ele, data) {
         if (i % 3 === 0 && i !== 0) {
             str += '<br/>'
         }
-        str += `<li><a id="${commodityId}" href="http://localhost:8080/eight/viewProduct?productId=${data[i].productId}">
+        str += `<li><a id="${commodityId}" href="/eight/viewProduct?productId=${data[i].productId}">
                             <img id=${pId} src="${data[i].productPicInfo.picUrl}" alt="">
                             <p id=${nId}>${data[i].productName}</p>
                             <p>￥<span id=${price_id}>${data[i].price}</span></p>

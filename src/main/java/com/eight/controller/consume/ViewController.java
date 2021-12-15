@@ -29,7 +29,7 @@ public class ViewController {
     @RequestMapping("/commodities")
     private String toCommodities(Model model, @RequestParam(value = "pageName", required = false, defaultValue = "") String pageName) {
         model.addAttribute("pageName", pageName);
-        return "/comsume/commodities";
+        return "comsume/commodities";
     }
 
     @RequestMapping(value = "/undefined", method = RequestMethod.GET)

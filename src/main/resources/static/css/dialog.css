@@ -17,7 +17,7 @@
     overflow: hidden;
     font-size: 14px;
 }
-.tipIcon{
+.tip-icon{
     width: 30px;
     height: 30px;
     background: url("../images/login/tipStatus.png") no-repeat;
@@ -27,5 +27,4 @@
     position: absolute;
     top: 18px;
     left: 15px;
-
 }

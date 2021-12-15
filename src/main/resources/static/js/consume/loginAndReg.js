@@ -55,7 +55,7 @@ $(function () {
                                 </div>`
                     $("body").append(str);
                     //雪碧图显示✔或×
-                    if(icon == "2" || icon == 2){
+                    if(icon == "2"){
                         $(".tip-icon").css("background-position","0 -38px")
                     }else if(icon == "1"){
                         $(".tip-icon").css("background-position","0 0")
@@ -75,9 +75,9 @@ $(function () {
                         "margin-top": -parseInt($(".dialog").css("height"))/2 + 'px',
                     })
                     //两秒后自动清除弹窗
-                    setTimeout(function (){
-                        $(".dialog").remove()
-                    },2000)
+                    // setTimeout(function (){
+                    //     $(".dialog").remove()
+                    // },2000)
                 }
 
             })()
@@ -148,7 +148,7 @@ $(function () {
                     }).children("p").text("用户名不合法！");
                     return false;
                 } else {
-                    $.getJSON("http://localhost:8080/eight/user/queryUsername", {"username": inpValue}, function (data) {
+                    $.getJSON("/eight/user/queryUsername", {"username": inpValue}, function (data) {
                         if (data === null) {
                             $(".reg-username-tip").css({
                                 "display": "block",
@@ -272,7 +272,7 @@ $(function () {
     // 登陆的操作，1.判断用户名密码是否正确，2.判断是否启用记住状态
     $(".login-btn").on("click", function () {
         $.ajax({
-            url: "http://localhost:8080/eight/user/login",
+            url: "/eight/user/login",
             type: "POST",
             data: $("#main-form").serialize(),
             dataType: "json",
@@ -299,11 +299,12 @@ $(function () {
                     };
                     const closeAndJump = async ()=>{
                         await login();
+                        // 如果打开的是窗口，则关闭后刷新原来的窗口
                         if (window.opener) {
                             window.self.close();
                             window.opener.location.reload();
-                        } else {//为空则跳转首页
-                            window.location.href = "http://localhost:8080/eight/index";
+                        } else {    //为空则跳转首页
+                            window.history.back();
                         }
                     }
                     closeAndJump().then((data)=>{
@@ -336,12 +337,12 @@ $(function () {
         if (tipInfo.regUsernameTip(regUser.val()) && tipInfo.regPasswordTip(regPassword.val())
             && tipInfo.regRePasswordTip(regRePassword.val(), regPassword.val()) && codeInput.val() === "xplm") {
             $.ajax({
-                url: "http://localhost:8080/eight/user/register",
+                url: "/eight/user/register",
                 type: "POST",
                 data: $(".main-form").serialize(),
                 dataType: "json",
                 success: function (data) {
-                    window.location.href = "http://localhost:8080/static/userLoginAndReg/loginUser.html"
+                    window.location.href = "/static/userLoginAndReg/loginUser.html"
                 }
             })
         }

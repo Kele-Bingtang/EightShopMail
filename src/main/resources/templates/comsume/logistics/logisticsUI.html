@@ -27,7 +27,7 @@
         <div class="status-line"></div>
     </div>
 </li>
-<a class="return" th:href="@{'http://localhost:8080/eight/user/logistic/order?userId='+${informations[0].orderMaster.userId}}">返回</a>
+<a class="return" th:href="@{'/eight/user/logistic/order?userId='+${informations[0].orderMaster.userId}}">返回</a>
     <!--循环四张表中需要到的数据，以便在下方使用，若要加信息需要去xml文件下修改sql语句和resultMap添加想要的数据-->
     <div th:each="information : ${informations}"> <!--循环拿出各种需要的信息-->
 <div class="part">

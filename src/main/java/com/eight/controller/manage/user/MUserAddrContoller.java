@@ -24,13 +24,13 @@ public class MUserAddrContoller {
 
     @RequestMapping("/userAddrManage")
     public String UserAddrManage(){
-        return "/manage/user/userAddrManage";
+        return "manage/user/userAddrManage";
     }
 
     @RequestMapping("/userAddrPage")
     public String UserAddrPage(Model model){
         model.addAttribute("users", mUserAddrService.queryUserList());
-        return "/manage/user/userAddrPage";
+        return "manage/user/userAddrPage";
     }
 
     /**
